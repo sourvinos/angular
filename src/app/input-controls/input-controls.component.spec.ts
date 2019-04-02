@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { InputsComponent } from './input-controls.component';
 
-import { CssGridComponent } from './css-grid.component';
+describe('InputControlsComponent', () => {
 
-describe('FullScreenGridComponent', () => {
-  let component: CssGridComponent;
-  let fixture: ComponentFixture<CssGridComponent>;
+  let component: InputsComponent;
+  let fixture: ComponentFixture<InputsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CssGridComponent ]
+      declarations: [InputsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CssGridComponent);
+    fixture = TestBed.createComponent(InputsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,4 +22,5 @@ describe('FullScreenGridComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

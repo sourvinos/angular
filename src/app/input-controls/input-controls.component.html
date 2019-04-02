@@ -1,0 +1,27 @@
+<div id='wrapper'>
+
+    <form [formGroup]='form' autocomplete='off'>
+
+        <h1>Add new</h1>
+
+        <div class="field-wrapper">
+            <mat-form-field>
+                <input matInput placeholder="Profession" [formControl]="profession" value='' required>
+                <mat-error *ngIf="profession.invalid">{{ getErrorMessage() }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="field-wrapper">
+            <mat-form-field>
+                <input matInput placeholder="Address" [formControl]="address" required>
+                <mat-error *ngIf="address.invalid">{{ getErrorMessage() }}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class='button-wrapper'>
+            <button type='button' mat-button>CANCEL</button>
+            <button type='submit' mat-raised-button color='primary'>SAVE</button>
+        </div>
+
+    </form>
+</div>

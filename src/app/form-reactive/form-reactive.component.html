@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="container-fluid">
+    <h2 class='text-primary'>Registration Form</h2>
+    <p class='text-info'>With Reactive Forms</p>
+
+    <!-- Display the model -->
+    <p class="text-primary">{{ registrationFormWithFormBuilder.value | json }}</p>
+
+    <!-- The formGroup model as described in the code -->
+    <!-- Angle brackets are mandatory! -->
+    <!-- Use [formGroup]='registrationFormWithFormBuilder' to use the formBuilder -->
+    <!-- instead of the FormGroup and FormComtrol -->
+    <form [formGroup]='registrationFormWithFormBuilder' autocomplete="off">
+
+        <div class="form-group">
+            <label>Username</label>
+            <!-- The formGroup property -->
+            <!-- [class.is-invalid] is a bootstrap class and provides visual feedback with a red border -->
+            <!-- userName.... is a helper property (not a function) to shorten the amount of code -->
+            <input type="text" class="form-control" formControlName='userName' [class.is-invalid]='userName.invalid && userName.touched'>
+            <!-- Display error message -->
+            <div *ngIf='userName.invalid && userName.touched'>
+                <small *ngIf='userName.errors?.required' class='text-danger'>Username must not be black!</small>
+                <small *ngIf='userName.errors?.minlength' class='text-danger'>Username must be at least three characters!</small>
+                <!-- 'forbiddenName' will be returned from the validation -->
+                <small *ngIf='userName.errors?.forbiddenName' class='text-danger'>Username '{{ userName.errors.forbiddenName.value }}' is not allowed!</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <!-- The formGroup property -->
+            <input type="password" class="form-control" formControlName='password' [class.is-invalid]='password.invalid && password.touched'>
+            <div *ngIf='password.invalid && password.touched'>
+                <small class='text-danger'>Password must not be black!</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <!-- The formGroup property -->
+            <!-- [class.is-invalid] is a bootstrap class and provides visual feedback with a red border -->
+            <input type="password" class="form-control" formControlName='confirmPassword' [class.is-invalid]='password.invalid && password.touched' [class.is-invalid]='registrationFormWithFormBuilder.errors?.mismatch'>
+            <!-- Display error message -->
+            <div *ngIf='confirmPassword.invalid && confirmPassword.touched'>
+                <small class='text-danger'>Confirm password must not be black!</small>
+            </div>
+            <small *ngIf='registrationFormWithFormBuilder.errors?.mismatch' class='text-danger'>Password and Confirm password must be the same!</small>
+        </div>
+
+        <!-- The subgroup model, no angle brackets -->
+        <div formGroupName='address'>
+            <div class="form-group">
+                <label>City</label>
+                <!-- The formGroup sub-property -->
+                <input type="text" class="form-control" formControlName='city'>
+            </div>
+            <div class="form-group">
+                <label>State</label>
+                <!-- The formGroup sub-property -->
+                <input type="text" class="form-control" formControlName='state'>
+            </div>
+            <div class="form-group">
+                <label>Zip</label>
+                <!-- The formGroup sub-property -->
+                <input type="text" class="form-control" formControlName='zip'>
+            </div>
+        </div>
+
+        <button class='btn btn-primary' type="submit">Register</button>
+        <button class='btn btn-secondary ml-2' type="button" (click)='loadAPI()'>Load API Data</button>
+
+    </form>
+</div>

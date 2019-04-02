@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CssGridComponent } from './css-grid.component';
+import { MainNavComponent } from './main-nav.component';
 
-describe('FullScreenGridComponent', () => {
-  let component: CssGridComponent;
-  let fixture: ComponentFixture<CssGridComponent>;
+describe('MainNavComponent', () => {
+  let component: MainNavComponent;
+  let fixture: ComponentFixture<MainNavComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CssGridComponent ]
+      declarations: [ MainNavComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CssGridComponent);
+    fixture = TestBed.createComponent(MainNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
