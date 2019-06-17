@@ -44,13 +44,24 @@ export class InputsComponent implements OnInit {
 
 		// console.log(event)
 
-		if (event.key == 'Enter') {
+		if (event.key == 'Enter' || event.key == 'ArrowDown') {
 			var nextTab = +(event.target.getAttribute('tabindex')) + 1
+			console.log(nextTab)
 			var elements = document.getElementsByTagName('input');
 			for (var i = elements.length; i--;) {
 				if (nextTab > elements.length) nextTab = 1
 				if (parseInt(elements[i].getAttribute('tabindex')) == nextTab) { elements[i].focus(); break }
 			}
+		}
+
+		if (event.key == 'ArrowUp') {
+			var previousTab = event.target.getAttribute('tabindex') - 1
+			var elements = document.getElementsByTagName('input');
+			for (var i = elements.length; i--;) {
+				if (previousTab == 0) previousTab = elements.length
+				if (+(elements[i].getAttribute('tabindex')) == previousTab) { elements[i].focus(); break }
+			}
+
 		}
 	}
 

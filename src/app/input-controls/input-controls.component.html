@@ -6,7 +6,6 @@
 
     <div class="field-wrapper">
       <mat-form-field>
-        <!-- <input class='input' id='profession' name='input' matInput placeholder="Profession" [formControl]="profession" value='' (keyup)="captureInputKeys($event)" tabindex='1' required> -->
         <input class='input' id='profession' name='input' matInput placeholder="Profession" [formControl]="profession" value='' (keyup)="captureInputKeys($event)" tabindex='1' required>
         <mat-error *ngIf="profession.invalid">{{ getErrorMessage() }}</mat-error>
       </mat-form-field>
