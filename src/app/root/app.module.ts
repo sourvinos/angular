@@ -1,3 +1,4 @@
+import { InputFormatDirective } from './../directives/input-format.directive';
 import { CssGridComponent } from './../css-grid/css-grid.component';
 import { FormTemplateComponent } from './../form-template/form-template.component';
 import { NgModule } from '@angular/core';
@@ -38,7 +39,8 @@ import { MainNavComponent } from '../main-nav/main-nav.component';
     DeleteDialogComponent,
     InputsComponent,
     CssGridComponent,
-    MainNavComponent
+    MainNavComponent,
+    InputFormatDirective
   ],
   entryComponents: [
     DeleteDialogComponent

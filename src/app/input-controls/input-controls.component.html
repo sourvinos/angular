@@ -6,21 +6,21 @@
 
     <div class="field-wrapper">
       <mat-form-field>
-        <input class='input' id='profession' name='input' matInput placeholder="Profession" [formControl]="profession" value='' (keyup)="captureInputKeys($event)" tabindex='1' required>
-        <mat-error *ngIf="profession.invalid">{{ getErrorMessage() }}</mat-error>
+        <input id='profession' matInput placeholder="Profession" [formControl]="profession" tabindex='1' [appInputFormat]="'upperCase'" required>
+        <mat-error *ngIf=" profession.invalid">{{ getErrorMessage() }}</mat-error>
       </mat-form-field>
     </div>
 
     <div class="field-wrapper">
       <mat-form-field>
-        <input class='input' id='address' name='input' matInput placeholder="Address" [formControl]="address" (keyup)="captureInputKeys($event)" tabindex='2' required>
+        <input id='address' matInput placeholder="Address" [formControl]="address" tabindex='2' required>
         <mat-error *ngIf="address.invalid">{{ getErrorMessage() }}</mat-error>
       </mat-form-field>
     </div>
 
     <div class="field-wrapper">
       <mat-form-field>
-        <input class='input' id='something' name='input' matInput placeholder="Something" (keyup)="captureInputKeys($event)" tabindex='3' [formControl]="something" required>
+        <input id='something' matInput placeholder="Something" [formControl]="something" tabindex='3' required>
         <mat-error *ngIf="address.invalid">{{ getErrorMessage() }}</mat-error>
       </mat-form-field>
     </div>

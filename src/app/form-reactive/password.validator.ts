@@ -9,7 +9,7 @@ export function PasswordValidator(control: AbstractControl): { [key: string]: an
 	const confirmPassword = control.get('confirmPassword');
 	const validationFailed = password && confirmPassword && !password.pristine && !confirmPassword.pristine && password.value !== confirmPassword.value;
 
-	console.log('Password ' + password.value);
+	// console.log('Password ' + password.value);
 
 	return validationFailed ? { 'mismatch': { value: true } } : null;
 }
