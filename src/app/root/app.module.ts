@@ -1,3 +1,5 @@
+import { ChildPassingDataComponent } from './../passing-data/child-passing-data.component';
+import { MasterPassingDataComponent } from './../passing-data/master-passing-data.component';
 import { InputFormatDirective } from './../directives/input-format.directive';
 import { CssGridComponent } from './../css-grid/css-grid.component';
 import { FormTemplateComponent } from './../form-template/form-template.component';
@@ -25,7 +27,7 @@ import { DialogsComponent } from '../dialogs/dialogs.component';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { InputsComponent } from '../input-controls/input-controls.component';
 import { MainNavComponent } from '../main-nav/main-nav.component';
-
+import { AddressesModule } from '../addresses/addresses.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { MainNavComponent } from '../main-nav/main-nav.component';
     InputsComponent,
     CssGridComponent,
     MainNavComponent,
-    InputFormatDirective
+    InputFormatDirective,
+    MasterPassingDataComponent,
+    ChildPassingDataComponent,
   ],
   entryComponents: [
     DeleteDialogComponent
@@ -57,6 +61,7 @@ import { MainNavComponent } from '../main-nav/main-nav.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    AddressesModule
   ],
   providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }],
   bootstrap: [AppComponent]

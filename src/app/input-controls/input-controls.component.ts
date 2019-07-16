@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import * as moment from 'moment'
+import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { DescriptionValidators } from './input-controls-validators';
 
@@ -8,30 +9,49 @@ import { DescriptionValidators } from './input-controls-validators';
 	styleUrls: ['./input-controls.component.css']
 })
 
-export class InputsComponent implements OnInit {
+export class InputsComponent implements AfterViewInit {
+	ngAfterViewInit(): void {
+		this.focusOnElement(1)
+	}
 
 	constructor(private formBuilder: FormBuilder) { }
 
-	ngOnInit(): void {
-		this.focusOnFirstElement()
-	}
-
-	profession = new FormControl('Developer', [Validators.required]);
-	address = new FormControl('Corfu', [Validators.required]);
-	something = new FormControl('Something else', [Validators.required]);
-
 	getErrorMessage() {
-		return 'This field is required!';
+		return 'This field is required, silly!';
 	}
 
-	form = this.formBuilder.group({
+	fb = this.formBuilder.group({
 		countryId: 0,
-		description: ['', DescriptionValidators.cannotExceedMaxLength]
+		description: ['', DescriptionValidators.cannotExceedMaxLength],
+		profession: ['Default profession'],
+		address: ['Default address'],
+		date: [''],
 	})
+
+	focusOnElement(index: number) {
+		var elements = document.getElementsByTagName('input')
+		elements[index].select()
+		elements[index].focus()
+	}
 
 	focusOnFirstElement() {
 		var elements = document.getElementsByTagName('input');
 		elements[0].select()
 	}
+
+	loadDateFromLocalStorage() {
+		// console.log(moment(localStorage.getItem('date')))
+		this.fb.patchValue({ date: localStorage.getItem('date') })
+	}
+
+	updateLocalStorage() {
+		// console.log(this.fb.get('date'))
+		localStorage.setItem('date', this.fb.value.date)
+	}
+
+	get profession() {
+		return this.fb.get('profession');
+	}
+
 
 }

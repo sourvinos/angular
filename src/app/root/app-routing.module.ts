@@ -9,6 +9,8 @@ import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from '../form-template/form-template.component';
 import { InputsComponent } from '../input-controls/input-controls.component';
 import { CssGridComponent } from '../css-grid/css-grid.component';
+import { MasterPassingDataComponent } from './../passing-data/master-passing-data.component';
+import { BaseComponent } from '../addresses/base/base.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -18,6 +20,8 @@ const appRoutes: Routes = [
 	{ path: 'form-template', component: FormTemplateComponent },
 	{ path: 'input-controls', component: InputsComponent },
 	{ path: 'css-grid', component: CssGridComponent },
+	{ path: 'passing-data', component: MasterPassingDataComponent },
+	{ path: 'modules', component: BaseComponent }
 ];
 
 @NgModule({

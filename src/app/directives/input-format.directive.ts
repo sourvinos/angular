@@ -10,8 +10,6 @@ export class InputFormatDirective {
 
     constructor(private el: ElementRef) { }
 
-    @HostListener('focus') onFocus() { }
-
     @HostListener('blur') onBlur() {
         if (this.format == 'lowerCase') {
             let value: string = this.el.nativeElement.value

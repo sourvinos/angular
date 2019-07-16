@@ -35,7 +35,6 @@ export class AppComponent {
                 if (+(elements[i].getAttribute('tabindex')) == previousTab) {
                     elements[i].focus()
                     elements[i].select()
-                    // console.log("breaking")
                     break
                 }
             }
