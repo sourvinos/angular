@@ -8,18 +8,25 @@ import { Component, OnInit } from '@angular/core';
 
 export class ArraysComponent implements OnInit {
 
-	base = ['AL', 'PA', 'BL', 'BL', 'PA', 'PA', 'PA', 'BL', 'BL', 'AL']
-	baseFiltered = []
-	criteria = ['BL']
+	base: IDestination[] = [{ id: 1, description: 'BL' }, { id: 2, description: 'BL' }, { id: 3, description: 'PA' }, { id: 4, description: 'AL' }, { id: 5, description: 'BL' }, { id: 6, description: 'AL' }]
+	baseFiltered: IDestination[]
+	criteria = ['BL', 'AL']
 
 	constructor() { }
 
 	ngOnInit() {
-		this.baseFiltered = this.base.filter((x) => { return this.criteria.indexOf(x) !== -1 })
+		console.log(this.base)
+		this.baseFiltered = this.base.filter((x) => { return this.criteria.indexOf(x.description) !== -1 })
+		console.log(this.baseFiltered)
 	}
 
 	isGreaterThan(value: number, v: number) {
 		return value > v
 	}
 
+}
+
+export interface IDestination {
+	id: number
+	description: string
 }

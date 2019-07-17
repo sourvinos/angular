@@ -1,5 +1,16 @@
 <div>Arrays go here!</div>
 
-<p>Base: {{ base }}</p>
-<p>Filtered: {{ baseFiltered }}</p>
-<p>Base: {{ base }}</p>
+<p>Base ({{ base.length }})</p>
+<ul>
+	<li *ngFor='let item of base'>{{ item.description }}</li>
+</ul>
+
+<p>Filtered ({{ baseFiltered.length }})</p>
+<ul>
+	<li *ngFor='let item of baseFiltered'>{{ item.description }}</li>
+</ul>
+
+<p>Base ({{ base.length }})</p>
+<ul>
+	<li *ngFor='let item of base'>{{ item.description }}</li>
+</ul>
