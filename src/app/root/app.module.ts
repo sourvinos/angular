@@ -28,6 +28,7 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 import { InputsComponent } from '../input-controls/input-controls.component';
 import { MainNavComponent } from '../main-nav/main-nav.component';
 import { AddressesModule } from '../addresses/addresses.module';
+import { ArraysComponent } from '../arrays/arrays.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AddressesModule } from '../addresses/addresses.module';
     InputFormatDirective,
     MasterPassingDataComponent,
     ChildPassingDataComponent,
+    ArraysComponent
   ],
   entryComponents: [
     DeleteDialogComponent
