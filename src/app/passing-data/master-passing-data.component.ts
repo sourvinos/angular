@@ -10,7 +10,6 @@ export class MasterPassingDataComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() {
-    }
+    ngOnInit() { }
 
 }
