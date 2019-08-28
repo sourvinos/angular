@@ -1,7 +1,8 @@
-const express = require('express')
-const router = express.Router()
-const mongoose = require('mongoose')
 const db = 'mongodb://sourvinos:Ncc74656@ds036178.mlab.com:36178/expeditions'
+const express = require('express')
+const mongoose = require('mongoose')
+const router = express.Router()
+const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 
 mongoose.connect(db, err => {
@@ -22,7 +23,13 @@ router.post('/register', (req, res) => {
         if (error) {
             console.log("Error writing to the database")
         } else {
-            res.status(200).send(registeredUser)
+            let payload = {
+                subject: registeredUser._id
+            }
+            let token = jwt.sign(payload, 'SECRETKEY')
+            res.status(200).send({
+                token
+            })
         }
     })
 })
@@ -41,11 +48,39 @@ router.post('/login', (req, res) => {
                 res.status(401).send('Invalid password')
             } else {
                 if (user.password == userData.password) {
-                    res.status(200).send(user)
+                    let payload = {
+                        subject: user._id
+                    }
+                    let token = jwt.sign(payload, 'SECRETKEY')
+                    res.status(200).send({
+                        token
+                    })
                 }
             }
         }
     })
+})
+
+router.get('/events', (req, res) => {
+    let events = [{
+        id: 1,
+        description: 'Event1'
+    }, {
+        id: 2,
+        description: 'Event 2'
+    }]
+    res.json(events)
+})
+
+router.get('/special', (req, res) => {
+    let events = [{
+        id: 1,
+        description: 'Event1'
+    }, {
+        id: 2,
+        description: 'Event 2'
+    }]
+    res.json(events)
 })
 
 module.exports = router
