@@ -5,12 +5,16 @@ const router = express.Router()
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 
-mongoose.connect(db, err => {
-    if (err)
-        console.log('Error connecting to the database', err)
-    else
-        console.log('Connected to the database')
-})
+mongoose.connect(db, {
+    useNewUrlParser: true
+}).then(
+    () => {
+        console.log('Connected to the database!')
+    },
+    err => {
+        console.log('Error! Could not connect')
+    }
+);
 
 router.get('/', (req, res) => {
     res.send('Hello from the API!')
@@ -61,7 +65,7 @@ router.post('/login', (req, res) => {
     })
 })
 
-router.get('/events', (req, res) => {
+router.get('/events', verifyToken, (req, res) => {
     let events = [{
         id: 1,
         description: 'Event1'
@@ -82,5 +86,14 @@ router.get('/special', (req, res) => {
     }]
     res.json(events)
 })
+
+function verifyToken(req, res, next) {
+    if (!req.headers.authorization) return res.status(401).send('Unauthorized request')
+    let token = req.headers.authorization.split(' ')[1]
+    if (!token) return res.status(401).send('Unauthorized request')
+    let payload = jwt.verify(token, 'SECRETKEY')
+    if (!payload) return res.status(401).send('Unauthorized request')
+    req.userId = payload.subject.next()
+}
 
 module.exports = router

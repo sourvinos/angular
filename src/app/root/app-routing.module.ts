@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './../auth/services/auth.guard';
 
 import { HomeComponent } from '../home/home.component';
 
@@ -13,6 +14,12 @@ import { MasterPassingDataComponent } from './../passing-data/master-passing-dat
 import { BaseComponent } from '../addresses/base/base.component';
 import { ArraysComponent } from '../arrays/arrays.component';
 
+import { EventsHomeComponent } from '../auth/home/home.component';
+import { EventsComponent } from '../auth/events/events.component';
+import { EventsMembersComponent } from '../auth/members/members.component';
+import { EventsRegisterComponent } from '../auth/register/register.component';
+import { EventsLoginComponent } from '../auth/login/login.component';
+
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'buttons', component: ButtonsComponent },
@@ -24,6 +31,12 @@ const appRoutes: Routes = [
 	{ path: 'passing-data', component: MasterPassingDataComponent },
 	{ path: 'modules', component: BaseComponent },
 	{ path: 'arrays', component: ArraysComponent },
+
+	{ path: 'eventsHome', component: EventsHomeComponent },
+	{ path: 'events', component: EventsComponent },
+	{ path: 'members', component: EventsMembersComponent, canActivate: [AuthGuard] },
+	{ path: 'register', component: EventsRegisterComponent },
+	{ path: 'login', component: EventsLoginComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="container-fluid">
+    <h2>Events home</h2>
+    <ul>
+        <li *ngIf="!isLoggedIn"><a [routerLink]="[ '/login']">Login</a></li>
+        <li *ngIf="!isLoggedIn"><a [routerLink]="[ '/register']">Register</a></li>
+        <li><a [routerLink]="[ '/events']">Events</a></li>
+        <li><a [routerLink]="[ '/members']">Members</a></li>
+        <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+    </ul>
+</div>

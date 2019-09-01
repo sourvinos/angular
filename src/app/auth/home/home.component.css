@@ -1,0 +1,17 @@
+.container-fluid {
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a:hover {
+    cursor: pointer;
+
+}
+
+a,
+a:visited {
+    color: blueviolet !important;
+}
