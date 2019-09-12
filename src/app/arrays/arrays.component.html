@@ -7,7 +7,7 @@
 
 <p>Filtered ({{ baseFiltered.length }})</p>
 <ul>
-	<li *ngFor='let item of baseFiltered'>{{ item.description }}</li>
+	<li *ngFor='let item of baseFiltered; index as i'>{{ i }} - {{ item.description }}</li>
 </ul>
 
 <p>Base ({{ base.length }})</p>

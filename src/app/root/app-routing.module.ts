@@ -10,7 +10,7 @@ import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from '../form-template/form-template.component';
 import { InputsComponent } from '../input-controls/input-controls.component';
 import { CssGridComponent } from '../css-grid/css-grid.component';
-import { MasterPassingDataComponent } from './../passing-data/master-passing-data.component';
+import { DataBindingComponent } from '../data-binding/data-binging.component';
 import { BaseComponent } from '../addresses/base/base.component';
 import { ArraysComponent } from '../arrays/arrays.component';
 
@@ -20,6 +20,11 @@ import { EventsMembersComponent } from '../auth/members/members.component';
 import { EventsRegisterComponent } from '../auth/register/register.component';
 import { EventsLoginComponent } from '../auth/login/login.component';
 
+import { ParentToChildComponent } from '../parent-child/parent.component';
+import { ParentFromChildComponent } from '../child-parent/parent.component';
+
+import { ServersComponent } from '../server/servers.component';
+
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'buttons', component: ButtonsComponent },
@@ -28,15 +33,18 @@ const appRoutes: Routes = [
 	{ path: 'form-template', component: FormTemplateComponent },
 	{ path: 'input-controls', component: InputsComponent },
 	{ path: 'css-grid', component: CssGridComponent },
-	{ path: 'passing-data', component: MasterPassingDataComponent },
+	{ path: 'data-binding', component: DataBindingComponent },
 	{ path: 'modules', component: BaseComponent },
 	{ path: 'arrays', component: ArraysComponent },
+	{ path: 'parent', component: ParentToChildComponent },
+	{ path: 'parentFromChild', component: ParentFromChildComponent },
 
 	{ path: 'eventsHome', component: EventsHomeComponent },
 	{ path: 'events', component: EventsComponent },
 	{ path: 'members', component: EventsMembersComponent, canActivate: [AuthGuard] },
 	{ path: 'register', component: EventsRegisterComponent },
-	{ path: 'login', component: EventsLoginComponent }
+	{ path: 'login', component: EventsLoginComponent },
+	{ path: 'servers', component: ServersComponent }
 ];
 
 @NgModule({

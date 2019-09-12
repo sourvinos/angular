@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core'
-import { ChildPassingDataComponent } from './../passing-data/child-passing-data.component'
-import { MasterPassingDataComponent } from './../passing-data/master-passing-data.component'
+import { DataBindingComponent } from '../data-binding/data-binging.component'
 import { InputFormatDirective } from './../directives/input-format.directive'
 import { CssGridComponent } from './../css-grid/css-grid.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
@@ -30,12 +29,22 @@ import { MainNavComponent } from '../main-nav/main-nav.component'
 import { AddressesModule } from '../addresses/addresses.module'
 import { ArraysComponent } from '../arrays/arrays.component'
 
+// Authentication and Authorization
 import { EventsHomeComponent } from '../auth/home/home.component'
 import { EventsComponent } from '../auth/events/events.component';
 import { EventsMembersComponent } from '../auth/members/members.component';
 import { EventsRegisterComponent } from '../auth/register/register.component';
 import { EventsLoginComponent } from '../auth/login/login.component';
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service';
+
+// Component interaction
+import { ParentToChildComponent } from '../parent-child/parent.component';
+import { ChildFromParentComponent } from './../parent-child/child.component';
+import { ParentFromChildComponent } from './../child-parent/parent.component';
+import { ChildToParentComponent } from '../child-parent/child.component';
+
+import { ServerComponent } from './../server/server.component';
+import { ServersComponent } from './../server/servers.component';
 
 @NgModule({
   declarations: [
@@ -51,15 +60,19 @@ import { TokenInterceptorService } from '../auth/services/token-interceptor.serv
     CssGridComponent,
     MainNavComponent,
     InputFormatDirective,
-    MasterPassingDataComponent,
-    ChildPassingDataComponent,
+    DataBindingComponent,
     ArraysComponent,
-
+    ServerComponent,
+    ServersComponent,
     EventsHomeComponent,
     EventsComponent,
     EventsMembersComponent,
     EventsRegisterComponent,
-    EventsLoginComponent
+    EventsLoginComponent,
+    ParentToChildComponent,
+    ChildFromParentComponent,
+    ParentFromChildComponent,
+    ChildToParentComponent
   ],
   entryComponents: [
     DeleteDialogComponent

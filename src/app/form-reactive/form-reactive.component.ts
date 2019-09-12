@@ -51,6 +51,10 @@ export class FormReactiveComponent {
 		return this.registrationFormWithFormBuilder.get('confirmPassword');
 	}
 
+	isFormValid() {
+		return this.registrationFormWithFormBuilder.valid ? 'green' : 'red'
+	}
+
 	loadAPI() {
 		// Setting the values - MUST provide ALL fields
 		// OR use registrationForm.patchValue to provice partial data

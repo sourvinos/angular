@@ -1,7 +1,5 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 <div class="container-fluid">
-    <h2 class='text-primary'>Registration Form</h2>
+    <h2>Registration Form</h2>
     <p class='text-info'>With Reactive Forms</p>
 
     <!-- Display the model -->
@@ -12,7 +10,6 @@
     <!-- Use [formGroup]='registrationFormWithFormBuilder' to use the formBuilder -->
     <!-- instead of the FormGroup and FormControl -->
     <form [formGroup]='registrationFormWithFormBuilder' autocomplete="off">
-
         <div class="form-group">
             <label>Username</label>
             <!-- The formGroup property -->
@@ -27,7 +24,6 @@
                 <small *ngIf='userName.errors?.forbiddenName' class='text-danger'>Username '{{ userName.errors.forbiddenName.value }}' is not allowed!</small>
             </div>
         </div>
-
         <div class="form-group">
             <label>Password</label>
             <!-- The formGroup property -->
@@ -36,7 +32,6 @@
                 <small class='text-danger'>Password must not be black!</small>
             </div>
         </div>
-
         <div class="form-group">
             <label>Confirm Password</label>
             <!-- The formGroup property -->
@@ -48,7 +43,6 @@
             </div>
             <small *ngIf='registrationFormWithFormBuilder.errors?.mismatch' class='text-danger'>Password and Confirm password must be the same!</small>
         </div>
-
         <!-- The subgroup model, no angle brackets -->
         <div formGroupName='address'>
             <div class="form-group">
@@ -67,9 +61,11 @@
                 <input type="text" class="form-control" formControlName='zip'>
             </div>
         </div>
-
-        <button class='btn btn-primary' type="submit">Register</button>
-        <button class='btn btn-secondary ml-2' type="button" (click)='loadAPI()'>Load Data</button>
-
+        <div class="form-group">
+            <button class='btn btn-primary' type="submit">Register</button>
+            <button class='btn btn-secondary ml-2' type="button" (click)='loadAPI()'>Load Data</button>
+        </div>
     </form>
+    <!-- Conditional styling -->
+    <p [ngStyle]="{ backgroundColor : isFormValid() }" [ngClass]="{ onLine: true }">!</p>
 </div>
