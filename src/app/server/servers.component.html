@@ -5,13 +5,13 @@
 <div class="ui form">
     <div class="field">
         <label>Server</label>
-        <input type="text" [ngModel]="serverName" (input)="onUpdateServerName($event)">
+        <input type="text" ([ngModel])="servers.serverName" (input)="onUpdateServerName($event)">
     </div>
 </div>
 
 <button class="ui teal button" [disabled]="!allowNewServer" (click)="onCreateServer()">Add server</button> {{ serverCreationStatus }}
 
-<app-server></app-server>
-<app-server></app-server>
-
-<hr />
+<div *ngFor="let server of servers">
+    <app-server></app-server>
+    <hr />
+</div>

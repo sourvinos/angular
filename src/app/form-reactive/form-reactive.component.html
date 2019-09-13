@@ -3,7 +3,7 @@
     <p class='text-info'>With Reactive Forms</p>
 
     <!-- Display the model -->
-    <p class="text-primary">{{ registrationFormWithFormBuilder.value | json }}</p>
+    <p class="text-primary">{{ registrationFormWithFormBuilder.value | json }} {{ registrationFormWithFormBuilder.valid }}</p>
 
     <!-- The formGroup model as described in the code -->
     <!-- Angle brackets are mandatory! -->
@@ -67,5 +67,5 @@
         </div>
     </form>
     <!-- Conditional styling -->
-    <p [ngStyle]="{ backgroundColor : isFormValid() }" [ngClass]="{ onLine: true }">!</p>
+    <p class="error" [ngStyle]="{ backgroundColor : isFormValid() }"></p>
 </div>

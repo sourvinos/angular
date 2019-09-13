@@ -11,7 +11,7 @@ export class ServersComponent {
     servers: string[] = []
     allowNewServer: boolean = false
     serverCreationStatus: string = ''
-    serverName: string = ''
+    serverName: string
 
     constructor() { }
 

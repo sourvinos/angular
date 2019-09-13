@@ -45,6 +45,7 @@ import { ChildToParentComponent } from '../child-parent/child.component';
 
 import { ServerComponent } from './../server/server.component';
 import { ServersComponent } from './../server/servers.component';
+import { SemanticComponent } from '../semantic-ui/semantic.component'
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ServersComponent } from './../server/servers.component';
     ParentToChildComponent,
     ChildFromParentComponent,
     ParentFromChildComponent,
-    ChildToParentComponent
+    ChildToParentComponent,
+    SemanticComponent
   ],
   entryComponents: [
     DeleteDialogComponent

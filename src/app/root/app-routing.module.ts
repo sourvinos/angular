@@ -24,6 +24,7 @@ import { ParentToChildComponent } from '../parent-child/parent.component';
 import { ParentFromChildComponent } from '../child-parent/parent.component';
 
 import { ServersComponent } from '../server/servers.component';
+import { SemanticComponent } from '../semantic-ui/semantic.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
 	{ path: 'arrays', component: ArraysComponent },
 	{ path: 'parent', component: ParentToChildComponent },
 	{ path: 'parentFromChild', component: ParentFromChildComponent },
+	{ path: 'semantic', component: SemanticComponent },
 
 	{ path: 'eventsHome', component: EventsHomeComponent },
 	{ path: 'events', component: EventsComponent },

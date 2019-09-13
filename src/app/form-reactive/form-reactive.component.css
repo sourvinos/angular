@@ -1,8 +1,12 @@
 .container-fluid {
     padding: 20px;
 }
-.onLine{
-    color:white;
+
+.onLine {
+    color: white;
 }
 
-
+p.error {
+    width: 100px;
+    height: 20px;
+}
