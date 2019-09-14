@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { ToastMessage } from './message';
 
 declare var $: any
 
@@ -10,8 +11,10 @@ declare var $: any
 
 export class SemanticComponent implements AfterViewInit {
 
-	message: string = ''
-	type: string = ''
+	toastParameters = new ToastMessage('', '')
+
+	// message: string = ''
+	// type: string = ''
 
 	ngAfterViewInit() {
 		$('.ui.dropdown').dropdown();
@@ -22,9 +25,15 @@ export class SemanticComponent implements AfterViewInit {
 			inverted: true,
 			onApprove: () => {
 				this.saveRecord()
-				this.showCustomToast('Record saved', 'green')
+				this.updateToastParameters('Record saved', 'green')
+				this.showCustomToast()
 			}
 		}).modal('show')
+	}
+
+	updateToastParameters(message: string, color: string) {
+		this.toastParameters.title = message
+		this.toastParameters.type = color
 	}
 
 	openErrorDialog() {
@@ -37,9 +46,7 @@ export class SemanticComponent implements AfterViewInit {
 		console.log('Saving record')
 	}
 
-	showCustomToast(message: string, type: string) {
-		this.message = message
-		this.type = type
+	showCustomToast() {
 		var x = document.getElementById("snackbar");
 		x.className = "show";
 		setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);

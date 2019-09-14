@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { ToastMessage } from '../semantic-ui/message';
 
 declare var $: any
 
@@ -10,7 +11,6 @@ declare var $: any
 
 export class SnackbarComponent {
 
-	@Input() message: string
-	@Input() type: string
+	@Input() message: ToastMessage
 
 }
