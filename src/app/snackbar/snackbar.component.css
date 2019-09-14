@@ -1,17 +1,13 @@
-#container {
-    width: 50%;
-}
-
 #snackbar {
-    background-color: #333;
-    border-radius: 2px;
+    background-color: #686adb;
+    border-radius: 5px;
     bottom: 30px;
-    color: #fff;
+    color: #ffffff;
     font-size: 17px;
     left: 50%;
     margin-left: -125px;
     min-width: 250px;
-    padding: 16px;
+    padding: 5px;
     position: fixed;
     text-align: center;
     visibility: hidden;

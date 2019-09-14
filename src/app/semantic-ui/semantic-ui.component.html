@@ -1,4 +1,5 @@
 <div id="container">
+
     <form class="ui form">
         <div class="field">
             <label>Select Country</label>
@@ -252,8 +253,13 @@
                 </div>
             </div>
         </div>
-        <button class="ui orange button" (click)="openDialog()">Open modal</button>
+
     </form>
+
+    <div class="ui divider"></div>
+
+    <button class="ui orange button" (click)="openDialog()">Open modal</button>
+    <button class="ui teal button" (click)="showToast('Everything updated!')">Show toast</button>
 
     <div class="ui modal">
         <i class="close icon"></i>
@@ -263,8 +269,11 @@
             <div class="description">A description can appear on the right</div>
         </div>
         <div class="actions">
-            <div class="ui button">Cancel</div>
-            <div class="ui button">OK</div>
+            <div class="ui cancel button">Cancel</div>
+            <div class="ui approve button">OK</div>
         </div>
     </div>
+
+    <snackbar [message]="message"></snackbar>
+
 </div>

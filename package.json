@@ -30,7 +30,7 @@
     "moment": "2.24.0",
     "mongoose": "^5.6.11",
     "rxjs": "6.4.0",
-    "semantic-ui-css": "2.4.1",
+    "fomantic-ui-css": "2.7.7",
     "tslib": "1.9.3",
     "zone.js": "0.8.26"
   },
