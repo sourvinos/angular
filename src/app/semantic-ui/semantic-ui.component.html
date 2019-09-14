@@ -258,21 +258,26 @@
 
     <div class="ui divider"></div>
 
-    <button class="ui orange button" (click)="openDialog()">Open modal</button>
-    <button class="ui teal button" (click)="showToast('Everything updated!')">Show toast</button>
+    <button class="ui orange button" (click)="openWarningDialog()">Open warning modal</button>
+    <button class="ui red button" (click)="openErrorDialog()">Open error modal</button>
+    <button class="ui teal button" (click)="showCustomToast('Everything updated!')">Show custom toast</button>
+    <button class="ui yello button" (click)="showToast()">Show toast</button>
 
-    <div class="ui modal">
-        <i class="close icon"></i>
-        <div class="header">Modal Title</div>
+    <div class="warning ui modal tiny">
+        <div class="header">Confirm action</div>
         <div class="image content">
-            <div class="image">An image can appear on left or an icon</div>
-            <div class="description">A description can appear on the right</div>
+            <div class="ui medium image">
+                <i class="small yellow exclamation triangle icon"></i>
+            </div>
+            <div class="description">This record will be permenently deleted</div>
         </div>
+        <div class="content"> </div>
         <div class="actions">
             <div class="ui cancel button">Cancel</div>
-            <div class="ui approve button">OK</div>
+            <div class="ui approve negative button">OK</div>
         </div>
     </div>
+
 
     <snackbar [message]="message"></snackbar>
 

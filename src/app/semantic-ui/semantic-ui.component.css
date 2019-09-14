@@ -70,3 +70,17 @@
         opacity: 0;
     }
 }
+
+.modal {
+    border: 1px solid black;
+}
+
+.modal .header,
+.modal .content,
+.modal .actions {
+    background-color: #ffffff;
+}
+
+.toast {
+    color: red !important;
+}

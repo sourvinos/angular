@@ -11,5 +11,6 @@ declare var $: any
 export class SnackbarComponent {
 
 	@Input() message: string
+	@Input() type: string
 
 }
