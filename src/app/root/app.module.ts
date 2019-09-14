@@ -45,7 +45,7 @@ import { ChildToParentComponent } from '../child-parent/child.component';
 
 import { ServerComponent } from './../server/server.component';
 import { ServersComponent } from './../server/servers.component';
-import { SemanticComponent } from '../semantic-ui/semantic.component'
+import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
 
 @NgModule({
   declarations: [
