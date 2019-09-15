@@ -25,8 +25,7 @@ export class SemanticComponent implements AfterViewInit {
 			inverted: true,
 			onApprove: () => {
 				this.saveRecord()
-				this.updateToastParameters('Record saved', 'green')
-				this.showCustomToast()
+				this.displayToast('Record deleted', '#b11818')
 			}
 		}).modal('show')
 	}
@@ -44,6 +43,11 @@ export class SemanticComponent implements AfterViewInit {
 
 	saveRecord() {
 		console.log('Saving record')
+	}
+
+	displayToast(message: string, color: string) {
+		this.updateToastParameters(message, color)
+		this.showCustomToast()
 	}
 
 	showCustomToast() {

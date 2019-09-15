@@ -260,7 +260,7 @@
 
     <button class="ui orange button" (click)="openWarningDialog()">Open warning modal</button>
     <button class="ui red button" (click)="openErrorDialog()">Open error modal</button>
-    <button class="ui teal button" (click)="showCustomToast('Everything updated!')">Show custom toast</button>
+    <button class="ui teal button" (click)="displayToast('Everything updated!','#31caea')">Show custom toast</button>
     <button class="ui yello button" (click)="showToast()">Show toast</button>
 
     <div class="warning ui modal tiny">
@@ -277,7 +277,6 @@
             <div class="ui approve negative button">OK</div>
         </div>
     </div>
-
 
     <snackbar [message]="toastParameters"></snackbar>
 

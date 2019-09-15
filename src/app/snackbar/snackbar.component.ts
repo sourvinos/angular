@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ToastMessage } from '../semantic-ui/message';
 
 declare var $: any
