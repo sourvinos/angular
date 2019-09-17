@@ -10,6 +10,12 @@
 <button class="ui primary button" (click)="toggleLoginStatus()" [disabled]="isThisDisabled()">Login</button>
 <button class="ui primary button" (click)="toggleLoginStatus()" [disabled]="!isThisDisabled()">Logout</button>
 
+<ul>
+    <li *ngFor="let element of shoppingList">
+        {{ element.description }}
+    </li>
+</ul>
+
 <!-- End of parts 1, 2 and 3 -->
 
 <!-- Part 4 -->

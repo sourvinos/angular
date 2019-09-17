@@ -22,7 +22,6 @@ import { MatInputModule } from '@angular/material/input'
 import { HomeComponent } from './../home/home.component'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { UserListComponent } from '../tests/04-forms/user-list.component'
-import { DialogsComponent } from '../dialogs/dialogs.component'
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 import { InputsComponent } from '../input-controls/input-controls.component'
 import { MainNavComponent } from '../main-nav/main-nav.component'
@@ -48,6 +47,7 @@ import { ServersComponent } from './../server/servers.component';
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
 
 import { SnackbarComponent } from '../snackbar/snackbar.component'
+import { MatDialogsComponent } from '../mat-dialogs/dialogs.component'
 
 
 @NgModule({
@@ -58,7 +58,6 @@ import { SnackbarComponent } from '../snackbar/snackbar.component'
     FormTemplateComponent,
     UserListComponent,
     ButtonsComponent,
-    DialogsComponent,
     DeleteDialogComponent,
     InputsComponent,
     CssGridComponent,
@@ -78,7 +77,8 @@ import { SnackbarComponent } from '../snackbar/snackbar.component'
     ParentFromChildComponent,
     ChildToParentComponent,
     SemanticComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    MatDialogsComponent
   ],
   entryComponents: [
     DeleteDialogComponent

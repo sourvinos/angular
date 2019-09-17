@@ -1,4 +1,6 @@
+import { ShoppingListService } from './shopping-list.service';
 import { Component, OnChanges, Input, SimpleChanges } from '@angular/core';
+import { Ingredient } from './ingredient';
 
 @Component({
     selector: 'app-child',
@@ -53,5 +55,20 @@ export class ChildFromParentComponent implements OnChanges {
     // alert(`Hello, ${this.name}`)
     // }
     // End of part 4
+
+
+    // ! Shopping list
+    // ! At the child component, add a new ingredient
+    constructor(private shoppingListService: ShoppingListService) { }
+
+    addIngredient() {
+        this.shoppingListService.addIngredient(new Ingredient(3, 'Grapes'))
+    }
+
+    editIngredient() {
+        this.shoppingListService.editIngredient()
+    }
+
+    // ! End of Shopping list
 
 }

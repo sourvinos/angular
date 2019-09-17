@@ -5,7 +5,7 @@ import { AuthGuard } from './../auth/services/auth.guard';
 import { HomeComponent } from '../home/home.component';
 
 import { ButtonsComponent } from './../buttons/buttons.component';
-import { DialogsComponent } from '../dialogs/dialogs.component';
+import { MatDialogsComponent } from '../mat-dialogs/dialogs.component';
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component';
 import { FormTemplateComponent } from '../form-template/form-template.component';
 import { InputsComponent } from '../input-controls/input-controls.component';
@@ -29,7 +29,7 @@ import { SemanticComponent } from '../semantic-ui/semantic-ui.component';
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'buttons', component: ButtonsComponent },
-	{ path: 'dialogs', component: DialogsComponent },
+	{ path: 'mat-dialogs', component: MatDialogsComponent },
 	{ path: 'form-reactive', component: FormReactiveComponent },
 	{ path: 'form-template', component: FormTemplateComponent },
 	{ path: 'input-controls', component: InputsComponent },
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
 	{ path: 'data-binding', component: DataBindingComponent },
 	{ path: 'modules', component: BaseComponent },
 	{ path: 'arrays', component: ArraysComponent },
-	{ path: 'parent', component: ParentToChildComponent },
+	{ path: 'parentToChild', component: ParentToChildComponent },
 	{ path: 'parentFromChild', component: ParentFromChildComponent },
 	{ path: 'semantic', component: SemanticComponent },
 
