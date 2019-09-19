@@ -25,9 +25,11 @@ import { ParentFromChildComponent } from '../child-parent/parent.component';
 
 import { ServersComponent } from '../server/servers.component';
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component';
+import { ngxBootstrapComponent } from '../ngx-bootstrap/ngx-bootstrap-component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
+	{ path: 'home', component: HomeComponent },
 	{ path: 'buttons', component: ButtonsComponent },
 	{ path: 'dialogs', component: DialogsComponent },
 	{ path: 'form-reactive', component: FormReactiveComponent },
@@ -37,9 +39,10 @@ const appRoutes: Routes = [
 	{ path: 'data-binding', component: DataBindingComponent },
 	{ path: 'modules', component: BaseComponent },
 	{ path: 'arrays', component: ArraysComponent },
-	{ path: 'parent', component: ParentToChildComponent },
+	{ path: 'parentToChild', component: ParentToChildComponent },
 	{ path: 'parentFromChild', component: ParentFromChildComponent },
 	{ path: 'semantic', component: SemanticComponent },
+	{ path: 'ngxBootstrap', component: ngxBootstrapComponent },
 
 	{ path: 'eventsHome', component: EventsHomeComponent },
 	{ path: 'events', component: EventsComponent },

@@ -1,0 +1,11 @@
+.gray {
+    background-color: antiquewhite !important;
+}
+
+alert {
+    font-family: Ubuntu;
+}
+
+.alert .alert-success {
+    width: 200px !important;
+}

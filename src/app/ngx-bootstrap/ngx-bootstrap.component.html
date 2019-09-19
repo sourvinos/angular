@@ -1,0 +1,21 @@
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Open modal</button>
+
+<pre class="card card-block card-header">{{ message }}</pre>
+
+<ng-template #template>
+    <div class="modal-body text-center">
+        <p>Do you want to confirm?</p>
+        <button type="button" class="btn btn-default" (click)="confirm()">Yes</button>
+        <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+    </div>
+</ng-template>
+
+<alert type="success">
+    <strong>Well done!</strong> You successfully read this important alert message.
+</alert>
+
+<p>If you missed alert under me, just press <code>Add more</code> button</p>
+<div *ngFor="let alert of alerts">
+    <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" (onClosed)="onClosed(alert)">{{ alert.msg }}</alert>
+</div>
+<button type="button" class="btn btn-primary" (click)="add()">Add more</button>

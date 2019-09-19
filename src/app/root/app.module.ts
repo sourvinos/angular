@@ -28,6 +28,7 @@ import { InputsComponent } from '../input-controls/input-controls.component'
 import { MainNavComponent } from '../main-nav/main-nav.component'
 import { AddressesModule } from '../addresses/addresses.module'
 import { ArraysComponent } from '../arrays/arrays.component'
+import { ngxBootstrapComponent } from '../ngx-bootstrap/ngx-bootstrap-component'
 
 // Authentication and Authorization
 import { EventsHomeComponent } from '../auth/home/home.component'
@@ -48,7 +49,9 @@ import { ServersComponent } from './../server/servers.component';
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
 
 import { SnackbarComponent } from '../snackbar/snackbar.component'
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
@@ -78,7 +81,8 @@ import { SnackbarComponent } from '../snackbar/snackbar.component'
     ParentFromChildComponent,
     ChildToParentComponent,
     SemanticComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    ngxBootstrapComponent
   ],
   entryComponents: [
     DeleteDialogComponent
@@ -95,7 +99,10 @@ import { SnackbarComponent } from '../snackbar/snackbar.component'
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    AddressesModule
+    AddressesModule,
+    BsDatepickerModule.forRoot(),
+    ModalModule.forRoot(),
+    AlertModule.forRoot(),
   ],
   providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
     provide: HTTP_INTERCEPTORS,
