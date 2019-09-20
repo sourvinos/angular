@@ -15,17 +15,26 @@ export class SemanticComponent implements AfterViewInit {
 
 	// message: string = ''
 	// type: string = ''
+	colorInfo = '#35bdb2'
+	colorWarning = '#eaae00'
+	colorDanger = '#e0321c'
 
 	ngAfterViewInit() {
 		$('.ui.dropdown').dropdown();
 	}
 
 	openWarningDialog() {
-		$('.warning.tiny.modal').modal({
+		$('.ui.modal').modal({
 			inverted: true,
 			onApprove: () => {
 				this.saveRecord()
-				this.displayToast('Record deleted', '#b11818')
+				this.displayToast('Record saved', this.colorInfo)
+			},
+			onDeny: () => {
+				this.displayToast('Record not saved', this.colorWarning)
+			},
+			onClose: () => {
+				this.displayToast('Record not saved', this.colorWarning)
 			}
 		}).modal('show')
 	}

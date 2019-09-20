@@ -11,7 +11,7 @@ import { FormTemplateComponent } from '../form-template/form-template.component'
 import { InputsComponent } from '../input-controls/input-controls.component';
 import { CssGridComponent } from '../css-grid/css-grid.component';
 import { DataBindingComponent } from '../data-binding/data-binging.component';
-import { BaseComponent } from '../addresses/base/base.component';
+import { MainComponent } from '../animations/main/main.component'
 import { ArraysComponent } from '../arrays/arrays.component';
 
 import { EventsHomeComponent } from '../auth/home/home.component';
@@ -28,6 +28,8 @@ import { SemanticComponent } from '../semantic-ui/semantic-ui.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
+	{ path: 'home', component: HomeComponent },
+	{ path: 'animations', component: MainComponent },
 	{ path: 'buttons', component: ButtonsComponent },
 	{ path: 'mat-dialogs', component: MatDialogsComponent },
 	{ path: 'form-reactive', component: FormReactiveComponent },
@@ -35,7 +37,6 @@ const appRoutes: Routes = [
 	{ path: 'input-controls', component: InputsComponent },
 	{ path: 'css-grid', component: CssGridComponent },
 	{ path: 'data-binding', component: DataBindingComponent },
-	{ path: 'modules', component: BaseComponent },
 	{ path: 'arrays', component: ArraysComponent },
 	{ path: 'parentToChild', component: ParentToChildComponent },
 	{ path: 'parentFromChild', component: ParentFromChildComponent },

@@ -25,8 +25,12 @@ import { UserListComponent } from '../tests/04-forms/user-list.component'
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 import { InputsComponent } from '../input-controls/input-controls.component'
 import { MainNavComponent } from '../main-nav/main-nav.component'
-import { AddressesModule } from '../addresses/addresses.module'
 import { ArraysComponent } from '../arrays/arrays.component'
+
+// Animations
+import { MainComponent } from '../animations/main/main.component'
+import { LeftComponent } from '../animations/left/left.component'
+import { RightComponent } from '../animations/right/right.component'
 
 // Authentication and Authorization
 import { EventsHomeComponent } from '../auth/home/home.component'
@@ -48,7 +52,6 @@ import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
 
 import { SnackbarComponent } from '../snackbar/snackbar.component'
 import { MatDialogsComponent } from '../mat-dialogs/dialogs.component'
-
 
 @NgModule({
   declarations: [
@@ -78,7 +81,10 @@ import { MatDialogsComponent } from '../mat-dialogs/dialogs.component'
     ChildToParentComponent,
     SemanticComponent,
     SnackbarComponent,
-    MatDialogsComponent
+    MatDialogsComponent,
+    MainComponent,
+    LeftComponent,
+    RightComponent
   ],
   entryComponents: [
     DeleteDialogComponent
@@ -94,8 +100,7 @@ import { MatDialogsComponent } from '../mat-dialogs/dialogs.component'
     MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule,
-    AddressesModule
+    MatInputModule
   ],
   providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
     provide: HTTP_INTERCEPTORS,

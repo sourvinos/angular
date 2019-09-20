@@ -6,8 +6,6 @@
     border: 1px solid black;
 }
 
-.modal .header,
-.modal .content,
-.modal .actions {
+.modal .header, .modal .content, .modal .actions {
     background-color: #ffffff;
 }

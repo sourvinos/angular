@@ -1,0 +1,29 @@
+[{
+        "id": 1,
+        "description": "Oranges"
+    },
+    {
+        "id": 2,
+        "description": "Apples"
+    },
+    {
+        "id": 3,
+        "description": "Grapes"
+    },
+    {
+        "id": 4,
+        "description": "Figs"
+    },
+    {
+        "id": 5,
+        "description": "Mangos"
+    },
+    {
+        "id": 6,
+        "description": "Watermelons"
+    },
+    {
+        "id": 7,
+        "description": "Strawberries"
+    }
+]

@@ -258,20 +258,24 @@
 
     <div class="ui divider"></div>
 
-    <button class="ui orange button" (click)="openWarningDialog()">Open warning modal</button>
-    <button class="ui red button" (click)="openErrorDialog()">Open error modal</button>
+    <button class="ui orange button" (click)="openWarningDialog()">Open modal window</button>
     <button class="ui teal button" (click)="displayToast('Everything updated!','#31caea')">Show custom toast</button>
     <button class="ui yello button" (click)="showToast()">Show toast</button>
 
-    <div class="warning ui modal tiny">
-        <div class="header">Confirm action</div>
-        <div class="image content">
-            <div class="ui medium image">
-                <i class="small yellow exclamation triangle icon"></i>
-            </div>
-            <div class="description">This record will be permenently deleted</div>
+    <div class="ui modal">
+        <div class="header">Title</div>
+        <div class="content">
+            <form class="ui form">
+                <div class="field">
+                    <label>First Name</label>
+                    <input type="text" name="first-name">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input type="text" name="last-name">
+                </div>
+            </form>
         </div>
-        <div class="content"> </div>
         <div class="actions">
             <div class="ui cancel button">Cancel</div>
             <div class="ui approve negative button">OK</div>
