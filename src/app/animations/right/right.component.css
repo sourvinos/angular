@@ -6,6 +6,7 @@
     justify-content: center;
     overflow: hidden;
     transition: 0.4s ease-out;
+    width: 100vw;
 }
 
 #content {

@@ -8,20 +8,14 @@ import { Component, OnInit } from '@angular/core';
 
 export class MainComponent implements OnInit {
 
-	ngOnInit(): void {
-		var left = document.getElementById("left");
-		var right = document.getElementById("right");
-		left.style.width = "100vw"
-		right.style.width = "0"
-		// sidebar.style.width = "0"
-		// form.style.width = "100vw"
+	private windowWidth = document.body.clientWidth
+
+	ngOnInit() {
+		document.getElementById("content").style.marginLeft = "200px"
 	}
 
 	toggleMenu() {
-		var left = document.getElementById("left");
-		var right = document.getElementById("right");
-		left.style.width = left.style.width == "100vw" ? "0" : "100vw";
-		right.style.width = right.style.width == "100vw" ? "0" : "100vw";
+		document.getElementById("content").style.marginLeft = document.getElementById("content").style.marginLeft == "200px" ? (this.windowWidth - this.windowWidth * 2) - 200 + "px" : "200px"
 	}
 
 }
