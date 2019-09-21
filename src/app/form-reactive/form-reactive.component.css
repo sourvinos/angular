@@ -1,12 +1,11 @@
-.container-fluid {
-    padding: 20px;
+main {
+    padding: 2rem;
 }
 
-.onLine {
-    color: white;
+span {
+    font-size: 0.8rem;
 }
 
-p.error {
-    width: 100px;
-    height: 20px;
+button:disabled {
+    background-color: rgb(184, 114, 114) !important;
 }

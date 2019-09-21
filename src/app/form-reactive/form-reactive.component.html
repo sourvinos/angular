@@ -1,71 +1,63 @@
-<div class="container-fluid">
+<main>
     <h2>Registration Form</h2>
-    <p class='text-info'>With Reactive Forms</p>
+    <p class="text-info">With Reactive Forms</p>
 
-    <!-- Display the model -->
+    <!-- ! Display the model -->
     <p class="text-primary">{{ registrationFormWithFormBuilder.value | json }} {{ registrationFormWithFormBuilder.valid }}</p>
 
-    <!-- The formGroup model as described in the code -->
-    <!-- Angle brackets are mandatory! -->
-    <!-- Use [formGroup]='registrationFormWithFormBuilder' to use the formBuilder -->
-    <!-- instead of the FormGroup and FormControl -->
-    <form [formGroup]='registrationFormWithFormBuilder' autocomplete="off">
-        <div class="form-group">
-            <label>Username</label>
-            <!-- The formGroup property -->
-            <!-- [class.is-invalid] is a bootstrap class and provides visual feedback with a red border -->
-            <!-- userName.... is a helper property (not a function) to shorten the amount of code -->
-            <input type="text" class="form-control" formControlName='userName' [class.is-invalid]='userName.invalid && userName.touched'>
-            <!-- Display error message -->
-            <div *ngIf='userName.invalid && userName.touched'>
-                <small *ngIf='userName.errors?.required' class='text-danger'>Username must not be black!</small>
-                <small *ngIf='userName.errors?.minlength' class='text-danger'>Username must be at least three characters!</small>
-                <!-- 'forbiddenName' will be returned from the validation -->
-                <small *ngIf='userName.errors?.forbiddenName' class='text-danger'>Username '{{ userName.errors.forbiddenName.value }}' is not allowed!</small>
+    <!-- ! The formGroup model as described in the code -->
+    <!-- ! Angle brackets are mandatory! -->
+    <!-- ! Use [formGroup]="registrationFormWithFormBuilder" to use the formBuilder -->
+    <!-- ! instead of the FormGroup and FormControl -->
+    <form class="ui form" [formGroup]="registrationFormWithFormBuilder" autocomplete="off">
+        <!-- ! [class.error] is a bootstrap class and provides visual feedback with a red border -->
+        <!-- ! The exclamation marks return true -->
+        <div class="field" [class.error]="userName.invalid && userName.touched">
+            <label>First name</label>
+            <input type="text" formControlName="userName">
+            <div *ngIf="userName.invalid && userName.touched">
+                <span *ngIf="!!userName.errors?.required" class="ui red text">Username must not be black!</span>
+                <span *ngIf="!!userName.errors?.minlength" class="ui red text">Username must be at least three characters!</span>
+                <!-- ! "forbiddenName" will be returned from the validation -->
+                <span *ngIf="!!userName.errors?.forbiddenName" class="ui red text">This username is not allowed!</span>
             </div>
         </div>
-        <div class="form-group">
+        <div class="field" [class.error]="password.invalid && password.touched">
             <label>Password</label>
-            <!-- The formGroup property -->
-            <input type="password" class="form-control" formControlName='password' [class.is-invalid]='password.invalid && password.touched'>
-            <div *ngIf='password.invalid && password.touched'>
-                <small class='text-danger'>Password must not be black!</small>
+            <input type="text" formControlName="password">
+            <div *ngIf="password.invalid && password.touched">
+                <span *ngIf="!!password.errors?.required" class="ui red text">Password must not be black!</span>
             </div>
         </div>
-        <div class="form-group">
-            <label>Confirm Password</label>
-            <!-- The formGroup property -->
-            <!-- [class.is-invalid] is a bootstrap class and provides visual feedback with a red border -->
-            <input type="password" class="form-control" formControlName='confirmPassword' [class.is-invalid]='password.invalid && password.touched' [class.is-invalid]='registrationFormWithFormBuilder.errors?.mismatch'>
-            <!-- Display error message -->
-            <div *ngIf='confirmPassword.invalid && confirmPassword.touched'>
-                <small class='text-danger'>Confirm password must not be black!</small>
+        <div class="field" [class.error]="confirmPassword.invalid && confirmPassword.touched">
+            <label>Confirm password</label>
+            <input type="text" formControlName="confirmPassword">
+            <div *ngIf="confirmPassword.invalid && confirmPassword.touched">
+                <span *ngIf="!!confirmPassword.errors?.required" class="ui red text">Passwords do not match!</span>
             </div>
-            <small *ngIf='registrationFormWithFormBuilder.errors?.mismatch' class='text-danger'>Password and Confirm password must be the same!</small>
+            <span *ngIf="!!registrationFormWithFormBuilder.errors?.mismatch" class="ui text red">Password and Confirm password must be the same!</span>
         </div>
         <!-- The subgroup model, no angle brackets -->
-        <div formGroupName='address'>
-            <div class="form-group">
+        <div formGroupName="address" class="field">
+            <div class="field">
                 <label>City</label>
                 <!-- The formGroup sub-property -->
-                <input type="text" class="form-control" formControlName='city'>
+                <input type="text" formControlName="city">
             </div>
-            <div class="form-group">
+            <div class="field">
                 <label>State</label>
                 <!-- The formGroup sub-property -->
-                <input type="text" class="form-control" formControlName='state'>
+                <input type="text" formControlName="state">
             </div>
-            <div class="form-group">
+            <div class="field">
                 <label>Zip</label>
                 <!-- The formGroup sub-property -->
-                <input type="text" class="form-control" formControlName='zip'>
+                <input type="text" formControlName="zip">
             </div>
         </div>
-        <div class="form-group">
-            <button class='btn btn-primary' type="submit">Register</button>
-            <button class='btn btn-secondary ml-2' type="button" (click)='loadAPI()'>Load Data</button>
+        <div class="field">
+            <button class="ui facebook button" [disabled]="!registrationFormWithFormBuilder.valid" type="submit">Register</button>
+            <button class="ui twitter button" type="button" (click)="loadAPI()">Load Data</button>
         </div>
     </form>
-    <!-- Conditional styling -->
-    <p class="error" [ngStyle]="{ backgroundColor : isFormValid() }"></p>
-</div>
+</main>
