@@ -39,19 +39,20 @@ import { EventsMembersComponent } from '../auth/members/members.component';
 import { EventsRegisterComponent } from '../auth/register/register.component';
 import { EventsLoginComponent } from '../auth/login/login.component';
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service';
-
 // Component interaction
 import { ParentToChildComponent } from '../parent-child/parent.component';
 import { ChildFromParentComponent } from './../parent-child/child.component';
 import { ParentFromChildComponent } from './../child-parent/parent.component';
 import { ChildToParentComponent } from '../child-parent/child.component';
-
 import { ServerComponent } from './../server/server.component';
 import { ServersComponent } from './../server/servers.component';
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
-
 import { SnackbarComponent } from '../snackbar/snackbar.component'
 import { MatDialogsComponent } from '../mat-dialogs/dialogs.component'
+// Child routes
+import { SettingsComponent } from '../child-routes/settings.component'
+import { ProfileComponent } from '../child-routes/profile.component'
+import { UtilsComponent } from '../child-routes/utils.component'
 
 @NgModule({
   declarations: [
@@ -84,7 +85,10 @@ import { MatDialogsComponent } from '../mat-dialogs/dialogs.component'
     MatDialogsComponent,
     MainComponent,
     LeftComponent,
-    RightComponent
+    RightComponent,
+    SettingsComponent,
+    ProfileComponent,
+    UtilsComponent
   ],
   entryComponents: [
     DeleteDialogComponent

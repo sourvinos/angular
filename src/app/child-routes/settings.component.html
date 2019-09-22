@@ -1,0 +1,10 @@
+<main>
+    <nav>
+        <h1>Settings</h1>
+        <h3 [routerLink]="['/settings/profile']" routerLinkActive="active">Profile</h3>
+        <h3 [routerLink]="['/settings/utils']" routerLinkActive="active">Utilities</h3>
+    </nav>
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+</main>

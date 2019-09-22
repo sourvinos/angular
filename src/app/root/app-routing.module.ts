@@ -25,6 +25,9 @@ import { ParentFromChildComponent } from '../child-parent/parent.component';
 
 import { ServersComponent } from '../server/servers.component';
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component';
+import { SettingsComponent } from '../child-routes/settings.component';
+import { ProfileComponent } from '../child-routes/profile.component';
+import { UtilsComponent } from '../child-routes/utils.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -41,13 +44,18 @@ const appRoutes: Routes = [
 	{ path: 'parentToChild', component: ParentToChildComponent },
 	{ path: 'parentFromChild', component: ParentFromChildComponent },
 	{ path: 'semantic', component: SemanticComponent },
-
 	{ path: 'eventsHome', component: EventsHomeComponent },
 	{ path: 'events', component: EventsComponent },
 	{ path: 'members', component: EventsMembersComponent, canActivate: [AuthGuard] },
 	{ path: 'register', component: EventsRegisterComponent },
 	{ path: 'login', component: EventsLoginComponent },
-	{ path: 'servers', component: ServersComponent }
+	{ path: 'servers', component: ServersComponent },
+	{
+		path: 'settings', component: SettingsComponent, children: [
+			{ path: 'profile', component: ProfileComponent },
+			{ path: 'utils', component: UtilsComponent }
+		]
+	}
 ];
 
 @NgModule({
