@@ -1,6 +1,9 @@
 <main>
     <nav>
-        <h1>Settings</h1>
+        <button class="circular vk ui mini icon button" [routerLink]="['/']">
+            <i class="icon home"></i>
+        </button>
+        <h1>Child routes</h1>
         <h3 [routerLink]="['/settings/profile']" routerLinkActive="active">Profile</h3>
         <h3 [routerLink]="['/settings/utils']" routerLinkActive="active">Utilities</h3>
     </nav>

@@ -65,24 +65,24 @@ router.post('/login', (req, res) => {
     })
 })
 
-router.get('/events', verifyToken, (req, res) => {
+router.get('/events', (req, res) => {
     let events = [{
         id: 1,
         description: 'Event1'
     }, {
         id: 2,
-        description: 'Event 2'
+        description: 'Event2'
     }]
     res.json(events)
 })
 
-router.get('/special', (req, res) => {
+router.get('/special', verifyToken, (req, res) => {
     let events = [{
         id: 1,
         description: 'Event1'
     }, {
         id: 2,
-        description: 'Event 2'
+        description: 'Event2'
     }]
     res.json(events)
 })

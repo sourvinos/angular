@@ -4,5 +4,6 @@ export class User {
 	phone: number
 	topic: string
 	level: string
+	subscribe: boolean
 	timePreference: boolean
 }

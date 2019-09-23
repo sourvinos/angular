@@ -1,58 +1,46 @@
-import { NgModule } from '@angular/core'
-import { DataBindingComponent } from '../data-binding/data-binging.component'
-import { InputFormatDirective } from './../directives/input-format.directive'
-import { CssGridComponent } from './../css-grid/css-grid.component'
-import { FormTemplateComponent } from './../form-template/form-template.component'
-
-import { AppComponent } from './app.component'
-import { AppRoutingModule } from './app-routing.module'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { BrowserModule } from '@angular/platform-browser'
-import { ButtonsComponent } from './../buttons/buttons.component'
-import { FormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms'
-
-import { MatButtonModule } from '@angular/material/button'
+import { NgModule } from '@angular/core'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatDialogModule, MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material'
+import { MatButtonModule } from '@angular/material/button'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
+import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-import { HomeComponent } from './../home/home.component'
-import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
-import { UserListComponent } from '../tests/04-forms/user-list.component'
+import { LeftComponent } from '../animations/left/left.component'
+import { MainComponent } from '../animations/main/main.component'
+import { RightComponent } from '../animations/right/right.component'
+import { ArraysComponent } from '../arrays/arrays.component'
+import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
+import { ChildToParentComponent } from '../child-parent/child.component'
+import { ProfileComponent } from '../child-routes/profile.component'
+import { SettingsComponent } from '../child-routes/settings.component'
+import { UtilsComponent } from '../child-routes/utils.component'
+import { DataBindingComponent } from '../data-binding/data-binging.component'
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
+import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { InputsComponent } from '../input-controls/input-controls.component'
 import { MainNavComponent } from '../main-nav/main-nav.component'
-import { ArraysComponent } from '../arrays/arrays.component'
-
-// Animations
-import { MainComponent } from '../animations/main/main.component'
-import { LeftComponent } from '../animations/left/left.component'
-import { RightComponent } from '../animations/right/right.component'
-
-// Authentication and Authorization
-import { EventsHomeComponent } from '../auth/home/home.component'
-import { EventsComponent } from '../auth/events/events.component';
-import { EventsMembersComponent } from '../auth/members/members.component';
-import { EventsRegisterComponent } from '../auth/register/register.component';
-import { EventsLoginComponent } from '../auth/login/login.component';
-import { TokenInterceptorService } from '../auth/services/token-interceptor.service';
-// Component interaction
-import { ParentToChildComponent } from '../parent-child/parent.component';
-import { ChildFromParentComponent } from './../parent-child/child.component';
-import { ParentFromChildComponent } from './../child-parent/parent.component';
-import { ChildToParentComponent } from '../child-parent/child.component';
-import { ServerComponent } from './../server/server.component';
-import { ServersComponent } from './../server/servers.component';
+import { MatDialogsComponent } from '../mat-dialogs/dialogs.component'
+import { ParentToChildComponent } from '../parent-child/parent.component'
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
 import { SnackbarComponent } from '../snackbar/snackbar.component'
-import { MatDialogsComponent } from '../mat-dialogs/dialogs.component'
-// Child routes
-import { SettingsComponent } from '../child-routes/settings.component'
-import { ProfileComponent } from '../child-routes/profile.component'
-import { UtilsComponent } from '../child-routes/utils.component'
+import { UserListComponent } from '../tests/04-forms/user-list.component'
+import { AuthModule } from './../auth/auth.module'
+import { ButtonsComponent } from './../buttons/buttons.component'
+import { ParentFromChildComponent } from './../child-parent/parent.component'
+import { CssGridComponent } from './../css-grid/css-grid.component'
+import { InputFormatDirective } from './../directives/input-format.directive'
+import { FormTemplateComponent } from './../form-template/form-template.component'
+import { HomeComponent } from './../home/home.component'
+import { ChildFromParentComponent } from './../parent-child/child.component'
+import { ServerComponent } from './../server/server.component'
+import { ServersComponent } from './../server/servers.component'
+import { AppRoutingModule } from './app-routing.module'
+import { AppComponent } from './app.component'
 
 @NgModule({
   declarations: [
@@ -71,11 +59,6 @@ import { UtilsComponent } from '../child-routes/utils.component'
     ArraysComponent,
     ServerComponent,
     ServersComponent,
-    EventsHomeComponent,
-    EventsComponent,
-    EventsMembersComponent,
-    EventsRegisterComponent,
-    EventsLoginComponent,
     ParentToChildComponent,
     ChildFromParentComponent,
     ParentFromChildComponent,
@@ -97,6 +80,7 @@ import { UtilsComponent } from '../child-routes/utils.component'
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -104,7 +88,8 @@ import { UtilsComponent } from '../child-routes/utils.component'
     MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    AuthModule
   ],
   providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
     provide: HTTP_INTERCEPTORS,

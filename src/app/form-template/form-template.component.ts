@@ -9,24 +9,33 @@ import { Form } from '@angular/forms';
 })
 
 export class FormTemplateComponent implements OnInit {
+
 	header: string;
 	topics: string[] = ['Angular', 'React', 'Vue'];
 	levels: string[] = ['Beginner', 'Intermediate', 'Ninja'];
+
 	isTopicValid: boolean = false;
 	isLevelValid: boolean = false;
 	isNewRecord: boolean = false;
+
 	userModel = new User();
+
 	constructor() { }
+
 	ngOnInit() {
 		this.header = this.isNewRecord ? 'New' : 'Edit';
 	}
+
 	validateTopic(value: string) {
 		this.isTopicValid = value === 'default' ? false : true;
 	}
+
 	validateLevel(value: string) {
 		this.isLevelValid = value === 'default' ? false : true;
 	}
+
 	submitForm(formData: Form) {
 		console.log(formData);
 	}
+
 }

@@ -18,6 +18,10 @@ h3 {
     padding: 0.5rem;
 }
 
+button {
+    margin-left: 1rem !important;
+}
+
 h3:hover {
     color: chocolate;
 }

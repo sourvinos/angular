@@ -1,3 +1,6 @@
+<button class="circular vk ui mini icon button" [routerLink]="['/']">
+    <i class="icon home"></i>
+</button>
 <div class="container-fluid">
     <h1>{{ header }}</h1>
     <hr />
@@ -26,16 +29,16 @@
             <label>Email</label>
             <input type='email' required #email='ngModel' name='email' [class.is-invalid]='email.invalid && email.touched' pattern='' class='form-control' [(ngModel)]='userModel.email'>
             <div *ngIf='email.errors && (email.invalid || email.touched)'>
-                <small class='text-danger' *ngIf='email.errors.required'>Email is required</small>
-                <small class='text-danger' *ngIf='email.errors.pattern'>Email must be valid</small>
+                <span *ngIf="!!email.errors?.required" class="ui red text">Email must not be black!</span>
+                <span *ngIf="!!email.errors?.pattern" class="ui red text">Email must be valid!</span>
             </div>
         </div>
         <div class='form-group'>
             <label>Phone</label>
             <input type='tel' required #phone='ngModel' name='phone' [class.is-invalid]='phone.invalid && phone.touched' pattern='^\d{10}$' class='form-control' [(ngModel)]='userModel.phone'>
             <div *ngIf='phone.errors && (phone.invalid || phone.touched)'>
-                <small class='text-danger' *ngIf='phone.errors.required'>Phone is required</small>
-                <small class='text-danger' *ngIf='phone.errors.pattern'>Phone must be ten digits</small>
+                <span *ngIf="!!phone.errors?.required" class="ui red text">Phone must not be black!</span>
+                <span *ngIf="!!phone.errors?.pattern" class="ui red text">Phone must be ten digits!</span>
             </div>
         </div>
         <div class='form-group'>
