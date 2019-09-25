@@ -33,7 +33,6 @@ import { AuthModule } from './../auth/auth.module'
 import { ButtonsComponent } from './../buttons/buttons.component'
 import { ParentFromChildComponent } from './../child-parent/parent.component'
 import { CssGridComponent } from './../css-grid/css-grid.component'
-import { InputFormatDirective } from './../directives/input-format.directive'
 import { FormTemplateComponent } from './../form-template/form-template.component'
 import { HomeComponent } from './../home/home.component'
 import { ChildFromParentComponent } from './../parent-child/child.component'
@@ -54,7 +53,6 @@ import { AppComponent } from './app.component'
     InputsComponent,
     CssGridComponent,
     MainNavComponent,
-    InputFormatDirective,
     DataBindingComponent,
     ArraysComponent,
     ServerComponent,
@@ -71,7 +69,7 @@ import { AppComponent } from './app.component'
     RightComponent,
     SettingsComponent,
     ProfileComponent,
-    UtilsComponent
+    UtilsComponent,
   ],
   entryComponents: [
     DeleteDialogComponent

@@ -17,7 +17,7 @@
         <!-- ! The exclamation marks return true -->
         <div class="field" [class.error]="userName.invalid && userName.touched">
             <label>First name</label>
-            <input type="text" formControlName="userName">
+            <input type="text" formControlName="userName" tabindex="1" autofocus>
             <div *ngIf="userName.invalid && userName.touched">
                 <span *ngIf="!!userName.errors?.required" class="ui red text">Username must not be black!</span>
                 <span *ngIf="!!userName.errors?.minlength" class="ui red text">Username must be at least three characters!</span>
@@ -27,14 +27,14 @@
         </div>
         <div class="field" [class.error]="password.invalid && password.touched">
             <label>Password</label>
-            <input type="text" formControlName="password">
+            <input type="text" formControlName="password" tabindex="2">
             <div *ngIf="password.invalid && password.touched">
                 <span *ngIf="!!password.errors?.required" class="ui red text">Password must not be black!</span>
             </div>
         </div>
         <div class="field" [class.error]="confirmPassword.invalid && confirmPassword.touched">
             <label>Confirm password</label>
-            <input type="text" formControlName="confirmPassword">
+            <input type="text" formControlName="confirmPassword" tabindex="3">
             <div *ngIf="confirmPassword.invalid && confirmPassword.touched">
                 <span *ngIf="!!confirmPassword.errors?.required" class="ui red text">Passwords do not match!</span>
             </div>
@@ -45,17 +45,17 @@
             <div class="field">
                 <label>City</label>
                 <!-- The formGroup sub-property -->
-                <input type="text" formControlName="city">
+                <input type="text" formControlName="city" tabindex="4">
             </div>
             <div class="field">
                 <label>State</label>
                 <!-- The formGroup sub-property -->
-                <input type="text" formControlName="state">
+                <input type="text" formControlName="state" tabindex="5">
             </div>
             <div class="field">
                 <label>Zip</label>
                 <!-- The formGroup sub-property -->
-                <input type="text" formControlName="zip">
+                <input type="text" formControlName="zip" tabindex="6">
             </div>
         </div>
         <div class="field">
