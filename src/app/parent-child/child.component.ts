@@ -1,6 +1,4 @@
-import { ShoppingListService } from './shopping-list.service';
-import { Component, OnChanges, Input, SimpleChanges } from '@angular/core';
-import { Ingredient } from './ingredient';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-child',
@@ -8,67 +6,13 @@ import { Ingredient } from './ingredient';
     styleUrls: ['./child.component.css']
 })
 
-export class ChildFromParentComponent implements OnChanges {
+export class ChildFromParentComponent {
 
-    // Part 1
-    // The loggedIn variable is expecting a value from the parent
-    @Input() loggedIn: boolean
-    // End of part 1
-
-    // Part 2
-    // Use getter and setter to achive the same result as in Part 1
-    // but also the setter executes more lines of code
-    // such as display a message 
-    // private _loggedIn: boolean
-    // message: string = ''
-
-    // get loggedIn() {
-    //     return this._loggedIn
-    // }
-
-    // @Input()
-    // set loggedIn(value: boolean) {
-    //     this._loggedIn = value
-    //     this.message = value ? 'Welcome back!' : 'Please login to continue!'
-    // }
-    // End of part 2
-
-    // Part 3
-    // Use ngOnChanges to keep track of input variables
-    // The loggedIn variable is expecting a value from the parent
-    // Works only with child components
-    // Also, code can execute on changes
-    // @Input() loggedIn: boolean
-    // message: string = ''
-
-    ngOnChanges(changes: SimpleChanges): void {
-        // console.log(changes)
-        // this.message = changes.loggedIn.currentValue ? 'Welcome back!' : 'Please login to continue'
+    startTimer() {
+        console.log('Timer started')
     }
-    // End of part 3
-
-    // Part 4
-    // Allow the parent component to access properties of the child component
-    // name = 'John'
-
-    // greetMe() {
-    // alert(`Hello, ${this.name}`)
-    // }
-    // End of part 4
-
-
-    // ! Shopping list
-    // ! At the child component, add a new ingredient
-    constructor(private shoppingListService: ShoppingListService) { }
-
-    addIngredient() {
-        this.shoppingListService.addIngredient(new Ingredient(3, 'Grapes'))
+    stopTimer() {
+        console.log('Timer stopped')
     }
-
-    editIngredient() {
-        this.shoppingListService.editIngredient()
-    }
-
-    // ! End of Shopping list
 
 }

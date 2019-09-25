@@ -41,7 +41,7 @@ const appRoutes: Routes = [
 	{ path: 'css-grid', component: CssGridComponent },
 	{ path: 'data-binding', component: DataBindingComponent },
 	{ path: 'arrays', component: ArraysComponent },
-	{ path: 'parentToChild', component: ParentToChildComponent },
+	{ path: 'parent-to-child', component: ParentToChildComponent },
 	{ path: 'parentFromChild', component: ParentFromChildComponent },
 	{ path: 'semantic', component: SemanticComponent },
 	{ path: 'eventsHome', component: EventsHomeComponent },

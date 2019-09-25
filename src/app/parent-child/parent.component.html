@@ -1,32 +1,5 @@
 <h1>Parent to child</h1>
 
-<!-- ! Parts 1, 2 and three -->
-
-<!-- ! Bind the variable on the child component (@Input) -->
-<!-- ! to the variable on the parent component -->
-<!-- ! loggedIn = variable on the child component -->
-<!-- ! userLoggedIn = variable on the parent component -->
-<app-child [loggedIn]="userLoggedIn"></app-child>
-<button class="ui primary button" (click)="toggleLoginStatus()" [disabled]="isThisDisabled()">Login</button>
-<button class="ui primary button" (click)="toggleLoginStatus()" [disabled]="!isThisDisabled()">Logout</button>
-
-<ul>
-    <li *ngFor="let element of shoppingList">
-        {{ element.description }}
-    </li>
-</ul>
-
-<!-- End of parts 1, 2 and 3 -->
-
-<!-- Part 4 -->
-
-<!-- Access the child component methods and properties -->
-<!-- userLoggedIn = variable on the parent component -->
-<!-- loggedIn = variable on the child component -->
-<!-- <app-child #child [loggedIn]="userLoggedIn"></app-child> -->
-<!-- Access the child component method -->
-<!-- <button class="btn btn-warning" (click)="child.greetMe()">Greet</button> -->
-<!-- Access the child component property -->
-<!-- {{ child.name }} -->
-
-<!-- End of part 4 -->
+<button class="ui primary button" (click)="timer.startTimer()">Call child method</button>
+<button class="ui primary button" (click)="startTimer()">Call child method with @ViewChild</button>
+<app-child #timer></app-child>
