@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ForbiddenNameValidator } from './username.validator';
 import { PasswordValidator } from './password.validator';
@@ -9,7 +9,12 @@ import { PasswordValidator } from './password.validator';
 	styleUrls: ['./form-reactive.component.css']
 })
 
-export class FormReactiveComponent {
+export class FormReactiveComponent implements AfterViewInit {
+
+	ngAfterViewInit(): void {
+		document.getElementById("userName").focus()
+	}
+
 	// Use a formBuilder to build form components
 	// instead of FormGroup and FormControl
 	constructor(private formBuilder: FormBuilder) { }
@@ -72,4 +77,9 @@ export class FormReactiveComponent {
 			}
 		});
 	}
+
+	reset() {
+		this.registrationFormWithFormBuilder.reset()
+	}
+
 }

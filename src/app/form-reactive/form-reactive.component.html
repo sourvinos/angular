@@ -6,7 +6,9 @@
     <p class="text-info">With Reactive Forms</p>
 
     <!-- ! Display the model -->
-    <p class="text-primary">{{ registrationFormWithFormBuilder.value | json }} {{ registrationFormWithFormBuilder.valid }}</p>
+    <p class="text-primary">{{ registrationFormWithFormBuilder.value | json }}</p>
+    <p>Valid form: {{ registrationFormWithFormBuilder.valid }}</p>
+    <p>Form dirty: {{ registrationFormWithFormBuilder.dirty }}</p>
 
     <!-- ! The formGroup model as described in the code -->
     <!-- ! Angle brackets are mandatory! -->
@@ -17,7 +19,7 @@
         <!-- ! The exclamation marks return true -->
         <div class="field" [class.error]="userName.invalid && userName.touched">
             <label>First name</label>
-            <input type="text" formControlName="userName" tabindex="1" autofocus>
+            <input type="text" formControlName="userName" tabindex="1" id="userName">
             <div *ngIf="userName.invalid && userName.touched">
                 <span *ngIf="!!userName.errors?.required" class="ui red text">Username must not be black!</span>
                 <span *ngIf="!!userName.errors?.minlength" class="ui red text">Username must be at least three characters!</span>
@@ -61,6 +63,7 @@
         <div class="field">
             <button class="ui facebook button" [disabled]="!registrationFormWithFormBuilder.valid" type="submit">Register</button>
             <button class="ui twitter button" type="button" (click)="loadAPI()">Load Data</button>
+            <button class="ui twitter button" type="button" (click)="reset()">Reset</button>
         </div>
     </form>
 </main>
