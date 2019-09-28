@@ -40,6 +40,7 @@ import { ServerComponent } from './../server/server.component'
 import { ServersComponent } from './../server/servers.component'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
+import { SuiModule } from 'ng2-semantic-ui';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { AppComponent } from './app.component'
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    AuthModule
+    AuthModule,
+    SuiModule
   ],
   providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
     provide: HTTP_INTERCEPTORS,

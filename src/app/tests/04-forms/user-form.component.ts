@@ -1,9 +1,14 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { SuiModalService, TemplateModalConfig, ModalTemplate } from 'ng2-semantic-ui';
 
 import { UserService } from './user.service';
 import { IUser } from './user';
+
+export interface IContext {
+	data: string;
+}
 
 @Component({
 	selector: 'app-user-form',
@@ -13,12 +18,16 @@ import { IUser } from './user';
 
 export class UserFormComponent implements OnInit {
 
+	@ViewChild('modalTemplate')
+
+	public modalTemplate: ModalTemplate<IContext, string, string>
+
 	id: string;
 	user: IUser;
 	isNewRecord: boolean = true;
 	subHeader: string = '';
 
-	constructor(private service: UserService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) { };
+	constructor(private service: UserService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, public modalService: SuiModalService) { };
 
 	ngOnInit() {
 		this.subHeader = 'New';
@@ -75,5 +84,17 @@ export class UserFormComponent implements OnInit {
 				this.router.navigate(['/users'])
 			}, error => console.log(error));
 		}
+	}
+
+	public open(dynamicContent: string = "Example") {
+		const config = new TemplateModalConfig<IContext, string, string>(this.modalTemplate);
+
+		config.closeResult = "closed!";
+		config.context = { data: dynamicContent };
+
+		this.modalService
+			.open(config)
+			.onApprove(result => { /* approve callback */ })
+			.onDeny(result => { /* deny callback */ });
 	}
 }

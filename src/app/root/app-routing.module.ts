@@ -28,6 +28,7 @@ import { SemanticComponent } from '../semantic-ui/semantic-ui.component';
 import { SettingsComponent } from '../child-routes/settings.component';
 import { ProfileComponent } from '../child-routes/profile.component';
 import { UtilsComponent } from '../child-routes/utils.component';
+import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
 	{ path: 'animations', component: MainComponent },
 	{ path: 'buttons', component: ButtonsComponent },
 	{ path: 'mat-dialogs', component: MatDialogsComponent },
-	{ path: 'form-reactive', component: FormReactiveComponent },
+	{ path: 'form-reactive', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard] },
 	{ path: 'form-template', component: FormTemplateComponent },
 	{ path: 'input-controls', component: InputsComponent },
 	{ path: 'css-grid', component: CssGridComponent },

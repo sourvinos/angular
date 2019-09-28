@@ -23,7 +23,7 @@ export class SemanticComponent implements AfterViewInit {
 		$('.ui.dropdown').dropdown();
 	}
 
-	openWarningDialog() {
+	openModalDialog() {
 		$('.ui.modal').modal({
 			inverted: true,
 			onApprove: () => {

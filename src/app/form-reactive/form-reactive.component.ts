@@ -1,7 +1,9 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { ForbiddenNameValidator } from './username.validator';
+import { AfterViewInit, Component, TemplateRef } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { DialogService } from './../services/dialog-service';
 import { PasswordValidator } from './password.validator';
+import { ForbiddenNameValidator } from './username.validator';
 
 @Component({
 	selector: 'form-reactive',
@@ -11,13 +13,16 @@ import { PasswordValidator } from './password.validator';
 
 export class FormReactiveComponent implements AfterViewInit {
 
+	message: string;
+	private isSaving: boolean = false
+
 	ngAfterViewInit(): void {
 		document.getElementById("userName").focus()
 	}
 
 	// Use a formBuilder to build form components
 	// instead of FormGroup and FormControl
-	constructor(private formBuilder: FormBuilder) { }
+	constructor(private formBuilder: FormBuilder, private dialogService: DialogService) { }
 
 	// Create a model for use in the form WITHOUT FormBuilder
 	registrationForm = new FormGroup({
@@ -81,5 +86,18 @@ export class FormReactiveComponent implements AfterViewInit {
 	reset() {
 		this.registrationFormWithFormBuilder.reset()
 	}
+
+	save() {
+
+	}
+
+	canDeactivate(): Observable<boolean> | boolean {
+		if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
+			this.isSaving = false
+			// return this.dialogService.confirm('Discard changes?');
+		}
+		return true;
+	}
+
 
 }
