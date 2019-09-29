@@ -1,0 +1,80 @@
+<button class="circular vk ui mini icon button" [routerLink]="['/']">
+    <i class="icon home"></i>
+</button>
+<div class="container-fluid">
+    <h1>{{ header }}</h1>
+    <hr />
+    <!-- [ngModel] From the model to the view -->
+    <!-- (ngModel) From the view to the model -->
+    <div>
+        {{ userForm.value | json }}
+    </div>
+    <div>
+        {{ userModel | json }}
+    </div>
+
+    <hr />
+
+    Form is valid: {{ userForm.valid }}
+
+    <hr />
+
+    <form #userForm='ngForm' autocomplete='off'>
+        <div class='form-group'>
+            <label>Name</label>
+            <input type='text' required #name='ngModel' name='name' [class.is-invalid]='name.invalid && name.touched' class='form-control' [(ngModel)]='userModel.name'>
+            <small class='text-danger' [class.d-none]='name.valid || name.untouched'>Name is required</small>
+        </div>
+        <div class='form-group'>
+            <label>Email</label>
+            <input type='email' required #email='ngModel' name='email' [class.is-invalid]='email.invalid && email.touched' pattern='' class='form-control' [(ngModel)]='userModel.email'>
+            <div *ngIf='email.errors && (email.invalid || email.touched)'>
+                <span *ngIf="!!email.errors?.required" class="ui red text">Email must not be black!</span>
+                <span *ngIf="!!email.errors?.pattern" class="ui red text">Email must be valid!</span>
+            </div>
+        </div>
+        <div class='form-group'>
+            <label>Phone</label>
+            <input type='tel' required #phone='ngModel' name='phone' [class.is-invalid]='phone.invalid && phone.touched' pattern='^\d{10}$' class='form-control' [(ngModel)]='userModel.phone'>
+            <div *ngIf='phone.errors && (phone.invalid || phone.touched)'>
+                <span *ngIf="!!phone.errors?.required" class="ui red text">Phone must not be black!</span>
+                <span *ngIf="!!phone.errors?.pattern" class="ui red text">Phone must be ten digits!</span>
+            </div>
+        </div>
+        <div class='form-group'>
+            <label>I'm interested in</label>
+            <select class='custom-select' [class.is-invalid]='!isTopicValid && topic.touched' #topic='ngModel' name='topic' [(ngModel)]='userModel.topic' (blur)='validateTopic(topic.value)' (change)='validateTopic(topic.value)'>
+                <option value='default' selected>Select from the list</option>
+                <option *ngFor='let topic of topics'>{{ topic }}</option>
+            </select>
+            <small class='text-danger' [class.d-none]='isTopicValid || topic.untouched'>Select a topic</small>
+        </div>
+        <div class='form-group'>
+            <label>Experience</label>
+            <select class='custom-select' [class.is-invalid]='!isLevelValid && level.touched' #level='ngModel' name='level' [(ngModel)]='userModel.level' (blur)='validateLevel(level.value)' (change)='validateLevel(level.value)'>
+                <option value='default' selected>Select from the list</option>
+                <option *ngFor='let level of levels'>{{ level }}</option>
+            </select>
+            <small class='text-danger' [class.d-none]='isLevelValid || level.untouched'>Select a level</small>
+        </div>
+        <div class='mb-3'>
+            <label>Time preference</label>
+            <div class='form-check'>
+                <input class='form-check-input' type='radio' name='timePreference' value='morning' [(ngModel)]='userModel.timePreference'>
+                <label class='form-check-label'>Morning</label>
+            </div>
+            <div class='form-check'>
+                <input class='form-check-input' type='radio' name='timePreference' value='evening' [(ngModel)]='userModel.timePreference'>
+                <label class='form-check-label'>Evening</label>
+            </div>
+        </div>
+        <div class='form-check mb-3'>
+            <input type='checkbox' class='form-check-input' name='subscribe' [(ngModel)]='userModel.subscribe'>
+            <label class='form-check-label'>Send me promotional stuff</label>
+        </div>
+        <div>
+            <button class='btn btn-primary' [class.disabled]='!userForm.valid || !isTopicValid || !isLevelValid' type='submit' (click)='submitForm(userForm)'>Submit</button>
+        </div>
+    </form>
+
+</div>

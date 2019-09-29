@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <h2>Events home</h2>
+    <ul>
+        <li *ngIf="!isLoggedIn"><a [routerLink]="[ '/login']">Login</a></li>
+        <li *ngIf="!isLoggedIn"><a [routerLink]="[ '/register']">Register</a></li>
+        <li><a [routerLink]="[ '/events']">Events</a></li>
+        <li><a [routerLink]="[ '/members']">Members</a></li>
+        <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+    </ul>
+</div>

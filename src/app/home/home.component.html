@@ -1,0 +1,12 @@
+<main>
+    <nav>
+        <h1>Home</h1>
+        <h3 [routerLink]="['/settings']" routerLinkActive="active">Child routes</h3>
+        <h3 [routerLink]="['/form-template']" routerLinkActive="active">Template driven forms</h3>
+        <h3 [routerLink]="['/form-reactive']" routerLinkActive="active">Reactive forms</h3>
+        <h3 [routerLink]="['/parent-to-child']" routerLinkActive="active">Call child functions</h3>
+    </nav>
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+</main>

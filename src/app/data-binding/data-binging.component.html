@@ -1,0 +1,27 @@
+<!-- String interpolation -->
+<h1>{{ documentTitle }}</h1>
+
+<!-- Property binding -->
+<img [src]="imageUrl" alt="Image">
+<hr />
+
+<!-- Event binding -->
+<p>Counter: {{ counter }}</p>
+<button class="btn btn-primary" type="button" (click)="addOne()">Add</button>
+<button class="btn btn-secondary" type="button" (click)="resetCounter()">Reset</button>
+<hr />
+
+<!-- Two way binding -->
+<!-- If the element is inside a form,the 'name' attribute must be given  -->
+<!-- [] = from the class to the view -->
+<!-- () = from the view to the class plus execute some code on every change! -->
+<label for="userName">Your name</label>
+<input type="text" id="userName" class="form-control" [ngModel]="userName" (ngModelChange)="checkUserName($event)">
+<p>{{ userName }}</p>
+
+<label>Your vanity role is: {{ userRole }}</label>
+<!-- We update the private value (_userRole) with getter and setter -->
+<input type="text" class="form-control" [(ngModel)]="userRole" autofocus>
+
+<br />
+<button class="btn btn-danger" type="button" [disabled]="userRole === ''">Submit</button>

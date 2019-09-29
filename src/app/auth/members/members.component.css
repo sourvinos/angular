@@ -1,0 +1,12 @@
+.container-fluid {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.buttons {
+    margin: 2rem 1rem;
+    text-align: end;
+}

@@ -1,0 +1,5 @@
+<h1>Parent to child</h1>
+
+<button class="ui primary button" (click)="timer.startTimer()">Call child method</button>
+<button class="ui primary button" (click)="startTimer()">Call child method with @ViewChild</button>
+<app-child #timer></app-child>
