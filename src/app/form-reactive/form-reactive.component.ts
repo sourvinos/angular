@@ -1,9 +1,16 @@
 import { AfterViewInit, Component, TemplateRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { DialogService } from './../services/dialog-service';
 import { PasswordValidator } from './password.validator';
 import { ForbiddenNameValidator } from './username.validator';
+import { SuiModalService } from 'ng2-semantic-ui';
+import { ConfirmModal } from '../semantic-ui/modal-confirm.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { SomeComponent } from '../ngx-bootstrap/some.component';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { Subject } from 'rxjs';
+import { ConfirmLeaveComponent } from '../confirm-leave/confirm-leave.component';
 
 @Component({
 	selector: 'form-reactive',
@@ -15,6 +22,7 @@ export class FormReactiveComponent implements AfterViewInit {
 
 	message: string;
 	private isSaving: boolean = false
+	modalRef: BsModalRef
 
 	ngAfterViewInit(): void {
 		document.getElementById("userName").focus()
@@ -22,7 +30,7 @@ export class FormReactiveComponent implements AfterViewInit {
 
 	// Use a formBuilder to build form components
 	// instead of FormGroup and FormControl
-	constructor(private formBuilder: FormBuilder, private dialogService: DialogService) { }
+	constructor(private formBuilder: FormBuilder, private dialogService: DialogService, private SuimodalService: SuiModalService, private modalService: BsModalService, private dialog: MatDialog) { }
 
 	// Create a model for use in the form WITHOUT FormBuilder
 	registrationForm = new FormGroup({
@@ -91,13 +99,53 @@ export class FormReactiveComponent implements AfterViewInit {
 
 	}
 
-	canDeactivate(): Observable<boolean> | boolean {
+	canDeactivate() {
+		console.log("Deactivating...")
+		this.isSaving = false
 		if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
-			this.isSaving = false
-			// return this.dialogService.confirm('Discard changes?');
+			const subject = new Subject<boolean>();
+			const modal = this.modalService.show(ConfirmLeaveComponent, { 'class': 'modal-dialog-primary' });
+			modal.content.subject = subject;
+			return subject.asObservable();
+		} else {
+			return true
 		}
-		return true;
 	}
 
+	// canDeactivate(): boolean {
+	// 	if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
+	// 		this.isSaving = false
+	// 	}
+	// 	return true
+	// }
+
+	// canDeactivate(): boolean {
+	// 	if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
+	// 		this.isSaving = false
+	// 		this.modalRef = this.modalService.show(SomeComponent)
+	// 	}
+	// 	return true
+	// }
+
+	// openModal() {
+	// 	this.modalRef = this.modalService.show(SomeComponent);
+	// }
+
+	// canDeactivate(): boolean {
+	// 	if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
+	// 		this.isSaving = false
+	// 		this.SuimodalService
+	// 			.open(new ConfirmModal("Are you sure?", "Are you sure about accepting this?", 'small'))
+	// 			.onDeny(() => {
+	// 				return false
+	// 			})
+	// 			.onApprove(result => {
+	// 				console.log(result)
+	// 				return true
+	// 			})
+	// 	} else {
+	// 		return true
+	// 	}
+	// }
 
 }

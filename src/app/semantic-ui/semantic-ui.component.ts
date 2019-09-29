@@ -1,7 +1,13 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { SuiModalService, TemplateModalConfig, ModalTemplate } from 'ng2-semantic-ui';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ToastMessage } from './message';
+import { ConfirmModal } from './modal-confirm.component';
 
 declare var $: any
+
+export interface IContext {
+	data: string;
+}
 
 @Component({
 	selector: 'semantic',
@@ -11,6 +17,9 @@ declare var $: any
 
 export class SemanticComponent implements AfterViewInit {
 
+	@ViewChild('modalTemplate')
+	public modalTemplate: ModalTemplate<IContext, string, string>
+
 	toastParameters = new ToastMessage('', '')
 
 	// message: string = ''
@@ -19,6 +28,9 @@ export class SemanticComponent implements AfterViewInit {
 	colorWarning = '#eaae00'
 	colorDanger = '#e0321c'
 
+	constructor(private modalService: SuiModalService) {
+
+	}
 	ngAfterViewInit() {
 		$('.ui.dropdown').dropdown();
 	}
@@ -70,6 +82,13 @@ export class SemanticComponent implements AfterViewInit {
 			displayTime: 0,
 			message: 'I am a toast, nice to meet you !'
 		})
+	}
+
+	open() {
+		this.modalService
+			.open(new ConfirmModal("Are you sure?", "Are you sure about accepting this?", 'small'))
+			.onApprove(() => alert("User has accepted."))
+			.onDeny(() => alert("User has denied."));
 	}
 
 }

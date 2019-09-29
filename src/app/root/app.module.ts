@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
@@ -40,7 +40,15 @@ import { ServerComponent } from './../server/server.component'
 import { ServersComponent } from './../server/servers.component'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { SuiModule } from 'ng2-semantic-ui';
+
+import { SuiModule } from 'ng2-semantic-ui'
+import { ConfirmModalComponent } from '../semantic-ui/modal-confirm.component'
+
+import { AlertModule } from 'ngx-bootstrap/alert'
+import { ButtonsModule } from 'ngx-bootstrap/buttons'
+import { ModalModule } from 'ngx-bootstrap/modal'
+import { SomeComponent } from '../ngx-bootstrap/some.component'
+import { ConfirmLeaveComponent } from '../confirm-leave/confirm-leave.component'
 
 @NgModule({
   declarations: [
@@ -71,9 +79,15 @@ import { SuiModule } from 'ng2-semantic-ui';
     SettingsComponent,
     ProfileComponent,
     UtilsComponent,
+    ConfirmModalComponent,
+    SomeComponent,
+    ConfirmLeaveComponent
   ],
   entryComponents: [
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    ConfirmModalComponent,
+    SomeComponent,
+    ConfirmLeaveComponent
   ],
   imports: [
     AppRoutingModule,
@@ -89,7 +103,10 @@ import { SuiModule } from 'ng2-semantic-ui';
     MatIconModule,
     MatInputModule,
     AuthModule,
-    SuiModule
+    SuiModule,
+    AlertModule.forRoot(),
+    ButtonsModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
     provide: HTTP_INTERCEPTORS,

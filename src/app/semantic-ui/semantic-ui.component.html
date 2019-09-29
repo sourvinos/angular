@@ -261,26 +261,7 @@
     <button class="ui orange button" (click)="openModalDialog()">Open modal window</button>
     <button class="ui teal button" (click)="displayToast('Everything updated!','#31caea')">Show custom toast</button>
     <button class="ui yellow button" (click)="showToast()">Show toast</button>
-
-    <div class="ui modal">
-        <div class="header">Title</div>
-        <div class="content">
-            <form class="ui form">
-                <div class="field">
-                    <label>First Name</label>
-                    <input type="text" name="first-name">
-                </div>
-                <div class="field">
-                    <label>Last Name</label>
-                    <input type="text" name="last-name">
-                </div>
-            </form>
-        </div>
-        <div class="actions">
-            <div class="ui cancel button">Cancel</div>
-            <div class="ui approve negative button">OK</div>
-        </div>
-    </div>
+    <button class="ui green button" (click)="open()">Show modal</button>
 
     <snackbar [message]="toastParameters"></snackbar>
 
