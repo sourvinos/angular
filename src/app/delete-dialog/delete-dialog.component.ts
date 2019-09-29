@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./delete-dialog.component.css']
 })
 export class DeleteDialogComponent implements OnInit {
+
 	constructor() { }
+
 	ngOnInit() { }
+
 }

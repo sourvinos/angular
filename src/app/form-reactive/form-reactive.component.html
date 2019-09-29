@@ -65,18 +65,8 @@
             <button class="ui facebook button" type="button" (click)="open()">Register</button>
             <button class="ui twitter button" type="button" (click)="loadAPI()">Load Data</button>
             <button class="ui twitter button" type="button" (click)="reset()">Reset</button>
+            <button class="ui orange button" type=" button" (click)="openMaterialModal()">Open material modal</button>
         </div>
     </form>
-
-    <ng-template let-context let-modal="modal" #modalTemplate>
-        <div class="header">Example</div>
-        <div class="content">
-            <p>{{ context.data }}</p>
-        </div>
-        <div class="actions">
-            <button class="ui red button" (click)="modal.deny('denied')">Cancel</button>
-            <button class="ui green button" (click)="modal.approve('approved')" autofocus>OK</button>
-        </div>
-    </ng-template>
 
 </main>

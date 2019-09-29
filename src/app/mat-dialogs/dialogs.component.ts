@@ -13,8 +13,14 @@ export class MatDialogsComponent {
 	constructor(private dialog: MatDialog) { }
 
 	openDialog() {
+
 		console.log('Opening...');
-		this.dialog.open(DeleteDialogComponent).afterClosed().subscribe(response => console.log(response));
+
+		this.dialog
+			.open(DeleteDialogComponent)
+			.afterClosed()
+			.subscribe(response => console.log(response));
+
 	}
 
 }
