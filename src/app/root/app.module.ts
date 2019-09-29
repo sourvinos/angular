@@ -48,7 +48,7 @@ import { AlertModule } from 'ngx-bootstrap/alert'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
 import { ModalModule } from 'ngx-bootstrap/modal'
 import { SomeComponent } from '../ngx-bootstrap/some.component'
-import { ConfirmLeaveComponent } from '../confirm-leave/confirm-leave.component'
+import { ConfirmLeaveBootstrapComponent } from '../confirm-leave-bootstrap/confirm-leave.component'
 
 @NgModule({
   declarations: [
@@ -81,13 +81,13 @@ import { ConfirmLeaveComponent } from '../confirm-leave/confirm-leave.component'
     UtilsComponent,
     ConfirmModalComponent,
     SomeComponent,
-    ConfirmLeaveComponent
+    ConfirmLeaveBootstrapComponent
   ],
   entryComponents: [
     DeleteDialogComponent,
     ConfirmModalComponent,
     SomeComponent,
-    ConfirmLeaveComponent
+    ConfirmLeaveBootstrapComponent
   ],
   imports: [
     AppRoutingModule,

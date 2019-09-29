@@ -10,7 +10,7 @@ import { SomeComponent } from '../ngx-bootstrap/some.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { Subject } from 'rxjs';
-import { ConfirmLeaveComponent } from '../confirm-leave/confirm-leave.component';
+import { ConfirmLeaveBootstrapComponent } from '../confirm-leave-bootstrap/confirm-leave.component';
 
 @Component({
 	selector: 'form-reactive',
@@ -104,7 +104,7 @@ export class FormReactiveComponent implements AfterViewInit {
 		this.isSaving = false
 		if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
 			const subject = new Subject<boolean>();
-			const modal = this.modalService.show(ConfirmLeaveComponent, { 'class': 'modal-dialog-primary' });
+			const modal = this.modalService.show(ConfirmLeaveBootstrapComponent, { 'class': 'modal-dialog-primary' });
 			modal.content.subject = subject;
 			return subject.asObservable();
 		} else {
@@ -112,40 +112,11 @@ export class FormReactiveComponent implements AfterViewInit {
 		}
 	}
 
-	// canDeactivate(): boolean {
-	// 	if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
-	// 		this.isSaving = false
-	// 	}
-	// 	return true
-	// }
-
-	// canDeactivate(): boolean {
-	// 	if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
-	// 		this.isSaving = false
-	// 		this.modalRef = this.modalService.show(SomeComponent)
-	// 	}
-	// 	return true
-	// }
-
-	// openModal() {
-	// 	this.modalRef = this.modalService.show(SomeComponent);
-	// }
-
-	// canDeactivate(): boolean {
-	// 	if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
-	// 		this.isSaving = false
-	// 		this.SuimodalService
-	// 			.open(new ConfirmModal("Are you sure?", "Are you sure about accepting this?", 'small'))
-	// 			.onDeny(() => {
-	// 				return false
-	// 			})
-	// 			.onApprove(result => {
-	// 				console.log(result)
-	// 				return true
-	// 			})
-	// 	} else {
-	// 		return true
-	// 	}
-	// }
+	openBootstrapModal() {
+		const subject = new Subject<boolean>();
+		const modal = this.modalService.show(ConfirmLeaveBootstrapComponent, { 'class': 'modal-dialog-primary' });
+		modal.content.subject = subject;
+		return subject.asObservable();
+	}
 
 }

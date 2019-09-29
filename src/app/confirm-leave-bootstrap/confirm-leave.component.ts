@@ -3,11 +3,12 @@ import { BsModalRef } from 'ngx-bootstrap';
 import { Subject } from 'rxjs';
 
 @Component({
-    selector: 'app-confirm-leave',
-    templateUrl: './confirm-leave.component.html'
+    selector: 'app-confirm-leave-bootstrap',
+    templateUrl: './confirm-leave.component.html',
+    styleUrls: ['./confirm-leave.component.css']
 })
 
-export class ConfirmLeaveComponent {
+export class ConfirmLeaveBootstrapComponent {
 
     subject: Subject<boolean>;
 

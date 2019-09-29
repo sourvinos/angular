@@ -29,6 +29,7 @@ import { SettingsComponent } from '../child-routes/settings.component';
 import { ProfileComponent } from '../child-routes/profile.component';
 import { UtilsComponent } from '../child-routes/utils.component';
 import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
+import { ConfirmLeaveBootstrapComponent } from '../confirm-leave-bootstrap/confirm-leave.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -51,6 +52,7 @@ const appRoutes: Routes = [
 	{ path: 'register', component: EventsRegisterComponent },
 	{ path: 'login', component: EventsLoginComponent },
 	{ path: 'servers', component: ServersComponent },
+	{ path: 'confirm-leave-bootstrap', component: ConfirmLeaveBootstrapComponent },
 	{
 		path: 'settings', component: SettingsComponent, children: [
 			{ path: 'profile', component: ProfileComponent },
