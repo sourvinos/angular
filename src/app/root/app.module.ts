@@ -38,14 +38,10 @@ import { ServerComponent } from './../server/server.component'
 import { ServersComponent } from './../server/servers.component'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-
-import { SuiModule } from 'ng2-semantic-ui'
-import { ConfirmModalComponent } from '../semantic-ui/modal-confirm.component'
-
 import { AlertModule } from 'ngx-bootstrap/alert'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
 import { ModalModule } from 'ngx-bootstrap/modal'
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component'
+import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
 
 @NgModule({
   declarations: [
@@ -74,12 +70,12 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
     SettingsComponent,
     ProfileComponent,
     UtilsComponent,
-    ConfirmModalComponent,
-    ConfirmDialogComponent
+    // ConfirmModalComponent,
+    ModalDialogComponent
   ],
   entryComponents: [
-    ConfirmModalComponent,
-    ConfirmDialogComponent
+    // ConfirmModalComponent,
+    ModalDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -95,7 +91,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
     MatIconModule,
     MatInputModule,
     AuthModule,
-    SuiModule,
+    // SuiModule,
     AlertModule.forRoot(),
     ButtonsModule.forRoot(),
     ModalModule.forRoot()

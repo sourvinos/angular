@@ -1,12 +1,10 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { SuiModalService } from 'ng2-semantic-ui';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Subject } from 'rxjs';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
-import { PasswordValidator } from './password.validator';
-import { ForbiddenNameValidator } from './username.validator';
+import { AfterViewInit, Component } from '@angular/core'
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
+import { Subject } from 'rxjs'
+import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
+import { PasswordValidator } from './password.validator'
+import { ForbiddenNameValidator } from './username.validator'
 
 @Component({
 	selector: 'form-reactive',
@@ -16,7 +14,7 @@ import { ForbiddenNameValidator } from './username.validator';
 
 export class FormReactiveComponent implements AfterViewInit {
 
-	message: string;
+	message: string
 	private isSaving: boolean = false
 	modalRef: BsModalRef
 
@@ -26,7 +24,7 @@ export class FormReactiveComponent implements AfterViewInit {
 
 	// Use a formBuilder to build form components
 	// instead of FormGroup and FormControl
-	constructor(private formBuilder: FormBuilder, private SuimodalService: SuiModalService, private modalService: BsModalService, private dialog: MatDialog) { }
+	constructor(private formBuilder: FormBuilder, private modalService: BsModalService) { }
 
 	// Create a model for use in the form WITHOUT FormBuilder
 	registrationForm = new FormGroup({
@@ -38,7 +36,7 @@ export class FormReactiveComponent implements AfterViewInit {
 			state: new FormControl(''),
 			zip: new FormControl('')
 		})
-	});
+	})
 
 	// FormBuilder: Create a model for use in the form
 	registrationFormWithFormBuilder = this.formBuilder.group({
@@ -50,19 +48,19 @@ export class FormReactiveComponent implements AfterViewInit {
 			state: [''],
 			zip: ['']
 		})
-	}, { validator: PasswordValidator });
+	}, { validator: PasswordValidator })
 
 	// Helper properties (not function) to shorted the code in the form validation
 	get userName() {
-		return this.registrationFormWithFormBuilder.get('userName');
+		return this.registrationFormWithFormBuilder.get('userName')
 	}
 
 	get password() {
-		return this.registrationFormWithFormBuilder.get('password');
+		return this.registrationFormWithFormBuilder.get('password')
 	}
 
 	get confirmPassword() {
-		return this.registrationFormWithFormBuilder.get('confirmPassword');
+		return this.registrationFormWithFormBuilder.get('confirmPassword')
 	}
 
 	isFormValid() {
@@ -72,7 +70,7 @@ export class FormReactiveComponent implements AfterViewInit {
 	loadAPI() {
 		// Setting the values - MUST provide ALL fields
 		// OR use registrationForm.patchValue to provice partial data
-		console.log('Loading API Data...');
+		console.log('Loading API Data...')
 		// Use this.registrationFormWithFormBuilder to use the formBuilder
 		// instead of the FormGroup and FormComtrol
 		this.registrationFormWithFormBuilder.setValue({
@@ -84,7 +82,7 @@ export class FormReactiveComponent implements AfterViewInit {
 				state: 'Corfu',
 				zip: '491 00'
 			}
-		});
+		})
 	}
 
 	reset() {
@@ -98,39 +96,45 @@ export class FormReactiveComponent implements AfterViewInit {
 	canDeactivate() {
 		this.isSaving = false
 		if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
-			const subject = new Subject<boolean>();
-			const modal = this.modalService.show(ConfirmDialogComponent, { initialState: { title: 'Confirmation', message: 'If you continue, all changes in this record will be lost.' } });
-			modal.content.subject = subject;
-			return subject.asObservable();
+			const subject = new Subject<boolean>()
+			const modal = this.modalService.show(ModalDialogComponent, {
+				initialState: {
+					title: 'Confirmation',
+					message: 'If you continue, all changes in this record will be lost.',
+					type: 'question'
+				}, animated: false
+			})
+			modal.content.subject = subject
+			return subject.asObservable()
 		} else {
 			return true
 		}
 	}
 
 	openQuestionModal() {
-		const subject = new Subject<boolean>();
-		const modal = this.modalService.show(ConfirmDialogComponent, {
+		const subject = new Subject<boolean>()
+		const modal = this.modalService.show(ModalDialogComponent, {
 			initialState: {
 				title: 'Confirmation',
-				message: 'If you continue, all changes in this record will be lost.',
+				message: 'If you continue, this record will be deleted.',
 				type: 'question'
-			}
-		});
-		modal.content.subject = subject;
-		return subject.asObservable();
+			}, animated: false
+		})
+		modal.content.subject = subject
+		return subject.asObservable().subscribe(result => console.log(result))
 	}
 
 	openErrorModal() {
-		const subject = new Subject<boolean>();
-		const modal = this.modalService.show(ConfirmDialogComponent, {
+		const subject = new Subject<boolean>()
+		const modal = this.modalService.show(ModalDialogComponent, {
 			initialState: {
 				title: 'Error',
 				message: 'This record is in use and cannot be deleted.',
 				type: 'error'
-			}
-		});
-		modal.content.subject = subject;
-		return subject.asObservable();
+			}, animated: false
+		})
+		modal.content.subject = subject
+		return subject.asObservable()
 	}
 
 }

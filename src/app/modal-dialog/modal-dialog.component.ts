@@ -3,12 +3,12 @@ import { BsModalRef } from 'ngx-bootstrap';
 import { Subject } from 'rxjs';
 
 @Component({
-    selector: 'confirm-dialog',
-    templateUrl: './confirm-dialog.component.html',
-    styleUrls: ['./confirm-dialog.component.css']
+    selector: 'modal-dialog',
+    templateUrl: './modal-dialog.component.html',
+    styleUrls: ['./modal-dialog.component.css']
 })
 
-export class ConfirmDialogComponent {
+export class ModalDialogComponent {
 
     subject: Subject<boolean>
 

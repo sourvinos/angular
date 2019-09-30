@@ -28,7 +28,7 @@ import { SettingsComponent } from '../child-routes/settings.component';
 import { ProfileComponent } from '../child-routes/profile.component';
 import { UtilsComponent } from '../child-routes/utils.component';
 import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -50,7 +50,7 @@ const appRoutes: Routes = [
 	{ path: 'register', component: EventsRegisterComponent },
 	{ path: 'login', component: EventsLoginComponent },
 	{ path: 'servers', component: ServersComponent },
-	{ path: 'confirm-dialog', component: ConfirmDialogComponent },
+	{ path: 'modal-dialog', component: ModalDialogComponent },
 	{
 		path: 'settings', component: SettingsComponent, children: [
 			{ path: 'profile', component: ProfileComponent },
