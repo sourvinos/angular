@@ -20,11 +20,9 @@ import { ProfileComponent } from '../child-routes/profile.component'
 import { SettingsComponent } from '../child-routes/settings.component'
 import { UtilsComponent } from '../child-routes/utils.component'
 import { DataBindingComponent } from '../data-binding/data-binging.component'
-import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { InputsComponent } from '../input-controls/input-controls.component'
 import { MainNavComponent } from '../main-nav/main-nav.component'
-import { MatDialogsComponent } from '../mat-dialogs/dialogs.component'
 import { ParentToChildComponent } from '../parent-child/parent.component'
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
 import { SnackbarComponent } from '../snackbar/snackbar.component'
@@ -47,8 +45,7 @@ import { ConfirmModalComponent } from '../semantic-ui/modal-confirm.component'
 import { AlertModule } from 'ngx-bootstrap/alert'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
 import { ModalModule } from 'ngx-bootstrap/modal'
-import { SomeComponent } from '../ngx-bootstrap/some.component'
-import { ConfirmLeaveComponent } from '../confirm-leave/confirm-leave.component'
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component'
 
 @NgModule({
   declarations: [
@@ -58,7 +55,6 @@ import { ConfirmLeaveComponent } from '../confirm-leave/confirm-leave.component'
     FormTemplateComponent,
     UserListComponent,
     ButtonsComponent,
-    DeleteDialogComponent,
     InputsComponent,
     CssGridComponent,
     MainNavComponent,
@@ -72,7 +68,6 @@ import { ConfirmLeaveComponent } from '../confirm-leave/confirm-leave.component'
     ChildToParentComponent,
     SemanticComponent,
     SnackbarComponent,
-    MatDialogsComponent,
     MainComponent,
     LeftComponent,
     RightComponent,
@@ -80,14 +75,11 @@ import { ConfirmLeaveComponent } from '../confirm-leave/confirm-leave.component'
     ProfileComponent,
     UtilsComponent,
     ConfirmModalComponent,
-    SomeComponent,
-    ConfirmLeaveComponent
+    ConfirmDialogComponent
   ],
   entryComponents: [
-    DeleteDialogComponent,
     ConfirmModalComponent,
-    SomeComponent,
-    ConfirmLeaveComponent
+    ConfirmDialogComponent
   ],
   imports: [
     AppRoutingModule,

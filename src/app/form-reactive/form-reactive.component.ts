@@ -1,16 +1,12 @@
-import { AfterViewInit, Component, TemplateRef } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { DialogService } from './../services/dialog-service';
+import { MatDialog } from '@angular/material/dialog';
+import { SuiModalService } from 'ng2-semantic-ui';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Subject } from 'rxjs';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { PasswordValidator } from './password.validator';
 import { ForbiddenNameValidator } from './username.validator';
-import { SuiModalService } from 'ng2-semantic-ui';
-import { ConfirmModal } from '../semantic-ui/modal-confirm.component';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { SomeComponent } from '../ngx-bootstrap/some.component';
-import { MatDialog } from '@angular/material/dialog';
-import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
-import { Subject } from 'rxjs';
-import { ConfirmLeaveComponent } from '../confirm-leave/confirm-leave.component';
 
 @Component({
 	selector: 'form-reactive',
@@ -30,7 +26,7 @@ export class FormReactiveComponent implements AfterViewInit {
 
 	// Use a formBuilder to build form components
 	// instead of FormGroup and FormControl
-	constructor(private formBuilder: FormBuilder, private dialogService: DialogService, private SuimodalService: SuiModalService, private modalService: BsModalService, private dialog: MatDialog) { }
+	constructor(private formBuilder: FormBuilder, private SuimodalService: SuiModalService, private modalService: BsModalService, private dialog: MatDialog) { }
 
 	// Create a model for use in the form WITHOUT FormBuilder
 	registrationForm = new FormGroup({
@@ -100,11 +96,10 @@ export class FormReactiveComponent implements AfterViewInit {
 	}
 
 	canDeactivate() {
-		console.log("Deactivating...")
 		this.isSaving = false
 		if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
 			const subject = new Subject<boolean>();
-			const modal = this.modalService.show(ConfirmLeaveComponent, { 'class': 'modal-dialog-primary' });
+			const modal = this.modalService.show(ConfirmDialogComponent, { initialState: { title: 'Confirmation', message: 'If you continue, all changes in this record will be lost.' } });
 			modal.content.subject = subject;
 			return subject.asObservable();
 		} else {
@@ -112,40 +107,30 @@ export class FormReactiveComponent implements AfterViewInit {
 		}
 	}
 
-	// canDeactivate(): boolean {
-	// 	if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
-	// 		this.isSaving = false
-	// 	}
-	// 	return true
-	// }
+	openQuestionModal() {
+		const subject = new Subject<boolean>();
+		const modal = this.modalService.show(ConfirmDialogComponent, {
+			initialState: {
+				title: 'Confirmation',
+				message: 'If you continue, all changes in this record will be lost.',
+				type: 'question'
+			}
+		});
+		modal.content.subject = subject;
+		return subject.asObservable();
+	}
 
-	// canDeactivate(): boolean {
-	// 	if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
-	// 		this.isSaving = false
-	// 		this.modalRef = this.modalService.show(SomeComponent)
-	// 	}
-	// 	return true
-	// }
-
-	// openModal() {
-	// 	this.modalRef = this.modalService.show(SomeComponent);
-	// }
-
-	// canDeactivate(): boolean {
-	// 	if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
-	// 		this.isSaving = false
-	// 		this.SuimodalService
-	// 			.open(new ConfirmModal("Are you sure?", "Are you sure about accepting this?", 'small'))
-	// 			.onDeny(() => {
-	// 				return false
-	// 			})
-	// 			.onApprove(result => {
-	// 				console.log(result)
-	// 				return true
-	// 			})
-	// 	} else {
-	// 		return true
-	// 	}
-	// }
+	openErrorModal() {
+		const subject = new Subject<boolean>();
+		const modal = this.modalService.show(ConfirmDialogComponent, {
+			initialState: {
+				title: 'Error',
+				message: 'This record is in use and cannot be deleted.',
+				type: 'error'
+			}
+		});
+		modal.content.subject = subject;
+		return subject.asObservable();
+	}
 
 }

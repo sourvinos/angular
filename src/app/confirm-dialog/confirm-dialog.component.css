@@ -1,0 +1,12 @@
+.modal-title {
+    font-size: 1.5rem
+}
+
+.modal-body {
+    display: flex;
+    align-items: center;
+}
+
+.modal-body p {
+    margin-left: 1.5rem;
+}

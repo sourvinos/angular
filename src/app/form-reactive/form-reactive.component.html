@@ -21,24 +21,24 @@
             <label>First name</label>
             <input type="text" formControlName="userName" tabindex="1" id="userName">
             <div *ngIf="userName.invalid && userName.touched">
-                <span *ngIf="!!userName.errors?.required" class="ui red text">Username must not be black!</span>
-                <span *ngIf="!!userName.errors?.minlength" class="ui red text">Username must be at least three characters!</span>
+                <!-- <span *ngIf="!!userName.errors?.required" class="ui red text">Username must not be black!</span> -->
+                <!-- <span *ngIf="!!userName.errors?.minlength" class="ui red text">Username must be at least three characters!</span> -->
                 <!-- ! "forbiddenName" will be returned from the validation -->
-                <span *ngIf="!!userName.errors?.forbiddenName" class="ui red text">This username is not allowed!</span>
+                <!-- <span *ngIf="!!userName.errors?.forbiddenName" class="ui red text">This username is not allowed!</span> -->
             </div>
         </div>
         <div class="field" [class.error]="password.invalid && password.touched">
             <label>Password</label>
             <input type="text" formControlName="password" tabindex="2">
             <div *ngIf="password.invalid && password.touched">
-                <span *ngIf="!!password.errors?.required" class="ui red text">Password must not be black!</span>
+                <!-- <span *ngIf="!!password.errors?.required" class="ui red text">Password must not be black!</span> -->
             </div>
         </div>
         <div class="field" [class.error]="confirmPassword.invalid && confirmPassword.touched">
             <label>Confirm password</label>
             <input type="text" formControlName="confirmPassword" tabindex="3">
             <div *ngIf="confirmPassword.invalid && confirmPassword.touched">
-                <span *ngIf="!!confirmPassword.errors?.required" class="ui red text">Passwords do not match!</span>
+                <!-- <span *ngIf="!!confirmPassword.errors?.required" class="ui red text">Passwords do not match!</span> -->
             </div>
             <span *ngIf="!!registrationFormWithFormBuilder.errors?.mismatch" class="ui text red">Password and Confirm password must be the same!</span>
         </div>
@@ -65,8 +65,8 @@
             <button class="ui facebook button" type="button" (click)="open()">Register</button>
             <button class="ui twitter button" type="button" (click)="loadAPI()">Load Data</button>
             <button class="ui twitter button" type="button" (click)="reset()">Reset</button>
-            <button class="ui orange button" type=" button" (click)="openMaterialModal()">Open material modal</button>
+            <button class="ui orange button" type=" button" (click)="openQuestionModal()">Open question modal</button>
+            <button class="ui orange button" type=" button" (click)="openErrorModal()">Open error modal</button>
         </div>
     </form>
-
 </main>

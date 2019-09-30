@@ -5,7 +5,6 @@ import { AuthGuard } from './../auth/services/auth.guard';
 import { HomeComponent } from '../home/home.component';
 
 import { ButtonsComponent } from './../buttons/buttons.component';
-import { MatDialogsComponent } from '../mat-dialogs/dialogs.component';
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component';
 import { FormTemplateComponent } from '../form-template/form-template.component';
 import { InputsComponent } from '../input-controls/input-controls.component';
@@ -29,13 +28,13 @@ import { SettingsComponent } from '../child-routes/settings.component';
 import { ProfileComponent } from '../child-routes/profile.component';
 import { UtilsComponent } from '../child-routes/utils.component';
 import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'home', component: HomeComponent },
 	{ path: 'animations', component: MainComponent },
 	{ path: 'buttons', component: ButtonsComponent },
-	{ path: 'mat-dialogs', component: MatDialogsComponent },
 	{ path: 'form-reactive', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard] },
 	{ path: 'form-template', component: FormTemplateComponent },
 	{ path: 'input-controls', component: InputsComponent },
@@ -51,6 +50,7 @@ const appRoutes: Routes = [
 	{ path: 'register', component: EventsRegisterComponent },
 	{ path: 'login', component: EventsLoginComponent },
 	{ path: 'servers', component: ServersComponent },
+	{ path: 'confirm-dialog', component: ConfirmDialogComponent },
 	{
 		path: 'settings', component: SettingsComponent, children: [
 			{ path: 'profile', component: ProfileComponent },

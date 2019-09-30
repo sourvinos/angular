@@ -60,3 +60,14 @@ button {
 button:active, button:focus {
     outline: none !important;
 }
+
+.modal-open .modal {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.modal-content {
+    background-color: #f0f0f8;
+    padding: 1rem;
+    width: 40rem
+}
