@@ -1,3 +1,5 @@
+import { HomecolorBlueComponent } from './../homecolor-blue/homecolor-blue.component';
+import { HomecolorComponent } from './../homecolor/homecolor.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './../auth/services/auth.guard';
@@ -22,17 +24,18 @@ import { EventsLoginComponent } from '../auth/login/login.component';
 import { ParentToChildComponent } from '../parent-child/parent.component';
 import { ParentFromChildComponent } from '../child-parent/parent.component';
 
-import { ServersComponent } from '../server/servers.component';
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component';
 import { SettingsComponent } from '../child-routes/settings.component';
 import { ProfileComponent } from '../child-routes/profile.component';
 import { UtilsComponent } from '../child-routes/utils.component';
 import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
 import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
+import { EmployeeFormComponent } from './../employees/form.component';
+import { EmployeesListComponent } from '../employees/list.component';
+import { HomebaseComponent } from '../homebase/homebase.component';
 
 const appRoutes: Routes = [
-	{ path: '', component: HomeComponent },
-	{ path: 'home', component: HomeComponent },
+	// { path: '', component: HomeComponent },
 	{ path: 'animations', component: MainComponent },
 	{ path: 'buttons', component: ButtonsComponent },
 	{ path: 'form-reactive', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard] },
@@ -49,14 +52,30 @@ const appRoutes: Routes = [
 	{ path: 'members', component: EventsMembersComponent, canActivate: [AuthGuard] },
 	{ path: 'register', component: EventsRegisterComponent },
 	{ path: 'login', component: EventsLoginComponent },
-	{ path: 'servers', component: ServersComponent },
 	{ path: 'modal-dialog', component: ModalDialogComponent },
 	{
 		path: 'settings', component: SettingsComponent, children: [
 			{ path: 'profile', component: ProfileComponent },
 			{ path: 'utils', component: UtilsComponent }
 		]
+	},
+	{
+		path: 'employees', children: [
+			{ path: '', component: EmployeesListComponent },
+			{ path: 'create', component: EmployeeFormComponent },
+			{ path: 'edit/:id', component: EmployeeFormComponent }
+		]
+	},
+	{
+		path: 'home', component: HomeComponent, children: [
+			{ path: '', component: HomebaseComponent }, {
+				path: 'employees', component: EmployeesListComponent, children: [
+					{ path: '', component: EmployeeFormComponent }
+				]
+			}
+		]
 	}
+
 ];
 
 @NgModule({

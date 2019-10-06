@@ -1,3 +1,5 @@
+import { HomecolorComponent } from './../homecolor/homecolor.component';
+import { HomebaseComponent } from './../homebase/homebase.component';
 import { CommonModule } from '@angular/common'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { NgModule } from '@angular/core'
@@ -34,14 +36,15 @@ import { CssGridComponent } from './../css-grid/css-grid.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
 import { HomeComponent } from './../home/home.component'
 import { ChildFromParentComponent } from './../parent-child/child.component'
-import { ServerComponent } from './../server/server.component'
-import { ServersComponent } from './../server/servers.component'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { AlertModule } from 'ngx-bootstrap/alert'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
 import { ModalModule } from 'ngx-bootstrap/modal'
 import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
+import { EmployeesListComponent } from '../employees/list.component'
+import { EmployeeFormComponent } from '../employees/form.component'
+import { HomecolorBlueComponent } from '../homecolor-blue/homecolor-blue.component';
 
 @NgModule({
   declarations: [
@@ -56,8 +59,6 @@ import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
     MainNavComponent,
     DataBindingComponent,
     ArraysComponent,
-    ServerComponent,
-    ServersComponent,
     ParentToChildComponent,
     ChildFromParentComponent,
     ParentFromChildComponent,
@@ -71,7 +72,12 @@ import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
     ProfileComponent,
     UtilsComponent,
     // ConfirmModalComponent,
-    ModalDialogComponent
+    ModalDialogComponent,
+    EmployeesListComponent,
+    EmployeeFormComponent,
+    HomebaseComponent,
+    HomecolorComponent,
+    HomecolorBlueComponent
   ],
   entryComponents: [
     // ConfirmModalComponent,
