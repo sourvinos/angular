@@ -1,0 +1,5 @@
+<button>New recipe</button>
+
+<h2>Recipe list</h2>
+
+<app-recipe-item *ngFor="let recipeEl of recipes" [recipe]="recipeEl" (recipeSelected)="onRecipeSelected(recipeEl)"></app-recipe-item>

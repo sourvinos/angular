@@ -71,3 +71,7 @@ button:active, button:focus {
     padding: 1rem;
     width: 40rem
 }
+
+ul {
+    list-style: none;
+}

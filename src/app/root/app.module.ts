@@ -1,5 +1,4 @@
-import { HomecolorComponent } from './../homecolor/homecolor.component';
-import { HomebaseComponent } from './../homebase/homebase.component';
+
 import { CommonModule } from '@angular/common'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { NgModule } from '@angular/core'
@@ -24,7 +23,6 @@ import { UtilsComponent } from '../child-routes/utils.component'
 import { DataBindingComponent } from '../data-binding/data-binging.component'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { InputsComponent } from '../input-controls/input-controls.component'
-import { MainNavComponent } from '../main-nav/main-nav.component'
 import { ParentToChildComponent } from '../parent-child/parent.component'
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
 import { SnackbarComponent } from '../snackbar/snackbar.component'
@@ -34,7 +32,6 @@ import { ButtonsComponent } from './../buttons/buttons.component'
 import { ParentFromChildComponent } from './../child-parent/parent.component'
 import { CssGridComponent } from './../css-grid/css-grid.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
-import { HomeComponent } from './../home/home.component'
 import { ChildFromParentComponent } from './../parent-child/child.component'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -42,21 +39,24 @@ import { AlertModule } from 'ngx-bootstrap/alert'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
 import { ModalModule } from 'ngx-bootstrap/modal'
 import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
-import { EmployeesListComponent } from '../employees/list.component'
-import { EmployeeFormComponent } from '../employees/form.component'
-import { HomecolorBlueComponent } from '../homecolor-blue/homecolor-blue.component';
+
+// Recipes
+import { HeaderComponent } from './../header/header.component';
+
+import { RecipesComponent } from '../recipes/recipes.component'
+import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.component'
+import { RecipeDetailComponent } from '../recipes/recipe-detail/recipe-detail.component'
+import { RecipeItemComponent } from '../recipes/recipe-list/recipe-item/recipe-item.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     FormReactiveComponent,
     FormTemplateComponent,
     UserListComponent,
     ButtonsComponent,
     InputsComponent,
     CssGridComponent,
-    MainNavComponent,
     DataBindingComponent,
     ArraysComponent,
     ParentToChildComponent,
@@ -73,11 +73,11 @@ import { HomecolorBlueComponent } from '../homecolor-blue/homecolor-blue.compone
     UtilsComponent,
     // ConfirmModalComponent,
     ModalDialogComponent,
-    EmployeesListComponent,
-    EmployeeFormComponent,
-    HomebaseComponent,
-    HomecolorComponent,
-    HomecolorBlueComponent
+    HeaderComponent,
+    RecipeDetailComponent,
+    RecipesComponent,
+    RecipeItemComponent,
+    RecipeListComponent,
   ],
   entryComponents: [
     // ConfirmModalComponent,

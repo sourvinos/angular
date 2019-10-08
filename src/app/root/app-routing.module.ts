@@ -1,10 +1,6 @@
-import { HomecolorBlueComponent } from './../homecolor-blue/homecolor-blue.component';
-import { HomecolorComponent } from './../homecolor/homecolor.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './../auth/services/auth.guard';
-
-import { HomeComponent } from '../home/home.component';
 
 import { ButtonsComponent } from './../buttons/buttons.component';
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component';
@@ -30,12 +26,10 @@ import { ProfileComponent } from '../child-routes/profile.component';
 import { UtilsComponent } from '../child-routes/utils.component';
 import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
 import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
-import { EmployeeFormComponent } from './../employees/form.component';
-import { EmployeesListComponent } from '../employees/list.component';
-import { HomebaseComponent } from '../homebase/homebase.component';
+import { RecipesComponent } from '../recipes/recipes.component';
 
 const appRoutes: Routes = [
-	// { path: '', component: HomeComponent },
+	{ path: '', pathMatch: "full", redirectTo: "" },
 	{ path: 'animations', component: MainComponent },
 	{ path: 'buttons', component: ButtonsComponent },
 	{ path: 'form-reactive', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard] },
@@ -59,23 +53,7 @@ const appRoutes: Routes = [
 			{ path: 'utils', component: UtilsComponent }
 		]
 	},
-	{
-		path: 'employees', children: [
-			{ path: '', component: EmployeesListComponent },
-			{ path: 'create', component: EmployeeFormComponent },
-			{ path: 'edit/:id', component: EmployeeFormComponent }
-		]
-	},
-	{
-		path: 'home', component: HomeComponent, children: [
-			{ path: '', component: HomebaseComponent }, {
-				path: 'employees', component: EmployeesListComponent, children: [
-					{ path: '', component: EmployeeFormComponent }
-				]
-			}
-		]
-	}
-
+	{ path: 'recipes', component: RecipesComponent }
 ];
 
 @NgModule({
