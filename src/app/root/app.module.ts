@@ -1,3 +1,4 @@
+import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component';
 import { CommonModule } from '@angular/common'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { NgModule } from '@angular/core'
@@ -77,7 +78,8 @@ import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.compo
     RecipesComponent,
     RecipeItemComponent,
     RecipeListComponent,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   entryComponents: [
     // ConfirmModalComponent,

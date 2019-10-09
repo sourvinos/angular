@@ -11,6 +11,9 @@ import { Recipe } from '../../recipe.model';
 export class RecipeItemComponent implements OnInit {
 
     @Input() recipe: Recipe
+
+    // Step 3/5
+    // Accept the index from the recipe-list
     @Input() index: Number
 
     constructor() { }

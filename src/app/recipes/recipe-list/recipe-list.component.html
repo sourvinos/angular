@@ -1,5 +1,9 @@
-<button>New recipe</button>
+<button (click)="onNewRecipe()">New recipe</button>
+
+<br>
 
 <h2>Recipe list</h2>
 
+<!-- Step 2/5 -->
+<!-- Get the index of each item -->
 <app-recipe-item *ngFor="let recipeEl of recipes; let i = index" [recipe]="recipeEl" [index]="i"></app-recipe-item>
