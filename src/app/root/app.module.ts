@@ -1,4 +1,3 @@
-
 import { CommonModule } from '@angular/common'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { NgModule } from '@angular/core'
@@ -42,11 +41,11 @@ import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
 
 // Recipes
 import { HeaderComponent } from './../header/header.component';
-
 import { RecipesComponent } from '../recipes/recipes.component'
 import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.component'
 import { RecipeDetailComponent } from '../recipes/recipe-detail/recipe-detail.component'
 import { RecipeItemComponent } from '../recipes/recipe-list/recipe-item/recipe-item.component'
+import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.component'
 
 @NgModule({
   declarations: [
@@ -78,6 +77,7 @@ import { RecipeItemComponent } from '../recipes/recipe-list/recipe-item/recipe-i
     RecipesComponent,
     RecipeItemComponent,
     RecipeListComponent,
+    RecipeStartComponent
   ],
   entryComponents: [
     // ConfirmModalComponent,

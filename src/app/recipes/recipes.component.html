@@ -1,8 +1,10 @@
 <app-recipe-list></app-recipe-list>
 
-<div *ngIf="selectedRecipe">
+<router-outlet></router-outlet>
+
+<!-- <div *ngIf="selectedRecipe">
     <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>
 </div>
 <div *ngIf="!selectedRecipe">
     <p><br />No recipe selected</p>
-</div>
+</div> -->

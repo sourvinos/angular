@@ -27,6 +27,8 @@ import { UtilsComponent } from '../child-routes/utils.component';
 import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
 import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
 import { RecipesComponent } from '../recipes/recipes.component';
+import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.component';
+import { RecipeDetailComponent } from '../recipes/recipe-detail/recipe-detail.component';
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -53,7 +55,12 @@ const appRoutes: Routes = [
 			{ path: 'utils', component: UtilsComponent }
 		]
 	},
-	{ path: 'recipes', component: RecipesComponent }
+	{
+		path: 'recipes', component: RecipesComponent, children: [
+			{ path: '', component: RecipeStartComponent },
+			{ path: ':id', component: RecipeDetailComponent }
+		]
+	}
 ];
 
 @NgModule({
