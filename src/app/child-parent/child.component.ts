@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'childToParent',
@@ -13,7 +13,7 @@ export class ChildToParentComponent {
 
     // Child method that when called it emitts the @Output variable
     callParentGreet() {
-        this.greetEvent.emit(this.name)
+        this.greetEvent.emit(this.name = 'John')
     }
 
 }

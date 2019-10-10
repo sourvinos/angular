@@ -1,4 +1,3 @@
-import * as moment from 'moment'
 import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { DescriptionValidators } from './input-controls-validators';
@@ -52,6 +51,5 @@ export class InputsComponent implements AfterViewInit {
 	get profession() {
 		return this.fb.get('profession');
 	}
-
 
 }

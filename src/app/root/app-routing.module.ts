@@ -60,8 +60,8 @@ const appRoutes: Routes = [
 		path: 'recipes', component: RecipesComponent, children: [
 			{ path: '', component: RecipeStartComponent },
 			{ path: 'new', component: RecipeEditComponent },
-			{ path: ':id/edit', component: RecipeEditComponent, canDeactivate: [CanDeactivateGuard] },
-			{ path: ':id', component: RecipeDetailComponent }, // Step 1/5
+			{ path: ':id', component: RecipeEditComponent, canDeactivate: [CanDeactivateGuard] }, // Step 1/5
+			// { path: ':id', component: RecipeDetailComponent }, // Step 1/5
 		]
 	}
 ];

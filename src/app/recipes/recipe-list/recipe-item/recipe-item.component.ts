@@ -1,4 +1,3 @@
-import { RecipeService } from './../../recipe.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../../recipe.model';
 
@@ -10,9 +9,9 @@ import { Recipe } from '../../recipe.model';
 
 export class RecipeItemComponent implements OnInit {
 
-    @Input() recipe: Recipe
-
     // Step 3/5
+    // Accept the receipe from the recipe-list
+    @Input() recipe: Recipe
     // Accept the index from the recipe-list
     @Input() index: Number
 

@@ -7,12 +7,9 @@ import { ChildFromParentComponent } from './child.component';
     styleUrls: ['./parent.component.css']
 })
 
-export class ParentToChildComponent implements OnInit {
+export class ParentToChildComponent {
 
     @ViewChild(ChildFromParentComponent) private varName: ChildFromParentComponent
-
-    ngOnInit() {
-    }
 
     startTimer() {
         this.varName.startTimer()
