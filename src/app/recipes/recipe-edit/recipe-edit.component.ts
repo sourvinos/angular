@@ -1,5 +1,5 @@
 import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
 
@@ -8,6 +8,7 @@ import { RecipeService } from '../recipe.service';
     templateUrl: './recipe-edit.component.html',
     styleUrls: ['./recipe-edit.component.css']
 })
+
 export class RecipeEditComponent implements OnInit {
 
     id: number
@@ -15,6 +16,10 @@ export class RecipeEditComponent implements OnInit {
     recipeForm: FormGroup
 
     constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) { }
+
+    onClick() {
+        this.recipeService.emitChange(true)
+    }
 
     ngOnInit() {
         // Step 5/5
@@ -61,5 +66,6 @@ export class RecipeEditComponent implements OnInit {
             return true
         }
     }
+
 
 }

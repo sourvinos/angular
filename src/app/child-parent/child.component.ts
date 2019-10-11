@@ -1,19 +1,26 @@
+import { SharedService } from './shared.service';
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'childToParent',
+    selector: 'child',
     templateUrl: './child.component.html',
     styleUrls: ['./child.component.css']
 })
 
 export class ChildToParentComponent {
 
-    @Output() greetEvent = new EventEmitter()
-    name: string = 'Codevolution'
+    constructor(private sharedService: SharedService) { }
+
+    // @Output() greetEvent = new EventEmitter()
+    // name: string = 'Codevolution'
 
     // Child method that when called it emitts the @Output variable
-    callParentGreet() {
-        this.greetEvent.emit(this.name = 'John')
+    // doSomething() {
+    //     this.greetEvent.emit(this.name = 'John')
+    // }
+
+    onClick() {
+        this.sharedService.emitChange('I came from below!')
     }
 
 }

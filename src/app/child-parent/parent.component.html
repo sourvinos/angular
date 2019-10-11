@@ -1,23 +1,8 @@
-<h1>Parent from Child</h1>
+<div id="parent">
+    <h1>Parent</h1>
+    <h2>Message from the child: {{ message }}</h2>
 
-<!-- greetEvent is a parent method. When called, it calls the greet method, also on the parent -->
-<childToParent (greetEvent)="greet($event)"></childToParent>
-
-<div class="ui modal">
-    <i class="close icon"></i>
-    <div class="header">
-        Modal Title
-    </div>
-    <div class="image content">
-        <div class="image">
-            An image can appear on left or an icon
-        </div>
-        <div class="description">
-            A description can appear on the right
-        </div>
-    </div>
-    <div class="actions">
-        <div class="ui button">Cancel</div>
-        <div class="ui button">OK</div>
-    </div>
+    <!-- (greetEvent) is a name of the output on the child. When called, it calls the greet method on the parent -->
+    <!-- <child (greetEvent)="greet($event)"></child> -->
+    <child></child>
 </div>

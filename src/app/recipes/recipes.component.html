@@ -1,6 +1,13 @@
-<app-recipe-list></app-recipe-list>
+<div id="parent">
 
-<router-outlet></router-outlet>
+    <h1>Parent</h1>
+    <h2>Message from the child: {{ isFormVisible }}</h2>
+
+    <app-recipe-list></app-recipe-list>
+
+    <router-outlet></router-outlet>
+
+</div>
 
 <!-- <div *ngIf="selectedRecipe">
     <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>

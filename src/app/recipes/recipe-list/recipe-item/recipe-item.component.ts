@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Recipe } from '../../recipe.model';
 
 @Component({
@@ -7,7 +7,7 @@ import { Recipe } from '../../recipe.model';
     styleUrls: ['./recipe-item.component.css']
 })
 
-export class RecipeItemComponent implements OnInit {
+export class RecipeItemComponent {
 
     // Step 3/5
     // Accept the receipe from the recipe-list
@@ -16,7 +16,5 @@ export class RecipeItemComponent implements OnInit {
     @Input() index: Number
 
     constructor() { }
-
-    ngOnInit() { }
 
 }
