@@ -1,7 +1,10 @@
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
+import { Subject } from 'rxjs';
+import { ModalDialogComponent } from 'src/app/modal-dialog/modal-dialog.component';
 
 @Component({
     selector: 'app-recipe-edit',
@@ -15,7 +18,7 @@ export class RecipeEditComponent implements OnInit {
     editMode: boolean = false
     recipeForm: FormGroup
 
-    constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) { }
+    constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router, private modalService: BsModalService) { }
 
     onClick() {
         this.recipeService.emitChange(true)
@@ -59,13 +62,19 @@ export class RecipeEditComponent implements OnInit {
     canDeactivate(): any {
         console.log(this.recipeForm.dirty)
         if (this.recipeForm.dirty) {
-            if (confirm('Exit')) {
-                return true
-            }
+            const subject = new Subject<boolean>()
+            const modal = this.modalService.show(ModalDialogComponent, {
+                initialState: {
+                    title: 'Confirmation',
+                    message: 'If you continue, all changes in this record will be lost.',
+                    type: 'question'
+                }, animated: false
+            })
+            modal.content.subject = subject
+            return subject.asObservable()
         } else {
             return true
         }
     }
-
 
 }
