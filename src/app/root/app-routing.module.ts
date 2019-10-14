@@ -30,6 +30,7 @@ import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
 import { RecipesComponent } from '../recipes/recipes.component';
 import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.component';
 import { RecipeDetailComponent } from '../recipes/recipe-detail/recipe-detail.component';
+import { MaxDataBindingComponent } from '../data-binding/max-data-binding.component';
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -61,9 +62,9 @@ const appRoutes: Routes = [
 			{ path: '', component: RecipeStartComponent },
 			{ path: 'new', component: RecipeEditComponent },
 			{ path: ':id', component: RecipeEditComponent, canDeactivate: [CanDeactivateGuard] }, // Step 1/5
-			// { path: ':id', component: RecipeDetailComponent }, // Step 1/5
 		]
-	}
+	},
+	{ path: 'max-data-binding', component: MaxDataBindingComponent }
 ];
 
 @NgModule({

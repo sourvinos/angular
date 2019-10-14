@@ -1,3 +1,5 @@
+import { ServerElementComponent } from './../data-binding/server-element/server-element.component';
+import { CockpitComponent } from './../data-binding/cockpit/cockpit.component';
 import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component';
 import { CommonModule } from '@angular/common'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
@@ -47,6 +49,7 @@ import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.componen
 import { RecipeDetailComponent } from '../recipes/recipe-detail/recipe-detail.component'
 import { RecipeItemComponent } from '../recipes/recipe-list/recipe-item/recipe-item.component'
 import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.component'
+import { MaxDataBindingComponent } from '../data-binding/max-data-binding.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +82,10 @@ import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.compo
     RecipeItemComponent,
     RecipeListComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    MaxDataBindingComponent,
+    CockpitComponent,
+    ServerElementComponent
   ],
   entryComponents: [
     // ConfirmModalComponent,
