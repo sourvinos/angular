@@ -1,6 +1,6 @@
-import { ServerElementComponent } from './../data-binding/server-element/server-element.component';
-import { CockpitComponent } from './../data-binding/cockpit/cockpit.component';
-import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component';
+import { ServerElementComponent } from './../data-binding/server-element/server-element.component'
+import { CockpitComponent } from './../data-binding/cockpit/cockpit.component'
+import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component'
 import { CommonModule } from '@angular/common'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { NgModule } from '@angular/core'
@@ -41,15 +41,18 @@ import { AlertModule } from 'ngx-bootstrap/alert'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
 import { ModalModule } from 'ngx-bootstrap/modal'
 import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
+import { MaxDataBindingComponent } from '../data-binding/max-data-binding.component'
 
 // Recipes
-import { HeaderComponent } from './../header/header.component';
+import { HeaderComponent } from './../header/header.component'
 import { RecipesComponent } from '../recipes/recipes.component'
 import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.component'
 import { RecipeDetailComponent } from '../recipes/recipe-detail/recipe-detail.component'
 import { RecipeItemComponent } from '../recipes/recipe-list/recipe-item/recipe-item.component'
 import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.component'
-import { MaxDataBindingComponent } from '../data-binding/max-data-binding.component';
+
+// Employees
+import { ListEmployeesComponent } from './../employees/list-employees.component'
 
 @NgModule({
   declarations: [
@@ -74,7 +77,6 @@ import { MaxDataBindingComponent } from '../data-binding/max-data-binding.compon
     SettingsComponent,
     ProfileComponent,
     UtilsComponent,
-    // ConfirmModalComponent,
     ModalDialogComponent,
     HeaderComponent,
     RecipeDetailComponent,
@@ -85,10 +87,10 @@ import { MaxDataBindingComponent } from '../data-binding/max-data-binding.compon
     RecipeEditComponent,
     MaxDataBindingComponent,
     CockpitComponent,
-    ServerElementComponent
+    ServerElementComponent,
+    ListEmployeesComponent
   ],
   entryComponents: [
-    // ConfirmModalComponent,
     ModalDialogComponent
   ],
   imports: [
@@ -105,7 +107,6 @@ import { MaxDataBindingComponent } from '../data-binding/max-data-binding.compon
     MatIconModule,
     MatInputModule,
     AuthModule,
-    // SuiModule,
     AlertModule.forRoot(),
     ButtonsModule.forRoot(),
     ModalModule.forRoot()

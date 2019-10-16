@@ -19,7 +19,7 @@ export class ChildToParentComponent {
     //     this.greetEvent.emit(this.name = 'John')
     // }
 
-    onClick() {
+    onUpdateParent() {
         this.sharedService.emitChange('I came from below!')
     }
 

@@ -1,3 +1,4 @@
+import { ListEmployeesComponent } from './../employees/list-employees.component';
 import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -29,7 +30,6 @@ import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
 import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
 import { RecipesComponent } from '../recipes/recipes.component';
 import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.component';
-import { RecipeDetailComponent } from '../recipes/recipe-detail/recipe-detail.component';
 import { MaxDataBindingComponent } from '../data-binding/max-data-binding.component';
 
 const appRoutes: Routes = [
@@ -64,7 +64,8 @@ const appRoutes: Routes = [
 			{ path: ':id', component: RecipeEditComponent, canDeactivate: [CanDeactivateGuard] }, // Step 1/5
 		]
 	},
-	{ path: 'max-data-binding', component: MaxDataBindingComponent }
+	{ path: 'max-data-binding', component: MaxDataBindingComponent },
+	{ path: 'employees', component: ListEmployeesComponent }
 ];
 
 @NgModule({

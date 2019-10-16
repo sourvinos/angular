@@ -1,7 +1,7 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 body {
-    margin: 1rem;
     overflow: hidden;
+    margin: 0;
 }
 
 h1, h2, h3, h4 {
