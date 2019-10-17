@@ -1,68 +1,78 @@
-<div class="panel panel-primary" *ngFor="let employee of employees">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{ employee.name }}</h3>
-    </div>
-    <div class="panel-body">
-        <div>
-            <div class="row">
-                <div class="col-xs-2">
-                    <img [src]="employee.photoPath">
-                </div>
-                <div class="col-xs-5">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            Gender
-                        </div>
-                        <div class="col-xs-6">
-                            {{ employee.gender}}
-                        </div>
+<div class="container">
+    <!-- Menu -->
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li><a [routerLink]=" ['/employees']" routerLinkActive="active">List</a></li>
+            <li><a [routerLink]="['/employees/new']" routerLinkActive="active">Create</a></li>
+        </ul>
+    </nav>
+    <!-- List -->
+    <div class="panel panel-primary" *ngFor="let employee of employees">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ employee.name }}</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <img [src]="employee.photoPath">
                     </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            Date of birth
+                    <div class="col-xs-5">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Gender
+                            </div>
+                            <div class="col-xs-6">
+                                {{ employee.gender}}
+                            </div>
                         </div>
-                        <div class="col-xs-6">
-                            {{ employee.dateOfBirth | date }}
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Date of birth
+                            </div>
+                            <div class="col-xs-6">
+                                {{ employee.dateOfBirth | date }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            Contact preference
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Contact preference
+                            </div>
+                            <div class="col-xs-6">
+                                {{ employee.contactPreference }}
+                            </div>
                         </div>
-                        <div class="col-xs-6">
-                            {{ employee.contactPreference }}
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Contact preference
+                            </div>
+                            <div class="col-xs-6">
+                                {{ employee.contactPreference }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            Contact preference
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Phone
+                            </div>
+                            <div class="col-xs-6">
+                                {{ employee.phone }}
+                            </div>
                         </div>
-                        <div class="col-xs-6">
-                            {{ employee.contactPreference }}
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Email
+                            </div>
+                            <div class="col-xs-6">
+                                {{ employee.email }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            Phone
-                        </div>
-                        <div class="col-xs-6">
-                            {{ employee.phone }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            Email
-                        </div>
-                        <div class="col-xs-6">
-                            {{ employee.email }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            Department
-                        </div>
-                        <div class="col-xs-6">
-                            {{ employee.department }}
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Department
+                            </div>
+                            <div class="col-xs-6">
+                                {{ employee.department }}
+                            </div>
                         </div>
                     </div>
                 </div>

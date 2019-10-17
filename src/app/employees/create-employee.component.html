@@ -1,0 +1,59 @@
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)" autocomplete="off">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Create employee</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="fullName">Full name</label>
+                <input type="text" id="fullName" class="form-control" name="fullName" [(ngModel)]="fullName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" class="form-control" name="email" [(ngModel)]="email">
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="form-control">
+                    <label class="radio-inline"><input type="radio" name="gender" value="male" [(ngModel)]="gender">Male</label>
+                    <label class="radio-inline"><input type="radio" name="gender" value="female" [(ngModel)]="gender">Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" class="form-control" name="phone" [(ngModel)]="phone">
+            </div>
+            <div class="form-group">
+                <label>Contact preference</label>
+                <div class="form-control">
+                    <label class="radio-inline"><input type="radio" name="contactPreference" value="email" [(ngModel)]="contactPreference">Email</label>
+                    <label class="radio-inline"><input type="radio" name="contactPreference" value="phone" [(ngModel)]="contactPreference">Phone</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-control">
+                    <label class="checkbox-inline"><input type="checkbox" name="isActive" [(ngModel)]="isActive">Is active</label>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <h3 class="panel-title">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </h3>
+        </div>
+    </div>
+</form>
+
+{{ employeeForm.value | json }}
+
+<!-- 
+    Template driven forms
+
+    1. At form level a template reference variable #employeeForm='ngForm'
+    3. All fields must have a name attribute
+    2. All fields must be binded to the model [()]
+    4. All fields must be declared in the class 
+
+    (ngModel) = from the form to the model - update the model
+    [ngModel] = from the model to the form - update the form with init values or when loading data
+-->

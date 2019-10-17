@@ -1,3 +1,4 @@
+import { CreateEmployeeComponent } from './../employees/create-employee.component';
 import { ListEmployeesComponent } from './../employees/list-employees.component';
 import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component';
 import { NgModule } from '@angular/core';
@@ -51,6 +52,7 @@ const appRoutes: Routes = [
 	{ path: 'register', component: EventsRegisterComponent },
 	{ path: 'login', component: EventsLoginComponent },
 	{ path: 'modal-dialog', component: ModalDialogComponent },
+	{ path: 'max-data-binding', component: MaxDataBindingComponent },
 	{
 		path: 'settings', component: SettingsComponent, children: [
 			{ path: 'profile', component: ProfileComponent },
@@ -64,8 +66,8 @@ const appRoutes: Routes = [
 			{ path: ':id', component: RecipeEditComponent, canDeactivate: [CanDeactivateGuard] }, // Step 1/5
 		]
 	},
-	{ path: 'max-data-binding', component: MaxDataBindingComponent },
-	{ path: 'employees', component: ListEmployeesComponent }
+	{ path: 'employees/list', component: ListEmployeesComponent },
+	{ path: 'employees/new', component: CreateEmployeeComponent }
 ];
 
 @NgModule({

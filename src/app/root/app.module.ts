@@ -53,6 +53,7 @@ import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.compo
 
 // Employees
 import { ListEmployeesComponent } from './../employees/list-employees.component'
+import { CreateEmployeeComponent } from './../employees/create-employee.component'
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { ListEmployeesComponent } from './../employees/list-employees.component'
     MaxDataBindingComponent,
     CockpitComponent,
     ServerElementComponent,
-    ListEmployeesComponent
+    ListEmployeesComponent,
+    CreateEmployeeComponent
   ],
   entryComponents: [
     ModalDialogComponent
