@@ -1,16 +1,17 @@
 <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)" autocomplete="off">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">Create employee</h3>
+            <h1 class="panel-title">Create employee</h1>
         </div>
         <div class="panel-body">
-            <div class="form-group">
-                <label for="fullName">Full name</label>
-                <input type="text" id="fullName" class="form-control" name="fullName" [(ngModel)]="fullName">
+            <div class="form-group" [class.has-error]="fullNameControl.invalid && fullNameControl.touched" [class.has-success]="fullNameControl.valid">
+                <label for="fullName" class="control-label">Full name</label>
+                <input type="text" id="fullName" class="form-control" name="fullName" [(ngModel)]="fullName" #fullNameControl="ngModel" required>
+                <span *ngIf="fullNameControl.invalid && fullNameControl.touched" class="help-block">Fullname is required</span>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" id="email" class="form-control" name="email" [(ngModel)]="email">
+                <input type="text" id="email" class="form-control" name="email" [(ngModel)]="email" #emailControl="ngModel" required>
             </div>
             <div class="form-group">
                 <label>Gender</label>
@@ -58,7 +59,7 @@
         </div>
         <div class="panel-footer">
             <h3 class="panel-title">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.valid">Save</button>
             </h3>
         </div>
     </div>
@@ -68,12 +69,22 @@
 
 <!-- 
     Template driven forms
-
+    -------------------------------------------
     1. At form level a template reference variable #employeeForm='ngForm'
     3. All fields must have a name attribute
     2. All fields must be binded to the model [()]
     4. All fields must be declared in the class 
-
+    -------------------------------------------
     (ngModel) = from the form to the model - update the model
     [ngModel] = from the model to the form - update the form with init values or when loading data
 -->
+
+<!-- 
+    <div class="well">
+    <div>Touched {{ fullNameControl.touched }}</div>
+    <div>Untouched {{ fullNameControl.untouched }}</div>
+    <div>Pristine {{ fullNameControl.pristine}}</div>
+    <div>Dirty {{ fullNameControl.dirty}}</div>
+    <div>Valid {{ fullNameControl.valid}}</div>
+    <div>Invalid {{ fullNameControl.invalid}}</div>
+</div> -->
