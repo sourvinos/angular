@@ -15,15 +15,15 @@ export class CreateEmployeeComponent implements OnInit {
 
     employee: employee = {
         id: 0,
-        name: 'John Doe',
-        gender: 'male',
-        email: 'johndoe@email.com',
-        phoneNumber: '1234 567 890',
-        contactPreference: 'email',
+        name: '',
+        gender: '',
+        email: '',
+        phoneNumber: '',
+        contactPreference: '',
         isActive: true,
-        department: '2',
-        dateOfBirth: new Date(2018, 11, 24),
-        photoPath: 'assets/mark.png'
+        department: '',
+        dateOfBirth: new Date(),
+        photoPath: ''
     }
 
     departments: department[] = [
