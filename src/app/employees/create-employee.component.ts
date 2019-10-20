@@ -1,3 +1,4 @@
+import { employee } from './models/employees';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { department } from './models/department';
@@ -12,15 +13,18 @@ export class CreateEmployeeComponent implements OnInit {
 
     isPreviewPhoto: boolean = false
 
-    fullName: string = ''
-    email: string = ''
-    gender: string = 'male'
-    phone: string = ''
-    contactPreference: string = 'email'
-    isActive: boolean = true
-    department: string = '2'
-    dateOfBirth: Date
-    photoPath: string
+    employee: employee = {
+        id: 0,
+        name: 'John Doe',
+        gender: 'male',
+        email: 'johndoe@email.com',
+        phoneNumber: '1234 567 890',
+        contactPreference: 'email',
+        isActive: true,
+        department: '2',
+        dateOfBirth: new Date(2018, 11, 24),
+        photoPath: 'assets/mark.png'
+    }
 
     departments: department[] = [
         { id: 1, name: 'IT' },
@@ -33,8 +37,8 @@ export class CreateEmployeeComponent implements OnInit {
 
     ngOnInit() { }
 
-    saveEmployee(empForm: NgForm) {
-        console.log(empForm.value)
+    saveEmployee(employee: employee) {
+        console.log(employee)
     }
 
     onShowPreview() {

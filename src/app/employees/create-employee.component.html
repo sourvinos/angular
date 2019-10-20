@@ -1,60 +1,60 @@
-<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)" autocomplete="off">
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employee)" autocomplete="off">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h1 class="panel-title">Create employee</h1>
         </div>
         <div class="panel-body">
-            <div class="form-group" [class.has-error]="fullNameControl.invalid && fullNameControl.touched" [class.has-success]="fullNameControl.valid">
+            <div class="form-group" [class.has-error]="name.invalid && name.touched" [class.has-success]="name.valid">
                 <label for="fullName" class="control-label">Full name</label>
-                <input type="text" id="fullName" class="form-control" name="fullName" [(ngModel)]="fullName" #fullNameControl="ngModel" required>
-                <span *ngIf="fullNameControl.invalid && fullNameControl.touched" class="help-block">Fullname is required</span>
+                <input type="text" id="fullName" class="form-control" name="name" [(ngModel)]="employee.name" #name="ngModel" required>
+                <span *ngIf="name.invalid && name.touched" class="help-block">Name is required</span>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" id="email" class="form-control" name="email" [(ngModel)]="email" #emailControl="ngModel" required>
+                <input type="text" id="email" class="form-control" name="email" [(ngModel)]="employee.email" #emailControl="ngModel" required>
             </div>
             <div class="form-group">
                 <label>Gender</label>
                 <div class="form-control">
-                    <label class="radio-inline"><input type="radio" name="gender" value="male" [(ngModel)]="gender">Male</label>
-                    <label class="radio-inline"><input type="radio" name="gender" value="female" [(ngModel)]="gender">Female</label>
+                    <label class="radio-inline"><input type="radio" name="gender" value="male" [(ngModel)]="employee.gender">Male</label>
+                    <label class="radio-inline"><input type="radio" name="gender" value="female" [(ngModel)]="employee.gender">Female</label>
                 </div>
             </div>
             <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="text" id="phone" class="form-control" name="phone" [(ngModel)]="phone">
+                <input type="text" id="phone" class="form-control" name="phone" [(ngModel)]="employee.phoneNumber">
             </div>
             <div class="form-group">
                 <label>Contact preference</label>
                 <div class="form-control">
-                    <label class="radio-inline"><input type="radio" name="contactPreference" value="email" [(ngModel)]="contactPreference">Email</label>
-                    <label class="radio-inline"><input type="radio" name="contactPreference" value="phone" [(ngModel)]="contactPreference">Phone</label>
+                    <label class="radio-inline"><input type="radio" name="contactPreference" value="email" [(ngModel)]="employee.contactPreference">Email</label>
+                    <label class="radio-inline"><input type="radio" name="contactPreference" value="phone" [(ngModel)]="employee.contactPreference">Phone</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-control">
-                    <label class="checkbox-inline"><input type="checkbox" name="isActive" [(ngModel)]="isActive">Is active</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="isActive" [(ngModel)]="employee.isActive">Is active</label>
                 </div>
             </div>
             <div class="form-group">
                 <label for="department">Department</label>
-                <select class="form-control" id="department" name="department" [(ngModel)]="department">
+                <select class="form-control" id="department" name="department" [(ngModel)]="employee.department">
                     <option *ngFor="let department of departments" [value]="department.id">{{ department.name }}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="dateOfBirth">Date of birth</label>
-                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="dateOfBirth">
+                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="employee.dateOfBirth">
             </div>
             <div class="form-group">
                 <label for="photoPath">Photo path</label>
-                <input type="text" class="form-control" id="photoPath" name="photoPath" [(ngModel)]="photoPath">
+                <input type="text" class="form-control" id="photoPath" name="photoPath" [(ngModel)]="employee.photoPath">
             </div>
             <div class="form-group">
                 <button type="button" class="btn btn-primary" (click)="onShowPreview()">{{ isPreviewPhoto ? 'Hide preview' : 'Show preview' }}</button>
             </div>
             <div class="form-group" *ngIf="isPreviewPhoto">
-                <img [src]="photoPath" height="200" width="200">
+                <img [src]="employee.photoPath" height="200" width="200">
             </div>
         </div>
         <div class="panel-footer">
@@ -81,10 +81,10 @@
 
 <!-- 
     <div class="well">
-    <div>Touched {{ fullNameControl.touched }}</div>
-    <div>Untouched {{ fullNameControl.untouched }}</div>
-    <div>Pristine {{ fullNameControl.pristine}}</div>
-    <div>Dirty {{ fullNameControl.dirty}}</div>
-    <div>Valid {{ fullNameControl.valid}}</div>
-    <div>Invalid {{ fullNameControl.invalid}}</div>
+    <div>Touched {{ name.touched }}</div>
+    <div>Untouched {{ name.untouched }}</div>
+    <div>Pristine {{ name.pristine}}</div>
+    <div>Dirty {{ name.dirty}}</div>
+    <div>Valid {{ name.valid}}</div>
+    <div>Invalid {{ name.invalid}}</div>
 </div> -->
