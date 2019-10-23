@@ -31,14 +31,14 @@
             <label>Password</label>
             <input type="text" formControlName="password" tabindex="2">
             <div *ngIf="password.invalid && password.touched">
-                <!-- <span *ngIf="!!password.errors?.required" class="ui red text">Password must not be black!</span> -->
+                <span *ngIf="!!password.errors?.required" class="ui red text">Password must not be black!</span>
             </div>
         </div>
         <div class="field" [class.error]="confirmPassword.invalid && confirmPassword.touched">
             <label>Confirm password</label>
             <input type="text" formControlName="confirmPassword" tabindex="3">
             <div *ngIf="confirmPassword.invalid && confirmPassword.touched">
-                <!-- <span *ngIf="!!confirmPassword.errors?.required" class="ui red text">Passwords do not match!</span> -->
+                <span *ngIf="!!confirmPassword.errors?.required" class="ui red text">Passwords do not match!</span>
             </div>
             <span *ngIf="!!registrationFormWithFormBuilder.errors?.mismatch" class="ui text red">Password and Confirm password must be the same!</span>
         </div>

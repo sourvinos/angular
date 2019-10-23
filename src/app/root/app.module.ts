@@ -54,6 +54,7 @@ import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.compo
 // Employees
 import { ListEmployeesComponent } from './../employees/list-employees.component'
 import { CreateEmployeeComponent } from './../employees/create-employee.component'
+import { EmployeeItemComponent } from './../employees/employee-item.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { CreateEmployeeComponent } from './../employees/create-employee.componen
     CockpitComponent,
     ServerElementComponent,
     ListEmployeesComponent,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    EmployeeItemComponent
   ],
   entryComponents: [
     ModalDialogComponent

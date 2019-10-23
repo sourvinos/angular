@@ -1,4 +1,4 @@
-<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employee)" autocomplete="off">
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee()" autocomplete="off">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h1 class="panel-title">Create employee</h1>
@@ -11,7 +11,7 @@
             </div>
             <div class="form-group" [class.has-error]="gender.invalid && gender.touched">
                 <label>Gender</label>
-                <div class="form-control">
+                <div class="form-control" class="control-label">
                     <label class="radio-inline"><input type="radio" name="gender" value="male" [(ngModel)]="employee.gender" #gender="ngModel" required>Male</label>
                     <label class="radio-inline"><input type="radio" name="gender" value="female" [(ngModel)]="employee.gender" #gender="ngModel" required>Female</label>
                 </div>
@@ -24,25 +24,27 @@
                 </div>
             </div>
             <div class="form-group" [class.has-error]="email.invalid && email.contactPreference!='email'">
-                <label for="email">Email</label>
+                <label for="email" class="control-label">Email</label>
                 <input type="text" id="email" class="form-control" name="email" [(ngModel)]="employee.email" #email="ngModel" [required]="employee.contactPreference=='email'">
                 <span *ngIf="email.invalid && email.contactPreference!='email'" class="help-block">Email is required</span>
             </div>
             <div class="form-group" [class.has-error]="phoneNumber.invalid && phoneNumber.contactReference!='phone'">
-                <label for="phone">Phone</label>
+                <label for="phone" class="control-label">Phone</label>
                 <input type="text" id="phone" class="form-control" name="phone" [(ngModel)]="employee.phoneNumber" #phoneNumber="ngModel" [required]="employee.contactPreference=='phone'">
                 <span *ngIf="phoneNumber.invalid && phoneNumber.contactPreference!='phone'" class="help-block">Phone is required</span>
             </div>
             <div class="form-group">
                 <div class="form-control">
-                    <label class="checkbox-inline"><input type="checkbox" name="isActive" [(ngModel)]="employee.isActive" required>Is active</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="isActive" [(ngModel)]="employee.isActive">Is active</label>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="department">Department</label>
-                <select class="form-control" id="department" name="department" [(ngModel)]="employee.department">
+            <div class="form-group" [class.has-error]="department.invalid && department.touched">
+                <label for="department" class="control-label">Department</label>
+                <select class="form-control" id="department" name="department" [(ngModel)]="employee.department" #department="ngModel" required>
+                    <option disabled value="">Select from the list</option>
                     <option *ngFor="let department of departments" [value]="department.id">{{ department.name }}</option>
                 </select>
+                <span *ngIf="department.invalid && department.touched" class="help-block">Department is required</span>
             </div>
             <div class="form-group">
                 <label for="dateOfBirth">Date of birth</label>
