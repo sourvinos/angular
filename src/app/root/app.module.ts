@@ -41,6 +41,7 @@ import { AlertModule } from 'ngx-bootstrap/alert'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
 import { ModalModule } from 'ngx-bootstrap/modal'
 import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
+import { ModalIndexComponent } from './../modal-index/modal-index.component';
 import { MaxDataBindingComponent } from '../data-binding/max-data-binding.component'
 
 // Recipes
@@ -80,6 +81,7 @@ import { EmployeeItemComponent } from './../employees/employee-item.component';
     ProfileComponent,
     UtilsComponent,
     ModalDialogComponent,
+    ModalIndexComponent,
     HeaderComponent,
     RecipeDetailComponent,
     RecipesComponent,
@@ -95,7 +97,8 @@ import { EmployeeItemComponent } from './../employees/employee-item.component';
     EmployeeItemComponent
   ],
   entryComponents: [
-    ModalDialogComponent
+    ModalDialogComponent,
+    ModalIndexComponent
   ],
   imports: [
     AppRoutingModule,
