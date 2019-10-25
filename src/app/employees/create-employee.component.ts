@@ -1,5 +1,5 @@
 import { employee } from './models/employees';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { department } from './models/department';
 import { EmployeeService } from './services/employee.service';
 import { Router } from '@angular/router';
@@ -46,5 +46,18 @@ export class CreateEmployeeComponent implements OnInit {
     onShowPreview() {
         this.isPreviewPhoto = !this.isPreviewPhoto
     }
+
+    @HostListener('document:keydown', ['$event']) anyEvent(event: { altKey: any; shiftKey: any; key: { toUpperCase: { (): string; (): string; (): string; (): string; (): string; }; }; }) {
+
+        if (event.altKey) {
+            if (event.key.toUpperCase() == 'N') { alert("New") }
+            if (event.key.toUpperCase() == 'D') { alert("Delete") }
+            if (event.key.toUpperCase() == 'F') { alert("Find") }
+            if (event.key.toUpperCase() == 'P') { alert("Print") }
+            if (event.key.toUpperCase() == 'S') { alert("Save") }
+        }
+
+    }
+
 
 }

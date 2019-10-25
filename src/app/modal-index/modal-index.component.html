@@ -6,7 +6,9 @@
         </button>
     </div>
     <div class="modal-body">
-        <input type="text" *ngFor="let item of list" [value]="item">
+        <ul>
+            <li *ngFor="let item of list">{{ item }}</li>
+        </ul>
     </div>
     <div class="modal-footer">
         <button *ngIf="type=='question'" class="ui facebook button" (click)="action(false)">Cancel</button>

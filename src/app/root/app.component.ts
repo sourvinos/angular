@@ -40,18 +40,4 @@ export class AppComponent {
 
     }
 
-    @HostListener('document:keydown', ['$event']) anyEvent(event: { altKey: any; shiftKey: any; key: { toUpperCase: { (): string; (): string; (): string; (): string; (): string; }; }; }) {
-
-        // console.log('Hotkey pressed', event.key + event.altKey + event.shiftKey)
-
-        if (event.altKey + event.shiftKey) {
-            if (event.key.toUpperCase() == 'N') { alert("New") }
-            if (event.key.toUpperCase() == 'D') { alert("Delete") }
-            if (event.key.toUpperCase() == 'F') { alert("Find") }
-            if (event.key.toUpperCase() == 'P') { alert("Print") }
-            if (event.key.toUpperCase() == 'S') { alert("Save") }
-        }
-
-    }
-
 }

@@ -67,7 +67,7 @@ const appRoutes: Routes = [
 		]
 	},
 	{ path: 'employees/list', component: ListEmployeesComponent },
-	{ path: 'employees/new', component: CreateEmployeeComponent }
+	{ path: 'employees/new', component: CreateEmployeeComponent },
 ];
 
 @NgModule({

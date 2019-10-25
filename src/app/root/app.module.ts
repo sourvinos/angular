@@ -94,7 +94,7 @@ import { EmployeeItemComponent } from './../employees/employee-item.component';
     ServerElementComponent,
     ListEmployeesComponent,
     CreateEmployeeComponent,
-    EmployeeItemComponent
+    EmployeeItemComponent,
   ],
   entryComponents: [
     ModalDialogComponent,

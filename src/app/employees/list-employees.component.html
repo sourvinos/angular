@@ -7,7 +7,7 @@
         </ul>
     </nav>
     <!-- List -->
-    <div class="panel panel-primary" *ngFor="let employee of employees">
+    <div class="panel panel-primary" *ngFor="let employee of employees; let i = index" (click)="selectItem(i)">
         <div class="panel-heading">
             <h3 class="panel-title">{{ employee.name }}</h3>
         </div>
