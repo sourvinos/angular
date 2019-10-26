@@ -1,6 +1,7 @@
 import { employee } from './../models/employees';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs'
+import { of } from "rxjs";
+import { delay } from "rxjs/operators";
 
 @Injectable({ providedIn: 'root' })
 
@@ -13,7 +14,7 @@ export class EmployeeService {
     ]
 
     getEmployees() {
-        return of(this.employees)
+        return of(this.employees).pipe(delay(2000))
     }
 
     addEmployee(employee: employee) {

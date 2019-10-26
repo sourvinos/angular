@@ -32,6 +32,7 @@ import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
 import { RecipesComponent } from '../recipes/recipes.component';
 import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.component';
 import { MaxDataBindingComponent } from '../data-binding/max-data-binding.component';
+import { EmployeeListResolverService } from '../employees/services/employee-list-resolver.service';
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -66,7 +67,7 @@ const appRoutes: Routes = [
 			{ path: ':id', component: RecipeEditComponent, canDeactivate: [CanDeactivateGuard] }, // Step 1/5
 		]
 	},
-	{ path: 'employees/list', component: ListEmployeesComponent },
+	{ path: 'employees/list', component: ListEmployeesComponent, resolve: { employeeList: EmployeeListResolverService } },
 	{ path: 'employees/new', component: CreateEmployeeComponent },
 ];
 
