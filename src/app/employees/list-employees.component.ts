@@ -17,7 +17,9 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     constructor(private employeeService: EmployeeService) { }
 
     ngOnInit() {
-        this.employees = this.employeeService.getEmployees()
+        this.employeeService.getEmployees().subscribe((result) => {
+            this.employees = result
+        })
     }
 
     ngAfterViewInit() {

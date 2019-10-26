@@ -1,5 +1,6 @@
 import { employee } from './../models/employees';
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs'
 
 @Injectable({ providedIn: 'root' })
 
@@ -12,7 +13,7 @@ export class EmployeeService {
     ]
 
     getEmployees() {
-        return this.employees
+        return of(this.employees)
     }
 
     addEmployee(employee: employee) {

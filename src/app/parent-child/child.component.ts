@@ -11,6 +11,7 @@ export class ChildFromParentComponent {
     startTimer() {
         console.log('Timer started')
     }
+
     stopTimer() {
         console.log('Timer stopped')
     }

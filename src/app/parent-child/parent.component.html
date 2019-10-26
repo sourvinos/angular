@@ -2,4 +2,6 @@
 
 <button class="ui primary button" (click)="timer.startTimer()">Call child method</button>
 <button class="ui primary button" (click)="startTimer()">Call child method with @ViewChild</button>
+
+<!-- The #timer template variable in NOT NEEDED with @ViewChild  -->
 <app-child #timer></app-child>
