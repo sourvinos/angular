@@ -14,7 +14,7 @@ export class EmployeeService {
     ]
 
     getEmployees() {
-        return of(this.employees).pipe(delay(2000))
+        return of(this.employees).pipe(delay(0))
     }
 
     addEmployee(employee: employee) {

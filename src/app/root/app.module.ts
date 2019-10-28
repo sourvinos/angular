@@ -55,6 +55,7 @@ import { ChildFromParentComponent } from './../parent-child/child.component'
 import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
+import { PageNotFoundComponent } from './../page-not-found.component';
 
 @NgModule({
     declarations: [
@@ -94,6 +95,7 @@ import { AppComponent } from './app.component'
         ListEmployeesComponent,
         CreateEmployeeComponent,
         EmployeeItemComponent,
+        PageNotFoundComponent
     ],
     entryComponents: [
         ModalDialogComponent,

@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core'
 import { employee } from './models/employees'
 import { EmployeeService } from './services/employee.service'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
     selector: 'app-list-employees',
@@ -14,12 +15,15 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
 
     employees: employee[]
 
-    constructor(private employeeService: EmployeeService) { }
+    constructor(private employeeService: EmployeeService, private route: ActivatedRoute) {
+        this.employees = this.route.snapshot.data['employeeList']
+    }
 
     ngOnInit() {
-        this.employeeService.getEmployees().subscribe((result) => {
-            this.employees = result
-        })
+        // Unused becase we are using the resolver in the costructor
+        // this.employeeService.getEmployees().subscribe((result) => {
+        //     this.employees = result
+        // })
     }
 
     ngAfterViewInit() {

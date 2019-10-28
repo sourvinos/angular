@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './../page-not-found.component';
 import { CreateEmployeeComponent } from './../employees/create-employee.component';
 import { ListEmployeesComponent } from './../employees/list-employees.component';
 import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component';
@@ -53,6 +54,7 @@ const appRoutes: Routes = [
 	{ path: 'register', component: EventsRegisterComponent },
 	{ path: 'login', component: EventsLoginComponent },
 	{ path: 'modal-dialog', component: ModalDialogComponent },
+	{ path: 'pageNotFound', component: PageNotFoundComponent },
 	{ path: 'max-data-binding', component: MaxDataBindingComponent },
 	{
 		path: 'settings', component: SettingsComponent, children: [
