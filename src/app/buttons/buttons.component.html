@@ -1,34 +1,20 @@
-<div>
-  <button mat-button>mat-button</button><br><br>
-  <button mat-button color='primary'>mat-button</button><br><br>
-  <button mat-raised-button color='primary'>mat-raised-button with color</button><br><br>
-  <button mat-raised-button color='primary'>Save</button><br><br>
-  <button mat-flat-button>mat-flat-button</button><br><br>
-  <button mat-stroked-button>mat-stroked-button</button><br><br>
-  <button mat-stroked-button color='primary'>mat-stroked-button with color</button><br><br>
-  <button mat-stroked-button color='accent'>mat-stroked-button with color</button><br><br>
-</div>
+<section class="tables">
 
-<div>
-  <button mat-icon-button color='warn'>
-    <mat-icon>add</mat-icon>mat-icon-button
-  </button>
-</div>
-<br>
-<br>
+    <div>
 
-<div>
-  <button mat-fab>
-    <mat-icon>add</mat-icon>
-  </button>
-</div>
-<br>
-<br>
+        <table mat-table [dataSource]="dataSource" id="dataTable">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef id="no" class="center-align"> Id </th>
+                <td mat-cell *matCellDef="let element" class="right-align"> {{element.id}} </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef id="name"> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: columns;" [matRowKeyboardSelection]="selection" [rowModel]="row" [selectOnFocus]="true" [toggleOnEnter]="false" [preventNewSelectionOnTab]="true" [ngClass]="{selected: selection.isSelected(row)}" (enter)="doubleClick()" (dblclick)="doubleClick()"></tr>
+        </table>
 
-<div>
-  <a mat-fab routerLink=".">
-    <mat-icon>check</mat-icon>
-  </a>
-</div>
-<br>
-<br>
+    </div>
+
+</section>
