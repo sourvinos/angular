@@ -21,3 +21,12 @@ li:hover {
     background-color: darkolivegreen;
     color: gainsboro;
 }
+
+tr.mat-row {
+    cursor: pointer;
+}
+
+tr.mat-row:hover>td {
+    background-color: darkolivegreen;
+    color: whitesmoke;
+}

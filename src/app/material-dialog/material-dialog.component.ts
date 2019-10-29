@@ -37,10 +37,10 @@ export class MaterialDialogComponent implements OnInit {
         this.selection = new SelectionModel<TableItem>(false);
     }
 
-    selectElement(el: Element) {
-        this.myElement = el
-        // console.log(this.myElement)
-        // console.log(this.myElement.name)
+    selectElement(row: any) {
+        this.myElement = row
+        console.log(row)
+        console.log(this.myElement)
     }
 
 }

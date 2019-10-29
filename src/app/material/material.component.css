@@ -51,3 +51,7 @@ td.mat-cell {
 .center-align {
     text-align: center;
 }
+
+button {
+    font-family: Lato;
+}

@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { MatTableModule } from '@angular/material/table'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 // Directives
 import { MatRowKeyboardSelectionModule } from "mat-row-keyboard-selection"
 // Bootstrap
@@ -123,6 +124,7 @@ import { UtilsComponent } from '../child-routes/utils.component'
         MatIconModule,
         MatInputModule,
         MatListModule,
+        MatSnackBarModule,
         MatTableModule,
         ReactiveFormsModule,
         MatRowKeyboardSelectionModule,

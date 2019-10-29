@@ -17,6 +17,22 @@
     </div>
 </section> -->
 
-<material-table></material-table>
+<!-- <material-table></material-table> -->
 
-<button mat-raised-button (click)="openDialog()">Open dialog</button>
+<button mat-raised-button color="accent" (click)="openDialog()">Open dialog</button>
+
+<br>
+<br>
+
+<div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button routerLink=".">Link</a>
+</div>
+
+<br>
+
+<button mat-raised-button color="primary" (click)="openSnackBar('Hello', 'What to do')">Show snack-bar</button>
