@@ -1,7 +1,7 @@
 import { employee } from './models/employees';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { department } from './models/department';
-import { EmployeeService } from './services/employee.service';
+import { EmployeeService } from '../services/employee.service';
 import { Router } from '@angular/router';
 
 @Component({

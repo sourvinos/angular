@@ -1,0 +1,53 @@
+.tables {
+    height: 400px;
+    overflow-y: scroll;
+    width: 500px;
+    background-color: ivory;
+}
+
+table.mat-table {
+    background-color: lightcyan;
+}
+
+th {
+    background-color: lightskyblue
+}
+
+tr {
+    cursor: pointer;
+}
+
+tr.mat-row.selected {
+    background-color: lightpink;
+    outline: none;
+}
+
+th.mat-header-cell {
+    font-family: 'Lato';
+    font-size: 1.8rem;
+    padding: 0 10px !important;
+}
+
+td.mat-cell {
+    padding: 0 10px;
+}
+
+#no {
+    width: 70px;
+}
+
+#name {
+    width: 200px;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.center-align {
+    text-align: center;
+}

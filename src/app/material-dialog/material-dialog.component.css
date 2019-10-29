@@ -1,0 +1,23 @@
+.mat-dialog-actions {
+    margin-bottom: 0;
+    padding-top: 30px;
+}
+
+h4 {
+    margin-bottom: 20px;
+}
+
+ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+li {
+    cursor: pointer;
+    padding: 5px;
+}
+
+li:hover {
+    background-color: darkolivegreen;
+    color: gainsboro;
+}

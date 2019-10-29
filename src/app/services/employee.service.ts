@@ -1,7 +1,7 @@
-import { employee } from './../models/employees';
 import { Injectable } from '@angular/core';
 import { of } from "rxjs";
 import { delay } from "rxjs/operators";
+import { employee } from '../employees/models/employees';
 
 @Injectable({ providedIn: 'root' })
 

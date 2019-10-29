@@ -1,0 +1,18 @@
+<p>Material table component</p>
+
+<table mat-table [dataSource]="dataSource" id="dataTable">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef id="no" class="center-align"> Id </th>
+        <td mat-cell *matCellDef="let element" class="right-align"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef id="name"> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;" [matRowKeyboardSelection]="selection" [rowModel]="row" [selectOnFocus]="true" [toggleOnEnter]="false" [preventNewSelectionOnTab]="true" [ngClass]="{selected: selection.isSelected(row)}" (enter)="doubleClick()" (dblclick)="doubleClick()"></tr>
+</table>
+
+<!-- <mat-form-field>
+    <input matInput [(ngModel)]="myElement.name">
+</mat-form-field> -->

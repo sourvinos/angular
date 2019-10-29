@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './../auth/services/auth.guard';
 
-import { ButtonsComponent } from './../buttons/buttons.component';
+import { MaterialComponent } from '../material/material.component';
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component';
 import { FormTemplateComponent } from '../form-template/form-template.component';
 import { InputsComponent } from '../input-controls/input-controls.component';
@@ -38,7 +38,7 @@ import { EmployeeListResolverService } from '../employees/services/employee-list
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
 	{ path: 'animations', component: MainComponent },
-	{ path: 'buttons', component: ButtonsComponent },
+	{ path: 'material', component: MaterialComponent },
 	{ path: 'form-reactive', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard] },
 	{ path: 'form-template', component: FormTemplateComponent },
 	{ path: 'input-controls', component: InputsComponent },

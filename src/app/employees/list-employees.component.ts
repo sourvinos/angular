@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core'
-import { employee } from './models/employees'
-import { EmployeeService } from './services/employee.service'
 import { ActivatedRoute } from '@angular/router'
+import { employee } from './models/employees'
+import { EmployeeService } from '../services/employee.service'
 
 @Component({
     selector: 'app-list-employees',

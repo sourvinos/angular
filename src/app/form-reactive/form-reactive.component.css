@@ -1,3 +1,11 @@
 button {
     margin-left: 1rem !important;
 }
+
+li {
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: burlywood;
+}
