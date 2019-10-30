@@ -3,7 +3,9 @@ main, h1 {
 }
 
 section {
+    background-color: beige;
     margin: 1rem;
+    padding: 2rem;
     width: 100%;
 }
 

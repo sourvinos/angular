@@ -13,6 +13,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
 
     currentItem: number = 0
 
+    dataFromChild: string = ''
     employees: employee[]
 
     constructor(private employeeService: EmployeeService, private route: ActivatedRoute) {
@@ -53,6 +54,11 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
         if (event.key == "Enter") {
             console.log("Enter pressed")
         }
+    }
+
+    handleNotify(eventData: string) {
+        console.log('From child', eventData)
+        this.dataFromChild = eventData
     }
 
 }

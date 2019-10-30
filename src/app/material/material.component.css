@@ -55,3 +55,16 @@ td.mat-cell {
 button {
     font-family: Lato;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field {
+    padding-bottom: 1rem;
+}
+
+mat-divider {
+    margin: 2rem 0;
+}

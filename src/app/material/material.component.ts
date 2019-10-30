@@ -4,6 +4,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { MaterialDialogComponent } from '../material-dialog/material-dialog.component';
 import { EmployeeService } from '../services/employee.service';
+import { FormControl, Validators } from '@angular/forms';
 
 interface TableItem {
 	name: string;
@@ -19,6 +20,9 @@ export class MaterialComponent implements OnInit {
 
 	employees = []
 	elements = []
+
+	emailFormControl = new FormControl('', [Validators.required, Validators.email,])
+	userNameFormControl = new FormControl('', [Validators.required])
 
 	employeesDataSource: MatTableDataSource<TableItem>; employeesSelection: SelectionModel<TableItem>;
 	elementsDataSource: MatTableDataSource<TableItem>; elementsSelection: SelectionModel<TableItem>;

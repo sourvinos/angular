@@ -11,15 +11,7 @@ export class EmployeeService {
         { id: 1, name: 'Mark', gender: 'Male', contactPreference: 'Email', email: 'mark@hotmail.com', dateOfBirth: new Date('10/25/1975'), department: '1', isActive: true, photoPath: 'assets/mark.png' },
         { id: 2, name: 'Pam', gender: 'Female', contactPreference: 'Email', email: 'pam@yahoo.com', dateOfBirth: new Date('01/05/1980'), department: '2', isActive: true, photoPath: 'assets/pam.png' },
         { id: 3, name: 'Julie', gender: 'Female', contactPreference: 'Email', email: 'julie@hotmail.com', dateOfBirth: new Date('05/05/1982'), department: '3', isActive: true, photoPath: 'assets/julie.png' },
-        { id: 4, name: 'Mark', gender: 'Male', contactPreference: 'Email', email: 'mark@hotmail.com', dateOfBirth: new Date('10/25/1975'), department: '1', isActive: true, photoPath: 'assets/mark.png' },
-        { id: 5, name: 'Pam', gender: 'Female', contactPreference: 'Email', email: 'pam@yahoo.com', dateOfBirth: new Date('01/05/1980'), department: '2', isActive: true, photoPath: 'assets/pam.png' },
-        { id: 6, name: 'Julie', gender: 'Female', contactPreference: 'Email', email: 'julie@hotmail.com', dateOfBirth: new Date('05/05/1982'), department: '3', isActive: true, photoPath: 'assets/julie.png' },
-        { id: 7, name: 'Mark', gender: 'Male', contactPreference: 'Email', email: 'mark@hotmail.com', dateOfBirth: new Date('10/25/1975'), department: '1', isActive: true, photoPath: 'assets/mark.png' },
-        { id: 8, name: 'Pam', gender: 'Female', contactPreference: 'Email', email: 'pam@yahoo.com', dateOfBirth: new Date('01/05/1980'), department: '2', isActive: true, photoPath: 'assets/pam.png' },
-        { id: 9, name: 'Julie', gender: 'Female', contactPreference: 'Email', email: 'julie@hotmail.com', dateOfBirth: new Date('05/05/1982'), department: '3', isActive: true, photoPath: 'assets/julie.png' },
-        { id: 10, name: 'Mark', gender: 'Male', contactPreference: 'Email', email: 'mark@hotmail.com', dateOfBirth: new Date('10/25/1975'), department: '1', isActive: true, photoPath: 'assets/mark.png' },
-        { id: 11, name: 'Pam', gender: 'Female', contactPreference: 'Email', email: 'pam@yahoo.com', dateOfBirth: new Date('01/05/1980'), department: '2', isActive: true, photoPath: 'assets/pam.png' },
-        { id: 12, name: 'Julie', gender: 'Female', contactPreference: 'Email', email: 'julie@hotmail.com', dateOfBirth: new Date('05/05/1982'), department: '3', isActive: true, photoPath: 'assets/julie.png' }
+        { id: 4, name: 'Lisa', gender: 'Female', contactPreference: 'Email', email: 'lisa@hotmail.com', dateOfBirth: new Date('10/25/1975'), department: '1', isActive: true, photoPath: 'assets/liza.png' }
     ]
 
     getEmployees() {
