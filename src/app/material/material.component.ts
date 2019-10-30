@@ -25,28 +25,12 @@ export class MaterialComponent implements OnInit {
 
 	constructor(private employeeService: EmployeeService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
-
 	ngOnInit(): void {
 		this.employeeService.getEmployees().subscribe((result) => {
 			this.dataSource = new MatTableDataSource<TableItem>(result);
 			this.selection = new SelectionModel<TableItem>(false);
-			// Pass it to the modal
 			this.data = result
 		})
-	}
-
-	@HostListener('document:keydown', ['$event']) anyEvent(event: { altKey: any; shiftKey: any; key: { toUpperCase: { (): string; (): string; (): string; (): string; (): string; }; }; }) {
-		if (event.key == 'Enter') {
-			let id = document.querySelector('tr.selected').children[0].textContent
-			let description = document.querySelector('tr.selected').children[1].textContent
-			console.log('Id', id, 'Description', description)
-		}
-	}
-
-	doubleClick() {
-		let id = document.querySelector('tr.selected').children[0].textContent
-		let description = document.querySelector('tr.selected').children[1].textContent
-		console.log('Id', id, 'Description', description)
 	}
 
 	openDialog(): void {
