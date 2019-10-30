@@ -19,7 +19,8 @@
 
 <!-- <material-table></material-table> -->
 
-<button mat-raised-button color="accent" (click)="openDialog()">Open dialog</button>
+<button mat-raised-button color="accent" (click)="openEmployeesDialog()">Open employees dialog</button>
+<button mat-raised-button (click)="openElementsDialog()">Open elements dialog</button>
 
 <br>
 <br>
@@ -31,6 +32,17 @@
     <button mat-raised-button color="warn">Warn</button>
     <button mat-raised-button disabled>Disabled</button>
     <a mat-raised-button routerLink=".">Link</a>
+</div>
+
+<br>
+
+<div class="example-button-row">
+    <button mat-flat-button>Basic</button>
+    <button mat-flat-button color="primary">Primary</button>
+    <button mat-flat-button color="accent">Accent</button>
+    <button mat-flat-button color="warn">Warn</button>
+    <button mat-flat-button disabled>Disabled</button>
+    <a mat-flat-button routerLink=".">Link</a>
 </div>
 
 <br>

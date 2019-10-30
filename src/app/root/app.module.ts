@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { MatTableModule } from '@angular/material/table'
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CdkTableModule } from '@angular/cdk/table';
 // Directives
 import { MatRowKeyboardSelectionModule } from "mat-row-keyboard-selection"
 // Bootstrap
@@ -111,6 +112,7 @@ import { UtilsComponent } from '../child-routes/utils.component'
         MaterialDialogComponent
     ],
     imports: [
+        CdkTableModule,
         AppRoutingModule,
         AuthModule,
         BrowserAnimationsModule,
