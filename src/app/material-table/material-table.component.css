@@ -18,7 +18,7 @@ tr {
 }
 
 tr.mat-row.selected {
-    background-color: lightpink;
+    /* background-color: lightpink; */
     outline: none;
 }
 
@@ -29,7 +29,8 @@ th.mat-header-cell {
 }
 
 td.mat-cell {
-    padding: 0 10px;
+    padding: 0 10px !important;
+    color: beige !important;
 }
 
 #no {

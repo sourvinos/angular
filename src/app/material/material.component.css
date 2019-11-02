@@ -13,18 +13,14 @@ th {
     background-color: lightskyblue
 }
 
-tr {
-    cursor: pointer;
-}
-
 tr.mat-row.selected {
-    background-color: lightpink;
+    /* background-color: lightpink; */
     outline: none;
 }
 
 th.mat-header-cell {
     font-family: 'Lato';
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     padding: 0 10px !important;
 }
 
@@ -71,4 +67,16 @@ mat-divider {
 
 .mat-form-field-ripple {
     background-color: lightpink !important;
+}
+
+div#scrollable {
+    height: 400px;
+    overflow-y: auto;
+    width: 500px;
+    background-color: #57617B;
+}
+
+.mat-dialog-title {
+    font-style: 40px !important;
+
 }

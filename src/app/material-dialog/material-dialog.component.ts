@@ -20,6 +20,7 @@ export class MaterialDialogComponent implements OnInit {
     selection: SelectionModel<[]>;
 
     columns = []
+    fields = []
     selectedElement = []
 
     @HostListener('document:keydown', ['$event']) anyEvent(event: { altKey: any; shiftKey: any; key: { toUpperCase: { (): string; (): string; (): string; (): string; (): string; }; }; }) {
@@ -30,7 +31,8 @@ export class MaterialDialogComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.columns = this.data.headers
+        this.columns = this.data.fields
+        this.fields = this.data.fields
         this.dataSource = new MatTableDataSource<[]>(this.data.records);
         this.selection = new SelectionModel<[]>(false);
     }

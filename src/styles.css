@@ -90,3 +90,47 @@ button:active, button:focus {
 ul {
     list-style: none;
 }
+
+.mat-dialog-container {
+    background-color: #424242 !important;
+    border-radius: 5px;
+    height: 500px !important;
+    width: 500px !important;
+}
+
+
+tr.mat-row {
+    cursor: pointer;
+    background-color: #57617B;
+    color: beige;
+}
+
+.mat-dialog-title {
+    color: aquamarine !important;
+    font-size: 2rem !important;
+}
+
+tr.mat-header-row {
+    background-color: #637092 !important;
+}
+
+th.mat-header-cell {
+    color: beige !important;
+    font-size: 20px;
+}
+
+td.mat-cell {
+    padding: 0 10px !important;
+    color: beige !important;
+}
+
+app-material-dialog {
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+}
+
+section.tables {
+    flex: 1 !important;
+    background-color: #57617B !important
+}

@@ -102,12 +102,12 @@ export class MaterialComponent implements OnInit {
 	private openEmployeesDialog(lookupResults: any[]): void {
 		let dialogRef = this.dialog.open(MaterialDialogComponent, {
 			data: {
-				headers: ['id', 'name', 'gender'],
+				fields: ['id', 'name', 'gender'],
 				records: lookupResults
 			}
 		})
 		dialogRef.afterClosed().subscribe((result) => {
-			console.info('Came back from the dialog:', result[1])
+			console.info('Came back from the dialog:', result)
 		})
 	}
 
