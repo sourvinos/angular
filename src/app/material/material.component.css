@@ -68,3 +68,7 @@ mat-form-field {
 mat-divider {
     margin: 2rem 0;
 }
+
+.mat-form-field-ripple {
+    background-color: lightpink !important;
+}

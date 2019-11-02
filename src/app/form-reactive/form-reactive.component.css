@@ -1,5 +1,5 @@
-button {
-    margin-left: 1rem !important;
+button.mat-flat-button {
+    margin: 0 0 0 1rem !important;
 }
 
 li {
@@ -8,4 +8,25 @@ li {
 
 li:hover {
     background-color: burlywood;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+button.mat-mini-fab {
+    margin: 0 !important;
+}
+
+div#info {
+    margin: 1rem 0;
+}
+
+.buttons {
+    text-align: right;
+    margin-right: 1rem;
+}
+
+mat-icon {
+    margin: -2px 0 0 1px;
 }

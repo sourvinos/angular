@@ -23,13 +23,9 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "./node_modules/fomantic-ui/dist/semantic.min.css",
-                            "./node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "src/styles.css"
                         ],
                         "scripts": [
-                            "./node_modules/jquery/dist/jquery.min.js",
-                            "./node_modules/fomantic-ui/dist/semantic.min.js",
                             "src/custom.js"
                         ],
                         "es5BrowserSupport": true

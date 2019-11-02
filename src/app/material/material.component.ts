@@ -21,12 +21,13 @@ export class MaterialComponent implements OnInit {
 	employees = []
 	elements = []
 
+	tables: any[] = []
+
 	emailFormControl = new FormControl('', [Validators.required, Validators.email,])
 	userNameFormControl = new FormControl('', [Validators.required])
 
 	employeesDataSource: MatTableDataSource<TableItem>; employeesSelection: SelectionModel<TableItem>;
 	elementsDataSource: MatTableDataSource<TableItem>; elementsSelection: SelectionModel<TableItem>;
-
 
 	constructor(private employeeService: EmployeeService, private elementService: ElementsService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
@@ -40,18 +41,6 @@ export class MaterialComponent implements OnInit {
 			this.elementsDataSource = new MatTableDataSource<TableItem>(result);
 			this.elementsSelection = new SelectionModel<TableItem>(false);
 			this.elements = result
-		})
-	}
-
-	openEmployeesDialog(): void {
-		let dialogRef = this.dialog.open(MaterialDialogComponent, {
-			data: {
-				headers: ['id', 'name', 'gender'],
-				records: this.employees
-			}
-		})
-		dialogRef.afterClosed().subscribe((result) => {
-			console.info('Came back from the dialog:', result)
 		})
 	}
 
@@ -71,6 +60,55 @@ export class MaterialComponent implements OnInit {
 		this.snackBar.open(message, action, {
 			duration: 2000,
 		});
+	}
+
+	lookupTable(tableIndex: number, id: string, description: string, controlName: FormControl, currentFocus: string, nextFocus: string) {
+		let lookupInput = controlName.value.toUpperCase()
+		let lookupResults = this.tables[tableIndex].filter((item: { description: string; }) => {
+			return item.description.includes(lookupInput)
+		})
+		if (lookupResults.length > 0) this.openEmployeesDialog(lookupResults)
+		// if (lookupResults.length > 0) this.openEmployeesDialog(id, description, lookupResults, currentFocus, nextFocus)
+	}
+
+	private arrayLookup(lookupArray: any[], givenField: FormControl) {
+		console.log('arrayLookup() - Lookup into', lookupArray, 'Search for', givenField)
+		for (let x of lookupArray) {
+			if (x.description.toLowerCase() == givenField.value.toLowerCase()) {
+				return true
+			}
+		}
+	}
+
+	// T
+	updateMe(lookupArray: any[], e: { target: { value: any } }): void {
+
+		console.log('updateMe() - Search for', e.target.value, 'Lookup into', lookupArray)
+
+		let name = e.target.value
+
+		let filteredMountains = []
+		lookupArray.filter(mountain => {
+			if (mountain.name.toUpperCase().includes(name.toUpperCase()))
+				filteredMountains.push(mountain)
+		})
+
+		console.log('Filtered mountains', filteredMountains)
+
+		if (filteredMountains.length > 0) this.openEmployeesDialog(filteredMountains)
+
+	}
+
+	private openEmployeesDialog(lookupResults: any[]): void {
+		let dialogRef = this.dialog.open(MaterialDialogComponent, {
+			data: {
+				headers: ['id', 'name', 'gender'],
+				records: lookupResults
+			}
+		})
+		dialogRef.afterClosed().subscribe((result) => {
+			console.info('Came back from the dialog:', result[1])
+		})
 	}
 
 }
