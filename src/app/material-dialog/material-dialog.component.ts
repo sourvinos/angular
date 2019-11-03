@@ -21,6 +21,8 @@ export class MaterialDialogComponent implements OnInit {
 
     columns = []
     fields = []
+    align = []
+    format = ['', '', '', 'date']
     selectedElement = []
 
     @HostListener('document:keydown', ['$event']) anyEvent(event: { altKey: any; shiftKey: any; key: { toUpperCase: { (): string; (): string; (): string; (): string; (): string; }; }; }) {
@@ -31,8 +33,9 @@ export class MaterialDialogComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.columns = this.data.fields
+        this.columns = this.data.columns
         this.fields = this.data.fields
+        this.align = this.data.align
         this.dataSource = new MatTableDataSource<[]>(this.data.records);
         this.selection = new SelectionModel<[]>(false);
     }

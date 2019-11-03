@@ -60,7 +60,6 @@ button:not(:last-child) {
 
 .mat-list-item-content {
     color: #7A818B;
-    font-family: var(--font-family);
 }
 
 ::placeholder {
@@ -91,6 +90,29 @@ ul {
     list-style: none;
 }
 
+section.tables {
+    flex: 1 !important;
+    background-color: #57617B !important
+}
+
+button.primary {
+    color: #FFFFFF !important;
+    background-color: #57617B !important;
+}
+
+button.secondary {
+    color: #FFFFFF !important;
+    background-color: #5A75BC !important;
+}
+
+/* Custom */
+
+app-material-dialog {
+    display: flex;
+    flex-direction: column;
+    height: 100% !important;
+}
+
 .mat-dialog-container {
     background-color: #424242 !important;
     border-radius: 5px;
@@ -98,39 +120,57 @@ ul {
     width: 500px !important;
 }
 
-
-tr.mat-row {
-    cursor: pointer;
-    background-color: #57617B;
-    color: beige;
-}
-
 .mat-dialog-title {
-    color: aquamarine !important;
-    font-size: 2rem !important;
+    color: #759CBF !important;
+    font-family: 'Lato';
+    font-size: 2.3rem !important;
 }
 
 tr.mat-header-row {
     background-color: #637092 !important;
+    font-family: 'Lato';
 }
 
 th.mat-header-cell {
     color: beige !important;
-    font-size: 20px;
+    font-size: 1.3rem !important;
+}
+
+tr.mat-row>td:first-child {
+    border-left: 3px solid #57617B !important;
+}
+
+tr.mat-row.selected {
+    background-color: #7E7E7E !important;
+    border-bottom: none !important;
+}
+
+tr.mat-row.selected>td:first-child {
+    border-left: 3px solid #FFE85C !important;
+}
+
+tr.mat-row {
+    background-color: #57617B;
+    color: beige;
+    cursor: pointer;
+    font-family: 'Lato';
 }
 
 td.mat-cell {
-    padding: 0 10px !important;
+    border-bottom: 1px solid #747474 !important;
     color: beige !important;
+    font-size: 1.1rem;
+    padding: 0 10px !important;
 }
 
-app-material-dialog {
-    height: 100% !important;
-    display: flex;
-    flex-direction: column;
+.left {
+    text-align: left !important;
 }
 
-section.tables {
-    flex: 1 !important;
-    background-color: #57617B !important
+.right {
+    text-align: right !important;
+}
+
+.center {
+    text-align: center !important;
 }

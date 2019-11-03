@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Elements</h2>
+<h2 mat-dialog-title>Employees</h2>
 
 <!-- <h4>Select from the list</h4> -->
 
@@ -6,8 +6,8 @@
     <div id="scrollable">
         <table mat-table [dataSource]="dataSource" id="dataTable">
             <ng-container *ngFor="let column of columns; index as i" [matColumnDef]="columns[i]">
-                <th mat-header-cell *matHeaderCellDef> {{ columns[i] }} </th>
-                <td mat-cell *matCellDef="let element">{{ element[columns[i]] }}</td>
+                <th mat-header-cell *matHeaderCellDef> {{ fields[i] }} </th>
+                <td mat-cell *matCellDef="let element" ngClass="{{ align[i] }}">{{ element[columns[i]] | custom:format[i] }} </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: columns;" [matRowKeyboardSelection]="selection" [rowModel]="row" [selectOnFocus]="true" [toggleOnEnter]="false" [ngClass]="{selected: selection.isSelected(row)}"></tr>
@@ -16,8 +16,8 @@
 </section>
 
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close mat-dialog-close="false">Cancel</button>
-    <button mat-raised-button color="primary" mat-dialog-close (click)="close()">OK</button>
+    <button class="mat-flat-button secondary" mat-button mat-dialog-close mat-dialog-close="false">Cancel</button>
+    <button class="mat-flat-button primary" (click)="close()">OK</button>
 </mat-dialog-actions>
 
 <!-- <button mat-button mat-dialog-close [mat-dialog-close]="myElement" cdkFocusInitial>OK</button>  -->

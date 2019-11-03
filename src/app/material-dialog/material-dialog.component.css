@@ -31,8 +31,8 @@ tr.mat-row.selected {
     outline: 0;
 }
 
-tr.mat-row:hover>td {
-    /* background-color: rgb(255, 177, 148); */
+td.right {
+    text-align: right !important;
 }
 
 ul {

@@ -16,6 +16,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CdkTableModule } from '@angular/cdk/table';
 // Directives
 import { MatRowKeyboardSelectionModule } from "mat-row-keyboard-selection"
+// Pipes
+import { CustomPipe } from '../pipes/custom.pipe'
 // Bootstrap
 import { AlertModule } from 'ngx-bootstrap/alert'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
@@ -105,6 +107,7 @@ import { UtilsComponent } from '../child-routes/utils.component'
         SnackbarComponent,
         UserListComponent,
         UtilsComponent,
+        CustomPipe
     ],
     entryComponents: [
         ModalDialogComponent,

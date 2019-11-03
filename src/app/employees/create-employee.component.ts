@@ -23,8 +23,9 @@ export class CreateEmployeeComponent implements OnInit {
         contactPreference: '',
         isActive: true,
         department: '',
-        dateOfBirth: new Date(),
-        photoPath: ''
+        dateOfBirth: '',
+        photoPath: '',
+        age: '0'
     }
 
     departments: department[] = [
@@ -58,6 +59,5 @@ export class CreateEmployeeComponent implements OnInit {
         }
 
     }
-
 
 }

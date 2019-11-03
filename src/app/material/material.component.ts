@@ -102,7 +102,9 @@ export class MaterialComponent implements OnInit {
 	private openEmployeesDialog(lookupResults: any[]): void {
 		let dialogRef = this.dialog.open(MaterialDialogComponent, {
 			data: {
-				fields: ['id', 'name', 'gender'],
+				columns: ['id', 'name', 'age', 'dateOfBirth'],
+				fields: ['Id', 'First name', 'Age', 'Birthday'],
+				align: ['center', 'left', 'right', 'right'],
 				records: lookupResults
 			}
 		})
