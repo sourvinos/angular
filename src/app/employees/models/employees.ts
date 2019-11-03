@@ -10,4 +10,5 @@ export class employee {
     isActive: boolean
     photoPath?: string
     age: string
+    salary: number
 }

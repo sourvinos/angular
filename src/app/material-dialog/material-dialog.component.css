@@ -27,7 +27,6 @@ tr.mat-row {
 }
 
 tr.mat-row.selected {
-    /* background-color: rgb(255, 177, 148); */
     outline: 0;
 }
 

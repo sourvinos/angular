@@ -5,13 +5,18 @@ body {
     margin: 0;
 }
 
-body::-webkit-scrollbar {
+.scrollable {
+    overflow-y: scroll;
+}
+
+.scrollable::-webkit-scrollbar {
     width: 5px;
 }
 
-body::-webkit-scrollbar-thumb {
+.scrollable::-webkit-scrollbar-thumb {
     background-color: orange;
     min-height: 200px;
+    top: 50px;
 }
 
 a {
@@ -90,7 +95,7 @@ ul {
     list-style: none;
 }
 
-section.tables {
+.scrollable {
     flex: 1 !important;
     background-color: #57617B !important
 }
@@ -116,8 +121,8 @@ app-material-dialog {
 .mat-dialog-container {
     background-color: #424242 !important;
     border-radius: 5px;
-    height: 500px !important;
-    width: 500px !important;
+    height: 514px !important;
+    width: 700px !important;
 }
 
 .mat-dialog-title {
@@ -131,9 +136,25 @@ tr.mat-header-row {
     font-family: 'Lato';
 }
 
+
+.mat-header-cell:first-child, .mat-cell:first-child {
+    flex: 1%;
+}
+
+.mat-header-cell:nth-child(2), .mat-cell:nth-child(2) {
+    flex: 80%;
+}
+
+.mat-header-cell:last-child, .mat-cell:last-child {
+    flex: 19%
+}
+
 th.mat-header-cell {
+    border: 1px solid #747474 !important;
     color: beige !important;
-    font-size: 1.3rem !important;
+    font-size: 1.2rem !important;
+    padding: 0 10px !important;
+    text-align: center !important;
 }
 
 tr.mat-row>td:first-child {
@@ -158,6 +179,8 @@ tr.mat-row {
 
 td.mat-cell {
     border-bottom: 1px solid #747474 !important;
+    border-left: 1px solid #747474 !important;
+    border-right: 1px solid #747474 !important;
     color: beige !important;
     font-size: 1.1rem;
     padding: 0 10px !important;

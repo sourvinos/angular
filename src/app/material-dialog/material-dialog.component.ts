@@ -22,8 +22,11 @@ export class MaterialDialogComponent implements OnInit {
     columns = []
     fields = []
     align = []
-    format = ['', '', '', 'date']
+    width: '200px'
+    widths: ['200px', '200px', '200px', '200px', '200px']
+    format = ['', '', '', 'date', 'decimal']
     selectedElement = []
+    columnsToDisplay = ['id', 'name', 'dateOfBirth'];
 
     @HostListener('document:keydown', ['$event']) anyEvent(event: { altKey: any; shiftKey: any; key: { toUpperCase: { (): string; (): string; (): string; (): string; (): string; }; }; }) {
         if (event.key == 'Enter') {
@@ -47,7 +50,7 @@ export class MaterialDialogComponent implements OnInit {
 
     private getCurrentRow() {
         for (let index = 0; index < this.columns.length; index++) {
-            this.selectedElement[index] = document.querySelector('tr.selected').children[index].textContent
+            console.log(document.querySelector('tr.selected').children[index])
         }
     }
 

@@ -5,13 +5,15 @@ import * as moment from 'moment'
 
 export class CustomPipe implements PipeTransform {
     transform(value: any, format: any) {
-        if (format == 'date') {
-            console.log('Valid', moment(value).isValid())
-            console.log(moment(value, 'DD/MM/YYYY'))
-            return moment(value, "YYYY")
-        }
-        else {
-            return value
+        switch (format) {
+            case 'date':
+                return moment(value).format('DD/MM/YYYY')
+            case 'integer':
+                return new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 }).format(value)
+            case 'decimal':
+                return new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format(value)
+            default:
+                return value
         }
     }
 }
