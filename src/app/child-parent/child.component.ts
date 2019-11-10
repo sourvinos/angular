@@ -11,15 +11,15 @@ export class ChildToParentComponent {
 
     constructor(private sharedService: SharedService) { }
 
-    // @Output() greetEvent = new EventEmitter()
-    // name: string = 'Codevolution'
+    @Output() greetEvent = new EventEmitter()
+    searchString: string = 'Codevolution'
 
     // Child method that when called it emitts the @Output variable
-    // doSomething() {
-    //     this.greetEvent.emit(this.name = 'John')
-    // }
+    doSomething() {
+        this.greetEvent.emit(this.searchString)
+    }
 
-    onUpdateParent() {
+    updateParent() {
         this.sharedService.emitChange('I came from below!')
     }
 

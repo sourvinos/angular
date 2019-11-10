@@ -11,14 +11,16 @@ export class ParentFromChildComponent {
 
     message: string = ''
 
+    stringLookup: string = ''
+
     constructor(private sharedService: SharedService) {
-        sharedService.changeEmitted$.subscribe(text => { this.message = text });
+        this.sharedService.changeEmitted.subscribe(text => { this.message = text });
     }
 
     // Parent method that will be called from the child
     // the 'name' is the parameter that is passed from the child
-    // greet(name: string) {
-    //     alert('Hello, ' + name)
-    // }
+    greetEvent(name: string) {
+        alert('Hello, ' + name)
+    }
 
 }

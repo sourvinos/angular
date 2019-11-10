@@ -1,7 +1,16 @@
 <h1>Parent to child</h1>
 
+<!-- [heading] is the @Input element name in the child class -->
+<!-- headerText is a string variable in this (parent) class -->
+<app-header [heading]="headerText"></app-header>
+
 <button class="ui primary button" (click)="timer.startTimer()">Call child method</button>
 <button class="ui primary button" (click)="startTimer()">Call child method with @ViewChild</button>
 
 <!-- The #timer template variable in NOT NEEDED with @ViewChild  -->
 <app-child #timer></app-child>
+
+<!-- Execute code every time the input changes -->
+<input type="text" [ngModel]="fullName" (ngModelChange)="checkFullNameChanges($event)">
+
+<app-footer (saveEvent)="save()" (deleteEvent)="delete()"></app-footer>

@@ -36,7 +36,6 @@ import { DataBindingComponent } from '../data-binding/data-binging.component'
 import { EmployeeItemComponent } from './../employees/employee-item.component'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
-import { HeaderComponent } from './../header/header.component'
 import { InputsComponent } from '../input-controls/input-controls.component'
 import { LeftComponent } from '../animations/left/left.component'
 import { ListEmployeesComponent } from './../employees/list-employees.component'
@@ -65,6 +64,8 @@ import { SnackbarComponent } from '../snackbar/snackbar.component'
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
 import { UserListComponent } from '../tests/04-forms/user-list.component'
 import { UtilsComponent } from '../child-routes/utils.component'
+import { HeaderComponent } from '../parent-child/header.component'
+import { FooterComponent } from './../parent-child/footer.component';
 
 @NgModule({
     declarations: [
@@ -107,7 +108,8 @@ import { UtilsComponent } from '../child-routes/utils.component'
         SnackbarComponent,
         UserListComponent,
         UtilsComponent,
-        CustomPipe
+        CustomPipe,
+        FooterComponent
     ],
     entryComponents: [
         ModalDialogComponent,
