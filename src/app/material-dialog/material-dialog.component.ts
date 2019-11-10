@@ -22,16 +22,13 @@ export class MaterialDialogComponent implements OnInit {
     columns = []
     fields = []
     align = []
-    width: '200px'
-    widths: ['200px', '200px', '200px', '200px', '200px']
-    format = ['', '', '', 'date', 'decimal']
+    format = []
     selectedElement = []
-    columnsToDisplay = ['id', 'name', 'dateOfBirth'];
 
     @HostListener('document:keydown', ['$event']) anyEvent(event: { altKey: any; shiftKey: any; key: { toUpperCase: { (): string; (): string; (): string; (): string; (): string; }; }; }) {
         if (event.key == 'Enter') {
             this.getCurrentRow()
-            this.dialogRef.close(this.selectedElement)
+            // this.dialogRef.close(this.selectedElement)
         }
     }
 
@@ -39,18 +36,19 @@ export class MaterialDialogComponent implements OnInit {
         this.columns = this.data.columns
         this.fields = this.data.fields
         this.align = this.data.align
+        this.format = this.data.format
         this.dataSource = new MatTableDataSource<[]>(this.data.records);
         this.selection = new SelectionModel<[]>(false);
     }
 
     close() {
         this.getCurrentRow()
-        this.dialogRef.close(this.selectedElement)
+        // this.dialogRef.close(this.selectedElement)
     }
 
     private getCurrentRow() {
         for (let index = 0; index < this.columns.length; index++) {
-            console.log(document.querySelector('tr.selected').children[index])
+            console.log(document.querySelector('.selected').children[index].innerHTML)
         }
     }
 

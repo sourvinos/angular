@@ -26,20 +26,20 @@ export class MaterialComponent implements OnInit {
 	emailFormControl = new FormControl('', [Validators.required, Validators.email,])
 	userNameFormControl = new FormControl('', [Validators.required])
 
-	employeesDataSource: MatTableDataSource<TableItem>; employeesSelection: SelectionModel<TableItem>;
-	elementsDataSource: MatTableDataSource<TableItem>; elementsSelection: SelectionModel<TableItem>;
+	// employeesDataSource: MatTableDataSource<TableItem>; employeesSelection: SelectionModel<TableItem>;
+	// elementsDataSource: MatTableDataSource<TableItem>; elementsSelection: SelectionModel<TableItem>;
 
 	constructor(private employeeService: EmployeeService, private elementService: ElementsService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
 	ngOnInit(): void {
 		this.employeeService.getEmployees().subscribe((result) => {
-			this.employeesDataSource = new MatTableDataSource<TableItem>(result);
-			this.employeesSelection = new SelectionModel<TableItem>(false);
+			// this.employeesDataSource = new MatTableDataSource<TableItem>(result);
+			// this.employeesSelection = new SelectionModel<TableItem>(false);
 			this.employees = result
 		})
 		this.elementService.getElements().subscribe((result) => {
-			this.elementsDataSource = new MatTableDataSource<TableItem>(result);
-			this.elementsSelection = new SelectionModel<TableItem>(false);
+			// this.elementsDataSource = new MatTableDataSource<TableItem>(result);
+			// this.elementsSelection = new SelectionModel<TableItem>(false);
 			this.elements = result
 		})
 	}
@@ -102,9 +102,10 @@ export class MaterialComponent implements OnInit {
 	private openEmployeesDialog(lookupResults: any[]): void {
 		let dialogRef = this.dialog.open(MaterialDialogComponent, {
 			data: {
-				columns: ['id', 'name', 'age', 'dateOfBirth', 'salary'],
-				fields: ['Id', 'First name', 'Age', 'Birthday', 'Salary'],
-				align: ['center', 'left', 'right', 'center', 'right'],
+				columns: ['id', 'name', 'dateOfBirth', 'salary'],
+				fields: ['Id', 'First name', 'Date of birth', 'Salary'],
+				align: ['center', 'left', 'center', 'right'],
+				format: ['', '', 'date', 'decimal'],
 				records: lookupResults
 			}
 		})

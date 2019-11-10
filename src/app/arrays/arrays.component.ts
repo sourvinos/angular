@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+class Dummy {
+	adults: number
+	customer: string
+	pickupPoint: string
+	route: string
+}
+
 @Component({
 	selector: 'arrays',
 	templateUrl: './arrays.component.html',
@@ -12,12 +19,46 @@ export class ArraysComponent implements OnInit {
 	baseFiltered: IDestination[]
 	criteria = ['BL', 'AL']
 
-	constructor() { }
+	transfers = [
+		{
+			adults: 2,
+			customer: {
+				description: 'Jane Smith'
+			},
+			pickupPoint: {
+				description: 'Park',
+				route: {
+					description: 'Nisaki'
+				},
+				time: '08:40'
+			}
+		},
+	];
+
+	flatPeople: Dummy[] = []
 
 	ngOnInit() {
 		console.log(this.base)
 		this.baseFiltered = this.base.filter((x) => { return this.criteria.indexOf(x.description) !== -1 })
 		console.log(this.baseFiltered)
+
+		for (var {
+			adults: n,
+			customer: {
+				description: f
+			},
+			pickupPoint: {
+				description: g,
+				route: {
+					description: e
+				} }
+
+		} of this.transfers) {
+			console.log('Adults: ' + n + ', Customer: ' + f, ' Pickup point: ' + g + ' Route: ' + e);
+			this.flatPeople.push({ adults: n, customer: f, pickupPoint: g, route: e })
+		}
+
+		console.log(this.flatPeople)
 	}
 
 	isGreaterThan(value: number, v: number) {

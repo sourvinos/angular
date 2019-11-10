@@ -21,7 +21,7 @@ export class ListEmployeesComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        // Unused becase we are using the resolver in the costructor
+        // Unused because we are using the resolver in the costructor
         // this.employeeService.getEmployees().subscribe((result) => {
         //     this.employees = result
         // })

@@ -10,11 +10,14 @@
             <a [routerLink]="['/parentFromChild']" routerLinkActive="active">Data from child to the parent</a>
             <a [routerLink]="['/max-data-binding']" routerLinkActive="active">Data binding with Max</a>
             <a [routerLink]="['/employees/list']" routerLinkActive="active">Employees</a>
+            <a [routerLink]="['/arrays']" routerLinkActive="active">Arrays</a>
         </ul>
     </nav>
 
     <section>
-        <div *ngIf="showLoadingIndication" class="spinner"></div>
+        <div *ngIf="showLoadingIndication" class="spinner">
+            <!-- <img src="assets/DoubleRing.svg" alt=""> -->
+        </div>
         <router-outlet></router-outlet>
     </section>
 </main>

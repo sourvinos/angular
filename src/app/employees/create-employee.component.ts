@@ -25,7 +25,8 @@ export class CreateEmployeeComponent implements OnInit {
         department: '',
         dateOfBirth: '',
         photoPath: '',
-        age: '0'
+        age: '0',
+        salary: 0
     }
 
     departments: department[] = [

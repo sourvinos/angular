@@ -1,13 +1,15 @@
 <main>
     <nav>
-        <button class="circular vk ui mini icon button" [routerLink]="['/']">
-            <i class="icon home"></i>
-        </button>
         <h1>Child routes</h1>
         <h3 [routerLink]="['/settings/profile']" routerLinkActive="active">Profile</h3>
         <h3 [routerLink]="['/settings/utils']" routerLinkActive="active">Utilities</h3>
+        <input type="text" [(ngModel)]="albumId">
+        <button (click)="gotoProfile(albumId)">Load this album</button>
+        <button (click)="gotoProfile(1)">Load album 1</button>
+        <button (click)="gotoProfile(2)">Load album 2</button>
     </nav>
     <section>
+        <div *ngIf="showLoadingIndication" class="spinner"></div>
         <router-outlet></router-outlet>
     </section>
 </main>

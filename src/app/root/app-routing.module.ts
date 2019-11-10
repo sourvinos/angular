@@ -38,6 +38,7 @@ import { EmployeeListResolverService } from '../employees/services/employee-list
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
 	{ path: 'animations', component: MainComponent },
+	{ path: 'arrays', component: ArraysComponent },
 	{ path: 'material', component: MaterialComponent },
 	{ path: 'form-reactive', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard] },
 	{ path: 'form-template', component: FormTemplateComponent },
@@ -58,7 +59,7 @@ const appRoutes: Routes = [
 	{ path: 'max-data-binding', component: MaxDataBindingComponent },
 	{
 		path: 'settings', component: SettingsComponent, children: [
-			{ path: 'profile', component: ProfileComponent },
+			{ path: 'profile/:albumId', component: ProfileComponent, resolve: { employeeList: EmployeeListResolverService } },
 			{ path: 'utils', component: UtilsComponent }
 		]
 	},
