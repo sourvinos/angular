@@ -1,10 +1,9 @@
-<button (click)="onNewRecipe()">New recipe</button>
+<div id="recipe-list">
 
-<br>
+    <h1>Child (app-recipe-list)</h1>
 
-<h2>Recipe list</h2>
+    <button (click)="onNewRecipe()">New recipe</button>
 
-<!-- Step 2/5 -->
-<!-- [recipe] is the input for the receipe-item-component -->
-<!-- Get the index of each item -->
-<app-recipe-item (greetEvent)="greet($event)" *ngFor="let recipe of recipes; let i = index" [recipe]="recipe" [index]="i"></app-recipe-item>
+    <app-recipe-item *ngFor="let recipe of recipes; let i = index" [recipe]="recipe" [index]="i"></app-recipe-item>
+
+</div>

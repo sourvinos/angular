@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './../../page-not-found.component';
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
@@ -21,10 +22,6 @@ export class RecipeListComponent implements OnInit {
 
     onNewRecipe() {
         this.router.navigate(['new'], { relativeTo: this.route })
-    }
-
-    greet(name: string) {
-        alert('Hello, ' + name)
     }
 
 }

@@ -1,4 +1,18 @@
 #child {
-    background-color: navajowhite    ;
-    padding: 1rem;
+    background-color: navajowhite;
+    height: 100%;
+    margin: 1rem 0 2rem 0;
+    padding: 1rem 1rem 2rem 1rem;
+}
+
+form {
+    margin-top: 1rem;
+}
+
+.fields {
+    margin: 1rem 0;
+}
+
+.fields label {
+    width: 200px;
 }

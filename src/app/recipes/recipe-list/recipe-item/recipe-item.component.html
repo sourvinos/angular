@@ -1,6 +1,10 @@
-<!-- Step 4/5 -->
-<!-- Use the index as a parameter to the route in routing module -->
-<a [routerLink]="[index]">
-  <h4>{{ recipe.name }}</h4>
-  <p>{{ recipe.description}}</p>
-</a>
+<div class="recipe-item">
+
+    <a [routerLink]="recipe.id">
+        <h1>Child (app-recipe-item)</h1>
+        <h4>{{ recipe.id }}</h4>
+        <h4>{{ recipe.name }}</h4>
+        <p>{{ recipe.description}}</p>
+    </a>
+
+</div>

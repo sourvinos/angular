@@ -1,18 +1,26 @@
 <div id="child">
 
-  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <h1>Router - child (app-recipe-edit)</h1>
 
-    <button type="submit">Save</button>
-    <button type="button" (click)="onCancel()">Cancel</button>
-
-    <label for="name">Name</label>
-    <input type="text" id="name" formControlName="name">
-
-    <label for="description">Description</label>
-    <input type="text" id="description" formControlName="description">
-
-  </form>
-
-  <button type="button" (click)="onClick()">Talk to the parent</button>
+    <form [formGroup]="recipeForm">
+        <div class="fields">
+            <label for="id">id</label>
+            <input type="text" id="id" formControlName="id">
+        </div>
+        <div class="fields">
+            <label for="name">Name</label>
+            <input type="text" id="name" formControlName="name">
+        </div>
+        <div class="fields">
+            <label for="description">Description</label>
+            <input type="text" id="description" formControlName="description">
+        </div>
+        <div class="buttons">
+            <button (click)="onSave()">Save</button>
+            <button (click)="onCancel()">Cancel</button>
+            <button (click)="onEmit()">Talk to the parent</button>
+            <button (click)="greetStudent()">Greet student</button>
+        </div>
+    </form>
 
 </div>

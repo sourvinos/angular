@@ -20,21 +20,17 @@ export class RecipeEditComponent implements OnInit {
 
     constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router, private modalService: BsModalService) { }
 
-    onClick() {
-        this.recipeService.emitChange(true)
-    }
-
     ngOnInit() {
-        // Step 5/5
         this.route.params.subscribe((params: Params) => {
             this.id = +params['id']
             this.editMode = params['id'] != null
             this.initForm()
         })
+        this.recipeService.teacherMessage.subscribe(message => alert(message))
     }
 
-    onSubmit() {
-        console.log(this.recipeForm)
+    onSave() {
+        this.recipeService.saveRecipe(this.id, this.recipeForm.value)
     }
 
     onCancel() {
@@ -43,16 +39,19 @@ export class RecipeEditComponent implements OnInit {
 
     private initForm() {
 
+        let recipeId = 0
         let recipeName = ''
         let recipeDescription = ''
 
         if (this.editMode) {
             let recipe = this.recipeService.getRecipe(this.id)
+            recipeId = recipe.id
             recipeName = recipe.name
             recipeDescription = recipe.description
         }
 
         this.recipeForm = new FormGroup({
+            'id': new FormControl(recipeId),
             'name': new FormControl(recipeName),
             'description': new FormControl(recipeDescription)
         })
@@ -60,7 +59,6 @@ export class RecipeEditComponent implements OnInit {
     }
 
     canDeactivate(): any {
-        console.log(this.recipeForm.dirty)
         if (this.recipeForm.dirty) {
             const subject = new Subject<boolean>()
             const modal = this.modalService.show(ModalDialogComponent, {
@@ -75,6 +73,10 @@ export class RecipeEditComponent implements OnInit {
         } else {
             return true
         }
+    }
+
+    greetStudent() {
+        this.recipeService.sendMessage('Hello')
     }
 
 }

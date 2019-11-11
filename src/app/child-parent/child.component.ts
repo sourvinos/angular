@@ -12,6 +12,7 @@ export class ChildToParentComponent {
     constructor(private sharedService: SharedService) { }
 
     @Output() greetEvent = new EventEmitter()
+
     searchString: string = 'Codevolution'
 
     // Child method that when called it emitts the @Output variable
