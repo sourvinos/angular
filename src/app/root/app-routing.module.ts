@@ -31,9 +31,12 @@ import { UtilsComponent } from '../child-routes/utils.component';
 import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
 import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
 import { RecipesComponent } from '../recipes/recipes.component';
-import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.component';
 import { MaxDataBindingComponent } from '../data-binding/max-data-binding.component';
 import { EmployeeListResolverService } from '../employees/services/employee-list-resolver.service';
+import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.component';
+import { RecipeListResolverService } from '../recipes/recipe-list-resolver.service';
+import { PostListResolverService } from '../child-routes/posts-list-resolver.service';
+import { EditPostComponent } from '../child-routes/edit-post.component';
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -58,14 +61,19 @@ const appRoutes: Routes = [
 	{ path: 'pageNotFound', component: PageNotFoundComponent },
 	{ path: 'max-data-binding', component: MaxDataBindingComponent },
 	{
-		path: 'settings', component: SettingsComponent, children: [
-			{ path: 'profile/:albumId', component: ProfileComponent, resolve: { employeeList: EmployeeListResolverService } },
-			{ path: 'utils', component: UtilsComponent }
-		]
+		path: 'settings', component: SettingsComponent, children: [{
+			path: 'profile', component: ProfileComponent, children: [{
+				path: 'user/:userId', component: ProfileComponent, resolve: { postList: PostListResolverService }, children: [{
+					path: 'post/:postId', component: EditPostComponent
+				}]
+			}]
+		}, {
+			path: 'utils', component: UtilsComponent
+		}]
 	},
 	{
 		path: 'recipes', component: RecipesComponent, children: [
-			{ path: '', component: RecipeStartComponent },
+			{ path: '', component: RecipeListComponent, resolve: { recipeList: RecipeListResolverService } },
 			{ path: 'new', component: RecipeEditComponent },
 			{ path: ':id', component: RecipeEditComponent, canDeactivate: [CanDeactivateGuard] }
 		]

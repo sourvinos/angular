@@ -1,7 +1,7 @@
 window.onload = function() {
-    console.log('Loaded');
+    // console.log('Loaded');
 }
 
 function sayHello() {
-    console.log("Hello 123")
+    // console.log("Hello 123")
 }

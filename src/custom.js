@@ -1,1 +1,1 @@
-console.log("Loaded from external file!")
+// console.log("Loaded from external file!")

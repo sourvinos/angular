@@ -9,13 +9,12 @@ import { Router } from '@angular/router';
 
 export class SettingsComponent {
 
-	albumId: number
+	userId: number
 
 	constructor(private router: Router) { }
 
-	gotoProfile(albumId: number) {
-		console.log('Going to profile:', albumId)
-		this.router.navigate(['/settings/profile/' + albumId])
+	loadPosts(userId: number) {
+		this.router.navigate(['/settings/profile/user/' + userId])
 	}
 
 }

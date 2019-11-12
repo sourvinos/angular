@@ -1,4 +1,3 @@
-import { RecipeService } from './recipe.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,12 +6,4 @@ import { Component } from '@angular/core';
     styleUrls: ['./recipes.component.css']
 })
 
-export class RecipesComponent {
-
-    isFormVisible: boolean = false
-
-    constructor(private recipeService: RecipeService) {
-        this.recipeService.changeEmitted$.subscribe(result => { this.isFormVisible = result });
-    }
-
-}
+export class RecipesComponent { }

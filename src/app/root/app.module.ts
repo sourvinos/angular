@@ -1,3 +1,4 @@
+import { EditPostComponent } from './../child-routes/edit-post.component';
 // Base
 import { NgModule } from '@angular/core'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -50,11 +51,9 @@ import { PageNotFoundComponent } from './../page-not-found.component'
 import { ParentFromChildComponent } from './../child-parent/parent.component'
 import { ParentToChildComponent } from '../parent-child/parent.component'
 import { ProfileComponent } from '../child-routes/profile.component'
-import { RecipeDetailComponent } from '../recipes/recipe-detail/recipe-detail.component'
 import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component'
-import { RecipeItemComponent } from '../recipes/recipe-list/recipe-item/recipe-item.component'
+import { RecipeItemComponent } from '../recipes/recipe-list/recipe-item.component'
 import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.component'
-import { RecipeStartComponent } from '../recipes/recipe-start/recipe-start.component'
 import { RecipesComponent } from '../recipes/recipes.component'
 import { RightComponent } from '../animations/right/right.component'
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
@@ -95,11 +94,9 @@ import { FooterComponent } from './../parent-child/footer.component';
         ParentFromChildComponent,
         ParentToChildComponent,
         ProfileComponent,
-        RecipeDetailComponent,
         RecipeEditComponent,
         RecipeItemComponent,
         RecipeListComponent,
-        RecipeStartComponent,
         RecipesComponent,
         RightComponent,
         SemanticComponent,
@@ -109,7 +106,8 @@ import { FooterComponent } from './../parent-child/footer.component';
         UserListComponent,
         UtilsComponent,
         CustomPipe,
-        FooterComponent
+        FooterComponent,
+        EditPostComponent
     ],
     entryComponents: [
         ModalDialogComponent,

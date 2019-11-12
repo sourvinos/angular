@@ -1,8 +1,6 @@
-import { PageNotFoundComponent } from './../../page-not-found.component';
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IRecipe } from '../recipe.model';
 
 @Component({
     selector: 'app-recipe-list',
@@ -12,12 +10,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class RecipeListComponent implements OnInit {
 
-    recipes: Recipe[]
+    recipes: IRecipe[]
 
-    constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
+    constructor(private router: Router, private route: ActivatedRoute) {
+        this.recipes = this.route.snapshot.data['recipeList']
+        console.log(this.recipes)
+    }
 
     ngOnInit() {
-        this.recipes = this.recipeService.getRecipes()
     }
 
     onNewRecipe() {

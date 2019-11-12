@@ -1,6 +1,7 @@
-<main>
-    <h2>Profile page, id = {{ albumId }} </h2>
-    <ul>
-        <li *ngFor="let photo of photos">{{ photo.albumId }} {{ photo.thumbnailUrl }}</li>
-    </ul>
-</main>
+<h2 *ngIf=posts>Posts of user {{ userId }} </h2>
+<ul>
+    <li *ngFor="let post of posts" routerLink="post/{{ post.id }}">{{ post.userId }} - {{ post.id }} - {{ post.title }}></li>
+</ul>
+
+<!-- Router for editing a post -->
+<router-outlet></router-outlet>

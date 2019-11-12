@@ -1,11 +1,11 @@
-main, h1 {
+main {
     display: flex;
+    height: 100vh;
 }
 
 section {
     background-color: beige;
     margin: 1rem;
-    padding: 2rem;
     width: 100%;
 }
 

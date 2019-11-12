@@ -1,0 +1,88 @@
+{
+    "recipes": [
+        {
+            "id": 1,
+            "category": "Breakfast",
+            "name": "Apple Pie French Toast",
+            "description": "Tall and fluffy. These pancakes are just right. Topped with strawberries and whipped cream, they are impossible to resist."
+        },
+        {
+            "id": 2,
+            "category": "Breakfast",
+            "name": "Fluffy Pancakes",
+            "description": "I got the idea from a Denny's® ad, found and modified an apple pie filling recipe, and served it over French toast made just how I like it!"
+        },
+        {
+            "id": 3,
+            "category": "Breakfast",
+            "name": "Easy Sausage Gravy and Biscuits",
+            "description": "Hot jumbo buttermilk biscuits with creamy sausage gravy are ready in just 15 minutes for a hearty, family-favorite breakfast."
+        },
+        {
+            "id": 4,
+            "category": "Seafood",
+            "name": "Ocean Packets",
+            "description": "If you can't find clams, use mussels. If someone doesn't care for clams, double up on the shrimp and/or scallops. Baking times may vary according to the ingredients you select"
+        },
+        {
+            "id": 5,
+            "category": "Seafood",
+            "name": "Alaska Salmon Bake with Pecan Crunch Coating",
+            "description": "Baked salmon makes an excellent main course!"
+        },
+        {
+            "id": 6,
+            "category": "Soups",
+            "name": "Slow Cooker Lentil and Ham Soup",
+            "description": "Come home at the end of the day to a richly spiced broth filled with lentils, ham and veggies. Pair it up with cornmeal muffins and you have a great meal!"
+        },
+        {
+            "id": 7,
+            "category": "Soups",
+            "name": "Chicken Soup with Drop-In Noodles",
+            "description": "Chicken soup that you can let simmer in a slow cooker all day then make homemade drop noodles just before serving. Quick and easy."
+        },
+        {
+            "id": 8,
+            "category": "Soups",
+            "name": "Chicken Wild Rice Soup",
+            "description": "A slight variation on a recipe I received from a fellow Minnesota farm wife. A delicious soup that can also easily be cooked in a slow cooker and freezes well."
+        },
+        {
+            "id": 9,
+            "category": "Soups",
+            "name": "Mom Moak's Chicken Noodle Soup",
+            "description": "Perfect chicken noodle soup recipe. Heavy cream can be used in place of evaporated milk, if preferred."
+        },
+        {
+            "id": 11,
+            "category": "Appetizers and Snacks",
+            "name": "Chef John's Sausage Rolls",
+            "description": "People often bake the sausage roll whole, then cut it up. But I've found that if you cut them into individual rounds first, the crispier results more than make up for the extra work. I like to eat mine dipped in a bit of mustard."
+        },
+        {
+            "id": 12,
+            "category": "Appetizers and Snacks",
+            "name": "Quince Paste",
+            "description": "The quince is an old-fashioned, intensely aromatic, and dearly loved fruit"
+        },
+        {
+            "id": 13,
+            "category": "Drinks",
+            "name": "Shandy",
+            "description": "This makes for a luscious beer with a hint of lemonade."
+        },
+        {
+            "id": 14,
+            "category": "Drinks",
+            "name": "John's Tasty German Cherry Beer",
+            "description": "This drink is remarkable! I used to order it at my favorite bar in Gelnhausen, Germany! If you don't like the taste of beer alone, you will love this drink!"
+        },
+        {
+            "id": 15,
+            "category": "Drinks",
+            "name": "Hop, Skip, and Go Naked",
+            "description": "A quick, inexpensive, good tasting, inhibitor breaking, outdoor party making drink for adults. Best if made with cheap beer and whiskey. Give your car keys to a responsible sober adult BEFORE drinking."
+        }
+    ]
+}

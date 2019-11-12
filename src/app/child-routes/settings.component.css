@@ -2,10 +2,12 @@ main {
     display: grid;
     grid-template-columns: 200px 1fr;
     margin: 2rem !important;
+    border: 1px solid rebeccapurple;
 }
 
-section {
-    margin: 2rem;
+#content {
+    border: 1px dotted palevioletred;
+    padding: 2rem;
 }
 
 h1 {
