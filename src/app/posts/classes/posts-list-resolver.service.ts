@@ -14,9 +14,10 @@ import { PostService } from './post.service';
 
 export class PostListResolverService implements Resolve<IPost[]>{
 
-    constructor(private postService: PostService, private route: ActivatedRoute) { }
+    constructor(private postService: PostService) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IPost[]> {
+        console.log('Inside resolver')
         return this.postService.getPosts(route.params.userId)
     }
 

@@ -59,10 +59,10 @@ const appRoutes: Routes = [
 	{ path: 'max-data-binding', component: MaxDataBindingComponent },
 	{
 		path: 'posts', component: WrapperComponent, children: [{
-			path: 'user/:userId', component: ListPostComponent, resolve: { postList: PostListResolverService }, children: [{
-				path: 'post/:postId', component: FormPostComponent, resolve: { postEdit: PostEditResolverService }
+			path: 'user/:userId', component: ListPostComponent, children: [{
+				path: 'post/:postId', component: FormPostComponent
 			}]
-		}]
+		}], runGuardsAndResolvers: 'always'
 	},
 	{
 		path: 'recipes', component: RecipesComponent, children: [
@@ -76,12 +76,8 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-	imports: [
-		RouterModule.forRoot(appRoutes)
-	],
-	exports: [
-		RouterModule
-	]
+	imports: [RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' })],
+	exports: [RouterModule]
 })
 
 export class AppRoutingModule { }

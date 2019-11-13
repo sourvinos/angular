@@ -13,6 +13,7 @@ export class PostService {
     constructor(private http: HttpClient) { }
 
     getPosts(userId: number) {
+        console.log('Inside the service, getting posts')
         return this.http.get<IPost[]>(this.url + '?userId=' + userId)
     }
 

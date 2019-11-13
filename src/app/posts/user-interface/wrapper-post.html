@@ -1,6 +1,6 @@
 <div id="criteria">
     <mat-form-field>
-        <input matInput placeholder="User id" [(ngModel)]="userId">
+        <input matInput placeholder="User id" [(ngModel)]="userId" autocomplete="off">
     </mat-form-field>
     <br>
     <button mat-flat-button color="primary" (click)="loadPosts(userId)">Load this user's posts</button>

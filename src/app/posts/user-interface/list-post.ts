@@ -1,5 +1,6 @@
-import { Component, DoCheck } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { PostService } from './../classes/post.service';
+import { Component, DoCheck, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Params, Router, NavigationEnd } from '@angular/router';
 import { IPost } from '../classes/post.model';
 
 @Component({
@@ -8,17 +9,28 @@ import { IPost } from '../classes/post.model';
 	styleUrls: ['./list-post.css']
 })
 
-export class ListPostComponent implements DoCheck {
+export class ListPostComponent implements DoCheck, OnDestroy {
 
 	userId: number
 	currentUserId: number
 
 	posts: IPost[]
 
-	constructor(private activatedRoute: ActivatedRoute, private router: Router) {
-		this.activatedRoute.params.subscribe((params: Params) => {
-			this.userId = +params['userId']
-		})
+	navigationSubscription: any
+
+	constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService) {
+		this.activatedRoute.params.subscribe((params: Params) => { this.userId = +params['userId'] })
+		this.navigationSubscription = this.router.events.subscribe((e: any) => {
+			if (e instanceof NavigationEnd) {
+				this.postService.getPosts(this.userId).subscribe(result => { this.posts = result })
+			}
+		});
+	}
+
+	ngOnDestroy() {
+		if (this.navigationSubscription) {
+			this.navigationSubscription.unsubscribe()
+		}
 	}
 
 	ngDoCheck(): void {
@@ -27,7 +39,9 @@ export class ListPostComponent implements DoCheck {
 			this.activatedRoute.params.subscribe((params: Params) => {
 				this.userId = +params['userId']
 			})
-			this.posts = this.activatedRoute.snapshot.data['postList']
+			console.log('Getting posts for new user')
+			// this.posts = this.activatedRoute.snapshot.data['postList']
+			this.postService.getPosts(this.userId).subscribe(result => { this.posts = result })
 		}
 	}
 

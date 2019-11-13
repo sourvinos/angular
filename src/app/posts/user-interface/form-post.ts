@@ -1,6 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Router, NavigationStart, NavigationError, NavigationCancel, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PostService } from '../classes/post.service';
 import { IPost } from '../classes/post.model';
 
@@ -11,6 +11,9 @@ import { IPost } from '../classes/post.model';
 })
 
 export class FormPostComponent implements DoCheck {
+
+    id: number;
+    url: string;
 
     postId: number
     currentPostId: number
@@ -39,12 +42,14 @@ export class FormPostComponent implements DoCheck {
 
     private populateFields() {
         if (this.postId) {
-            this.post = this.activatedRoute.snapshot.data['postEdit'][0]
-            this.form.setValue({
-                id: this.post.id,
-                userId: this.post.userId,
-                title: this.post.title,
-                body: this.post.body
+            this.postService.getPost(this.postId).subscribe(result => {
+                this.post = result[0]
+                this.form.setValue({
+                    id: this.post.id,
+                    userId: this.post.userId,
+                    title: this.post.title,
+                    body: this.post.body
+                })
             })
         }
     }
