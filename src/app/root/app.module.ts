@@ -1,4 +1,3 @@
-import { EditPostComponent } from './../child-routes/edit-post.component';
 // Base
 import { NgModule } from '@angular/core'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -50,7 +49,6 @@ import { ModalIndexComponent } from './../modal-index/modal-index.component'
 import { PageNotFoundComponent } from './../page-not-found.component'
 import { ParentFromChildComponent } from './../child-parent/parent.component'
 import { ParentToChildComponent } from '../parent-child/parent.component'
-import { ProfileComponent } from '../child-routes/profile.component'
 import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component'
 import { RecipeItemComponent } from '../recipes/recipe-list/recipe-item.component'
 import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.component'
@@ -58,13 +56,15 @@ import { RecipesComponent } from '../recipes/recipes.component'
 import { RightComponent } from '../animations/right/right.component'
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
 import { ServerElementComponent } from './../data-binding/server-element/server-element.component'
-import { SettingsComponent } from '../child-routes/settings.component'
 import { SnackbarComponent } from '../snackbar/snackbar.component'
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
 import { UserListComponent } from '../tests/04-forms/user-list.component'
-import { UtilsComponent } from '../child-routes/utils.component'
 import { HeaderComponent } from '../parent-child/header.component'
 import { FooterComponent } from './../parent-child/footer.component';
+// Posts
+import { WrapperComponent } from '../posts/user-interface/wrapper-post'
+import { ListPostComponent } from '../posts/user-interface/list-post'
+import { FormPostComponent } from '../posts/user-interface/form-post'
 
 @NgModule({
     declarations: [
@@ -93,7 +93,6 @@ import { FooterComponent } from './../parent-child/footer.component';
         PageNotFoundComponent,
         ParentFromChildComponent,
         ParentToChildComponent,
-        ProfileComponent,
         RecipeEditComponent,
         RecipeItemComponent,
         RecipeListComponent,
@@ -101,13 +100,14 @@ import { FooterComponent } from './../parent-child/footer.component';
         RightComponent,
         SemanticComponent,
         ServerElementComponent,
-        SettingsComponent,
         SnackbarComponent,
         UserListComponent,
-        UtilsComponent,
         CustomPipe,
         FooterComponent,
-        EditPostComponent
+        // Posts
+        WrapperComponent,
+        ListPostComponent,
+        FormPostComponent,
     ],
     entryComponents: [
         ModalDialogComponent,

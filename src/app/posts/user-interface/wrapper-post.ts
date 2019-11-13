@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-	selector: 'app-settings',
-	templateUrl: './settings.component.html',
-	styleUrls: ['./settings.component.css']
+	selector: 'wrapper-post',
+	templateUrl: './wrapper-post.html',
+	styleUrls: ['./wrapper-post.css']
 })
 
-export class SettingsComponent {
+export class WrapperComponent {
 
 	userId: number
 

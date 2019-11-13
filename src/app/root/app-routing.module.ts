@@ -5,7 +5,6 @@ import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.compon
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './../auth/services/auth.guard';
-
 import { MaterialComponent } from '../material/material.component';
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component';
 import { FormTemplateComponent } from '../form-template/form-template.component';
@@ -14,20 +13,14 @@ import { CssGridComponent } from '../css-grid/css-grid.component';
 import { DataBindingComponent } from '../data-binding/data-binging.component';
 import { MainComponent } from '../animations/main/main.component'
 import { ArraysComponent } from '../arrays/arrays.component';
-
 import { EventsHomeComponent } from '../auth/home/home.component';
 import { EventsComponent } from '../auth/events/events.component';
 import { EventsMembersComponent } from '../auth/members/members.component';
 import { EventsRegisterComponent } from '../auth/register/register.component';
 import { EventsLoginComponent } from '../auth/login/login.component';
-
 import { ParentToChildComponent } from '../parent-child/parent.component';
 import { ParentFromChildComponent } from '../child-parent/parent.component';
-
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component';
-import { SettingsComponent } from '../child-routes/settings.component';
-import { ProfileComponent } from '../child-routes/profile.component';
-import { UtilsComponent } from '../child-routes/utils.component';
 import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
 import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
 import { RecipesComponent } from '../recipes/recipes.component';
@@ -35,8 +28,11 @@ import { MaxDataBindingComponent } from '../data-binding/max-data-binding.compon
 import { EmployeeListResolverService } from '../employees/services/employee-list-resolver.service';
 import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.component';
 import { RecipeListResolverService } from '../recipes/recipe-list-resolver.service';
-import { PostListResolverService } from '../child-routes/posts-list-resolver.service';
-import { EditPostComponent } from '../child-routes/edit-post.component';
+import { PostListResolverService } from '../posts/classes/posts-list-resolver.service';
+// Posts
+import { WrapperComponent } from '../posts/user-interface/wrapper-post';
+import { ListPostComponent } from '../posts/user-interface/list-post';
+import { FormPostComponent } from '../posts/user-interface/form-post';
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -61,14 +57,12 @@ const appRoutes: Routes = [
 	{ path: 'pageNotFound', component: PageNotFoundComponent },
 	{ path: 'max-data-binding', component: MaxDataBindingComponent },
 	{
-		path: 'settings', component: SettingsComponent, children: [{
-			path: 'profile', component: ProfileComponent, children: [{
-				path: 'user/:userId', component: ProfileComponent, resolve: { postList: PostListResolverService }, children: [{
-					path: 'post/:postId', component: EditPostComponent
+		path: 'settings', component: WrapperComponent, children: [{
+			path: 'profile', component: ListPostComponent, children: [{
+				path: 'user/:userId', component: ListPostComponent, resolve: { postList: PostListResolverService }, children: [{
+					path: 'post/:postId', component: FormPostComponent
 				}]
 			}]
-		}, {
-			path: 'utils', component: UtilsComponent
 		}]
 	},
 	{

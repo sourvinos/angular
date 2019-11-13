@@ -1,14 +1,14 @@
 import { Component, DoCheck } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { IPost } from './post.model';
+import { IPost } from '../classes/post.model';
 
 @Component({
-	selector: 'app-profile',
-	templateUrl: './profile.component.html',
-	styleUrls: ['./profile.component.css']
+	selector: 'list-post',
+	templateUrl: './list-post.html',
+	styleUrls: ['./list-post.css']
 })
 
-export class ProfileComponent implements DoCheck {
+export class ListPostComponent implements DoCheck {
 
 	userId: number
 	currentUserId: number

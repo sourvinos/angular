@@ -1,0 +1,10 @@
+<div id="criteria">
+    <mat-form-field>
+        <input matInput placeholder="User id" [(ngModel)]="userId">
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="loadPosts(userId)">Load this user's posts</button>
+</div>
+<div id="content">
+    <div *ngIf="showLoadingIndication" class="spinner"></div>
+    <router-outlet></router-outlet>
+</div>
