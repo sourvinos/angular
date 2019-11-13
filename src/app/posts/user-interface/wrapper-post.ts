@@ -14,7 +14,7 @@ export class WrapperComponent {
 	constructor(private router: Router) { }
 
 	loadPosts(userId: number) {
-		this.router.navigate(['/settings/profile/user/' + userId])
+		this.router.navigate(['/posts/user/' + userId])
 	}
 
 }

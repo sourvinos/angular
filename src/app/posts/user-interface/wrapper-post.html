@@ -2,9 +2,11 @@
     <mat-form-field>
         <input matInput placeholder="User id" [(ngModel)]="userId">
     </mat-form-field>
+    <br>
     <button mat-flat-button color="primary" (click)="loadPosts(userId)">Load this user's posts</button>
 </div>
+
 <div id="content">
-    <div *ngIf="showLoadingIndication" class="spinner"></div>
+    <!-- List of posts -->
     <router-outlet></router-outlet>
 </div>

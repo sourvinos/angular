@@ -4,7 +4,12 @@ ul {
 
 li {
     font-family: Lato;
+    list-style: none;
     outline: 0;
+}
+
+#items {
+    padding-bottom: 1rem;
 }
 
 li:hover, a:hover {
@@ -16,4 +21,8 @@ li:hover, a:hover {
 #edit-post {
     background-color: wheat;
     padding: 1rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
 }

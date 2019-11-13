@@ -33,6 +33,7 @@ import { PostListResolverService } from '../posts/classes/posts-list-resolver.se
 import { WrapperComponent } from '../posts/user-interface/wrapper-post';
 import { ListPostComponent } from '../posts/user-interface/list-post';
 import { FormPostComponent } from '../posts/user-interface/form-post';
+import { PostEditResolverService } from '../posts/classes/post-edit-resolver.service';
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -57,11 +58,9 @@ const appRoutes: Routes = [
 	{ path: 'pageNotFound', component: PageNotFoundComponent },
 	{ path: 'max-data-binding', component: MaxDataBindingComponent },
 	{
-		path: 'settings', component: WrapperComponent, children: [{
-			path: 'profile', component: ListPostComponent, children: [{
-				path: 'user/:userId', component: ListPostComponent, resolve: { postList: PostListResolverService }, children: [{
-					path: 'post/:postId', component: FormPostComponent
-				}]
+		path: 'posts', component: WrapperComponent, children: [{
+			path: 'user/:userId', component: ListPostComponent, resolve: { postList: PostListResolverService }, children: [{
+				path: 'post/:postId', component: FormPostComponent, resolve: { postEdit: PostEditResolverService }
 			}]
 		}]
 	},

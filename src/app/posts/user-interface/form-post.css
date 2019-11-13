@@ -2,3 +2,8 @@
     background-color: lightcyan;
     padding: 1rem;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}

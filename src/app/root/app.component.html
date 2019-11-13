@@ -1,7 +1,7 @@
 <main>
     <nav>
         <ul>
-            <a [routerLink]="['/settings']" routerLinkActive="active">Child routes</a>
+            <a [routerLink]="['/posts']" routerLinkActive="active">Posts</a>
             <a [routerLink]="['/form-template']" routerLinkActive="active">Template driven forms</a>
             <a [routerLink]="['/form-reactive']" routerLinkActive="active">Reactive forms</a>
             <a [routerLink]="['/parent-to-child']" routerLinkActive="active">Call child functions</a>
@@ -15,12 +15,7 @@
     </nav>
 
     <section>
-        <div *ngIf="showLoadingIndication" class="spinner">
-            <!-- <img src="assets/DoubleRing.svg" alt=""> -->
-        </div>
+        <div *ngIf="showLoadingIndication" class="spinner"></div>
         <router-outlet></router-outlet>
     </section>
 </main>
-
-<!-- <app-header></app-header>
-<app-recipes></app-recipes> -->
