@@ -28,12 +28,12 @@ import { MaxDataBindingComponent } from '../data-binding/max-data-binding.compon
 import { EmployeeListResolverService } from '../employees/services/employee-list-resolver.service';
 import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.component';
 import { RecipeListResolverService } from '../recipes/recipe-list-resolver.service';
-import { PostListResolverService } from '../posts/classes/posts-list-resolver.service';
+import { PostListResolverService } from '../posts/classes/resolver-list-post.service';
 // Posts
 import { WrapperComponent } from '../posts/user-interface/wrapper-post';
 import { ListPostComponent } from '../posts/user-interface/list-post';
 import { FormPostComponent } from '../posts/user-interface/form-post';
-import { PostEditResolverService } from '../posts/classes/post-edit-resolver.service';
+import { PostEditResolverService } from '../posts/classes/resolver-edit-post.service';
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -59,8 +59,8 @@ const appRoutes: Routes = [
 	{ path: 'max-data-binding', component: MaxDataBindingComponent },
 	{
 		path: 'posts', component: WrapperComponent, children: [{
-			path: 'user/:userId', component: ListPostComponent, children: [{
-				path: 'post/:postId', component: FormPostComponent
+			path: 'userId/:userId', component: ListPostComponent, resolve: { postList: PostListResolverService }, children: [{
+				path: 'post/:postId', component: FormPostComponent, resolve: { postEdit: PostEditResolverService },
 			}]
 		}], runGuardsAndResolvers: 'always'
 	},

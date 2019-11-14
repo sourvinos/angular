@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'wrapper-post',
@@ -11,10 +11,12 @@ export class WrapperComponent {
 
 	userId: number
 
-	constructor(private router: Router) { }
+	constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
 	loadPosts(userId: number) {
-		this.router.navigate(['/posts/user/' + userId])
+		this.router.navigate(['userId/', userId], {
+			relativeTo: this.activatedRoute
+		})
 	}
 
 }

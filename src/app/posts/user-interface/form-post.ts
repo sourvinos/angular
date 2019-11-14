@@ -1,8 +1,8 @@
 import { Component, DoCheck } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { PostService } from '../classes/post.service';
-import { IPost } from '../classes/post.model';
+import { PostService } from '../classes/service.post';
+import { IPost } from '../classes/model.post';
 
 @Component({
     selector: 'form-post',

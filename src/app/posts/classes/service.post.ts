@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IPost } from './post.model';
+import { IPost } from './model.post';
 
 @Injectable({ providedIn: 'root' })
 
 export class PostService {
 
     posts: IPost[] = []
-    url: string = 'https://jsonplaceholder.typicode.com/posts'
+    remoteUrl: string = 'https://jsonplaceholder.typicode.com/posts'
+    url: string = 'http://localhost:3000/posts'
 
     constructor(private http: HttpClient) { }
 
     getPosts(userId: number) {
-        console.log('Inside the service, getting posts')
+        // console.log('Inside the service, getting posts')
         return this.http.get<IPost[]>(this.url + '?userId=' + userId)
     }
 
@@ -21,8 +21,9 @@ export class PostService {
         return this.http.get<IPost>(this.url + '?id=' + postId)
     }
 
-    updatePost(id: number, formData: IPost): Observable<IPost> {
-        return this.http.put<IPost>(this.url + '/' + id, formData)
+    updatePost(postId: number, formData: IPost) {
+        // console.log('Inside the service, saving post')
+        return this.http.put<IPost>(this.url + '/' + postId, formData)
     }
 
 }
