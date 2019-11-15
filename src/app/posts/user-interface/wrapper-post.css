@@ -2,15 +2,12 @@ main {
     display: grid;
     grid-template-columns: 200px 1fr;
     margin: 2rem !important;
-    border: 1px solid rebeccapurple;
 }
 
 #criteria {
-    border: 1px dotted blue;
     padding: 1rem;
 }
 
 #content {
-    border: 1px dotted palevioletred;
     padding: 1rem;
 }

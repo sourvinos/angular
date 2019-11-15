@@ -30,15 +30,12 @@ import { AuthModule } from './../auth/auth.module'
 import { ChildFromParentComponent } from './../parent-child/child.component'
 import { ChildToParentComponent } from '../child-parent/child.component'
 import { CockpitComponent } from './../data-binding/cockpit/cockpit.component'
-import { CreateEmployeeComponent } from './../employees/create-employee.component'
 import { CssGridComponent } from './../css-grid/css-grid.component'
 import { DataBindingComponent } from '../data-binding/data-binging.component'
-import { EmployeeItemComponent } from './../employees/employee-item.component'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
 import { InputsComponent } from '../input-controls/input-controls.component'
 import { LeftComponent } from '../animations/left/left.component'
-import { ListEmployeesComponent } from './../employees/list-employees.component'
 import { MainComponent } from '../animations/main/main.component'
 import { MaterialComponent } from '../material/material.component'
 import { MaterialDialogComponent } from '../material-dialog/material-dialog.component'
@@ -62,10 +59,15 @@ import { UserListComponent } from '../tests/04-forms/user-list.component'
 import { HeaderComponent } from '../parent-child/header.component'
 import { FooterComponent } from './../parent-child/footer.component';
 // Posts
-import { WrapperComponent } from '../posts/user-interface/wrapper-post'
-import { ListPostComponent } from '../posts/user-interface/list-post'
-import { FormPostComponent } from '../posts/user-interface/form-post'
-import { ModalForm } from './../posts/user-interface/modal-form';
+import { PostWrapperComponent } from '../posts/user-interface/wrapper-post'
+import { PostListComponent } from '../posts/user-interface/list-post'
+import { PostFormComponent } from '../posts/user-interface/form-post'
+import { PostModalForm } from './../posts/user-interface/modal-form';
+// Employees
+import { EmployeeWrapperComponent } from '../employees/user-interface/wrapper-employee'
+import { EmployeeListComponent } from '../employees/user-interface/list-employee'
+import { EmployeeItemComponent } from '../employees/user-interface/item-employee'
+import { EmployeeFormComponent } from '../employees/user-interface/form-employee'
 
 @NgModule({
     declarations: [
@@ -74,7 +76,7 @@ import { ModalForm } from './../posts/user-interface/modal-form';
         ChildFromParentComponent,
         ChildToParentComponent,
         CockpitComponent,
-        CreateEmployeeComponent,
+        EmployeeFormComponent,
         CssGridComponent,
         DataBindingComponent,
         EmployeeItemComponent,
@@ -83,7 +85,7 @@ import { ModalForm } from './../posts/user-interface/modal-form';
         HeaderComponent,
         InputsComponent,
         LeftComponent,
-        ListEmployeesComponent,
+        EmployeeListComponent,
         MainComponent,
         MaterialComponent,
         MaterialDialogComponent,
@@ -106,16 +108,20 @@ import { ModalForm } from './../posts/user-interface/modal-form';
         CustomPipe,
         FooterComponent,
         // Posts
-        WrapperComponent,
-        ListPostComponent,
-        FormPostComponent,
-        ModalForm
+        PostWrapperComponent,
+        PostListComponent,
+        PostFormComponent,
+        PostModalForm,
+        // Employees
+        EmployeeWrapperComponent,
+        EmployeeListComponent,
+        EmployeeFormComponent,
     ],
     entryComponents: [
         ModalDialogComponent,
         ModalIndexComponent,
         MaterialDialogComponent,
-        ModalForm
+        PostModalForm
     ],
     imports: [
         CdkTableModule,

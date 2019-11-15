@@ -9,7 +9,7 @@ import { PostService } from '../classes/service.post';
 	styleUrls: ['./list-post.css']
 })
 
-export class ListPostComponent implements OnDestroy {
+export class PostListComponent implements OnDestroy {
 
 	userId: number
 	posts: IPost[]
@@ -21,7 +21,6 @@ export class ListPostComponent implements OnDestroy {
 			if (e instanceof NavigationEnd) {
 				this.postService.getPosts(this.userId).subscribe(result => {
 					this.posts = result
-					console.log(this.posts)
 				})
 			}
 		});

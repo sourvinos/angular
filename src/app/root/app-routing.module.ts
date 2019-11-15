@@ -1,39 +1,42 @@
-import { PageNotFoundComponent } from './../page-not-found.component';
-import { CreateEmployeeComponent } from './../employees/create-employee.component';
-import { ListEmployeesComponent } from './../employees/list-employees.component';
-import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { ArraysComponent } from '../arrays/arrays.component';
 import { AuthGuard } from './../auth/services/auth.guard';
-import { MaterialComponent } from '../material/material.component';
+import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
+import { CssGridComponent } from '../css-grid/css-grid.component';
+import { DataBindingComponent } from '../data-binding/data-binging.component';
+import { EventsComponent } from '../auth/events/events.component';
+import { EventsHomeComponent } from '../auth/home/home.component';
+import { EventsLoginComponent } from '../auth/login/login.component';
+import { EventsMembersComponent } from '../auth/members/members.component';
+import { EventsRegisterComponent } from '../auth/register/register.component';
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component';
 import { FormTemplateComponent } from '../form-template/form-template.component';
 import { InputsComponent } from '../input-controls/input-controls.component';
-import { CssGridComponent } from '../css-grid/css-grid.component';
-import { DataBindingComponent } from '../data-binding/data-binging.component';
 import { MainComponent } from '../animations/main/main.component'
-import { ArraysComponent } from '../arrays/arrays.component';
-import { EventsHomeComponent } from '../auth/home/home.component';
-import { EventsComponent } from '../auth/events/events.component';
-import { EventsMembersComponent } from '../auth/members/members.component';
-import { EventsRegisterComponent } from '../auth/register/register.component';
-import { EventsLoginComponent } from '../auth/login/login.component';
-import { ParentToChildComponent } from '../parent-child/parent.component';
-import { ParentFromChildComponent } from '../child-parent/parent.component';
-import { SemanticComponent } from '../semantic-ui/semantic-ui.component';
-import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
-import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
-import { RecipesComponent } from '../recipes/recipes.component';
+import { MaterialComponent } from '../material/material.component';
 import { MaxDataBindingComponent } from '../data-binding/max-data-binding.component';
-import { EmployeeListResolverService } from '../employees/services/employee-list-resolver.service';
+import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component';
+import { PageNotFoundComponent } from './../page-not-found.component';
+import { ParentFromChildComponent } from '../child-parent/parent.component';
+import { ParentToChildComponent } from '../parent-child/parent.component';
+import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component';
 import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.component';
 import { RecipeListResolverService } from '../recipes/recipe-list-resolver.service';
-import { PostListResolverService } from '../posts/classes/resolver-list-post.service';
+import { RecipesComponent } from '../recipes/recipes.component';
+import { SemanticComponent } from '../semantic-ui/semantic-ui.component';
 // Posts
-import { WrapperComponent } from '../posts/user-interface/wrapper-post';
-import { ListPostComponent } from '../posts/user-interface/list-post';
-import { FormPostComponent } from '../posts/user-interface/form-post';
-import { PostEditResolverService } from '../posts/classes/resolver-edit-post.service';
+import { PostWrapperComponent } from '../posts/user-interface/wrapper-post';
+import { PostListComponent } from '../posts/user-interface/list-post';
+import { PostFormComponent } from '../posts/user-interface/form-post';
+import { PostEditResolverService } from '../posts/classes/resolver-edit-post';
+import { PostListResolverService } from '../posts/classes/resolver-list-post';
+// Employees
+import { EmployeeWrapperComponent } from '../employees/user-interface/wrapper-employee';
+import { EmployeeListComponent } from '../employees/user-interface/list-employee';
+import { EmployeeFormComponent } from '../employees/user-interface/form-employee';
+import { EmployeeListResolverService } from '../employees/classes/resolver-list-employee.';
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -58,9 +61,9 @@ const appRoutes: Routes = [
 	{ path: 'pageNotFound', component: PageNotFoundComponent },
 	{ path: 'max-data-binding', component: MaxDataBindingComponent },
 	{
-		path: 'posts', component: WrapperComponent, children: [{
-			path: 'userId/:userId', component: ListPostComponent, resolve: { postList: PostListResolverService }, children: [{
-				path: 'post/:postId', component: FormPostComponent, resolve: { postEdit: PostEditResolverService },
+		path: 'posts', component: PostWrapperComponent, children: [{
+			path: 'userId/:userId', component: PostListComponent, resolve: { postList: PostListResolverService }, children: [{
+				path: 'post/:postId', component: PostFormComponent, resolve: { postEdit: PostEditResolverService },
 			}]
 		}], runGuardsAndResolvers: 'always'
 	},
@@ -71,8 +74,12 @@ const appRoutes: Routes = [
 			{ path: ':id', component: RecipeEditComponent, canDeactivate: [CanDeactivateGuard] }
 		]
 	},
-	{ path: 'employees/list', component: ListEmployeesComponent, resolve: { employeeList: EmployeeListResolverService } },
-	{ path: 'employees/new', component: CreateEmployeeComponent },
+	{
+		path: 'employees', component: EmployeeWrapperComponent, children: [
+			{ path: 'list', component: EmployeeListComponent },
+			{ path: 'new', component: EmployeeFormComponent }
+		]
+	}
 ];
 
 @NgModule({

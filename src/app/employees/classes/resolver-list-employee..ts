@@ -1,9 +1,8 @@
-import { photo } from './../models/photo';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
-import { employee } from '../models/employees';
-import { EmployeeService } from '../../services/employee.service';
+import { EmployeeService } from './employee.service';
+import { photo } from './model.photo';
 
 @Injectable({ providedIn: 'root' })
 

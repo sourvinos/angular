@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { of } from "rxjs";
 import { delay } from "rxjs/operators";
-import { employee } from '../employees/models/employees';
-import { photo } from '../employees/models/photo';
 import { HttpClient } from '@angular/common/http';
+import { photo } from './model.photo';
+import { employee } from './model.employee';
 
 @Injectable({ providedIn: 'root' })
 

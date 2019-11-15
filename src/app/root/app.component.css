@@ -4,8 +4,7 @@ main {
 }
 
 section {
-    background-color: beige;
-    margin: 1rem;
+    margin: 1rem 1rem 1rem 0;
     width: 100%;
 }
 
@@ -20,18 +19,14 @@ ul {
     padding: 0;
 }
 
-ul>a {
+li {
     cursor: pointer;
     outline: 0;
 }
 
-a:hover {
-    color: black;
-    text-decoration-line: none;
-}
-
 .active {
-    color: blue;
+    color: blueviolet;
+    font-weight: bold;
 }
 
 .spinner {

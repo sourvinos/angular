@@ -1,16 +1,16 @@
-import { employee } from './models/employees';
 import { Component, OnInit, HostListener } from '@angular/core';
-import { department } from './models/department';
-import { EmployeeService } from '../services/employee.service';
 import { Router } from '@angular/router';
+import { employee } from '../classes/model.employee';
+import { department } from '../classes/model.department';
+import { EmployeeService } from '../classes/employee.service';
 
 @Component({
-    selector: 'app-create-employee',
-    templateUrl: './create-employee.component.html',
-    styleUrls: ['./create-employee.component.css']
+    selector: 'form-employee',
+    templateUrl: './form-employee.html',
+    styleUrls: ['./form-employee.css']
 })
 
-export class CreateEmployeeComponent implements OnInit {
+export class EmployeeFormComponent implements OnInit {
 
     isPreviewPhoto: boolean = false
 
@@ -47,18 +47,6 @@ export class CreateEmployeeComponent implements OnInit {
 
     onShowPreview() {
         this.isPreviewPhoto = !this.isPreviewPhoto
-    }
-
-    @HostListener('document:keydown', ['$event']) anyEvent(event: { altKey: any; shiftKey: any; key: { toUpperCase: { (): string; (): string; (): string; (): string; (): string; }; }; }) {
-
-        if (event.altKey) {
-            if (event.key.toUpperCase() == 'N') { alert("New") }
-            if (event.key.toUpperCase() == 'D') { alert("Delete") }
-            if (event.key.toUpperCase() == 'F') { alert("Find") }
-            if (event.key.toUpperCase() == 'P') { alert("Print") }
-            if (event.key.toUpperCase() == 'S') { alert("Save") }
-        }
-
     }
 
 }

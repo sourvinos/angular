@@ -6,8 +6,11 @@ import { IPost } from './model.post';
 
 export class PostService {
 
-    posts: IPost[] = []
+    // npm install -g json-server
+    // json-server --watch posts.json
     // url: string = 'https://jsonplaceholder.typicode.com/posts'
+
+    posts: IPost[] = []
     url: string = 'http://localhost:3000/posts'
 
     constructor(private http: HttpClient) { }

@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 	styleUrls: ['./wrapper-post.css']
 })
 
-export class WrapperComponent {
+export class PostWrapperComponent {
 
 	userId: number
 

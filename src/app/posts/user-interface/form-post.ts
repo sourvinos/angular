@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IPost } from '../classes/model.post';
 import { PostService } from '../classes/service.post';
-import { ModalForm } from './modal-form';
+import { PostModalForm } from './modal-form';
 
 @Component({
     selector: 'form-post',
@@ -12,7 +12,7 @@ import { ModalForm } from './modal-form';
     styleUrls: ['./form-post.css']
 })
 
-export class FormPostComponent {
+export class PostFormComponent {
 
     postId: number
 
@@ -43,7 +43,7 @@ export class FormPostComponent {
     private getPost(params: { [x: string]: any; }) {
         this.postService.getPost(params['postId']).subscribe(result => {
             this.post = result[0]
-            const dialogRef = this.dialog.open(ModalForm, {
+            const dialogRef = this.dialog.open(PostModalForm, {
                 width: '250px',
                 data: { post: this.post },
                 closeOnNavigation: false

@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
     styleUrls: ['modal-form.css']
 })
 
-export class ModalForm {
+export class PostModalForm {
 
     form = this.formBuilder.group({
         id: 0,
@@ -17,7 +17,7 @@ export class ModalForm {
         body: ['', [Validators.maxLength(255)]]
     })
 
-    constructor(public dialogRef: MatDialogRef<ModalForm>, @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder) {
+    constructor(public dialogRef: MatDialogRef<PostModalForm>, @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder) {
         this.form.setValue({
             id: this.data.post.id,
             userId: this.data.post.userId,

@@ -1,10 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { employee } from './models/employees';
+import { employee } from '../classes/model.employee';
 
 @Component({
-    selector: 'app-employee-item',
-    templateUrl: './employee-item.component.html',
-    styleUrls: ['./employee-item.component.css']
+    selector: 'item-employee',
+    templateUrl: './item-employee.html',
+    styleUrls: ['./item-employee.css']
 })
 
 export class EmployeeItemComponent {

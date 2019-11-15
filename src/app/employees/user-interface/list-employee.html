@@ -1,0 +1,29 @@
+<h1>List of employees</h1>
+
+<!-- 
+    Parent
+        Class:
+        -------------
+        dataFromChild: string = ''
+
+        handleNotify(eventData: string) {
+            this.dataFromChild = eventData
+        }
+
+        Template:  (put it where the child item renders)
+        -------------
+        (notify)="handleNotify($event)
+
+    Child
+        Class:
+        -------------
+        @Output() notify: EventEmitter<string> = new EventEmitter<string>()
+        
+        displayName() {
+            this.notify.emit(this.employee.name)
+        }
+        
+        Template:
+        -------------
+        <div (click)="displayName()"</div>
+-->
