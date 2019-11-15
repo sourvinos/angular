@@ -113,7 +113,7 @@ button.secondary {
 /* Custom */
 
 .mat-dialog-container {
-    background-color: #424242 !important;
+    /* background-color: #424242 !important; */
     border-radius: 5px !important;
     display: flex !important;
     height: 574px !important;

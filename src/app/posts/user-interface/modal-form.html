@@ -1,0 +1,23 @@
+<div id="edit-post">
+
+    <form [formGroup]="form" autocomplete="off">
+        <mat-form-field>
+            <input type="text" matInput placeholder="Id" formControlName="id" id="id">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="User id" formControlName="userId" id="userId">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Title" formControlName="title" id="title">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Body" formControlName="body" id="body">
+        </mat-form-field>
+    </form>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="close()">Close</button>
+        <button mat-button (click)="closeAndReturnObject()">Save</button>
+    </div>
+
+</div>

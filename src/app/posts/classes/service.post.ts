@@ -7,7 +7,7 @@ import { IPost } from './model.post';
 export class PostService {
 
     posts: IPost[] = []
-    remoteUrl: string = 'https://jsonplaceholder.typicode.com/posts'
+    // url: string = 'https://jsonplaceholder.typicode.com/posts'
     url: string = 'http://localhost:3000/posts'
 
     constructor(private http: HttpClient) { }
@@ -22,7 +22,7 @@ export class PostService {
     }
 
     updatePost(postId: number, formData: IPost) {
-        // console.log('Inside the service, saving post')
+        console.log('Inside the service, saving post')
         return this.http.put<IPost>(this.url + '/' + postId, formData)
     }
 

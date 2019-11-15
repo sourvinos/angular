@@ -65,6 +65,7 @@ import { FooterComponent } from './../parent-child/footer.component';
 import { WrapperComponent } from '../posts/user-interface/wrapper-post'
 import { ListPostComponent } from '../posts/user-interface/list-post'
 import { FormPostComponent } from '../posts/user-interface/form-post'
+import { ModalForm } from './../posts/user-interface/modal-form';
 
 @NgModule({
     declarations: [
@@ -108,11 +109,13 @@ import { FormPostComponent } from '../posts/user-interface/form-post'
         WrapperComponent,
         ListPostComponent,
         FormPostComponent,
+        ModalForm
     ],
     entryComponents: [
         ModalDialogComponent,
         ModalIndexComponent,
-        MaterialDialogComponent
+        MaterialDialogComponent,
+        ModalForm
     ],
     imports: [
         CdkTableModule,
