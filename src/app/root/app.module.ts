@@ -115,6 +115,7 @@ import { EmployeeFormComponent } from '../employees/user-interface/form-employee
         // Employees
         EmployeeWrapperComponent,
         EmployeeListComponent,
+        EmployeeItemComponent,
         EmployeeFormComponent,
     ],
     entryComponents: [

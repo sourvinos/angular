@@ -1,0 +1,44 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Markus",
+      "email": ""
+    },
+    {
+      "id": 2,
+      "name": "Pam!!",
+      "email": "pam@yahoo.com"
+    },
+    {
+      "id": 3,
+      "name": "Julie",
+      "email": "julie@hotmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Lisa",
+      "email": "lisa@hotmail.com"
+    },
+    {
+      "id": 5,
+      "name": "Bob",
+      "email": "mark@hotmail.com"
+    },
+    {
+      "id": 6,
+      "name": "Maria",
+      "email": "pam@yahoo.com"
+    },
+    {
+      "id": 7,
+      "name": "Samantha",
+      "email": "julie@hotmail.com"
+    },
+    {
+      "id": 8,
+      "name": "Foxxy",
+      "email": "lisa@hotmail.com"
+    }
+  ]
+}

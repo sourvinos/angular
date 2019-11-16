@@ -77,7 +77,8 @@ const appRoutes: Routes = [
 	{
 		path: 'employees', component: EmployeeWrapperComponent, children: [
 			{ path: 'list', component: EmployeeListComponent },
-			{ path: 'new', component: EmployeeFormComponent }
+			{ path: 'new', component: EmployeeFormComponent },
+			{ path: ':id', component: EmployeeFormComponent }
 		]
 	}
 ];
