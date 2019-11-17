@@ -1,0 +1,138 @@
+* {
+    /* Include this to avoid the vertical scroll bar due to the border */
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 224, 255);
+}
+
+.container {
+    border: 5px solid rgb(211, 224, 90);
+    height: 100vh;
+
+    /* The items will take up only as much space
+    as they need and the flex container (.container) will be as wide 
+    or as tall as the
+    sum of the individual items */
+    /* display: inline-flex; */
+
+    /* The element will take up the full width of the container (body) */
+    display: flex;
+
+    /* Stack on top of each other */
+    flex-direction: column;
+
+    /* Stack from left to rigth */
+    /* flex-direction: row; */
+
+    /* Justify (main axis)*/
+    /* justify-content: center; */
+    /* justify-content: flex-end; */
+    /* justify-content: flex-start; */
+    /* No beginning or end space */
+    /* justify-content: space-between; */
+    /* The beginning and the end space is half of the width between items */
+    /* justify-content: space-around; */
+    /* The beginning and the end space is the same as the width between items */
+    /* justify-content: space-evenly; */
+
+    /* Justify (cross axis) */
+    /* align-items: center; */
+
+}
+
+#header {
+    align-items: center;
+    background-color: darkolivegreen;
+    color: white;
+    display: flex;
+    font-family: Lato;
+    font-size: 1rem;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+ul {
+    cursor: pointer;
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 0 1rem;
+}
+
+.flex-item {
+    color: white;
+    font-family: Lato;
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+button {
+    background-color: rgba(99, 164, 167, 1);
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+#logo {
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+li:hover, #logo:hover {
+    color: rgb(68, 167, 167);
+}
+
+button:hover {
+    background-color: rgba(99, 164, 167, 0.5);
+}
+
+.item-1 {
+    background-color: #b4bf35;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-2 {
+    background-color: #b95f21;
+    flex: 1 1 auto;
+}
+
+.item-3 {
+    background-color: #1c4c56;
+    text-align: end;
+}
+
+.item-4 {
+    background-color: #b4bf35;
+}
+
+.item-5 {
+    background-color: #cfb276;
+}
+
+.item-6 {
+    background-color: #6b0b03;
+}
+
+.item-7 {
+    background-color: #b95f21;
+}
+
+.item-8 {
+    background-color: #01243a;
+}
+
+.item-9 {
+    background-color: #aad041;
+}
