@@ -62,12 +62,12 @@ import { FooterComponent } from './../parent-child/footer.component';
 import { PostWrapperComponent } from '../posts/user-interface/wrapper-post'
 import { PostListComponent } from '../posts/user-interface/list-post'
 import { PostFormComponent } from '../posts/user-interface/form-post'
-import { PostModalForm } from './../posts/user-interface/modal-form';
 // Employees
 import { EmployeeWrapperComponent } from '../employees/user-interface/wrapper-employee'
 import { EmployeeListComponent } from '../employees/user-interface/list-employee'
 import { EmployeeItemComponent } from '../employees/user-interface/item-employee'
 import { EmployeeFormComponent } from '../employees/user-interface/form-employee'
+import { PostModalForm } from '../posts/user-interface/modal-form'
 
 @NgModule({
     declarations: [

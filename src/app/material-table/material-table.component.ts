@@ -1,7 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog, MatTableDataSource } from '@angular/material';
-import { EmployeeService } from '../employees/classes/employee.service';
+import { EmployeeService } from '../employees/classes/service.employee';
 import { MaterialDialogComponent } from '../material-dialog/material-dialog.component';
 
 interface TableItem {

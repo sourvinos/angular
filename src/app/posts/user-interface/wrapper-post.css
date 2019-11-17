@@ -1,13 +1,11 @@
-main {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    margin: 2rem !important;
+#wrapper {
+    background-color: olivedrab;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-#criteria {
-    padding: 1rem;
-}
-
-#content {
-    padding: 1rem;
+#header {
+    background-color: tan;
+    color: whitesmoke;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EmployeeService } from '../classes/employee.service';
+import { EmployeeService } from '../classes/service.employee';
 import { department } from './../classes/model.department';
 import { employee } from './../classes/model.employee';
 
@@ -51,12 +51,13 @@ export class EmployeeFormComponent implements OnInit {
                     console.log('Error getting record')
                 })
         }
-
     }
 
-    saveEmployee() {
+    updateEmployee() {
         console.log('Saving', this.form.value)
-        this.employeeService.updateEmployee(this.form.value).subscribe(result => { console.log('After the update', result) })
+        this.employeeService.updateEmployee(this.form.value).subscribe(result => {
+            console.log('After the update', result)
+        })
         this.router.navigate(['/employees/list'])
     }
 

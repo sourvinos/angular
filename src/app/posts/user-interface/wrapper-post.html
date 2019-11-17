@@ -1,12 +1,19 @@
-<div id="criteria">
-    <mat-form-field>
-        <input matInput placeholder="User id" [(ngModel)]="userId" autocomplete="off">
-    </mat-form-field>
-    <br>
-    <button mat-flat-button color="primary" (click)="loadPosts(userId)">Load this user's posts</button>
-</div>
+<div id="wrapper">
 
-<div id="content">
-    <!-- List of posts -->
-    <router-outlet></router-outlet>
+    <div id="header">
+        <div id="title">
+            <h1>Transfers</h1>
+        </div>
+        <div id="search-box">
+            <mat-form-field>
+                <input matInput placeholder="User id" [(ngModel)]="userId" autocomplete="off">
+            </mat-form-field>
+            <button mat-flat-button class="primary" (click)="loadPosts(userId)">Search</button>
+        </div>
+    </div>
+
+    <div id="content">
+        <router-outlet></router-outlet>
+    </div>
+
 </div>

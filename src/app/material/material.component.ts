@@ -3,7 +3,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { MaterialDialogComponent } from '../material-dialog/material-dialog.component';
-import { EmployeeService } from '../employees/classes/employee.service';
+import { EmployeeService } from '../employees/classes/service.employee';
 import { FormControl, Validators } from '@angular/forms';
 
 interface TableItem {

@@ -1,6 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, HostListener } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Unlisten, KeyboardShortcuts } from 'src/app/child-parent/keyboard-shortcuts';
 
 @Component({
     selector: 'modal-form',
@@ -10,6 +11,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 export class PostModalForm {
 
+    unlisten: Unlisten
+
     form = this.formBuilder.group({
         id: 0,
         userId: 0,
@@ -17,22 +20,26 @@ export class PostModalForm {
         body: ['', [Validators.maxLength(255)]]
     })
 
-    constructor(public dialogRef: MatDialogRef<PostModalForm>, @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder) {
-        this.form.setValue({
-            id: this.data.post.id,
-            userId: this.data.post.userId,
-            title: this.data.post.title,
-            body: this.data.post.body
-        })
-
+    constructor(public dialogRef: MatDialogRef<PostModalForm>, @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private keyboardShortcutsService: KeyboardShortcuts) {
+        console.log('Inside modal, data from outside', data)
+        // this.addShortcuts()
+        this.populateFormFields(data)
     }
 
     close(): void {
         this.dialogRef.close();
     }
 
-    closeAndReturnObject() {
-        this.dialogRef.close(this.form.value)
+    closeAndReturnObject() { }
+
+    private populateFormFields(data: any) {
+        console.log('Will populate form with ', data.post)
+        this.form.setValue({
+            id: data.post.id,
+            userId: data.post.userId,
+            title: data.post.title,
+            body: data.post.body
+        })
     }
 
 }

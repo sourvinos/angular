@@ -1,28 +1,16 @@
-ul {
-    padding: 0;
+#content {
+    display: flex;
+    flex-direction: row;
+    background-color: lightsteelblue;
 }
 
-li {
-    font-family: Lato;
-    list-style: none;
-    outline: 0;
+#summaries {
+    display: flex;
+    background-color: lightslategray;
 }
 
-#items {
-    padding-bottom: 1rem;
-}
-
-li:hover, a:hover {
-    color: darkblue;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-#edit-post {
-    background-color: wheat;
-    padding: 1rem;
-}
-
-h2 {
-    margin-bottom: 1rem;
+#listAndForm {
+    display: flex;
+    flex-direction: row;
+    background-color: slategrey;
 }

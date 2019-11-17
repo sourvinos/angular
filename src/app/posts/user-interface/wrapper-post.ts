@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,11 +7,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 	styleUrls: ['./wrapper-post.css']
 })
 
-export class PostWrapperComponent {
+export class PostWrapperComponent implements AfterViewInit {
 
 	userId: number
 
-	constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+	constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+	}
+
+	ngAfterViewInit() { }
 
 	loadPosts(userId: number) {
 		this.router.navigate(['userId/', userId], {
