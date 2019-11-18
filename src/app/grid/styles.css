@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #ffffff;
+    font-family: "Nunito";
+    text-align: center;
+}
+
+#wrapper {
+    display: flex;
+    background: gray;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+#header {
+    padding: 1rem;
+    background: deepskyblue;
+}
+
+#content {
+    display: flex;
+    background: khaki;
+    flex: 1;
+}
+
+#summaries {
+    background: lemonchiffon;
+    color: black;
+    width: 200px;
+    margin: 1rem;
+}
+
+#listAndForm {
+    background: darkseagreen;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#list {
+    background: goldenrod;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: 100%;
+}
+
+#list-content {
+    background: crimson;
+    flex: 1;
+}
+
+#form {
+    display: none;
+    flex-direction: column;
+    margin: 1rem;
+    width: 100%;
+}
+
+#form-content {
+    background: crimson;
+    flex: 1;
+}
+
+#form-footer {
+    background: firebrick;
+}
