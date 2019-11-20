@@ -2,3 +2,15 @@
     display: flex;
     flex-direction: row;
 }
+
+.red {
+    color: red;
+}
+
+.special {
+    font-family: Lato;
+}
+
+.text-italic {
+    font-style: italic;
+}

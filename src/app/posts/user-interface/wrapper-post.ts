@@ -11,6 +11,14 @@ export class PostWrapperComponent implements AfterViewInit {
 
 	userId: number
 
+	// 'italic' is used in the template for class binding
+	// 'special' is the name of the class in the css
+	special: string = "special"
+
+	// isItalic is used in the template for class binding
+
+	isItalic: boolean = true
+
 	constructor(private router: Router, private activatedRoute: ActivatedRoute) {
 	}
 

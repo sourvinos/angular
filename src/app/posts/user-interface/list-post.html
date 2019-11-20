@@ -2,6 +2,8 @@
 
     <h2 *ngIf=posts>Posts of user {{ userId }} </h2>
 
+    {{ errorMessage}}
+
     <div id="items">
         <li *ngFor="let post of posts" (click)=getPost(post.id)>{{ post.userId }} - {{ post.id }} - {{ post.title }}</li>
     </div>

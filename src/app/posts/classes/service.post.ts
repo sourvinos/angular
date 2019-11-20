@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPost } from './model.post';
@@ -17,7 +16,6 @@ export class PostService {
     constructor(private http: HttpClient) { }
 
     getPosts(userId: number) {
-        console.log('Inside the service, getting posts')
         return this.http.get<IPost[]>(this.url + '?userId=' + userId)
     }
 
@@ -26,7 +24,6 @@ export class PostService {
     }
 
     updatePost(post: IPost) {
-        console.log('Updating', post)
         return this.http.put<void>(`${this.url}/${post.id}`, post, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'

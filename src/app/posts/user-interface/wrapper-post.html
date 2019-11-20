@@ -1,6 +1,14 @@
+<!-- class binding -->
+
 <div id="wrapper">
 
-    <h1>Posts</h1>
+    <h1 class="red">Posts</h1>
+
+    <!-- 'special is the css rule' -->
+
+    <!-- 'text-italic is the css rule' -->
+    <!-- isItalic is the variable in the class (true or false) -->
+    <h2 [class]="special" [class.text-italic]="isItalic">List of added posts</h2>
 
     <mat-form-field>
         <input matInput placeholder="User id" [(ngModel)]="userId" autocomplete="off">
