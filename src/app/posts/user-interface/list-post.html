@@ -1,24 +1,12 @@
 <div id="content">
 
-    <div id="summaries">
-        <span>#summaries</span>
+    <h2 *ngIf=posts>Posts of user {{ userId }} </h2>
+
+    <div id="items">
+        <li *ngFor="let post of posts" (click)=getPost(post.id)>{{ post.userId }} - {{ post.id }} - {{ post.title }}</li>
     </div>
+</div>
 
-    <div id="listAndForm">
-
-        <div id="list">
-            <span>#list</span>
-            <h2 *ngIf=posts>Posts of user {{ userId }} </h2>
-
-            <div id="items">
-                <li *ngFor="let post of posts" (click)=getPost(post.id)>{{ post.userId }} - {{ post.id }} - {{ post.title }}</li>
-            </div>
-        </div>
-
-        <div id="form">
-            <router-outlet></router-outlet>
-        </div>
-
-    </div>
-
+<div id="form">
+    <router-outlet></router-outlet>
 </div>

@@ -1,51 +1,14 @@
-h4 {
-    margin-bottom: 20px;
+.mat-dialog-content {
+    height: 100%;
 }
 
-li {
-    cursor: pointer;
-    padding: 5px;
+.mat-dialog-content h6 {
+    color: var(--color-modal-content);
 }
 
-app-material-dialog {
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
-    width: 100% !important;
-}
-
-li:hover {
-    background-color: darkolivegreen;
-    color: gainsboro;
-}
-
-mat-dialog-actions {
+.mat-dialog-actions {
     justify-content: flex-end;
     margin-bottom: 0;
-    padding-top: 30px;
-}
-
-table.mat-table {
-    width: 100%;
-}
-
-tr.mat-row {
-    cursor: pointer;
-}
-
-tr.mat-row.selected {
-    outline: 0;
-}
-
-td.right {
-    text-align: right !important;
-}
-
-ul {
-    margin: 0;
-    padding-left: 20px;
-}
-
-th {
-    font-size: 1.6rem;
+    min-height: auto;
+    padding: 0;
 }

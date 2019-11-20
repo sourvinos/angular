@@ -1,4 +1,4 @@
-import { Component, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { IPost } from '../classes/model.post';
 import { PostService } from '../classes/service.post';
@@ -9,7 +9,7 @@ import { PostService } from '../classes/service.post';
 	styleUrls: ['./list-post.css']
 })
 
-export class PostListComponent implements AfterViewInit, OnDestroy {
+export class PostListComponent implements OnDestroy {
 
 	userId: number
 	posts: IPost[]
@@ -21,14 +21,11 @@ export class PostListComponent implements AfterViewInit, OnDestroy {
 			if (e instanceof NavigationEnd) {
 				console.log('Constructor Navigation end')
 				this.postService.getPosts(this.userId).subscribe(result => {
+					console.log('Inside the list', result)
 					this.posts = result
 				})
 			}
 		});
-	}
-
-	ngAfterViewInit() {
-		this.setListAndFormWidth()
 	}
 
 	ngOnDestroy() {
@@ -42,12 +39,5 @@ export class PostListComponent implements AfterViewInit, OnDestroy {
 			relativeTo: this.activatedRoute
 		})
 	}
-
-	private setListAndFormWidth() {
-		let headerWidth = document.getElementById('header').offsetWidth + 'px'
-		console.log('Header width', headerWidth)
-		document.getElementById('listAndForm').style.width = headerWidth
-	}
-
 
 }

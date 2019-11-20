@@ -1,3 +1,4 @@
+import { ModalDialogComponent } from './../../modal-dialog/modal-dialog.component';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
@@ -5,6 +6,9 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IPost } from '../classes/model.post';
 import { PostService } from '../classes/service.post';
 import { PostModalForm } from './modal-form';
+import { Subject } from 'rxjs';
+import { BsModalService } from 'ngx-bootstrap';
+import { MaterialDialogComponent } from 'src/app/material-dialog/material-dialog.component';
 
 @Component({
     selector: 'form-post',
@@ -24,7 +28,7 @@ export class PostFormComponent {
         body: ['', [Validators.maxLength(255)]]
     })
 
-    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, private postService: PostService, public dialog: MatDialog) {
+    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, private postService: PostService, public dialog: MatDialog, private modalService: BsModalService) {
         this.activatedRoute.params.subscribe(p => {
             this.updatePostId(p)
             this.getPost()
@@ -36,9 +40,52 @@ export class PostFormComponent {
 
     }
 
+    // Master
+    canDeactivate() {
+        if (this.form.dirty) {
+            const dialogRef = this.dialog.open(MaterialDialogComponent, {
+                height: '250px',
+                width: '550px',
+                data: {
+                    title: 'Please confirm',
+                    message: 'If you continue, changes in this record will be lost!',
+                    actions: ['cancel', 'ok']
+                },
+                panelClass: 'dialog'
+            })
+            return dialogRef.afterClosed().subscribe(result => {
+                console.log('The dialog was closed', result);
+                if (result == 'CloseMe') {
+                    this.form.reset()
+                    this.router.navigate(['../../'], { relativeTo: this.activatedRoute })
+                }
+            });
+        } else {
+            return true
+        }
+    }
+
+    // Master with bootstrap
+    canDeactivates() {
+        if (this.form.dirty) {
+            const subject = new Subject<boolean>()
+            const modal = this.modalService.show(ModalDialogComponent, {
+                initialState: {
+                    title: 'Confirmation',
+                    message: 'If you continue, all changes in this record will be lost.',
+                    type: 'question'
+                }, animated: false
+            })
+            modal.content.subject = subject
+            return subject.asObservable()
+        } else {
+            return true
+        }
+    }
+
     // T
     close() {
-        // document.getElementById('list').style.marginTop = "0px"
+        // this.router.navigate(['/'])
         this.router.navigate(['../../'], { relativeTo: this.activatedRoute })
     }
 
@@ -47,6 +94,7 @@ export class PostFormComponent {
         console.log('Saving', this.form.value)
         this.postService.updatePost(this.form.value).subscribe(result => {
             console.log('After the update', result)
+            this.form.reset()
             this.router.navigate(['../../'], {
                 relativeTo: this.activatedRoute
             })

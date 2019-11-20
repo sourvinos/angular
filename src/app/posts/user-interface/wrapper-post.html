@@ -1,19 +1,17 @@
 <div id="wrapper">
 
-    <div id="header">
-        <div id="title">
-            <h1>Transfers</h1>
-        </div>
-        <div id="search-box">
-            <mat-form-field>
-                <input matInput placeholder="User id" [(ngModel)]="userId" autocomplete="off">
-            </mat-form-field>
-            <button mat-flat-button class="primary" (click)="loadPosts(userId)">Search</button>
-        </div>
-    </div>
+    <h1>Posts</h1>
 
-    <div id="content">
-        <router-outlet></router-outlet>
-    </div>
+    <mat-form-field>
+        <input matInput placeholder="User id" [(ngModel)]="userId" autocomplete="off">
+    </mat-form-field>
+
+    <button mat-flat-button class="primary" (click)="loadPosts(userId)">Search</button>
+
+</div>
+
+<div id="content">
+
+    <router-outlet></router-outlet>
 
 </div>

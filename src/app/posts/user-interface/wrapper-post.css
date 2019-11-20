@@ -1,11 +1,4 @@
 #wrapper {
-    background-color: olivedrab;
     display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-#header {
-    background-color: tan;
-    color: whitesmoke;
+    flex-direction: row;
 }

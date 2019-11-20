@@ -30,7 +30,6 @@ import { AuthModule } from './../auth/auth.module'
 import { ChildFromParentComponent } from './../parent-child/child.component'
 import { ChildToParentComponent } from '../child-parent/child.component'
 import { CockpitComponent } from './../data-binding/cockpit/cockpit.component'
-import { CssGridComponent } from './../css-grid/css-grid.component'
 import { DataBindingComponent } from '../data-binding/data-binging.component'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
@@ -77,7 +76,6 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
         ChildToParentComponent,
         CockpitComponent,
         EmployeeFormComponent,
-        CssGridComponent,
         DataBindingComponent,
         EmployeeItemComponent,
         FormReactiveComponent,

@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArraysComponent } from '../arrays/arrays.component';
 import { AuthGuard } from './../auth/services/auth.guard';
 import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
-import { CssGridComponent } from '../css-grid/css-grid.component';
 import { DataBindingComponent } from '../data-binding/data-binging.component';
 import { EventsComponent } from '../auth/events/events.component';
 import { EventsHomeComponent } from '../auth/home/home.component';
@@ -46,7 +45,6 @@ const appRoutes: Routes = [
 	{ path: 'form-reactive', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard] },
 	{ path: 'form-template', component: FormTemplateComponent },
 	{ path: 'input-controls', component: InputsComponent },
-	{ path: 'css-grid', component: CssGridComponent },
 	{ path: 'data-binding', component: DataBindingComponent },
 	{ path: 'arrays', component: ArraysComponent },
 	{ path: 'parent-to-child', component: ParentToChildComponent },
@@ -63,7 +61,7 @@ const appRoutes: Routes = [
 	{
 		path: 'posts', component: PostWrapperComponent, children: [{
 			path: 'userId/:userId', component: PostListComponent, resolve: { postList: PostListResolverService }, children: [{
-				path: 'post/:postId', component: PostFormComponent, resolve: { postEdit: PostEditResolverService },
+				path: 'post/:postId', component: PostFormComponent, canDeactivate: [CanDeactivateGuard], resolve: { postEdit: PostEditResolverService },
 			}]
 		}], runGuardsAndResolvers: 'always'
 	},
