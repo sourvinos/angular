@@ -12,8 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { MatTableModule } from '@angular/material/table'
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { CdkTableModule } from '@angular/cdk/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { CdkTableModule } from '@angular/cdk/table'
 // Directives
 import { MatRowKeyboardSelectionModule } from "mat-row-keyboard-selection"
 // Pipes
@@ -56,7 +56,8 @@ import { SnackbarComponent } from '../snackbar/snackbar.component'
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
 import { UserListComponent } from '../tests/04-forms/user-list.component'
 import { HeaderComponent } from '../parent-child/header.component'
-import { FooterComponent } from './../parent-child/footer.component';
+import { FooterComponent } from './../parent-child/footer.component'
+import { TablesComponent } from './../tables/tables.component'
 // Posts
 import { PostWrapperComponent } from '../posts/user-interface/wrapper-post'
 import { PostListComponent } from '../posts/user-interface/list-post'
@@ -105,6 +106,7 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
         UserListComponent,
         CustomPipe,
         FooterComponent,
+        TablesComponent,
         // Posts
         PostWrapperComponent,
         PostListComponent,

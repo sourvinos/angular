@@ -25,6 +25,7 @@ import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.componen
 import { RecipeListResolverService } from '../recipes/recipe-list-resolver.service';
 import { RecipesComponent } from '../recipes/recipes.component';
 import { SemanticComponent } from '../semantic-ui/semantic-ui.component';
+import { TablesComponent } from '../tables/tables.component';
 // Posts
 import { PostWrapperComponent } from '../posts/user-interface/wrapper-post';
 import { PostListComponent } from '../posts/user-interface/list-post';
@@ -35,7 +36,7 @@ import { PostListResolverService } from '../posts/classes/resolver-list-post';
 import { EmployeeWrapperComponent } from '../employees/user-interface/wrapper-employee';
 import { EmployeeListComponent } from '../employees/user-interface/list-employee';
 import { EmployeeFormComponent } from '../employees/user-interface/form-employee';
-import { EmployeeListResolverService } from '../employees/classes/resolver-list-employee.';
+import { EmployeeListResolverService } from '../employees/classes/resolver-list-employee';
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -58,6 +59,7 @@ const appRoutes: Routes = [
 	{ path: 'modal-dialog', component: ModalDialogComponent },
 	{ path: 'pageNotFound', component: PageNotFoundComponent },
 	{ path: 'max-data-binding', component: MaxDataBindingComponent },
+	{ path: 'tables/userId/:userId', component: TablesComponent },
 	{
 		path: 'posts', component: PostWrapperComponent, children: [{
 			path: 'userId/:userId', component: PostListComponent, resolve: { postList: PostListResolverService }, children: [{
@@ -74,7 +76,7 @@ const appRoutes: Routes = [
 	},
 	{
 		path: 'employees', component: EmployeeWrapperComponent, children: [
-			{ path: 'list', component: EmployeeListComponent },
+			{ path: 'list', component: EmployeeListComponent, resolve: { employeeList: EmployeeListResolverService } },
 			{ path: 'new', component: EmployeeFormComponent },
 			{ path: ':id', component: EmployeeFormComponent }
 		]

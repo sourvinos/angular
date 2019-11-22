@@ -16,6 +16,7 @@ export class EmployeeFormComponent implements OnInit {
     employeeId: number
     employee: employee
     isPreviewPhoto: boolean = false
+    errorMessage: string = ''
 
     form = this.formBuilder.group({
         id: 0,
@@ -31,6 +32,7 @@ export class EmployeeFormComponent implements OnInit {
     ]
 
     constructor(private employeeService: EmployeeService, private router: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
+        this.errorMessage = ''
         this.activatedRoute.params.subscribe(p => {
             this.employeeId = p['id']
         })
@@ -39,17 +41,9 @@ export class EmployeeFormComponent implements OnInit {
     ngOnInit() {
         if (this.employeeId) {
             this.employeeService.getEmployee(this.employeeId).subscribe(
-                result => {
-                    this.employee = result
-                    this.form.setValue({
-                        id: this.employee.id,
-                        name: this.employee.name,
-                        email: this.employee.email
-                    })
-                },
-                error => {
-                    console.log('Error getting record')
-                })
+                result => { this.employee = result; this.form.setValue({ id: this.employee.id, name: this.employee.name, email: this.employee.email }) },
+                error => { this.errorMessage = 'Oops!' }
+            )
         }
     }
 

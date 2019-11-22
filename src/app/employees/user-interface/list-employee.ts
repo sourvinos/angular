@@ -13,14 +13,16 @@ export class EmployeeListComponent {
 
     employees: employee[]
     navigationSubscription: any
+    errorMessage: string = ''
 
     constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router) {
         this.navigationSubscription = this.router.events.subscribe((e: any) => {
+            this.errorMessage = ''
             if (e instanceof NavigationEnd) {
                 console.log('Constructor Navigation end')
-                this.employeeService.getEmployees().subscribe(result => {
-                    this.employees = result
-                })
+                this.employeeService.getEmployees().subscribe(
+                    result => { this.employees = result },
+                    error => { this.errorMessage = 'Oops!' });
             }
         });
 
