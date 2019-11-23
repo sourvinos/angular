@@ -41,50 +41,38 @@ export class TablesComponent implements OnInit, OnDestroy {
 
     ngAfterViewInit() {
         setTimeout(() => {
-            this.getInfo('Down')
+            this.gotoNewPosition('ArrowDown')
         }, 500);
     }
 
     @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string; }) {
-        if (event.key == 'ArrowDown') {
-            this.getInfo('Down')
+        this.gotoNewPosition(event.key)
+    }
+
+    private gotoNewPosition(direction: string) {
+        const table = (<HTMLTableElement>document.getElementById('myTable'))
+        console.log('Rows including header', table.rows.length, ' Current row', this.currentTableRow, ' Asked new direction', direction)
+        if (parseInt(direction)) {
+            this.clearHighlight(table)
+            this.highlightLine(table, direction)
         }
-        if (event.key == 'ArrowUp') {
-            this.getInfo('Up')
+        if (direction == 'ArrowDown' && this.currentTableRow < table.rows.length - 1) {
+            this.clearHighlight(table)
+            this.highlightLine(table, 'down')
+        }
+        if (direction == 'ArrowUp' && this.currentTableRow > 1) {
+            this.clearHighlight(table)
+            this.highlightLine(table, 'up')
         }
     }
 
-    getInfo(direction: string) {
-        const table = (<HTMLTableElement>document.getElementById('myTable'))
-        console.log('Rows including header', table.rows.length, ' Current row', this.currentTableRow, ' Asked new direction', direction)
-        if (direction == 'Down' && this.currentTableRow < table.rows.length - 1) {
-            console.log('Doing something')
-            this.removeSelected()
-            ++this.currentTableRow
-            table.rows[this.currentTableRow].classList.toggle('selected')
-            console.log('Current row', this.currentTableRow)
+    private highlightLine(table: HTMLTableElement, direction: any) {
+        if (direction == 'up' || direction == 'down') {
+            this.currentTableRow = direction == 'up' ? --this.currentTableRow : ++this.currentTableRow
+        } else {
+            this.currentTableRow = direction
         }
-        if (direction == 'Up' && this.currentTableRow > 1) {
-            console.log('Doing something')
-            this.removeSelected()
-            --this.currentTableRow
-            table.rows[this.currentTableRow].classList.toggle('selected')
-            console.log('Current row', this.currentTableRow)
-        }
-
-        // if (askedNewRow < table.rows.length && askedNewRow > 0) {
-        //     this.currentTableRow = askedNewRow
-        //     table.rows[askedNewRow].classList.toggle('selected')
-        // } else {
-        //     table.rows[this.currentTableRow].classList.toggle('selected')
-        // }
-        // } else {
-        //     console.log('Out of limit. Resetting. Impossible new row', rowIndex)
-        //     this.currentTableRow = 1
-        //     rowIndex = 1
-        //     console.log('Rows including header', table.rows.length, ' Current row', this.currentTableRow, ' Asked new row', rowIndex)
-        //     table.rows[rowIndex].classList.toggle('selected')
-        // }
+        table.rows[this.currentTableRow].classList.toggle('selected')
     }
 
     ngOnInit() {
@@ -96,13 +84,11 @@ export class TablesComponent implements OnInit, OnDestroy {
         }
     }
 
-    removeSelected() {
-        const table = (<HTMLTableElement>document.getElementById('myTable'))
+    clearHighlight(table: HTMLTableElement) {
         const rows = table.querySelectorAll('tr')
         rows.forEach(element => {
             element.classList.remove('selected')
         });
-        console.log('All clean')
     }
 
     scroll() {
