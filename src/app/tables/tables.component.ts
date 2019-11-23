@@ -20,7 +20,7 @@ export class TablesComponent implements OnInit, OnDestroy {
     justify: string[] = ['center', 'left', 'right']
 
     keyPressed: string
-    currentTableRow: number = 1
+    currentTableRow: number = 0
 
     constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService) {
         this.activatedRoute.params.subscribe((params: Params) => { this.userId = +params['userId'] })
@@ -41,22 +41,50 @@ export class TablesComponent implements OnInit, OnDestroy {
 
     ngAfterViewInit() {
         setTimeout(() => {
-            this.getInfo(0)
+            this.getInfo('Down')
         }, 500);
     }
 
     @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string; }) {
         if (event.key == 'ArrowDown') {
-            this.removeSelected()
-            this.getInfo(this.currentTableRow++)
+            this.getInfo('Down')
         }
         if (event.key == 'ArrowUp') {
+            this.getInfo('Up')
+        }
+    }
+
+    getInfo(direction: string) {
+        const table = (<HTMLTableElement>document.getElementById('myTable'))
+        console.log('Rows including header', table.rows.length, ' Current row', this.currentTableRow, ' Asked new direction', direction)
+        if (direction == 'Down' && this.currentTableRow < table.rows.length - 1) {
+            console.log('Doing something')
             this.removeSelected()
-            this.getInfo(this.currentTableRow--)
+            ++this.currentTableRow
+            table.rows[this.currentTableRow].classList.toggle('selected')
+            console.log('Current row', this.currentTableRow)
+        }
+        if (direction == 'Up' && this.currentTableRow > 1) {
+            console.log('Doing something')
+            this.removeSelected()
+            --this.currentTableRow
+            table.rows[this.currentTableRow].classList.toggle('selected')
+            console.log('Current row', this.currentTableRow)
         }
 
-        // let id = document.querySelector('tr')
-        // console.log('Id', id)
+        // if (askedNewRow < table.rows.length && askedNewRow > 0) {
+        //     this.currentTableRow = askedNewRow
+        //     table.rows[askedNewRow].classList.toggle('selected')
+        // } else {
+        //     table.rows[this.currentTableRow].classList.toggle('selected')
+        // }
+        // } else {
+        //     console.log('Out of limit. Resetting. Impossible new row', rowIndex)
+        //     this.currentTableRow = 1
+        //     rowIndex = 1
+        //     console.log('Rows including header', table.rows.length, ' Current row', this.currentTableRow, ' Asked new row', rowIndex)
+        //     table.rows[rowIndex].classList.toggle('selected')
+        // }
     }
 
     ngOnInit() {
@@ -65,20 +93,6 @@ export class TablesComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         if (this.navigationSubscription) {
             this.navigationSubscription.unsubscribe()
-        }
-    }
-
-    getInfo(rowIndex: number) {
-        const table = (<HTMLTableElement>document.getElementById('myTable'))
-        console.log('Rows', table.rows.length, ' Selected row index', rowIndex)
-        rowIndex++
-        console.log('New row index', rowIndex)
-        if (rowIndex < table.rows.length) {
-            table.rows[rowIndex].classList.toggle('selected')
-        } else {
-            console.log('Out of limit. rowindex', rowIndex)
-            rowIndex = 1
-            this.currentTableRow = 0
         }
     }
 
