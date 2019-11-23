@@ -7,6 +7,9 @@ main {
 section {
     margin: 1rem 1rem 1rem 0;
     width: 100%;
+    /* Remove after testing tables */
+    height: 500px !important;
+    margin-top: 5rem !important;
 }
 
 nav {

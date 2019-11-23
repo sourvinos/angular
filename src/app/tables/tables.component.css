@@ -1,11 +1,15 @@
+* {
+    box-sizing: border-box !important;
+}
+
 body {
     margin: 0;
     padding: 2rem;
 }
 
 section {
-    height: 100vh !important;
-    overflow-y: scroll !important;
+    height: 500px !important;
+    margin-top: 5rem !important;
 }
 
 table {
@@ -13,6 +17,7 @@ table {
     position: relative;
     border-collapse: collapse;
     outline: 0;
+    margin: 0 2rem;
 }
 
 th, td {
@@ -51,7 +56,7 @@ td {
 }
 
 #container {
-    height: 500px;
+    height: 200px;
     overflow-y: scroll;
 }
 

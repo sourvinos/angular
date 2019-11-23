@@ -19,7 +19,6 @@ export class TablesComponent implements OnInit, OnDestroy {
     visibility: string[] = ['none', '', '']
     justify: string[] = ['center', 'left', 'right']
 
-    keyPressed: string
     currentTableRow: number = 0
 
     constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService) {
@@ -42,6 +41,9 @@ export class TablesComponent implements OnInit, OnDestroy {
     ngAfterViewInit() {
         setTimeout(() => {
             this.gotoNewPosition('ArrowDown')
+            console.log('Offset height', document.getElementById('container').offsetHeight)
+            console.log('Client height', document.getElementById('container').clientHeight)
+            console.log('Scroll height', document.getElementById('container').scrollHeight)
         }, 500);
     }
 
@@ -51,7 +53,7 @@ export class TablesComponent implements OnInit, OnDestroy {
 
     private gotoNewPosition(direction: string) {
         const table = (<HTMLTableElement>document.getElementById('myTable'))
-        console.log('Rows including header', table.rows.length, ' Current row', this.currentTableRow, ' Asked new direction', direction)
+        // console.log('Rows including header', table.rows.length, ' Current row', this.currentTableRow, ' Asked new direction', direction)
         if (parseInt(direction)) {
             this.clearHighlight(table)
             this.highlightLine(table, direction)
@@ -59,10 +61,28 @@ export class TablesComponent implements OnInit, OnDestroy {
         if (direction == 'ArrowDown' && this.currentTableRow < table.rows.length - 1) {
             this.clearHighlight(table)
             this.highlightLine(table, 'down')
+            this.scrollList(direction)
         }
         if (direction == 'ArrowUp' && this.currentTableRow > 1) {
             this.clearHighlight(table)
             this.highlightLine(table, 'up')
+            this.scrollList(direction)
+        }
+    }
+
+    private scrollList(direction: string) {
+        const table = (<HTMLTableElement>document.getElementById('myTable'))
+        var selectedRow = <HTMLTableRowElement>document.getElementsByClassName('selected')[0]
+        let rowTopBorder = selectedRow.offsetTop
+        let rowBottomBorder = selectedRow.offsetTop + selectedRow.scrollHeight
+        console.log('Row height', selectedRow.scrollHeight, 'Row top border', rowTopBorder, 'Row bottom border', rowBottomBorder)
+        if (direction == 'ArrowDown' && rowBottomBorder > document.getElementById('container').offsetHeight) {
+            console.log('Must scroll down by', rowBottomBorder - document.getElementById('container').offsetHeight)
+            this.scroll(rowBottomBorder - document.getElementById('container').offsetHeight)
+        }
+        if (direction == 'ArrowUp' && rowBottomBorder - 200 + 24 < 0) {
+            console.log('Must scroll up by', rowTopBorder)
+            this.scroll(rowTopBorder - 24)
         }
     }
 
@@ -91,9 +111,10 @@ export class TablesComponent implements OnInit, OnDestroy {
         });
     }
 
-    scroll() {
-        const container = (<HTMLTableElement>document.getElementById('container'))
-        container.scrollTop = 100
+    scroll(pixels: number) {
+        console.log('Scrolling to', pixels)
+        let element = document.getElementById('container')
+        element.scrollTop = pixels
     }
 
 }
