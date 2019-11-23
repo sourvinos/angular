@@ -22,7 +22,7 @@
         {
             "id": 1,
             "userId": 1,
-            "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit!",
+            "title": "sunt aut facere repellat",
             "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
             "views": 100
         },
@@ -85,68 +85,68 @@
         {
             "id": 10,
             "userId": 1,
-            "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit!",
+            "title": "sunt aut facere repellat",
             "body": "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error",
             "views": 100
         },
         {
             "id": 11,
-            "userId": 2,
+            "userId": 1,
             "title": "et ea vero quia laudantium autem11",
             "body": "delectus reiciendis molestiae occaecati non minima eveniet qui voluptatibus\naccusamus in eum beatae sit\nvel qui neque voluptates ut commodi qui incidunt\nut animi commodi",
             "views": 100
         },
         {
             "id": 12,
-            "userId": 2,
+            "userId": 1,
             "title": "in quibusdam tempore odit est dolorem1",
             "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio",
             "views": 100
         },
         {
-            "userId": 2,
+            "userId": 1,
             "id": 13,
             "title": "dolorum ut in voluptas mollitia et saepe quo animi",
             "body": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam",
             "views": 100
         },
         {
-            "userId": 2,
+            "userId": 1,
             "id": 14,
             "title": "voluptatem eligendi optio",
             "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum",
             "views": 100
         },
         {
-            "userId": 2,
+            "userId": 1,
             "id": 15,
             "title": "eveniet quod temporibus",
             "body": "reprehenderit quos placeat\nvelit minima officia dolores impedit repudiandae molestiae nam\nvoluptas recusandae quis delectus\nofficiis harum fugiat vitae",
             "views": 100
         },
         {
-            "userId": 2,
+            "userId": 1,
             "id": 16,
-            "title": "sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio",
+            "title": "sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam",
             "body": "suscipit nam nisi quo aperiam aut\nasperiores eos fugit maiores voluptatibus quia\nvoluptatem quis ullam qui in alias quia est\nconsequatur magni mollitia accusamus ea nisi voluptate dicta",
             "views": 100
         },
         {
             "id": 17,
-            "userId": 2,
+            "userId": 1,
             "title": "fugit voluptas sed molestias voluptatem provident",
             "body": "eos voluptas et aut odit natus earum\naspernatur fuga molestiae ullam\ndeserunt ratione qui eos\nqui nihil ratione nemo velit ut aut id quo",
             "views": 100
         },
         {
-            "userId": 2,
+            "userId": 1,
             "id": 18,
             "title": "voluptate et itaque vero tempora molestiae",
             "body": "eveniet quo quis\nlaborum totam consequatur non dolor\nut et est repudiandae\nest voluptatem vel debitis et magnam",
             "views": 100
         },
         {
-            "userId": 2,
+            "userId": 1,
             "id": 19,
             "title": "adipisci placeat illum aut reiciendis qui",
             "body": "illum quis cupiditate provident sit magnam\nea sed aut omnis\nveniam maiores ullam consequatur atque\nadipisci quo iste expedita sit quos voluptas",

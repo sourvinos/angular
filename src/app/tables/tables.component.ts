@@ -14,12 +14,16 @@ export class TablesComponent implements OnInit, OnDestroy {
     posts: any[]
     navigationSubscription: any
 
+    offset: number
+
     headers: string[] = ['Id', 'Title', 'Views']
     widths: string[] = ['0px', '400px', '150px']
     visibility: string[] = ['none', '', '']
     justify: string[] = ['center', 'left', 'right']
 
     currentTableRow: number = 0
+    info: string = ''
+    moreInfo: string = ''
 
     constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService) {
         this.activatedRoute.params.subscribe((params: Params) => { this.userId = +params['userId'] })
@@ -53,7 +57,6 @@ export class TablesComponent implements OnInit, OnDestroy {
 
     private gotoNewPosition(direction: string) {
         const table = (<HTMLTableElement>document.getElementById('myTable'))
-        // console.log('Rows including header', table.rows.length, ' Current row', this.currentTableRow, ' Asked new direction', direction)
         if (parseInt(direction)) {
             this.clearHighlight(table)
             this.highlightLine(table, direction)
@@ -71,18 +74,20 @@ export class TablesComponent implements OnInit, OnDestroy {
     }
 
     private scrollList(direction: string) {
-        const table = (<HTMLTableElement>document.getElementById('myTable'))
-        var selectedRow = <HTMLTableRowElement>document.getElementsByClassName('selected')[0]
+        let containerHeight = document.getElementById('container').offsetHeight
+        let containerTop = document.getElementById('container').offsetTop
+        let selectedRow = <HTMLTableRowElement>document.getElementsByClassName('selected')[0]
         let rowTopBorder = selectedRow.offsetTop
         let rowBottomBorder = selectedRow.offsetTop + selectedRow.scrollHeight
-        console.log('Row height', selectedRow.scrollHeight, 'Row top border', rowTopBorder, 'Row bottom border', rowBottomBorder)
-        if (direction == 'ArrowDown' && rowBottomBorder > document.getElementById('container').offsetHeight) {
-            console.log('Must scroll down by', rowBottomBorder - document.getElementById('container').offsetHeight)
-            this.scroll(rowBottomBorder - document.getElementById('container').offsetHeight)
+        if (direction == 'ArrowUp') {
+            if (!this.isScrolledIntoView(selectedRow)) {
+                console.log('Must scroll up')
+            }
         }
-        if (direction == 'ArrowUp' && rowBottomBorder - 200 + 24 < 0) {
-            console.log('Must scroll up by', rowTopBorder)
-            this.scroll(rowTopBorder - 24)
+        if (direction == 'ArrowDown') {
+            if (!this.isScrolledIntoView(selectedRow)) {
+                console.log('Must scroll down')
+            }
         }
     }
 
@@ -115,6 +120,12 @@ export class TablesComponent implements OnInit, OnDestroy {
         console.log('Scrolling to', pixels)
         let element = document.getElementById('container')
         element.scrollTop = pixels
+    }
+
+    private isScrolledIntoView(el: HTMLTableRowElement) {
+        var rect = el.getBoundingClientRect();
+
+        return (rect.top >= 0) && (rect.bottom <= window.innerHeight);
     }
 
 }
