@@ -6,8 +6,9 @@
                 <th *ngFor="let header of headers, index as i" [style.width]="widths[i]">{{ header }}</th>
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let post of posts, index as r" (click)="gotoNewPosition(r+1)">
+        <tbody id='body'>
+            <!-- <tr *ngFor="let post of posts, index as r" (click)="gotoNewPosition(r+1)" [id]="r"> -->
+            <tr *ngFor="let post of posts, index as r" [id]="r+1">
                 <td *ngFor="let item of post | keyvalue, index as i" [style.text-align]="justify[i]">{{ item.value }}</td>
             </tr>
         </tbody>
@@ -16,7 +17,7 @@
 
 </div>
 
-<button (click)="scroll()">Scroll</button>
+<button (click)="scroll(150)">Scroll</button>
 
 <br>
 <br>
