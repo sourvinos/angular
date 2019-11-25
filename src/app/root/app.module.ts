@@ -18,17 +18,12 @@ import { CdkTableModule } from '@angular/cdk/table'
 import { MatRowKeyboardSelectionModule } from "mat-row-keyboard-selection"
 // Pipes
 import { CustomPipe } from '../pipes/custom.pipe'
-// Bootstrap
-import { AlertModule } from 'ngx-bootstrap/alert'
-import { ButtonsModule } from 'ngx-bootstrap/buttons'
-import { ModalModule } from 'ngx-bootstrap/modal'
 // Components
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
 import { ArraysComponent } from '../arrays/arrays.component'
 import { AuthModule } from './../auth/auth.module'
-import { ChildFromParentComponent } from './../parent-child/child.component'
-import { ChildToParentComponent } from '../child-parent/child.component'
+import { ChildFromParentComponent } from '../component-interactions/child.component'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
 import { InputsComponent } from '../input-controls/input-controls.component'
@@ -38,13 +33,12 @@ import { MaterialComponent } from '../material/material.component'
 import { MaterialDialogComponent } from '../material-dialog/material-dialog.component'
 import { MaterialTableComponent } from '../material-table/material-table.component'
 import { PageNotFoundComponent } from './../page-not-found.component'
-import { ParentFromChildComponent } from './../child-parent/parent.component'
-import { ParentToChildComponent } from '../parent-child/parent.component'
+import { ParentToChildComponent } from '../component-interactions/parent.component'
 import { RightComponent } from '../animations/right/right.component'
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
 import { UserListComponent } from '../tests/04-forms/user-list.component'
-import { HeaderComponent } from '../parent-child/header.component'
-import { FooterComponent } from './../parent-child/footer.component'
+import { HeaderComponent } from '../component-interactions/header.component'
+import { FooterComponent } from '../component-interactions/footer.component'
 // Tables
 import { HostTableComponent } from '../tables/host.component'
 import { TableComponent } from '../tables/table.component'
@@ -59,13 +53,11 @@ import { EmployeeItemComponent } from '../employees/user-interface/item-employee
 import { EmployeeFormComponent } from '../employees/user-interface/form-employee'
 import { PostModalForm } from '../posts/user-interface/modal-form'
 
-
 @NgModule({
     declarations: [
         AppComponent,
         ArraysComponent,
         ChildFromParentComponent,
-        ChildToParentComponent,
         EmployeeFormComponent,
         EmployeeItemComponent,
         FormReactiveComponent,
@@ -79,7 +71,6 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
         MaterialDialogComponent,
         MaterialTableComponent,
         PageNotFoundComponent,
-        ParentFromChildComponent,
         ParentToChildComponent,
         RightComponent,
         UserListComponent,
@@ -120,10 +111,7 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
         MatSnackBarModule,
         MatTableModule,
         ReactiveFormsModule,
-        MatRowKeyboardSelectionModule,
-        AlertModule.forRoot(),
-        ButtonsModule.forRoot(),
-        ModalModule.forRoot()
+        MatRowKeyboardSelectionModule
     ],
     providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
         provide: HTTP_INTERCEPTORS,

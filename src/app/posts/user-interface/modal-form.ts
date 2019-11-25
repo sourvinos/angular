@@ -1,7 +1,7 @@
-import { Component, Inject, HostListener } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Unlisten, KeyboardShortcuts } from 'src/app/child-parent/keyboard-shortcuts';
+import { Unlisten, KeyboardShortcuts } from 'src/app/services/keyboard-shortcuts';
 
 @Component({
     selector: 'modal-form',
