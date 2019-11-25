@@ -1,1 +1,11 @@
+.button-frame {
+    padding: 1rem 1rem 1rem 0;
+}
 
+input[type='text'] {
+    margin: 1rem;
+}
+
+label {
+    padding-right: 1rem;
+}

@@ -4,15 +4,31 @@
 <!-- headerText is a string variable in this (parent) class -->
 <app-header [heading]="headerText"></app-header>
 
-<button class="ui primary button" (click)="timer.startTimer()">Call child method</button>
-<button class="ui primary button" (click)="startTimer()">Call child method with @ViewChild</button>
+<div class="button-frame">
+    <label>Click & check the console</label>
+    <button class="ui primary button" (click)="timer.startTimer()">Call app-child method</button>
+    <button class="ui primary button" (click)="startTimer()">Call app-child method with @ViewChild</button>
+</div>
 
 <!-- The #timer template variable in NOT NEEDED with @ViewChild  -->
-<app-child #timer></app-child>
+
+<!-- Parent >> Child -->
+<!-- [fruits] is the @Input property in the child -->
+<!-- fruits is the 'local' property -->
+
+<!-- Child >> Parent -->
+<!-- (selectEvent) is the @Output() property in the child class -->
+<!-- select($event) is the method in this (parent) class -->
+<!-- $event is the input from the child (the selected fruit!) -->
+<app-child #timer [fruits]="fruits" (selectEvent)="select($event)"></app-child>
+
+<span>Your selected fruit, sir: {{ selectedFruit }}</span>
+<br>
 
 <!-- Execute code every time the input changes -->
+<label>Type & check the console</label>
 <input type="text" [ngModel]="fullName" (ngModelChange)="checkFullNameChanges($event)">
 
 <!-- (saveEvent) is the @Output property in the child class -->
-<!-- save() is the method in the parent (this) class -->
+<!-- save() is the method in the this (parent) class -->
 <app-footer (saveEvent)="save()" (deleteEvent)="delete()"></app-footer>

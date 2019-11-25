@@ -17,7 +17,7 @@ import { MaterialComponent } from '../material/material.component';
 import { PageNotFoundComponent } from './../page-not-found.component';
 import { ParentFromChildComponent } from '../child-parent/parent.component';
 import { ParentToChildComponent } from '../parent-child/parent.component';
-import { TablesComponent } from '../tables/tables.component';
+import { HostTableComponent } from '../tables/host.component';
 // Posts
 import { PostWrapperComponent } from '../posts/user-interface/wrapper-post';
 import { PostListComponent } from '../posts/user-interface/list-post';
@@ -47,7 +47,7 @@ const appRoutes: Routes = [
 	{ path: 'register', component: EventsRegisterComponent },
 	{ path: 'login', component: EventsLoginComponent },
 	{ path: 'pageNotFound', component: PageNotFoundComponent },
-	{ path: 'tables/userId/:userId', component: TablesComponent },
+	{ path: 'tables/userId/:userId', component: HostTableComponent },
 	{
 		path: 'posts', component: PostWrapperComponent, children: [{
 			path: 'userId/:userId', component: PostListComponent, resolve: { postList: PostListResolverService }, children: [{

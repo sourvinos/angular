@@ -5,15 +5,14 @@ main {
 }
 
 section {
-    margin: 1rem 1rem 1rem 0;
+    margin: 1rem;
     width: 100%;
-    /* Remove after testing tables */
-    height: 500px !important;
-    margin-top: 5rem !important;
+    background-color: thistle;
+    padding: 1rem;
 }
 
 nav {
-    margin: 1rem;
+    margin: 1rem 1rem 1rem 0;
 }
 
 ul {

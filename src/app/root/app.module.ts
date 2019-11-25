@@ -45,7 +45,9 @@ import { TokenInterceptorService } from '../auth/services/token-interceptor.serv
 import { UserListComponent } from '../tests/04-forms/user-list.component'
 import { HeaderComponent } from '../parent-child/header.component'
 import { FooterComponent } from './../parent-child/footer.component'
-import { TablesComponent } from './../tables/tables.component'
+// Tables
+import { HostTableComponent } from '../tables/host.component'
+import { TableComponent } from '../tables/table.component'
 // Posts
 import { PostWrapperComponent } from '../posts/user-interface/wrapper-post'
 import { PostListComponent } from '../posts/user-interface/list-post'
@@ -56,6 +58,7 @@ import { EmployeeListComponent } from '../employees/user-interface/list-employee
 import { EmployeeItemComponent } from '../employees/user-interface/item-employee'
 import { EmployeeFormComponent } from '../employees/user-interface/form-employee'
 import { PostModalForm } from '../posts/user-interface/modal-form'
+
 
 @NgModule({
     declarations: [
@@ -82,7 +85,8 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
         UserListComponent,
         CustomPipe,
         FooterComponent,
-        TablesComponent,
+        TableComponent,
+        HostTableComponent,
         // Posts
         PostWrapperComponent,
         PostListComponent,

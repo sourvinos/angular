@@ -1,1 +1,10 @@
+#child {
+    background-color: darkgoldenrod;
+    padding: 1rem;
+}
 
+li:hover {
+    color: beige;
+    cursor: pointer;
+    font-weight: bold;
+}
