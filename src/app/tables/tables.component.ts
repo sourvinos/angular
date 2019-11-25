@@ -14,7 +14,7 @@ export class TablesComponent implements OnDestroy {
     posts: any[]
     navigationSubscription: any
 
-    offset: number
+    scrollRows: number
 
     headers: string[] = ['Id', 'Title', 'Views']
     widths: string[] = ['0px', '400px', '150px']
@@ -66,6 +66,13 @@ export class TablesComponent implements OnDestroy {
             this.highlightLine(table, 'up')
             if (!this.isScrolledIntoView(table.rows[this.currentTableRow])) {
                 document.getElementById(this.currentTableRow.toString()).scrollIntoView()
+                const container = (<HTMLTableElement>document.getElementById('container'))
+                var docViewTop = container.scrollTop
+                var elemTop = table.rows[this.currentTableRow].offsetTop
+                if (elemTop <= docViewTop) {
+                    this.moreInfo = 'Must scroll down by ' + (this.currentTableRow - 1) * 25
+                    container.scrollTop = (this.currentTableRow - 1) * 25
+                }
             }
         }
         if (position == 'ArrowDown' && this.currentTableRow < table.rows.length - 1) {
@@ -117,5 +124,10 @@ export class TablesComponent implements OnDestroy {
         var docViewBottom = docViewTop + document.getElementById('container').offsetHeight; console.log('docViewBottom', docViewBottom)
         var elemTop = el.offsetTop; console.log('elemTop', elemTop)
         var elemBottom = elemTop + el.offsetHeight; console.log('elemBottom', elemBottom)
+    }
+
+    scroll() {
+        const container = (<HTMLTableElement>document.getElementById('container'))
+        container.scrollTop = this.scrollRows
     }
 }

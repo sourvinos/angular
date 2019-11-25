@@ -2,10 +2,8 @@ import { AfterViewInit, Component } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
 import { Subject } from 'rxjs'
-import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
 import { PasswordValidator } from './password.validator'
 import { ForbiddenNameValidator } from './username.validator'
-import { ModalIndexComponent } from '../modal-index/modal-index.component'
 
 @Component({
 	selector: 'form-reactive',
@@ -97,58 +95,13 @@ export class FormReactiveComponent implements AfterViewInit {
 	canDeactivate() {
 		this.isSaving = false
 		if (!this.isSaving && this.registrationFormWithFormBuilder.dirty) {
-			const subject = new Subject<boolean>()
-			const modal = this.modalService.show(ModalDialogComponent, {
-				initialState: {
-					title: 'Confirmation',
-					message: 'If you continue, all changes in this record will be lost.',
-					type: 'question'
-				}, animated: false
-			})
-			modal.content.subject = subject
-			return subject.asObservable()
+			let response = confirm('Please confirm')
+			if (response) {
+				return true
+			}
 		} else {
 			return true
 		}
-	}
-
-	openQuestionModal() {
-		const subject = new Subject<boolean>()
-		const modal = this.modalService.show(ModalDialogComponent, {
-			initialState: {
-				title: 'Confirmation',
-				message: 'If you continue, this record will be deleted.',
-				type: 'question'
-			}, animated: false
-		})
-		modal.content.subject = subject
-		return subject.asObservable().subscribe(result => console.log(result))
-	}
-
-	openErrorModal() {
-		const subject = new Subject<boolean>()
-		const modal = this.modalService.show(ModalDialogComponent, {
-			initialState: {
-				title: 'Error',
-				message: 'This record is in use and cannot be deleted.',
-				type: 'error'
-			}, animated: false
-		})
-		modal.content.subject = subject
-		return subject.asObservable()
-	}
-
-	openIndexModal() {
-		const subject = new Subject<boolean>()
-		const modal = this.modalService.show(ModalIndexComponent, {
-			initialState: {
-				title: 'Select from the list',
-				list: ['Item 1', 'Item 2'],
-				type: 'error'
-			}, animated: false
-		})
-		modal.content.subject = subject
-		return subject.asObservable()
 	}
 
 }

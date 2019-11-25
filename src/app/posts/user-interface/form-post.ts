@@ -1,4 +1,3 @@
-import { ModalDialogComponent } from './../../modal-dialog/modal-dialog.component';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
@@ -60,24 +59,6 @@ export class PostFormComponent {
                     this.router.navigate(['../../'], { relativeTo: this.activatedRoute })
                 }
             });
-        } else {
-            return true
-        }
-    }
-
-    // Master with bootstrap
-    canDeactivates() {
-        if (this.form.dirty) {
-            const subject = new Subject<boolean>()
-            const modal = this.modalService.show(ModalDialogComponent, {
-                initialState: {
-                    title: 'Confirmation',
-                    message: 'If you continue, all changes in this record will be lost.',
-                    type: 'question'
-                }, animated: false
-            })
-            modal.content.subject = subject
-            return subject.asObservable()
         } else {
             return true
         }

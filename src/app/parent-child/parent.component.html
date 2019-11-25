@@ -13,4 +13,6 @@
 <!-- Execute code every time the input changes -->
 <input type="text" [ngModel]="fullName" (ngModelChange)="checkFullNameChanges($event)">
 
+<!-- (saveEvent) is the @Output property in the child class -->
+<!-- save() is the method in the parent (this) class -->
 <app-footer (saveEvent)="save()" (deleteEvent)="delete()"></app-footer>

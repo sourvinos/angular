@@ -29,8 +29,6 @@ import { ArraysComponent } from '../arrays/arrays.component'
 import { AuthModule } from './../auth/auth.module'
 import { ChildFromParentComponent } from './../parent-child/child.component'
 import { ChildToParentComponent } from '../child-parent/child.component'
-import { CockpitComponent } from './../data-binding/cockpit/cockpit.component'
-import { DataBindingComponent } from '../data-binding/data-binging.component'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
 import { InputsComponent } from '../input-controls/input-controls.component'
@@ -39,20 +37,10 @@ import { MainComponent } from '../animations/main/main.component'
 import { MaterialComponent } from '../material/material.component'
 import { MaterialDialogComponent } from '../material-dialog/material-dialog.component'
 import { MaterialTableComponent } from '../material-table/material-table.component'
-import { MaxDataBindingComponent } from '../data-binding/max-data-binding.component'
-import { ModalDialogComponent } from '../modal-dialog/modal-dialog.component'
-import { ModalIndexComponent } from './../modal-index/modal-index.component'
 import { PageNotFoundComponent } from './../page-not-found.component'
 import { ParentFromChildComponent } from './../child-parent/parent.component'
 import { ParentToChildComponent } from '../parent-child/parent.component'
-import { RecipeEditComponent } from './../recipes/recipe-edit/recipe-edit.component'
-import { RecipeItemComponent } from '../recipes/recipe-list/recipe-item.component'
-import { RecipeListComponent } from '../recipes/recipe-list/recipe-list.component'
-import { RecipesComponent } from '../recipes/recipes.component'
 import { RightComponent } from '../animations/right/right.component'
-import { SemanticComponent } from '../semantic-ui/semantic-ui.component'
-import { ServerElementComponent } from './../data-binding/server-element/server-element.component'
-import { SnackbarComponent } from '../snackbar/snackbar.component'
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
 import { UserListComponent } from '../tests/04-forms/user-list.component'
 import { HeaderComponent } from '../parent-child/header.component'
@@ -75,9 +63,7 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
         ArraysComponent,
         ChildFromParentComponent,
         ChildToParentComponent,
-        CockpitComponent,
         EmployeeFormComponent,
-        DataBindingComponent,
         EmployeeItemComponent,
         FormReactiveComponent,
         FormTemplateComponent,
@@ -88,21 +74,11 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
         MainComponent,
         MaterialComponent,
         MaterialDialogComponent,
-        MaxDataBindingComponent,
-        ModalDialogComponent,
-        ModalIndexComponent,
         MaterialTableComponent,
         PageNotFoundComponent,
         ParentFromChildComponent,
         ParentToChildComponent,
-        RecipeEditComponent,
-        RecipeItemComponent,
-        RecipeListComponent,
-        RecipesComponent,
         RightComponent,
-        SemanticComponent,
-        ServerElementComponent,
-        SnackbarComponent,
         UserListComponent,
         CustomPipe,
         FooterComponent,
@@ -119,8 +95,6 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
         EmployeeFormComponent,
     ],
     entryComponents: [
-        ModalDialogComponent,
-        ModalIndexComponent,
         MaterialDialogComponent,
         PostModalForm
     ],

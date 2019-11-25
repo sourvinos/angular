@@ -16,14 +16,11 @@
 
 </div>
 
-<button (click)="scroll(150)">Scroll</button>
+<input type="text" [(ngModel)]="scrollRows">
+<button (click)="scroll()">Scroll</button>
 
 <br>
 <br>
+
 <h3>{{ info }}</h3>
 <h3>{{ moreInfo }}</h3>
-
-<!-- 0 = 1 -->
-<!-- 45 = 2 -->
-<!-- 114 = 3 -->
-<!-- 139 = 4 -->
