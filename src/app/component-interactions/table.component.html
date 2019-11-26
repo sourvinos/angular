@@ -1,0 +1,18 @@
+<div id="container">
+
+    <table id="myTable" tabindex="0">
+        <thead>
+            <tr>
+                <th *ngFor="let header of headers, index as i" [style.width]="widths[i]">{{ header }}</th>
+            </tr>
+        </thead>
+        <tbody id='body'>
+            <tr *ngFor="let record of records, index as index" (click)="gotoNewPosition(index+1)" [id]="index+1">
+                <td *ngFor="let item of record | keyvalue, index as i" [style.text-align]="justify[i]">{{ item.value }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="close" mat-flat-button color="primary" [mat-dialog-close]="records[currentTableRow]">Select</button>
+
+</div>

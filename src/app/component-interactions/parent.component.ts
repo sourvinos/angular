@@ -1,5 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { ChildFromParentComponent } from './child.component';
+import { ChildComponent } from './child.component';
+
+export class Fruit {
+    id: number
+    description: string
+    amount: number
+}
 
 @Component({
     selector: 'parent',
@@ -7,18 +13,24 @@ import { ChildFromParentComponent } from './child.component';
     styleUrls: ['./parent.component.css']
 })
 
-export class ParentToChildComponent {
+export class ParentComponent {
 
-    fruits: string[]
+    fruits: Fruit[]
     selectedFruit: string = 'No selection yet'
 
     headerText: string = "This title came from the parent component"
 
-    @ViewChild(ChildFromParentComponent) private varName: ChildFromParentComponent
+    @ViewChild(ChildComponent) private varName: ChildComponent
 
     ngOnInit() {
-        console.log('Init on parent initialized')
-        this.fruits = ['Apples', 'Oranges', 'Strawberries', 'Grapes', 'Mangos', 'Kiwis']
+        this.fruits = [
+            { id: 12, description: 'Apples', amount: 7.6 },
+            { id: 22, description: 'Oranges', amount: 15.3 },
+            { id: 31, description: 'Mangos', amount: 23.7 },
+            { id: 47, description: 'Kiwis', amount: 5.9 },
+            { id: 56, description: 'Strawberries', amount: 17.1 },
+            { id: 69, description: 'Grapes', amount: 30.9 }
+        ]
     }
 
     startTimer() {

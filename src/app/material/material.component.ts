@@ -32,14 +32,15 @@ export class MaterialComponent implements OnInit {
 	constructor(private employeeService: EmployeeService, private elementService: ElementsService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
 	ngOnInit(): void {
-		this.employeeService.getEmployees().subscribe((result) => {
-			// this.employeesDataSource = new MatTableDataSource<TableItem>(result);
-			// this.employeesSelection = new SelectionModel<TableItem>(false);
-			this.employees = result
-		})
+		// this.employeeService.getEmployees().subscribe((result) => {
+		// 	// this.employeesDataSource = new MatTableDataSource<TableItem>(result);
+		// 	// this.employeesSelection = new SelectionModel<TableItem>(false);
+		// 	this.employees = result
+		// })
 		this.elementService.getElements().subscribe((result) => {
 			// this.elementsDataSource = new MatTableDataSource<TableItem>(result);
 			// this.elementsSelection = new SelectionModel<TableItem>(false);
+			console.log(result)
 			this.elements = result
 		})
 	}

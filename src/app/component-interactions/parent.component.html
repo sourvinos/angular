@@ -20,9 +20,9 @@
 <!-- (selectEvent) is the @Output() property in the child class -->
 <!-- select($event) is the method in this (parent) class -->
 <!-- $event is the input from the child (the selected fruit!) -->
-<app-child #timer [fruits]="fruits" (selectEvent)="select($event)"></app-child>
+<child #timer [fruits]="fruits" (selectEvent)="select($event)"></child>
 
-<span>Your selected fruit, sir: {{ selectedFruit }}</span>
+<span>Your selected fruit, sir: {{ selectedFruit.description }}</span>
 <br>
 
 <!-- Execute code every time the input changes -->

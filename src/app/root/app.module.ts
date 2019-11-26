@@ -23,7 +23,6 @@ import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
 import { ArraysComponent } from '../arrays/arrays.component'
 import { AuthModule } from './../auth/auth.module'
-import { ChildFromParentComponent } from '../component-interactions/child.component'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
 import { InputsComponent } from '../input-controls/input-controls.component'
@@ -31,17 +30,13 @@ import { LeftComponent } from '../animations/left/left.component'
 import { MainComponent } from '../animations/main/main.component'
 import { MaterialComponent } from '../material/material.component'
 import { MaterialDialogComponent } from '../material-dialog/material-dialog.component'
-import { MaterialTableComponent } from '../material-table/material-table.component'
 import { PageNotFoundComponent } from './../page-not-found.component'
-import { ParentToChildComponent } from '../component-interactions/parent.component'
 import { RightComponent } from '../animations/right/right.component'
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
 import { UserListComponent } from '../tests/04-forms/user-list.component'
-import { HeaderComponent } from '../component-interactions/header.component'
-import { FooterComponent } from '../component-interactions/footer.component'
 // Tables
-import { HostTableComponent } from '../tables/host.component'
-import { TableComponent } from '../tables/table.component'
+import { TablesHostComponent } from '../tables/tables-host.component'
+import { TablesComponent } from '../tables/tables.component'
 // Posts
 import { PostWrapperComponent } from '../posts/user-interface/wrapper-post'
 import { PostListComponent } from '../posts/user-interface/list-post'
@@ -52,32 +47,32 @@ import { EmployeeListComponent } from '../employees/user-interface/list-employee
 import { EmployeeItemComponent } from '../employees/user-interface/item-employee'
 import { EmployeeFormComponent } from '../employees/user-interface/form-employee'
 import { PostModalForm } from '../posts/user-interface/modal-form'
+// Component interactions
+import { ChildComponent } from '../component-interactions/child.component'
+import { FooterComponent } from '../component-interactions/footer.component'
+import { HeaderComponent } from '../component-interactions/header.component'
+import { IndexDialogComponent } from '../component-interactions/index-dialog.component'
+import { ParentComponent } from '../component-interactions/parent.component'
+import { TableComponent } from '../component-interactions/table.component'
 
 @NgModule({
     declarations: [
         AppComponent,
         ArraysComponent,
-        ChildFromParentComponent,
         EmployeeFormComponent,
         EmployeeItemComponent,
         FormReactiveComponent,
         FormTemplateComponent,
-        HeaderComponent,
         InputsComponent,
         LeftComponent,
         EmployeeListComponent,
         MainComponent,
         MaterialComponent,
         MaterialDialogComponent,
-        MaterialTableComponent,
         PageNotFoundComponent,
-        ParentToChildComponent,
         RightComponent,
         UserListComponent,
         CustomPipe,
-        FooterComponent,
-        TableComponent,
-        HostTableComponent,
         // Posts
         PostWrapperComponent,
         PostListComponent,
@@ -88,9 +83,20 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
         EmployeeListComponent,
         EmployeeItemComponent,
         EmployeeFormComponent,
+        // Component interactions
+        ChildComponent,
+        FooterComponent,
+        HeaderComponent,
+        IndexDialogComponent,
+        ParentComponent,
+        TableComponent,
+        // Tables
+        TablesHostComponent,
+        TablesComponent,
     ],
     entryComponents: [
         MaterialDialogComponent,
+        IndexDialogComponent,
         PostModalForm
     ],
     imports: [

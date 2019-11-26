@@ -3,12 +3,12 @@ import { ActivatedRoute, Router, Params, NavigationEnd } from '@angular/router';
 import { PostService } from '../posts/classes/service.post';
 
 @Component({
-    selector: 'app-table',
-    templateUrl: './table.component.html',
-    styleUrls: ['./table.component.css']
+    selector: 'tables',
+    templateUrl: './tables.component.html',
+    styleUrls: ['./tables.component.css']
 })
 
-export class TableComponent implements OnDestroy {
+export class TablesComponent implements OnDestroy {
 
     userId: number
 

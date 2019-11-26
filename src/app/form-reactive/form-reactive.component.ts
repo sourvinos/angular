@@ -1,7 +1,5 @@
-import { AfterViewInit, Component } from '@angular/core'
+import { Component } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
-import { Subject } from 'rxjs'
 import { PasswordValidator } from './password.validator'
 import { ForbiddenNameValidator } from './username.validator'
 
@@ -11,19 +9,14 @@ import { ForbiddenNameValidator } from './username.validator'
 	styleUrls: ['./form-reactive.component.css']
 })
 
-export class FormReactiveComponent implements AfterViewInit {
+export class FormReactiveComponent {
 
 	message: string
 	private isSaving: boolean = false
-	modalRef: BsModalRef
-
-	ngAfterViewInit(): void {
-		document.getElementById("userName").focus()
-	}
 
 	// Use a formBuilder to build form components
 	// instead of FormGroup and FormControl
-	constructor(private formBuilder: FormBuilder, private modalService: BsModalService) { }
+	constructor(private formBuilder: FormBuilder) { }
 
 	// Create a model for use in the form WITHOUT FormBuilder
 	registrationForm = new FormGroup({

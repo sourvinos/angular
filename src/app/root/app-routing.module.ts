@@ -12,12 +12,15 @@ import { FormTemplateComponent } from '../form-template/form-template.component'
 import { InputsComponent } from '../input-controls/input-controls.component';
 import { MainComponent } from '../animations/main/main.component'
 import { MaterialComponent } from '../material/material.component';
-import { HostTableComponent } from '../tables/host.component';
 
 import { PageNotFoundComponent } from './../page-not-found.component';
 
+// Guards
+import { AuthGuard } from './../auth/services/auth.guard';
+import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
+
 // Component interactions
-import { ParentToChildComponent } from '../component-interactions/parent.component';
+import { ParentComponent } from '../component-interactions/parent.component';
 
 // Posts
 import { PostWrapperComponent } from '../posts/user-interface/wrapper-post';
@@ -32,9 +35,8 @@ import { EmployeeListComponent } from '../employees/user-interface/list-employee
 import { EmployeeFormComponent } from '../employees/user-interface/form-employee';
 import { EmployeeListResolverService } from '../employees/classes/resolver-list-employee';
 
-// Guards
-import { AuthGuard } from './../auth/services/auth.guard';
-import { CanDeactivateGuard } from '../services/can-deactivate-guard-service';
+// Tables
+import { TablesHostComponent } from '../tables/tables-host.component'
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -45,14 +47,14 @@ const appRoutes: Routes = [
 	{ path: 'form-template', component: FormTemplateComponent },
 	{ path: 'input-controls', component: InputsComponent },
 	{ path: 'arrays', component: ArraysComponent },
-	{ path: 'parent-to-child', component: ParentToChildComponent },
+	{ path: 'component-interactions', component: ParentComponent },
 	{ path: 'eventsHome', component: EventsHomeComponent },
 	{ path: 'events', component: EventsComponent },
 	{ path: 'members', component: EventsMembersComponent, canActivate: [AuthGuard] },
 	{ path: 'register', component: EventsRegisterComponent },
 	{ path: 'login', component: EventsLoginComponent },
 	{ path: 'pageNotFound', component: PageNotFoundComponent },
-	{ path: 'tables/userId/:userId', component: HostTableComponent },
+	{ path: 'tables/userId/:userId', component: TablesHostComponent },
 	{
 		path: 'posts', component: PostWrapperComponent, children: [{
 			path: 'userId/:userId', component: PostListComponent, resolve: { postList: PostListResolverService }, children: [{

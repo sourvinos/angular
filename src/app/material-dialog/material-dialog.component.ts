@@ -9,7 +9,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 export class MaterialDialogComponent {
 
-    constructor(private dialogRef: MatDialogRef<MaterialDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+    constructor(private dialogRef: MatDialogRef<MaterialDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+        console.log('Constructor', data)
+    }
 
     close() {
         this.dialogRef.close()

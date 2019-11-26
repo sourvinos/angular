@@ -13,10 +13,9 @@ section {
 }
 
 #container {
-    height: 274px;
     overflow-x: hidden;
     overflow-y: scroll;
-    width: fit-content;
+    margin: 2rem;
 }
 
 #container::-webkit-scrollbar {

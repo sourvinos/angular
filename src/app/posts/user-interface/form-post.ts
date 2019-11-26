@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MaterialDialogComponent } from 'src/app/material-dialog/material-dialog.component';
 import { IPost } from '../classes/model.post';
 import { PostService } from '../classes/service.post';
 import { PostModalForm } from './modal-form';
-import { Subject } from 'rxjs';
-import { BsModalService } from 'ngx-bootstrap';
-import { MaterialDialogComponent } from 'src/app/material-dialog/material-dialog.component';
 
 @Component({
     selector: 'form-post',
@@ -27,7 +25,7 @@ export class PostFormComponent {
         body: ['', [Validators.maxLength(255)]]
     })
 
-    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, private postService: PostService, public dialog: MatDialog, private modalService: BsModalService) {
+    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, private postService: PostService, public dialog: MatDialog) {
         this.activatedRoute.params.subscribe(p => {
             this.updatePostId(p)
             this.getPost()
