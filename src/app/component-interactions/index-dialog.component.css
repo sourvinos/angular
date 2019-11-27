@@ -52,3 +52,55 @@ td.mat-cell {
 .center-align {
     text-align: center;
 }
+
+#container {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 2rem;
+}
+
+#container::-webkit-scrollbar {
+    width: 0.4rem;
+}
+
+#container::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+#container::-webkit-scrollbar-thumb {
+    background-color: orange;
+    border-radius: 0;
+    min-height: 6.25rem;
+}
+
+table {
+    border-collapse: collapse;
+    outline: 0;
+    position: relative;
+    text-align: left;
+}
+
+th, td {
+    padding: 0.25rem;
+}
+
+th {
+    background: white;
+    position: sticky;
+    text-align: center;
+    top: 0;
+}
+
+td {
+    border: 1px solid gray;
+}
+
+
+.selected {
+    background-color: indianred;
+}
+
+tr:hover {
+    background-color: lightcoral;
+    cursor: pointer;
+}

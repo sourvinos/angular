@@ -19,21 +19,56 @@ export class ChildComponent {
     constructor(public dialog: MatDialog) { }
 
     // T
-    onOpenDialog(elements: any) {
+    lookupIndex(
+        lookupArray: any[],
+        title: string,
+        fields: any[],
+        headers: any[],
+        widths: any[],
+        visibility: any[],
+        justify: any[],
+        e: { target: { value: any } }) {
+        const filteredArray = []
+        console.log(e.target.value)
+        lookupArray.filter(x => {
+            if (x.description.toUpperCase().includes(e.target.value.toUpperCase())) {
+                filteredArray.push(x)
+            }
+        })
+        if (filteredArray.length > 0) {
+            this.showModalIndex(filteredArray, title, fields, headers, widths, visibility, justify)
+        }
+    }
+
+    // T
+    private showModalIndex(
+        elements: any,
+        title: string,
+        fields: any[],
+        headers: any[],
+        widths: any[],
+        visibility: any[],
+        justify: any[]) {
         const dialog = this.dialog.open(IndexDialogComponent, {
             height: '400px',
             width: '600px',
             data: {
                 records: elements,
-                headers: ['Id', 'Description', 'Amount'],
-                widths: ['100px', '300px', '100px'],
-                visibility: ['', '', ''],
-                justify: ['center', 'left', 'right']
+                title: title,
+                fields: fields,
+                headers: headers,
+                widths: widths,
+                visibility: visibility,
+                justify: justify
             }
         })
         dialog.afterClosed().subscribe(result => {
             console.log('Came back from the modal', result)
             this.selectEvent.emit(result)
+            dialog.afterClosed().subscribe((result) => {
+                // this.patchFields(result, lookupId, lookupDescription)
+            })
+
         })
     }
 

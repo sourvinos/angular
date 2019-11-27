@@ -3,12 +3,12 @@
     <table id="myTable" tabindex="0">
         <thead>
             <tr>
-                <th *ngFor="let header of headers, index as i" [style.width]="widths[i]">{{ header }}</th>
+                <th *ngFor="let header of headers, index as i" [style.width]="widths[i]" [style.display]="'none'">{{ header }}</th>
             </tr>
         </thead>
         <tbody id='body'>
             <tr *ngFor="let post of posts, index as r" (click)="gotoNewPosition(r+1)" [id]="r+1">
-                <td *ngFor="let item of post | keyvalue, index as i" [style.text-align]="justify[i]">{{ item.value }}</td>
+                <td *ngFor="let item of post | keyvalue, index as i" [style.text-align]="justify[i]" [style.display]="'none'">{{ item.value }}</td>
             </tr>
         </tbody>
     </table>
