@@ -13,6 +13,8 @@
         </tbody>
     </table>
 
-    <button id="close" mat-flat-button color="primary" [mat-dialog-close]="records[currentTableRow]">Select</button>
+    <button id="close" mat-flat-button color="primary" [mat-dialog-close]="records[currentTableRow-1]">Select</button>
+
+    {{ info | json }}
 
 </div>

@@ -31,7 +31,10 @@ export class TableComponent {
     }
 
     @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string; }) {
-        if (event.key == 'Enter') this.selectRow(this.currentTableRow - 1)
+        if (event.key == 'Enter') {
+            this.selectRow(this.currentTableRow - 1)
+            document.getElementById('close').click()
+        }
         this.gotoNewPosition(event.key)
     }
 
@@ -63,7 +66,7 @@ export class TableComponent {
                 document.getElementById(this.currentTableRow.toString()).scrollIntoView(false)
             }
         }
-        this.info = this.currentTableRow
+        this.info = this.records[this.currentTableRow - 1]
     }
 
     private highlightLine(table: HTMLTableElement, direction: any) {
@@ -100,8 +103,6 @@ export class TableComponent {
 
     private selectRow(index: number) {
         console.log(index)
-        // this.selectEvent.emit(this.records[index])
-        // document.getElementById('close').click()
     }
 
 }

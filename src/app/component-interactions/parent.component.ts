@@ -16,7 +16,7 @@ export class Fruit {
 export class ParentComponent {
 
     fruits: Fruit[]
-    selectedFruit: string = 'No selection yet'
+    selectedFruit: Fruit
 
     headerText: string = "This title came from the parent component"
 
@@ -33,25 +33,31 @@ export class ParentComponent {
         ]
     }
 
+    // T
     startTimer() {
         this.varName.startTimer()
     }
 
+    // T
     checkFullNameChanges(event: any) {
         console.log('Event', event)
     }
 
-    save() {
+    // T
+    onSave() {
         console.log('Saving...')
     }
 
-    delete() {
+    // T
+    onDelete() {
         console.log('Deleting...')
     }
 
-    select(input: any) {
+    // Gets a fruit object from the child
+    // and updates the local variable
+    // which will be displayed in the template
+    select(input: Fruit) {
         this.selectedFruit = input
-        console.log(this.selectedFruit)
     }
 
 }

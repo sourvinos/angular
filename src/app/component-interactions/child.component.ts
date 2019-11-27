@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { MatDialog } from '@angular/material'
 import { IndexDialogComponent } from './index-dialog.component'
+import { Fruit } from './parent.component'
 
 @Component({
     selector: 'child',
@@ -10,7 +11,7 @@ import { IndexDialogComponent } from './index-dialog.component'
 
 export class ChildComponent {
 
-    @Input() fruits: []
+    @Input() fruits: Fruit[]
     @Output() selectEvent = new EventEmitter()
 
     selectedIndex: number
@@ -18,7 +19,7 @@ export class ChildComponent {
     constructor(public dialog: MatDialog) { }
 
     // T
-    openDialog(elements: any) {
+    onOpenDialog(elements: any) {
         const dialog = this.dialog.open(IndexDialogComponent, {
             height: '400px',
             width: '600px',
@@ -31,12 +32,13 @@ export class ChildComponent {
             }
         })
         dialog.afterClosed().subscribe(result => {
-            this.selectFruit(result.id)
+            console.log('Came back from the modal', result)
+            this.selectEvent.emit(result)
         })
     }
 
     // T
-    selectFruit(index: number) {
+    onSelectFruit(index: number) {
         this.selectEvent.emit(this.fruits[index])
     }
 

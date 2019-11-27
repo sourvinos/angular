@@ -22,7 +22,7 @@
 <!-- $event is the input from the child (the selected fruit!) -->
 <child #timer [fruits]="fruits" (selectEvent)="select($event)"></child>
 
-<span>Your selected fruit, sir: {{ selectedFruit.description }}</span>
+<span *ngIf="selectedFruit">Your selected fruit, sir: {{ selectedFruit.description }} </span>
 <br>
 
 <!-- Execute code every time the input changes -->
@@ -31,4 +31,4 @@
 
 <!-- (saveEvent) is the @Output property in the child class -->
 <!-- save() is the method in the this (parent) class -->
-<app-footer (saveEvent)="save()" (deleteEvent)="delete()"></app-footer>
+<app-footer (saveEvent)="onSave()" (deleteEvent)="onDelete()"></app-footer>

@@ -11,9 +11,9 @@
     <br>
 
     <ul>
-        <li *ngFor="let fruit of fruits, index as index" (click)="selectFruit(index)">{{ fruit.description }}</li>
+        <li *ngFor="let fruit of fruits, index as index" (click)="onSelectFruit(index)">{{ fruit.description }}</li>
     </ul>
 
-    <button mat-flat-button color="primary" (click)="openDialog(fruits)">Fruits</button>
+    <button mat-flat-button color="primary" (click)="onOpenDialog(fruits)">Fruits</button>
 
 </div>
