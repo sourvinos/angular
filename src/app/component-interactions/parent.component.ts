@@ -24,12 +24,20 @@ export class ParentComponent {
 
     ngOnInit() {
         this.fruits = [
+            { id: 11, description: 'Pineapples', amount: 10.4 },
             { id: 12, description: 'Apples', amount: 7.6 },
             { id: 22, description: 'Oranges', amount: 15.3 },
-            { id: 31, description: 'Mangos', amount: 23.7 },
-            { id: 47, description: 'Kiwis', amount: 5.9 },
             { id: 56, description: 'Strawberries', amount: 17.1 },
-            { id: 69, description: 'Grapes', amount: 30.9 }
+            { id: 31, description: 'Mangos', amount: 23.7 },
+            { id: 69, description: 'Grapes', amount: 30.9 },
+            { id: 71, description: 'Apricots', amount: 1.5 },
+            { id: 72, description: 'Bananas', amount: 1.4 },
+            { id: 73, description: 'Blackberries', amount: 2.4 },
+            { id: 2, description: 'Cherries', amount: 1234.4 },
+            { id: 10, description: 'Melons', amount: 210.4 },
+            { id: 15, description: 'Lemons', amount: 21.4 },
+            { id: 47, description: 'Kiwis', amount: 5.9 },
+            { id: 48, description: 'Passionfruit', amount: 1.9 },
         ]
     }
 

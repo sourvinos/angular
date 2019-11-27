@@ -9,6 +9,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export class IndexDialogComponent {
 
+	title: string = ''
+
 	fields: any[]
 	headers: any[]
 	justify: any[]
@@ -27,6 +29,11 @@ export class IndexDialogComponent {
 	containerTop = 0
 
 	constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+
+		console.log(data)
+
+		this.title = data.title
+
 		this.headers = data.headers
 		this.justify = data.justify
 		this.visibility = data.visibility

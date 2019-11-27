@@ -32,6 +32,7 @@ export class TablesComponent implements OnDestroy {
         this.navigationSubscription = this.router.events.subscribe((e: any) => {
             if (e instanceof NavigationEnd) {
                 this.postService.getPosts(this.userId).subscribe(result => {
+                    console.log(result)
                     this.posts = result.map(product => {
                         return {
                             id: product.id,

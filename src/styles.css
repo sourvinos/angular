@@ -95,11 +95,6 @@ ul {
     list-style: none;
 }
 
-.scrollable {
-    flex: 1 !important;
-    background-color: #57617B !important
-}
-
 button.primary {
     color: #FFFFFF !important;
     background-color: #57617B !important;

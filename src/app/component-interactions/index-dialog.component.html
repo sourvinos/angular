@@ -1,7 +1,10 @@
 <!-- <app-table [records]="data.records" [headers]="data.headers" [widths]="data.widths" [visibility]="data.visibility" [justify]="data.justify" (selectEvent)="select($event)"></app-table> -->
 
-<div id="container">
+<div id="header">
+    <h2>{{ title }}</h2>
+</div>
 
+<div id="container">
     <table id="myTable" tabindex="0">
         <thead>
             <tr>
@@ -14,7 +17,8 @@
             </tr>
         </tbody>
     </table>
+</div>
 
+<div id="footer">
     <button id="close" mat-flat-button color="primary" [mat-dialog-close]="records[currentTableRow-1]">Select</button>
-
 </div>

@@ -16,6 +16,7 @@ section {
     overflow-x: hidden;
     overflow-y: scroll;
     margin: 2rem;
+    height: 400px;
 }
 
 #container::-webkit-scrollbar {
