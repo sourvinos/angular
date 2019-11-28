@@ -1,24 +1,27 @@
-<!-- <app-table [records]="data.records" [headers]="data.headers" [widths]="data.widths" [visibility]="data.visibility" [justify]="data.justify" (selectEvent)="select($event)"></app-table> -->
+<div id="wrapper-b">
 
-<div id="header">
-    <h2>{{ title }}</h2>
-</div>
+    <div id="header-b">
+        <h2>{{ title }}</h2>
+    </div>
 
-<div id="container">
-    <table id="myTable" tabindex="0">
-        <thead>
-            <tr>
-                <th *ngFor="let header of headers, index as i" [style.width]="widths[i]" [style.display]="visibility[i]">{{ header }}</th>
-            </tr>
-        </thead>
-        <tbody id='body'>
-            <tr *ngFor="let record of records, index as index" (click)="gotoNewPosition(index+1)" [id]="index+1">
-                <td *ngFor="let field of fields, index as i" [style.text-align]="justify[i]" [style.display]="visibility[i]">{{ record[field] }}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div id="container-b">
+        <table id="table-b">
+            <thead>
+                <tr>
+                    <th *ngFor="let header of headers, index as i" [style.width]="widths[i]" [style.display]="visibility[i]">{{ header }}</th>
+                </tr>
+            </thead>
+            <tbody id='body'>
+                <tr *ngFor="let record of records, index as index" (click)="gotoNewPosition(index+1)" [id]="index+1">
+                    <td *ngFor="let field of fields, index as i" [style.text-align]="justify[i]" [style.display]="visibility[i]">{{ record[field] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div id="footer">
-    <button id="close" mat-flat-button color="primary" [mat-dialog-close]="records[currentTableRow-1]">Select</button>
+    <div id="footer-b">
+        {{ info | json }}
+        <button id="close" mat-flat-button color="primary" [mat-dialog-close]="records[currentTableRow-1]">Select</button>
+    </div>
+
 </div>

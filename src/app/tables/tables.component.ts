@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, HostListener, Input } from '@angular/core';
-import { ActivatedRoute, Router, Params, NavigationEnd } from '@angular/router';
+import { Component, HostListener, OnDestroy } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { PostService } from '../posts/classes/service.post';
 
 @Component({
@@ -56,7 +56,7 @@ export class TablesComponent implements OnDestroy {
     }
 
     private gotoNewPosition(position: string) {
-        const table = (<HTMLTableElement>document.getElementById('myTable'))
+        const table = (<HTMLTableElement>document.getElementById('table-a'))
         // If a row is clicked (position = row.id)
         if (!isNaN(parseInt(position))) {
             console.log('Direct input from init or mouse', position)
@@ -69,7 +69,7 @@ export class TablesComponent implements OnDestroy {
             this.highlightLine(table, 'up')
             if (!this.isScrolledIntoView(table.rows[this.currentTableRow])) {
                 document.getElementById(this.currentTableRow.toString()).scrollIntoView()
-                const container = (<HTMLTableElement>document.getElementById('container'))
+                const container = (<HTMLTableElement>document.getElementById('container-a'))
                 var docViewTop = container.scrollTop
                 var elemTop = table.rows[this.currentTableRow].offsetTop
                 if (elemTop <= docViewTop) {
@@ -113,24 +113,24 @@ export class TablesComponent implements OnDestroy {
     }
 
     private isScrolledIntoView(el: HTMLTableRowElement) {
-        const container = (<HTMLTableElement>document.getElementById('container'))
+        const container = (<HTMLTableElement>document.getElementById('container-a'))
         var docViewTop = container.scrollTop; // console.log(''); console.log('docViewTop', docViewTop)
-        var docViewBottom = docViewTop + document.getElementById('container').offsetHeight; // console.log('docViewBottom', docViewBottom)
+        var docViewBottom = docViewTop + document.getElementById('container-a').offsetHeight; // console.log('docViewBottom', docViewBottom)
         var elemTop = el.offsetTop; // console.log('elemTop', elemTop)
         var elemBottom = elemTop + el.offsetHeight; // console.log('elemBottom', elemBottom)
         return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
     }
 
     private displayInfo(el: HTMLTableRowElement) {
-        const container = (<HTMLTableElement>document.getElementById('container'))
+        const container = (<HTMLTableElement>document.getElementById('container-a'))
         var docViewTop = container.scrollTop; // console.log(''); console.log('docViewTop', docViewTop)
-        var docViewBottom = docViewTop + document.getElementById('container').offsetHeight; // console.log('docViewBottom', docViewBottom)
+        var docViewBottom = docViewTop + document.getElementById('container-a').offsetHeight; // console.log('docViewBottom', docViewBottom)
         var elemTop = el.offsetTop; // console.log('elemTop', elemTop)
         var elemBottom = elemTop + el.offsetHeight; // console.log('elemBottom', elemBottom)
     }
 
     scroll() {
-        const container = (<HTMLTableElement>document.getElementById('container'))
+        const container = (<HTMLTableElement>document.getElementById('container-a'))
         container.scrollTop = this.scrollRows
     }
 }

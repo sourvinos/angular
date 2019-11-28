@@ -6,12 +6,14 @@ main {
 
 section {
     margin: 1rem;
-    background-color: thistle;
+    background-color: lightgray;
     padding: 1rem;
+    width: 100%;
 }
 
 nav {
-    margin: 1rem 1rem 1rem 0;
+    margin: 1rem;
+    width: 20rem;
 }
 
 ul {
