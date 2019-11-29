@@ -108,12 +108,11 @@ button.secondary {
 /* Custom */
 
 .mat-dialog-container {
-    /* background-color: #424242 !important; */
-    border-radius: 5px !important;
+    border-radius: 10px !important;
     display: flex !important;
-    height: 574px !important;
-    padding: 25px !important;
-    width: 700px !important;
+    /* height: 574px !important; */
+    padding: 0 !important;
+    /* width: 700px !important; */
 }
 
 .mat-dialog-container>.ng-star-inserted {

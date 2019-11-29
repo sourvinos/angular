@@ -50,7 +50,7 @@ export class ChildComponent {
         visibility: any[],
         justify: any[]) {
         const dialog = this.dialog.open(IndexDialogComponent, {
-            height: '400px',
+            height: '619px',
             width: '600px',
             data: {
                 records: elements,

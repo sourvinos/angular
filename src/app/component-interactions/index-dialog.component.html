@@ -8,7 +8,7 @@
         <table id="table-b">
             <thead>
                 <tr>
-                    <th *ngFor="let header of headers, index as i" [style.width]="widths[i]" [style.display]="visibility[i]">{{ header }}</th>
+                    <th class="header" *ngFor="let header of headers, index as i" [style.width]="widths[i]" [style.display]="visibility[i]">{{ header }}</th>
                 </tr>
             </thead>
             <tbody id='body'>
@@ -20,8 +20,8 @@
     </div>
 
     <div id="footer-b">
-        {{ info | json }}
-        <button id="close" mat-flat-button color="primary" [mat-dialog-close]="records[currentTableRow-1]">Select</button>
+        <!-- {{ info | json }} -->
+        <button id="close" mat-flat-button class="primary" [mat-dialog-close]="records[currentTableRow-1]">Select</button>
     </div>
 
 </div>
