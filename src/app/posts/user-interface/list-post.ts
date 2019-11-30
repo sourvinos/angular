@@ -78,7 +78,7 @@ export class PostListComponent implements OnDestroy {
 		visibility: any[],
 		justify: any[]) {
 		const dialog = this.dialog.open(IndexDialogComponent, {
-			height: '619px',
+			height: '644px',
 			width: '600px',
 			data: {
 				records: elements,

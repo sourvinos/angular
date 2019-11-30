@@ -1,33 +1,9 @@
+:host {
+    display: grid;
+}
+
 * {
     box-sizing: border-box !important;
-}
-
-#index {
-    background-color: #939393;
-    display: grid;
-    grid-template-areas:
-        "header"
-        "content"
-        "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    height: 100%;
-}
-
-#index-header {
-    background-color: #57617B;
-    color: #FFE85C;
-    grid-area: header;
-    margin: 0;
-    padding: 2rem;
-}
-
-#index-content {
-    background-color: #939393;
-    grid-area: content;
-    margin: 2rem 1.9rem 2rem 2rem;
-    overflow-x: hidden;
-    overflow-y: scroll;
 }
 
 #index-footer {
@@ -42,20 +18,6 @@
     visibility: hidden;
 }
 
-#index-content::-webkit-scrollbar {
-    width: 0.5rem;
-}
-
-#index-content::-webkit-scrollbar-track {
-    background-color: #939393;
-    margin-top: 4rem;
-}
-
-#index-content::-webkit-scrollbar-thumb {
-    background-color: indianred;
-    border-radius: 0;
-    min-height: 6.25rem;
-}
 
 #index-table {
     margin-right: 0.5rem;

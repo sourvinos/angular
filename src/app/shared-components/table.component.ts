@@ -62,7 +62,7 @@ export class TableComponent {
             this.highlightRow(this.table, 'up')
             if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
                 document.getElementById(this.currentRow.toString()).scrollIntoView()
-                this.indexContent.scrollTop = (this.currentRow - 1) * this.rowHeight + 0
+                this.indexContent.scrollTop = (this.currentRow - 1) * this.rowHeight - 0
             }
         }
         if (position == 'ArrowDown' && this.currentRow < this.table.rows.length - 1) {
@@ -92,15 +92,18 @@ export class TableComponent {
     }
 
     private isRowIntoView(row: HTMLTableRowElement, direction: string) {
-        const elemTop = row.offsetTop
-        const docViewTop = this.indexContent.scrollTop
-        const elemBottom = elemTop + row.offsetHeight
-        const docViewBottom = docViewTop + this.indexContent.offsetHeight
+        const rowOffsetTop = row.offsetTop; console.log(''); console.log('rowOffsetTop', rowOffsetTop)
+        const indexContentScrollTop = this.indexContent.scrollTop; console.log('docindexContentScrollTopViewTop', indexContentScrollTop)
+        const rowOffetTopPlusRowOffsetHeight = rowOffsetTop + row.offsetHeight; console.log('rowOffetTopPlusRowOffsetHeight', rowOffetTopPlusRowOffsetHeight)
+        const indexContentScrollTopPuslIndexContentOffsetHeight = indexContentScrollTop + this.indexContent.offsetHeight; console.log('indexContentScrollTopPuslIndexContentOffsetHeight', indexContentScrollTopPuslIndexContentOffsetHeight)
         if (direction == 'ArrowUp') {
-            if (docViewBottom - elemTop + this.rowHeight < this.indexContent.offsetHeight) return true
+            if (indexContentScrollTopPuslIndexContentOffsetHeight - rowOffsetTop + this.rowHeight < this.indexContent.offsetHeight) {
+                console.log('InView')
+                return true
+            }
         }
         if (direction == 'ArrowDown') {
-            if (elemBottom <= docViewBottom) return true
+            if (rowOffetTopPlusRowOffsetHeight <= indexContentScrollTopPuslIndexContentOffsetHeight) return true
         }
         return false
     }
@@ -109,7 +112,8 @@ export class TableComponent {
         this.indexContent = (<HTMLElement>document.getElementById('index-content'))
         this.table = (<HTMLTableElement>document.getElementById('index-table'))
         this.rowHeaderHeight = (<HTMLTableSectionElement>document.querySelector('thead'))
-        this.rowHeight = this.table.rows[0].offsetHeight
+        this.rowHeight = this.table.rows[1].offsetHeight
+        console.log('rowHeight', this.rowHeight)
         if (this.indexContent.scrollHeight <= this.indexContent.offsetHeight) {
             this.indexContent.style.overflowY = 'hidden'
             this.table.style.marginRight = '0px'

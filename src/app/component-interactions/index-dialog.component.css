@@ -2,7 +2,7 @@
     box-sizing: border-box !important;
 }
 
-#index {
+#index-dialog {
     background-color: #939393;
     display: grid;
     grid-template-areas:
@@ -14,7 +14,7 @@
     height: 100%;
 }
 
-#index-header {
+#index-dialog-header {
     background-color: #57617B;
     color: #FFE85C;
     grid-area: header;
@@ -30,7 +30,7 @@
     overflow-y: scroll;
 }
 
-#index-footer {
+#index-dialog-footer {
     background-color: #7E7E7E;
     grid-area: footer;
     padding: 2rem;
@@ -42,59 +42,32 @@
     visibility: hidden;
 }
 
+#index-dialog-content::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+#index-dialog-content::-webkit-scrollbar-track {
+    background-color: #939393;
+    margin-top: 45px;
+}
+
+#index-dialog-content::-webkit-scrollbar-thumb {
+    background-color: indianred;
+    border-radius: 0;
+    min-height: 6.25rem;
+}
+
 #index-content::-webkit-scrollbar {
     width: 0.5rem;
 }
 
 #index-content::-webkit-scrollbar-track {
     background-color: #939393;
-    margin-top: 4rem;
+    margin-top: 45px;
 }
 
 #index-content::-webkit-scrollbar-thumb {
     background-color: indianred;
     border-radius: 0;
     min-height: 6.25rem;
-}
-
-#index-table {
-    margin-right: 0.5rem;
-    position: relative;
-    text-align: left;
-    width: -webkit-fill-available;
-}
-
-tbody tr {
-    background-color: #57617B;
-}
-
-tbody tr:nth-child(even) {
-    background-color: rgba(87, 97, 123, 0.911);
-}
-
-tr.selected {
-    background-color: indianred !important;
-}
-
-tr:hover {
-    background-color: lightcoral !important;
-    cursor: pointer;
-}
-
-th {
-    background-color: #637092;
-    color: #ffffff;
-    font-family: Lato;
-    font-size: 1.8rem;
-    font-weight: normal;
-    padding: 1rem;
-    position: sticky;
-    text-align: center;
-    top: 0;
-}
-
-td {
-    border-right: 1px dotted gray;
-    color: #ffffff;
-    padding: 1rem;
 }
