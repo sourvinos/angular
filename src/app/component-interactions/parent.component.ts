@@ -24,7 +24,7 @@ export class ParentComponent {
 
     ngOnInit() {
         this.fruits = [
-            { id: 1, description: 'Jackfruit', amount: 10.4 },
+            { id: 1, description: 'Jackfruit', amount: 1230.4 },
             { id: 2, description: 'Kumquat', amount: 10.4 },
             { id: 11, description: 'Pineapples', amount: 10.4 },
             { id: 12, description: 'Apples', amount: 7.6 },

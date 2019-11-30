@@ -1,26 +1,30 @@
 <div id="child">
 
-    <span>app-child</span>
+    <div id="header">
+        <span>app-child</span>
+        <h2>Child</h2>
+        <span>This element has methods that will be called from the app-root</span>
+        <br> <br>
+        <span>This fruity list came from the app-root</span>
+        <br>
+        <span>Click on the items to test the parent-child interaction</span>
+        <br>
+    </div>
 
-    <h2>Child</h2>
+    <div id="content">
+        <app-table [records]="fruits" [headers]="headers" [widths]="widths" [visibility]="visibility" [justify]="justify" [fields]="fields" (selectEvent)="onSelectFruit($event)"></app-table>
+    </div>
 
-    <span>This element has methods that will be called from the app-root</span>
-    <br> <br>
-    <span>This fruity list came from the app-root</span>
-    <br>
-    <span>Click on the items to test the parent-child interaction</span>
-    <br>
-
-    <ul>
+    <!-- <ul>
         <li *ngFor="let fruit of fruits, index as index" (click)="onSelectFruit(index)">{{ fruit.description }}</li>
-    </ul>
+    </ul> -->
 
-    <mat-form-field>
-        <input type="text" matInput placeholder="Fruit" tabindex="1" id="fruit" (change)="lookupIndex(fruits, 'Fruits', ['id','description','amount'], ['Id','Description','Amount'], ['0px','440px','100px'], ['none','',''], ['center','left','right'], $event)">
-    </mat-form-field>
-
-    <br><br>
-
-    <button mat-flat-button color="primary" (click)="onOpenDialog(fruits)">Display a list of fruits</button>
+    <div id="footer">
+        <mat-form-field>
+            <input type="text" matInput placeholder="Fruit" tabindex="1" id="fruit" (change)="lookupIndex(fruits, 'Fruits', ['id','description','amount'], ['Id','Description','Amount'], ['0px','440px','100px'], ['none','',''], ['center','left','right'], $event)">
+        </mat-form-field>
+        <br><br>
+        <button mat-flat-button color="primary" (click)="onOpenDialog(fruits)">Display a list of fruits</button>
+    </div>
 
 </div>

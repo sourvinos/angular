@@ -12,11 +12,23 @@ import { Fruit } from './parent.component'
 export class ChildComponent {
 
     @Input() fruits: Fruit[]
+
+    headers = ['Id', 'Description', 'Amount']
+    widths = ['0px', '440px', '100px']
+    visibility = ['none', '', '']
+    justify = ['center', 'left', 'right']
+    fields = ['id', 'description', 'amount']
+
     @Output() selectEvent = new EventEmitter()
 
     selectedIndex: number
 
     constructor(public dialog: MatDialog) { }
+
+    ngOnInit() {
+        // console.log('Inside the child', this.fruits)
+        // console.log('Inside the child', this.fields)
+    }
 
     // T
     lookupIndex(
@@ -29,7 +41,6 @@ export class ChildComponent {
         justify: any[],
         e: { target: { value: any } }) {
         const filteredArray = []
-        console.log(e.target.value)
         lookupArray.filter(x => {
             if (x.description.toUpperCase().includes(e.target.value.toUpperCase())) {
                 filteredArray.push(x)
@@ -72,7 +83,7 @@ export class ChildComponent {
         })
     }
 
-    // T
+    // T 
     onSelectFruit(index: number) {
         this.selectEvent.emit(this.fruits[index])
     }

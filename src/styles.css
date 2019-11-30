@@ -1,6 +1,10 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
+* {
+    box-sizing: border-box !important;
+}
+
 body {
     margin: 0;
 }
@@ -109,46 +113,43 @@ button.secondary {
 
 .mat-dialog-container {
     border-radius: 10px !important;
-    display: flex !important;
-    /* height: 574px !important; */
     padding: 0 !important;
-    /* width: 700px !important; */
 }
 
 .mat-dialog-container>.ng-star-inserted {
-    display: flex !important;
+    /* display: flex !important;
     flex-direction: column !important;
     height: 100% !important;
-    width: 100% !important;
+    width: 100% !important; */
 }
 
 .mat-dialog-title {
-    color: #f1f2da !important;
+    /* color: #f1f2da !important;
     font-family: 'Lato';
     font-size: 2.3rem !important;
-    margin-bottom: 25px !important;
+    margin-bottom: 25px !important; */
 }
 
 .mat-header-row {
-    background-color: #637092 !important;
-    font-family: 'Lato';
+    /* background-color: #637092 !important;
+    font-family: 'Lato'; */
 }
 
 .mat-header-cell:first-child, .mat-cell:first-child {
-    flex: 0% !important;
-    padding: 0 !important;
+    /* flex: 0% !important;
+    padding: 0 !important; */
 }
 
 .mat-header-cell:not(:first-child), .mat-cell:not(:first-child) {
-    flex: 100%;
+    /* flex: 100%; */
 }
 
 .mat-header-cell:not(:first-child) {
-    color: beige !important;
+    /* color: beige !important;
     font-size: 1.1rem !important;
     justify-content: center !important;
     padding: 0 10px !important;
-    border-right: 1px solid #57617b !important;
+    border-right: 1px solid #57617b !important; */
 }
 
 .left {
@@ -164,30 +165,30 @@ button.secondary {
 }
 
 .mat-cell:not(:first-child) {
-    color: beige !important;
+    /* color: beige !important;
     font-size: 1.0rem;
-    padding: 0 10px !important;
+    padding: 0 10px !important; */
 }
 
 .mat-cell:last-child {
-    border-right: 0 !important;
+    /* border-right: 0 !important; */
 }
 
 .mat-row {
-    background-color: #57617B !important;
+    /* background-color: #57617B !important;
     color: beige;
     cursor: pointer;
-    font-family: 'Lato';
+    font-family: 'Lato'; */
 }
 
 .mat-row.selected {
-    background-color: #7E7E7E !important;
+    /* background-color: #7E7E7E !important; */
 }
 
 .mat-row>.mat-cell:nth-child(2) {
-    border-left: 4px solid #57617B !important;
+    /* border-left: 4px solid #57617B !important; */
 }
 
 .mat-row.selected>.mat-cell:nth-child(2) {
-    border-left: 4px solid #FFE85C !important;
+    /* border-left: 4px solid #FFE85C !important; */
 }

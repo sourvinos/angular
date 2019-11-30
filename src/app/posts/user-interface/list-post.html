@@ -7,6 +7,11 @@
     <div id="items">
         <li *ngFor="let post of posts" (click)=getPost(post.id)>{{ post.userId }} - {{ post.id }} - {{ post.title }}</li>
     </div>
+
+    <mat-form-field>
+        <input type="text" matInput placeholder="Fruit" tabindex="1" id="fruit" (change)="lookupIndex(posts, 'Posts', ['id','title'], ['Id','Title'], ['10px','440px'], ['',''], ['center','left'], $event)">
+    </mat-form-field>
+
 </div>
 
 <div id="form">

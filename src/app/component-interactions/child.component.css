@@ -1,6 +1,29 @@
 #child {
     background-color: darkgoldenrod;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 300px auto;
+    height: 600px;
+    overflow-y: hidden;
     padding: 1rem;
+
+}
+
+#header {
+    grid-area: header;
+}
+
+#content {
+    grid-area: content;
+    overflow-y: hidden;
+}
+
+#footer {
+    grid-area: footer;
 }
 
 li:hover {
