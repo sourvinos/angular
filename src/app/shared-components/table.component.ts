@@ -1,3 +1,4 @@
+import { InteractionService } from './../services/interaction.service';
 import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -25,6 +26,12 @@ export class TableComponent {
     rowHeaderHeight: any
     rowHeight: number = 0
 
+    constructor(private _interactionService: InteractionService) { }
+
+    greetStudent() {
+        this._interactionService.sendMessage('Goodmorning')
+    }
+
     ngAfterViewInit() {
         setTimeout(() => {
             // console.log('Inside the table', this.records)
@@ -37,8 +44,9 @@ export class TableComponent {
 
     @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string }) {
         if (event.key == 'Enter') {
-            console.log(this.records[this.currentRow - 1])
-            this.selectEvent.emit(this.records[this.currentRow - 1])
+            // console.log(this.records[this.currentRow - 1])
+            this._interactionService.sendMessage(this.records[this.currentRow - 1])
+            // this.selectEvent.emit(this.records[this.currentRow - 1])
         }
         this.gotoRow(event.key)
     }

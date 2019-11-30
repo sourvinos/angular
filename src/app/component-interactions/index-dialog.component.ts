@@ -37,6 +37,13 @@ export class IndexDialogComponent {
 
 	}
 
+	@HostListener('document:keydown', ['$event']) anyEvent(event: { key: string }) {
+		if (event.key == 'Enter') {
+			console.log('Closing index-dialog')
+		}
+	}
+
+
 	// Gets an object from the table
 	// and updates the local variable
 	// which will be displayed in the template

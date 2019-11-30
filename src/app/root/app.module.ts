@@ -53,7 +53,8 @@ import { FooterComponent } from '../component-interactions/footer.component'
 import { HeaderComponent } from '../component-interactions/header.component'
 import { IndexDialogComponent } from '../component-interactions/index-dialog.component'
 import { ParentComponent } from '../component-interactions/parent.component'
-import { TableComponent } from '../component-interactions/table.component'
+// Shared
+import { TableComponent } from '../shared-components/table.component'
 
 @NgModule({
     declarations: [

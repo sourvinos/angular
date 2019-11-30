@@ -1,3 +1,4 @@
+import { InteractionService } from './../services/interaction.service';
 import { Component, ViewChild } from '@angular/core';
 import { ChildComponent } from './child.component';
 
@@ -22,7 +23,10 @@ export class ParentComponent {
 
     @ViewChild(ChildComponent) private varName: ChildComponent
 
+    constructor(private _interactionService: InteractionService) { }
+
     ngOnInit() {
+        this._interactionService.teacherMessage.subscribe(message => console.log('Message', message))
         this.fruits = [
             { id: 1, description: 'Jackfruit', amount: 1230.4 },
             { id: 2, description: 'Kumquat', amount: 10.4 },

@@ -1,3 +1,4 @@
+import { InteractionService } from './../../services/interaction.service';
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { IPost } from '../classes/model.post';
@@ -18,7 +19,7 @@ export class PostListComponent implements OnDestroy {
 	navigationSubscription: any
 	errorMessage: string = ''
 
-	constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService, public dialog: MatDialog) {
+	constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService, public dialog: MatDialog, private _interactionService: InteractionService) {
 		this.activatedRoute.params.subscribe((params: Params) => { this.userId = +params['userId'] })
 		this.navigationSubscription = this.router.events.subscribe((e: any) => {
 			if (e instanceof NavigationEnd) {
@@ -28,6 +29,12 @@ export class PostListComponent implements OnDestroy {
 		});
 	}
 
+	ngOnInit() {
+		this._interactionService.teacherMessage.subscribe(message => {
+			console.log('From the modal', message)
+		})
+
+	}
 	ngOnDestroy() {
 		if (this.navigationSubscription) {
 			this.navigationSubscription.unsubscribe()
@@ -83,13 +90,14 @@ export class PostListComponent implements OnDestroy {
 				justify: justify
 			}
 		})
-		dialog.afterClosed().subscribe(result => {
-			console.log('Came back from the modal', result)
-			dialog.afterClosed().subscribe((result) => {
-				console.log(result)
-			})
+		// dialog.afterClosed().subscribe(result => {
+		// console.log('Closing modal')
+		// console.log('Came back from the modal', result)
+		// dialog.afterClosed().subscribe((result) => {
+		// 	console.log(result)
+		// })
 
-		})
+		// })
 	}
 
 }
