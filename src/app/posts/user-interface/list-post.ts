@@ -3,8 +3,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { IPost } from '../classes/model.post';
 import { PostService } from '../classes/service.post';
-import { IndexDialogComponent } from 'src/app/component-interactions/index-dialog.component';
 import { MatDialog } from '@angular/material';
+import { IndexDialogComponent } from 'src/app/shared-components/index-dialog.component';
 
 @Component({
 	selector: 'list-post',

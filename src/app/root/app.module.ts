@@ -51,10 +51,10 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
 import { ChildComponent } from '../component-interactions/child.component'
 import { FooterComponent } from '../component-interactions/footer.component'
 import { HeaderComponent } from '../component-interactions/header.component'
-import { IndexDialogComponent } from '../component-interactions/index-dialog.component'
 import { ParentComponent } from '../component-interactions/parent.component'
 // Shared
 import { TableComponent } from '../shared-components/table.component'
+import { IndexDialogComponent } from '../shared-components/index-dialog.component'
 
 @NgModule({
     declarations: [

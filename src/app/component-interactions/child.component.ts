@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { MatDialog } from '@angular/material'
-import { IndexDialogComponent } from './index-dialog.component'
 import { Fruit } from './parent.component'
+import { IndexDialogComponent } from '../shared-components/index-dialog.component'
 
 @Component({
     selector: 'child',

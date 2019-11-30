@@ -3,7 +3,7 @@
 }
 
 #index-dialog {
-    background-color: #939393;
+    background-color: #68828c;
     display: grid;
     grid-template-areas:
         "header"
@@ -15,25 +15,27 @@
 }
 
 #index-dialog-header {
-    background-color: #57617B;
-    color: #FFE85C;
+    background-color: #68828c;
     grid-area: header;
     margin: 0;
     padding: 2rem;
 }
 
-#index-content {
-    background-color: #939393;
+#index-dialog-header h1 {
+    color: #FFE85C;
+}
+
+#index-dialog-content {
     grid-area: content;
-    margin: 2rem 1.9rem 2rem 2rem;
+    margin: 1rem 1.9rem 2rem 2rem;
     overflow-x: hidden;
     overflow-y: scroll;
 }
 
 #index-dialog-footer {
-    background-color: #7E7E7E;
+    background-color: #68828c;
     grid-area: footer;
-    padding: 2rem;
+    padding: 2rem 0 2rem 2rem;
     text-align: end;
     width: 100%;
 }
@@ -47,26 +49,11 @@
 }
 
 #index-dialog-content::-webkit-scrollbar-track {
-    background-color: #939393;
+    background-color: #68828c;
     margin-top: 45px;
 }
 
 #index-dialog-content::-webkit-scrollbar-thumb {
-    background-color: indianred;
-    border-radius: 0;
-    min-height: 6.25rem;
-}
-
-#index-content::-webkit-scrollbar {
-    width: 0.5rem;
-}
-
-#index-content::-webkit-scrollbar-track {
-    background-color: #939393;
-    margin-top: 45px;
-}
-
-#index-content::-webkit-scrollbar-thumb {
     background-color: indianred;
     border-radius: 0;
     min-height: 6.25rem;

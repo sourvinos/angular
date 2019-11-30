@@ -34,9 +34,6 @@ export class TableComponent {
 
     ngAfterViewInit() {
         setTimeout(() => {
-            // console.log('Inside the table', this.records)
-            // console.log('Inside the table', this.fields)
-            // console.log('Inside the table', this.headers)
             this.calculateDimensions()
             this.gotoRow('1')
         }, 100)
@@ -109,7 +106,7 @@ export class TableComponent {
     }
 
     private calculateDimensions() {
-        this.indexContent = (<HTMLElement>document.getElementById('index-content'))
+        this.indexContent = (<HTMLElement>document.getElementById('index-dialog-content'))
         this.table = (<HTMLTableElement>document.getElementById('index-table'))
         this.rowHeaderHeight = (<HTMLTableSectionElement>document.querySelector('thead'))
         this.rowHeight = this.table.rows[1].offsetHeight

@@ -43,6 +43,17 @@ export class IndexDialogComponent {
 		}
 	}
 
+	ngAfterViewInit() {
+		setTimeout(() => {
+			this.calculateDimensions()
+		}, 100)
+	}
+
+	private calculateDimensions() {
+		document.getElementById('index-dialog-footer').style.paddingRight =
+			document.getElementById('index-dialog').offsetWidth -
+			document.getElementById('index-table').offsetWidth - 20 + 'px'
+	}
 
 	// Gets an object from the table
 	// and updates the local variable

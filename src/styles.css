@@ -31,7 +31,7 @@ a {
 h1, h2, h3, h4, p, label {
     font-family: Lato;
     margin: 0;
-    padding: 0;
+    padding: 0 !important;
 }
 
 * {

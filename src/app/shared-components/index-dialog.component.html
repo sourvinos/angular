@@ -4,7 +4,7 @@
         <h1>{{ title }}</h1>
     </div>
 
-    <div id="index-content">
+    <div id="index-dialog-content">
         <app-table [records]="data.records" [headers]="data.headers" [widths]="data.widths" [visibility]="data.visibility" [justify]="data.justify" [fields]="data.fields" (selectEvent)="select($event)"></app-table>
     </div>
 
