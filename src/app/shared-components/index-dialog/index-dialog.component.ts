@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Inject, Output, AfterViewInit } from '@angular/core'
+import { Component, EventEmitter, HostListener, Inject, Output } from '@angular/core'
 import { MAT_DIALOG_DATA } from '@angular/material/dialog'
 
 @Component({

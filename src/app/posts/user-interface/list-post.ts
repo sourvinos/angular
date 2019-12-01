@@ -4,7 +4,7 @@ import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { IPost } from '../classes/model.post';
 import { PostService } from '../classes/service.post';
 import { MatDialog } from '@angular/material';
-import { IndexDialogComponent } from 'src/app/shared-components/index-dialog.component';
+import { IndexDialogComponent } from 'src/app/shared-components/index-dialog/index-dialog.component';
 
 @Component({
 	selector: 'list-post',

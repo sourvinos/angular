@@ -1,23 +1,11 @@
 :host {
     display: grid;
+
 }
 
 * {
     box-sizing: border-box !important;
 }
-
-#index-footer {
-    background-color: #7E7E7E;
-    grid-area: footer;
-    padding: 2rem;
-    text-align: end;
-    width: 100%;
-}
-
-.hidden-scrollbar::-webkit-scrollbar {
-    visibility: hidden;
-}
-
 
 #index-table {
     margin-right: 0.5rem;

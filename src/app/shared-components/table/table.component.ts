@@ -1,5 +1,5 @@
-import { InteractionService } from './../services/interaction.service';
 import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core';
+import { InteractionService } from 'src/app/services/interaction.service';
 
 @Component({
     selector: 'app-table',
@@ -21,7 +21,7 @@ export class TableComponent {
 
     currentRow: number = 0
 
-    indexContent: HTMLElement
+    indexContent: any
     table: any
     rowHeaderHeight: any
     rowHeight: number = 0
@@ -89,13 +89,13 @@ export class TableComponent {
     }
 
     private isRowIntoView(row: HTMLTableRowElement, direction: string) {
-        const rowOffsetTop = row.offsetTop; console.log(''); console.log('rowOffsetTop', rowOffsetTop)
-        const indexContentScrollTop = this.indexContent.scrollTop; console.log('docindexContentScrollTopViewTop', indexContentScrollTop)
-        const rowOffetTopPlusRowOffsetHeight = rowOffsetTop + row.offsetHeight; console.log('rowOffetTopPlusRowOffsetHeight', rowOffetTopPlusRowOffsetHeight)
-        const indexContentScrollTopPuslIndexContentOffsetHeight = indexContentScrollTop + this.indexContent.offsetHeight; console.log('indexContentScrollTopPuslIndexContentOffsetHeight', indexContentScrollTopPuslIndexContentOffsetHeight)
+        const rowOffsetTop = row.offsetTop; //console.log(''); console.log('rowOffsetTop', rowOffsetTop)
+        const indexContentScrollTop = this.indexContent.scrollTop; //console.log('docindexContentScrollTopViewTop', indexContentScrollTop)
+        const rowOffetTopPlusRowOffsetHeight = rowOffsetTop + row.offsetHeight; //console.log('rowOffetTopPlusRowOffsetHeight', rowOffetTopPlusRowOffsetHeight)
+        const indexContentScrollTopPuslIndexContentOffsetHeight = indexContentScrollTop + this.indexContent.offsetHeight; //console.log('indexContentScrollTopPuslIndexContentOffsetHeight', indexContentScrollTopPuslIndexContentOffsetHeight)
         if (direction == 'ArrowUp') {
             if (indexContentScrollTopPuslIndexContentOffsetHeight - rowOffsetTop + this.rowHeight < this.indexContent.offsetHeight) {
-                console.log('InView')
+                //console.log('InView')
                 return true
             }
         }
@@ -106,11 +106,10 @@ export class TableComponent {
     }
 
     private calculateDimensions() {
-        this.indexContent = (<HTMLElement>document.getElementById('index-dialog-content'))
-        this.table = (<HTMLTableElement>document.getElementById('index-table'))
-        this.rowHeaderHeight = (<HTMLTableSectionElement>document.querySelector('thead'))
+        this.indexContent = document.getElementById('index-table').parentNode.parentNode
+        this.table = document.getElementById('index-table')
+        this.rowHeaderHeight = document.querySelector('thead')
         this.rowHeight = this.table.rows[1].offsetHeight
-        console.log('rowHeight', this.rowHeight)
         if (this.indexContent.scrollHeight <= this.indexContent.offsetHeight) {
             this.indexContent.style.overflowY = 'hidden'
             this.table.style.marginRight = '0px'
