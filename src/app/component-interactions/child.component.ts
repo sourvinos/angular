@@ -13,11 +13,11 @@ export class ChildComponent {
 
     @Input() fruits: Fruit[]
 
-    headers = ['Id', 'Description', 'Amount']
-    widths = ['0px', '440px', '100px']
-    visibility = ['none', '', '']
-    justify = ['center', 'left', 'right']
-    fields = ['id', 'description', 'amount']
+    headers = ['Id', 'Description', 'Kingdom', 'Amount', 'Remarks']
+    widths = ['', '', '200px', '100px', '500px']
+    visibility = ['none', '', '', '', '']
+    justify = ['center', 'left', 'left', 'right', 'left']
+    fields = ['id', 'description', 'kingdom', 'amount', 'remarks']
 
     @Output() selectEvent = new EventEmitter()
 

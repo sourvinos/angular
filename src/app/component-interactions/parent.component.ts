@@ -1,11 +1,14 @@
 import { InteractionService } from './../services/interaction.service';
 import { Component, ViewChild } from '@angular/core';
 import { ChildComponent } from './child.component';
+import { getLocaleEraNames } from '@angular/common';
 
 export class Fruit {
     id: number
     description: string
+    kingdom: string
     amount: number
+    remarks: string
 }
 
 @Component({
@@ -15,6 +18,8 @@ export class Fruit {
 })
 
 export class ParentComponent {
+
+    remarks: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et neque dolor. In hac habitasse platea dictumst. In id nisi id ex accumsan tincidunt. Praesent id tellus consectetur urna ultricies luctus.'
 
     fruits: Fruit[]
     selectedFruit: Fruit
@@ -28,24 +33,24 @@ export class ParentComponent {
     ngOnInit() {
         this._interactionService.teacherMessage.subscribe(message => console.log('Message', message))
         this.fruits = [
-            { id: 1, description: 'Jackfruit', amount: 1230.4 },
-            { id: 2, description: 'Kumquat', amount: 10.4 },
-            { id: 11, description: 'Pineapples', amount: 10.4 },
-            { id: 12, description: 'Apples', amount: 7.6 },
-            { id: 22, description: 'Oranges', amount: 15.3 },
-            { id: 56, description: 'Strawberries', amount: 17.1 },
-            { id: 31, description: 'Mangos', amount: 23.7 },
-            { id: 69, description: 'Grapes', amount: 30.9 },
-            { id: 71, description: 'Apricots', amount: 1.5 },
-            { id: 72, description: 'Bananas', amount: 1.4 },
-            { id: 73, description: 'Blackberries', amount: 2.4 },
-            { id: 2, description: 'Cherries', amount: 1234.4 },
-            { id: 10, description: 'Melons', amount: 210.4 },
-            { id: 15, description: 'Lemons', amount: 21.4 },
-            { id: 47, description: 'Kiwis', amount: 5.9 },
-            { id: 48, description: 'Passionfruit', amount: 1.9 },
-            { id: 49, description: 'Avocado', amount: 12.9 },
-            { id: 50, description: 'Guava', amount: 0.9 }
+            { id: 1, description: 'Jackfruit', amount: 1230.4, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 2, description: 'Kumquat', amount: 10.4, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 11, description: 'Pineapples', amount: 10.4, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 12, description: 'Apples', amount: 7.6, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 22, description: 'Oranges', amount: 15.3, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 56, description: 'Strawberries', amount: 17.1, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 31, description: 'Mangos', amount: 23.7, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 69, description: 'Grapes', amount: 30.9, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 71, description: 'Apricots', amount: 1.5, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 72, description: 'Bananas', amount: 1.4, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 73, description: 'Blackberries', amount: 2.4, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 2, description: 'Cherries', amount: 1234.4, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 10, description: 'Melons', amount: 210.4, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 15, description: 'Lemons', amount: 21.4, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 47, description: 'Kiwis', amount: 5.9, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 48, description: 'Passionfruit', amount: 1.9, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 49, description: 'Avocado', amount: 12.9, kingdom: 'Plantae', remarks: this.remarks },
+            { id: 50, description: 'Guava', amount: 0.9, kingdom: 'Plantae', remarks: this.remarks }
         ]
     }
 

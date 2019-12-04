@@ -1,6 +1,5 @@
 :host {
     display: grid;
-
 }
 
 * {
@@ -11,7 +10,6 @@
     margin-right: 0.5rem;
     position: relative;
     text-align: left;
-    width: -webkit-fill-available;
 }
 
 tbody tr {
@@ -46,5 +44,9 @@ th {
 td {
     border-right: 1px dotted gray;
     color: #ffffff;
+    overflow: hidden;
     padding: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 0;
 }

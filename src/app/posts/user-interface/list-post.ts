@@ -30,10 +30,9 @@ export class PostListComponent implements OnDestroy {
 	}
 
 	ngOnInit() {
-		this._interactionService.teacherMessage.subscribe(message => {
-			console.log('From the modal', message)
+		this._interactionService.teacherMessage.subscribe(response => {
+			console.log('From the modal', response)
 		})
-
 	}
 	ngOnDestroy() {
 		if (this.navigationSubscription) {
@@ -57,10 +56,11 @@ export class PostListComponent implements OnDestroy {
 		widths: any[],
 		visibility: any[],
 		justify: any[],
-		e: { target: { value: any } }) {
-		const filteredArray = []
+		value: string) {
+		let filteredArray = []
+		console.log('value', value + ' lookupArray', lookupArray)
 		lookupArray.filter(x => {
-			if (x.title.toUpperCase().includes(e.target.value.toUpperCase())) {
+			if (x.title.toUpperCase().includes(value.toUpperCase())) {
 				filteredArray.push(x)
 			}
 		})

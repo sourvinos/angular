@@ -19,29 +19,25 @@ export class IndexDialogComponent {
 
 	records: any[]
 
-	selectedRecord: any
+	// selectedRecord: any
 
-	@Output() selectEvent = new EventEmitter()
+	// @Output() selectEvent = new EventEmitter()
 
 	constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-
 		this.title = data.title
-
 		this.fields = data.fields
 		this.headers = data.headers
 		this.justify = data.justify
 		this.visibility = data.visibility
 		this.widths = data.widths
-
 		this.records = data.records
-
 	}
 
-	@HostListener('document:keydown', ['$event']) anyEvent(event: { key: string }) {
-		if (event.key == 'Enter') {
-			console.log('Closing index-dialog')
-		}
-	}
+	// @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string }) {
+	// if (event.key == 'Enter') {
+	// 	console.log('Closing index-dialog')
+	// }
+	// }
 
 	ngAfterViewInit() {
 		setTimeout(() => {
@@ -55,11 +51,9 @@ export class IndexDialogComponent {
 			document.getElementById('index-table').offsetWidth - 20 + 'px'
 	}
 
-	// Gets an object from the table
-	// and updates the local variable
-	// which will be displayed in the template
-	select(input: any) {
-		this.selectedRecord = input
-	}
+	// T
+	// select(input: any) {
+	// 	this.selectedRecord = input
+	// }
 
 }

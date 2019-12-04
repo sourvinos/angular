@@ -17,7 +17,7 @@ export class TableComponent {
     @Input() justify: any
     @Input() fields: any
 
-    @Output() selectEvent = new EventEmitter()
+    // @Output() selectEvent = new EventEmitter()
 
     currentRow: number = 0
 
@@ -25,6 +25,8 @@ export class TableComponent {
     table: any
     rowHeaderHeight: any
     rowHeight: number = 0
+
+    info: string
 
     constructor(private _interactionService: InteractionService) { }
 
@@ -41,11 +43,12 @@ export class TableComponent {
 
     @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string }) {
         if (event.key == 'Enter') {
-            // console.log(this.records[this.currentRow - 1])
+            console.log(this.records[this.currentRow - 1])
             this._interactionService.sendMessage(this.records[this.currentRow - 1])
             // this.selectEvent.emit(this.records[this.currentRow - 1])
+        } else {
+            this.gotoRow(event.key)
         }
-        this.gotoRow(event.key)
     }
 
     private gotoRow(position: string) {
@@ -53,10 +56,12 @@ export class TableComponent {
         if (!isNaN(parseInt(position))) {
             this.clearAllRowHighlights()
             this.highlightRow(this.table, position)
+            // console.log(this.records[this.currentRow - 1])
         }
         if (position == 'ArrowUp' && this.currentRow > 1) {
             this.clearAllRowHighlights()
             this.highlightRow(this.table, 'up')
+            // console.log(this.records[this.currentRow - 1])
             if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
                 document.getElementById(this.currentRow.toString()).scrollIntoView()
                 this.indexContent.scrollTop = (this.currentRow - 1) * this.rowHeight - 0
@@ -65,11 +70,12 @@ export class TableComponent {
         if (position == 'ArrowDown' && this.currentRow < this.table.rows.length - 1) {
             this.clearAllRowHighlights()
             this.highlightRow(this.table, 'down')
+            // console.log(this.records[this.currentRow - 1])
             if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
                 document.getElementById(this.currentRow.toString()).scrollIntoView(false)
             }
         }
-        // this.info = this.records[this.currentRow - 1]
+
     }
 
     private highlightRow(table: HTMLTableElement, direction: any) {

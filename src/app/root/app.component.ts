@@ -25,7 +25,6 @@ export class AppComponent {
     @HostListener('keyup', ['$event']) onkeyup(event: { key: string; target: { getAttribute: { (arg0: string): void; (arg0: string): void; }; }; }) {
 
         if (event.key == 'Enter' || event.key == 'ArrowDown') {
-            console.log('Enter')
             var nextTab = +(event.target.getAttribute('tabindex')) + 1
             var elements = document.getElementsByTagName('input');
             for (var i = elements.length; i--;) {
