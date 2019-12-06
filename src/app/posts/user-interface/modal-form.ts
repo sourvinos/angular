@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Unlisten, KeyboardShortcuts } from 'src/app/services/keyboard-shortcuts';
 
 @Component({
     selector: 'modal-form',
@@ -11,8 +10,6 @@ import { Unlisten, KeyboardShortcuts } from 'src/app/services/keyboard-shortcuts
 
 export class PostModalForm {
 
-    unlisten: Unlisten
-
     form = this.formBuilder.group({
         id: 0,
         userId: 0,
@@ -20,7 +17,7 @@ export class PostModalForm {
         body: ['', [Validators.maxLength(255)]]
     })
 
-    constructor(public dialogRef: MatDialogRef<PostModalForm>, @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private keyboardShortcutsService: KeyboardShortcuts) {
+    constructor(public dialogRef: MatDialogRef<PostModalForm>, @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder) {
         console.log('Inside modal, data from outside', data)
         // this.addShortcuts()
         this.populateFormFields(data)

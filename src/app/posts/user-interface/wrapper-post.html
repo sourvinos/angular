@@ -11,7 +11,13 @@
     <h2 [class]="special" [class.text-italic]="isItalic">List of added posts</h2>
 
     <mat-form-field>
-        <input matInput placeholder="User id" [(ngModel)]="userId" autocomplete="off">
+        <input matInput placeholder="User id" tabindex="1" [(ngModel)]="userId" autocomplete="off" [input]="box">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="User name" tabindex="2" autocomplete="off" [input]="box">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Password" tabindex="3" autocomplete="off" [input]="box">
     </mat-form-field>
 
     <button mat-flat-button class="primary" (click)="loadPosts(userId)">Search</button>

@@ -41,14 +41,8 @@ export class TableComponent {
         }, 100)
     }
 
-    @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string }) {
-        if (event.key == 'Enter') {
-            console.log(this.records[this.currentRow - 1])
-            this._interactionService.sendMessage(this.records[this.currentRow - 1])
-            // this.selectEvent.emit(this.records[this.currentRow - 1])
-        } else {
-            this.gotoRow(event.key)
-        }
+    @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string; }) {
+        console.log('Keydown in table', event)
     }
 
     private gotoRow(position: string) {
@@ -120,6 +114,10 @@ export class TableComponent {
             this.indexContent.style.overflowY = 'hidden'
             this.table.style.marginRight = '0px'
         }
+    }
+
+    logEntry(event: any) {
+        console.log('Something was pressed', event)
     }
 
 }

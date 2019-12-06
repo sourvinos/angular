@@ -52,6 +52,7 @@ export class TablesComponent implements OnDestroy {
     }
 
     @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string; }) {
+        console.log('Inside table')
         this.gotoNewPosition(event.key)
     }
 

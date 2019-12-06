@@ -20,15 +20,15 @@
     </ul> -->
 
     <div id="footer">
+        <!-- <mat-form-field> -->
+        <!-- <input type="text" matInput placeholder="Fruit" tabindex="1" id="fruit" (change)="lookupIndex('fruits', 'Fruits', ['id','description','amount'],                 ['Id','Description','Amount'], ['0px','440px','100px'], ['none','',''], ['center','left','right'], $event)"> -->
+        <input type="text" placeholder="Fruit" tabindex="1" id="fruit" autocomplete="off" [input]="box">
+        <!-- </mat-form-field> -->
+        <!-- <mat-form-field> -->
+        <input type="text" placeholder="Something" tabindex="2" id="something" autocomplete="off" [input]="box">
+        <!-- </mat-form-field> -->
         <mat-form-field>
-            <input type="text" matInput placeholder="Fruit" tabindex="1" id="fruit" (change)="lookupIndex(
-                'fruits', 
-                'Fruits', 
-                ['id','description','amount'], 
-                ['Id','Description','Amount'], 
-                ['0px','440px','100px'], 
-                ['none','',''], 
-                ['center','left','right'], $event)">
+            <input type="text" matInput placeholder="Something" tabindex="3" id="make" autocomplete="off" [input]="box">
         </mat-form-field>
         <br><br>
         <button mat-flat-button color="primary" (click)="onOpenDialog(fruits)">Display a list of fruits</button>

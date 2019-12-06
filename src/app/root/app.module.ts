@@ -15,7 +15,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { CdkTableModule } from '@angular/cdk/table'
 // Directives
-import { MatRowKeyboardSelectionModule } from "mat-row-keyboard-selection"
+import { InputDirective } from '../directives/input'
 // Pipes
 import { CustomPipe } from '../pipes/custom.pipe'
 // Components
@@ -94,6 +94,8 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         // Tables
         TablesHostComponent,
         TablesComponent,
+        // Directives
+        InputDirective
     ],
     entryComponents: [
         MaterialDialogComponent,
@@ -118,7 +120,6 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         MatSnackBarModule,
         MatTableModule,
         ReactiveFormsModule,
-        MatRowKeyboardSelectionModule
     ],
     providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
         provide: HTTP_INTERCEPTORS,
