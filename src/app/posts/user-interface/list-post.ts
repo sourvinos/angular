@@ -1,10 +1,10 @@
-import { InteractionService } from './../../services/interaction.service';
-import { Component, OnDestroy } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
-import { IPost } from '../classes/model.post';
-import { PostService } from '../classes/service.post';
-import { MatDialog } from '@angular/material';
-import { IndexDialogComponent } from 'src/app/shared-components/index-dialog/index-dialog.component';
+import { InteractionService } from './../../services/interaction.service'
+import { Component, OnDestroy } from '@angular/core'
+import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router'
+import { IPost } from '../classes/model.post'
+import { PostService } from '../classes/service.post'
+import { MatDialog } from '@angular/material'
+import { IndexDialogComponent } from 'src/app/shared-components/index-dialog/index-dialog.component'
 
 @Component({
 	selector: 'list-post',
@@ -26,7 +26,7 @@ export class PostListComponent implements OnDestroy {
 				console.log('Constructor Navigation end')
 				this.postService.getPosts(this.userId).subscribe(result => this.posts = result)
 			}
-		});
+		})
 	}
 
 	ngOnInit() {

@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, Inject } from '@angular/core'
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'
 
 @Component({
     selector: 'app-material-dialog',
@@ -18,6 +18,6 @@ export class MaterialDialogComponent {
     }
 
     onNoClick(): void {
-        this.dialogRef.close();
+        this.dialogRef.close()
     }
 }

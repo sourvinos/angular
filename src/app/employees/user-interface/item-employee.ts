@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { employee } from '../classes/model.employee';
+import { Component, Input } from '@angular/core'
+import { employee } from '../classes/model.employee'
 
 @Component({
     selector: 'item-employee',

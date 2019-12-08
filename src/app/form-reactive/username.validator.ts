@@ -1,4 +1,4 @@
-import { AbstractControl, ValidatorFn } from "@angular/forms";
+import { AbstractControl, ValidatorFn } from "@angular/forms"
 
 // Custom validation
 // Expects a string to check and returns a Validator Function
@@ -9,8 +9,8 @@ export function ForbiddenNameValidator(forbiddenName: RegExp): ValidatorFn {
 	// With this, we can check against multiple fields.
 	// Check the password validator to see it in action!
 	return (control: AbstractControl): { [key: string]: any } | null => {
-		const forbidden = forbiddenName.test(control.value);
+		const forbidden = forbiddenName.test(control.value)
 		// 'forbiddenName' will be returned. Use it inside the template
-		return forbidden ? { 'forbiddenName': { value: control.value } } : null;
+		return forbidden ? { 'forbiddenName': { value: control.value } } : null
 	}
 }

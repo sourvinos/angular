@@ -1,13 +1,13 @@
-import { ElementsService } from './../services/elements.service.';
-import { SelectionModel } from '@angular/cdk/collections';
-import { Component, HostListener, OnInit } from '@angular/core';
-import { MatDialog, MatTableDataSource, MatSnackBar } from '@angular/material';
-import { MaterialDialogComponent } from '../material-dialog/material-dialog.component';
-import { EmployeeService } from '../employees/classes/service.employee';
-import { FormControl, Validators } from '@angular/forms';
+import { ElementsService } from './../services/elements.service.'
+import { SelectionModel } from '@angular/cdk/collections'
+import { Component, HostListener, OnInit } from '@angular/core'
+import { MatDialog, MatTableDataSource, MatSnackBar } from '@angular/material'
+import { MaterialDialogComponent } from '../material-dialog/material-dialog.component'
+import { EmployeeService } from '../employees/classes/service.employee'
+import { FormControl, Validators } from '@angular/forms'
 
 interface TableItem {
-	name: string;
+	name: string
 }
 
 @Component({
@@ -26,20 +26,20 @@ export class MaterialComponent implements OnInit {
 	emailFormControl = new FormControl('', [Validators.required, Validators.email,])
 	userNameFormControl = new FormControl('', [Validators.required])
 
-	// employeesDataSource: MatTableDataSource<TableItem>; employeesSelection: SelectionModel<TableItem>;
-	// elementsDataSource: MatTableDataSource<TableItem>; elementsSelection: SelectionModel<TableItem>;
+	// employeesDataSource: MatTableDataSource<TableItem> employeesSelection: SelectionModel<TableItem>
+	// elementsDataSource: MatTableDataSource<TableItem> elementsSelection: SelectionModel<TableItem>
 
 	constructor(private employeeService: EmployeeService, private elementService: ElementsService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
 	ngOnInit(): void {
 		// this.employeeService.getEmployees().subscribe((result) => {
-		// 	// this.employeesDataSource = new MatTableDataSource<TableItem>(result);
-		// 	// this.employeesSelection = new SelectionModel<TableItem>(false);
+		// 	// this.employeesDataSource = new MatTableDataSource<TableItem>(result)
+		// 	// this.employeesSelection = new SelectionModel<TableItem>(false)
 		// 	this.employees = result
 		// })
 		this.elementService.getElements().subscribe((result) => {
-			// this.elementsDataSource = new MatTableDataSource<TableItem>(result);
-			// this.elementsSelection = new SelectionModel<TableItem>(false);
+			// this.elementsDataSource = new MatTableDataSource<TableItem>(result)
+			// this.elementsSelection = new SelectionModel<TableItem>(false)
 			console.log(result)
 			this.elements = result
 		})
@@ -60,12 +60,12 @@ export class MaterialComponent implements OnInit {
 	openSnackBar(message: string, action: string) {
 		this.snackBar.open(message, action, {
 			duration: 2000,
-		});
+		})
 	}
 
 	lookupTable(tableIndex: number, id: string, description: string, controlName: FormControl, currentFocus: string, nextFocus: string) {
 		let lookupInput = controlName.value.toUpperCase()
-		let lookupResults = this.tables[tableIndex].filter((item: { description: string; }) => {
+		let lookupResults = this.tables[tableIndex].filter((item: { description: string }) => {
 			return item.description.includes(lookupInput)
 		})
 		if (lookupResults.length > 0) this.openEmployeesDialog(lookupResults)
@@ -113,6 +113,10 @@ export class MaterialComponent implements OnInit {
 		dialogRef.afterClosed().subscribe((result) => {
 			console.info('Came back from the dialog:')
 		})
+	}
+
+	selectAll() {
+		event.stopPropagation()
 	}
 
 }

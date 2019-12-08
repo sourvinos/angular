@@ -1,5 +1,5 @@
 export function getCurrencies() {
 
-  return ['USD', 'AUD', 'EUR'];
+  return ['USD', 'AUD', 'EUR']
 
 }

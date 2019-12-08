@@ -1,5 +1,5 @@
 export function greet(name: string) {
 
-  return 'Welcome ' + name + '!';
+  return 'Welcome ' + name + '!'
 
 }

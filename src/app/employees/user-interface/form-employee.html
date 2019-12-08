@@ -6,17 +6,18 @@
         </div>
         <div class="panel-body">
             <mat-form-field>
-                <input type="text" matInput placeholder="Name" formControlName="name" tabindex="1" id="name">
+                <input type="text" matInput placeholder="Name" formControlName="name" tabindex="1" id="name" [input]="box">
                 <mat-error *ngIf="name.invalid">This field is required</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input type="text" matInput placeholder="Email" formControlName="email" tabindex="2" id="email">
+                <input type="text" matInput placeholder="Email" formControlName="email" tabindex="2" id="email" [input]="box">
                 <mat-error *ngIf="email.invalid">This field is required</mat-error>
             </mat-form-field>
         </div>
         <div class="panel-footer">
             <h3 class="panel-title">
                 <button type="button" class="btn btn-primary" (click)="updateEmployee()">Update</button>
+                <button type="button" class="btn btn-danger" (click)="deleteEmployee()">Delete</button>
             </h3>
         </div>
     </div>

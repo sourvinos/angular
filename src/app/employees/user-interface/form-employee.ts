@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { EmployeeService } from '../classes/service.employee';
-import { department } from './../classes/model.department';
-import { employee } from './../classes/model.employee';
+import { Component, OnInit } from '@angular/core'
+import { FormBuilder, Validators } from '@angular/forms'
+import { ActivatedRoute, Router } from '@angular/router'
+import { EmployeeService } from '../classes/service.employee'
+import { department } from './../classes/model.department'
+import { employee } from './../classes/model.employee'
 
 @Component({
     selector: 'form-employee',
@@ -40,19 +40,44 @@ export class EmployeeFormComponent implements OnInit {
 
     ngOnInit() {
         if (this.employeeId) {
-            this.employeeService.getEmployee(this.employeeId).subscribe(
-                result => { this.employee = result; this.form.setValue({ id: this.employee.id, name: this.employee.name, email: this.employee.email }) },
-                error => { this.errorMessage = 'Oops!' }
+            this.employeeService.getSingle(this.employeeId).subscribe(
+                result => {
+                    this.employee = result
+                    this.form.setValue({
+                        id: this.employee.id,
+                        name: this.employee.name,
+                        email: this.employee.email
+                    })
+                }
             )
         }
     }
 
     updateEmployee() {
-        console.log('Saving', this.form.value)
-        this.employeeService.updateEmployee(this.form.value).subscribe(result => {
-            console.log('After the update', result)
-        })
-        this.router.navigate(['/employees/list'])
+        if (this.form.value.id) {
+            console.log('Updating', this.form.value.id)
+            this.employeeService.update(this.form.value).subscribe(result => {
+                console.log('After the update', result)
+                this.router.navigate(['/employees/list'])
+            })
+        }
+        if (!this.form.value.id) {
+            console.log('Saving')
+            this.employeeService.create(this.form.value).subscribe(result => {
+                console.log('After the save', result)
+                this.router.navigate(['/employees/list'])
+            })
+        }
+    }
+
+    deleteEmployee() {
+        if (confirm('This will be deleted')) {
+            this.employeeService.delete(this.form.value.id).subscribe(
+                result => {
+                    console.log('After the delete', result)
+                    this.router.navigate(['/employees/list'])
+                })
+        }
     }
 
     onShowPreview() {

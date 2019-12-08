@@ -1,5 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, AfterViewInit } from '@angular/core'
+import { Router, ActivatedRoute } from '@angular/router'
 
 @Component({
 	selector: 'wrapper-post',

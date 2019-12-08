@@ -1,5 +1,5 @@
-import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core';
-import { InteractionService } from 'src/app/services/interaction.service';
+import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core'
+import { InteractionService } from 'src/app/services/interaction.service'
 
 @Component({
     selector: 'app-table',
@@ -41,7 +41,7 @@ export class TableComponent {
         }, 100)
     }
 
-    @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string; }) {
+    @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string }) {
         console.log('Keydown in table', event)
     }
 
@@ -89,10 +89,10 @@ export class TableComponent {
     }
 
     private isRowIntoView(row: HTMLTableRowElement, direction: string) {
-        const rowOffsetTop = row.offsetTop; //console.log(''); console.log('rowOffsetTop', rowOffsetTop)
-        const indexContentScrollTop = this.indexContent.scrollTop; //console.log('docindexContentScrollTopViewTop', indexContentScrollTop)
-        const rowOffetTopPlusRowOffsetHeight = rowOffsetTop + row.offsetHeight; //console.log('rowOffetTopPlusRowOffsetHeight', rowOffetTopPlusRowOffsetHeight)
-        const indexContentScrollTopPuslIndexContentOffsetHeight = indexContentScrollTop + this.indexContent.offsetHeight; //console.log('indexContentScrollTopPuslIndexContentOffsetHeight', indexContentScrollTopPuslIndexContentOffsetHeight)
+        const rowOffsetTop = row.offsetTop //console.log('') console.log('rowOffsetTop', rowOffsetTop)
+        const indexContentScrollTop = this.indexContent.scrollTop //console.log('docindexContentScrollTopViewTop', indexContentScrollTop)
+        const rowOffetTopPlusRowOffsetHeight = rowOffsetTop + row.offsetHeight //console.log('rowOffetTopPlusRowOffsetHeight', rowOffetTopPlusRowOffsetHeight)
+        const indexContentScrollTopPuslIndexContentOffsetHeight = indexContentScrollTop + this.indexContent.offsetHeight //console.log('indexContentScrollTopPuslIndexContentOffsetHeight', indexContentScrollTopPuslIndexContentOffsetHeight)
         if (direction == 'ArrowUp') {
             if (indexContentScrollTopPuslIndexContentOffsetHeight - rowOffsetTop + this.rowHeight < this.indexContent.offsetHeight) {
                 //console.log('InView')

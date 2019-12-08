@@ -1,7 +1,7 @@
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router'
+import { HttpClient } from '@angular/common/http'
+import { Component, OnInit } from '@angular/core'
+import { FormBuilder } from '@angular/forms'
 
 @Component({
 	selector: 'events.login',
@@ -22,11 +22,11 @@ export class EventsLoginComponent {
 	})
 
 	get email() {
-		return this.registrationForm.get('email');
+		return this.registrationForm.get('email')
 	}
 
 	get password() {
-		return this.registrationForm.get('password');
+		return this.registrationForm.get('password')
 	}
 
 	submitForm() {

@@ -1,4 +1,4 @@
-import { compute } from './compute';
+import { compute } from './compute'
 
 describe('compute', () => {
 
@@ -6,10 +6,10 @@ describe('compute', () => {
 	it('Should return zero if input is negative', () => {
 
 		// call the function
-		const result = compute(-1);
+		const result = compute(-1)
 
 		// expected result
-		expect(result).toBe(0);
+		expect(result).toBe(0)
 
 	})
 
@@ -17,10 +17,10 @@ describe('compute', () => {
 	it('Should increment the input if it is greater than or equal to zero', () => {
 
 		// call the function 
-		const result = compute(5);
+		const result = compute(5)
 
 		// expected result
-		expect(result).toBe(6);
+		expect(result).toBe(6)
 
 	})
 

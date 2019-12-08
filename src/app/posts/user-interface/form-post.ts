@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MaterialDialogComponent } from 'src/app/material-dialog/material-dialog.component';
-import { IPost } from '../classes/model.post';
-import { PostService } from '../classes/service.post';
-import { PostModalForm } from './modal-form';
+import { Component } from '@angular/core'
+import { FormBuilder, Validators } from '@angular/forms'
+import { MatDialog } from '@angular/material'
+import { ActivatedRoute, Router } from '@angular/router'
+import { MaterialDialogComponent } from 'src/app/material-dialog/material-dialog.component'
+import { IPost } from '../classes/model.post'
+import { PostService } from '../classes/service.post'
+import { PostModalForm } from './modal-form'
 
 @Component({
     selector: 'form-post',
@@ -51,12 +51,12 @@ export class PostFormComponent {
                 panelClass: 'dialog'
             })
             return dialogRef.afterClosed().subscribe(result => {
-                console.log('The dialog was closed', result);
+                console.log('The dialog was closed', result)
                 if (result == 'CloseMe') {
                     this.form.reset()
                     this.router.navigate(['../../'], { relativeTo: this.activatedRoute })
                 }
-            });
+            })
         } else {
             return true
         }
@@ -80,7 +80,7 @@ export class PostFormComponent {
         })
     }
 
-    private updatePostId(p: { [x: string]: any; }) {
+    private updatePostId(p: { [x: string]: any }) {
         this.postId = p['postId']
     }
 
@@ -114,10 +114,10 @@ export class PostFormComponent {
             width: '250px',
             data: { post: this.post },
             disableClose: true
-        });
+        })
         dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed', result);
-        });
+            console.log('The dialog was closed', result)
+        })
     }
 
 

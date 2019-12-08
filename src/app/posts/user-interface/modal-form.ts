@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, Inject } from '@angular/core'
+import { FormBuilder, Validators } from '@angular/forms'
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'
 
 @Component({
     selector: 'modal-form',
@@ -24,7 +24,7 @@ export class PostModalForm {
     }
 
     close(): void {
-        this.dialogRef.close();
+        this.dialogRef.close()
     }
 
     closeAndReturnObject() { }

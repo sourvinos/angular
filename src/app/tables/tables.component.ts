@@ -1,6 +1,6 @@
-import { Component, HostListener, OnDestroy } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
-import { PostService } from '../posts/classes/service.post';
+import { Component, HostListener, OnDestroy } from '@angular/core'
+import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router'
+import { PostService } from '../posts/classes/service.post'
 
 @Component({
     selector: 'tables',
@@ -31,16 +31,24 @@ export class TablesComponent implements OnDestroy {
         this.activatedRoute.params.subscribe((params: Params) => { this.userId = +params['userId'] })
         this.navigationSubscription = this.router.events.subscribe((e: any) => {
             if (e instanceof NavigationEnd) {
-                this.postService.getPosts(this.userId).subscribe(result => {
-                    console.log(result)
-                    this.posts = result.map(product => {
-                        return {
-                            id: product.id,
-                            title: product.title,
-                            views: product.views
+                this.postService.getPosts(this.userId).subscribe(
+                    result => {
+                        console.log(result)
+                        this.posts = result.map(product => {
+                            return {
+                                id: product.id,
+                                title: product.title,
+                                views: product.views
+                            }
+                        })
+                    },
+                    (error: Response) => {
+                        if (error.status == 404) {
+                            alert('This record has been deleted')
+                        } else {
+                            alert('An error occured')
                         }
                     })
-                })
             }
         })
     }
@@ -48,10 +56,10 @@ export class TablesComponent implements OnDestroy {
     ngAfterViewInit() {
         setTimeout(() => {
             this.gotoNewPosition('1')
-        }, 1000);
+        }, 1000)
     }
 
-    @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string; }) {
+    @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string }) {
         console.log('Inside table')
         this.gotoNewPosition(event.key)
     }
@@ -110,24 +118,24 @@ export class TablesComponent implements OnDestroy {
         const rows = table.querySelectorAll('tr')
         rows.forEach(element => {
             element.classList.remove('selected')
-        });
+        })
     }
 
     private isScrolledIntoView(el: HTMLTableRowElement) {
         const container = (<HTMLTableElement>document.getElementById('container-a'))
-        var docViewTop = container.scrollTop; // console.log(''); console.log('docViewTop', docViewTop)
-        var docViewBottom = docViewTop + document.getElementById('container-a').offsetHeight; // console.log('docViewBottom', docViewBottom)
-        var elemTop = el.offsetTop; // console.log('elemTop', elemTop)
-        var elemBottom = elemTop + el.offsetHeight; // console.log('elemBottom', elemBottom)
-        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+        var docViewTop = container.scrollTop // console.log('') console.log('docViewTop', docViewTop)
+        var docViewBottom = docViewTop + document.getElementById('container-a').offsetHeight // console.log('docViewBottom', docViewBottom)
+        var elemTop = el.offsetTop // console.log('elemTop', elemTop)
+        var elemBottom = elemTop + el.offsetHeight // console.log('elemBottom', elemBottom)
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop))
     }
 
     private displayInfo(el: HTMLTableRowElement) {
         const container = (<HTMLTableElement>document.getElementById('container-a'))
-        var docViewTop = container.scrollTop; // console.log(''); console.log('docViewTop', docViewTop)
-        var docViewBottom = docViewTop + document.getElementById('container-a').offsetHeight; // console.log('docViewBottom', docViewBottom)
-        var elemTop = el.offsetTop; // console.log('elemTop', elemTop)
-        var elemBottom = elemTop + el.offsetHeight; // console.log('elemBottom', elemBottom)
+        var docViewTop = container.scrollTop // console.log('') console.log('docViewTop', docViewTop)
+        var docViewBottom = docViewTop + document.getElementById('container-a').offsetHeight // console.log('docViewBottom', docViewBottom)
+        var elemTop = el.offsetTop // console.log('elemTop', elemTop)
+        var elemBottom = elemTop + el.offsetHeight // console.log('elemBottom', elemBottom)
     }
 
     scroll() {

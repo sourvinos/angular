@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 class Dummy {
 	adults: number
@@ -33,7 +33,7 @@ export class ArraysComponent implements OnInit {
 				time: '08:40'
 			}
 		},
-	];
+	]
 
 	flatPeople: Dummy[] = []
 
@@ -54,7 +54,7 @@ export class ArraysComponent implements OnInit {
 				} }
 
 		} of this.transfers) {
-			console.log('Adults: ' + n + ', Customer: ' + f, ' Pickup point: ' + g + ' Route: ' + e);
+			console.log('Adults: ' + n + ', Customer: ' + f, ' Pickup point: ' + g + ' Route: ' + e)
 			this.flatPeople.push({ adults: n, customer: f, pickupPoint: g, route: e })
 		}
 

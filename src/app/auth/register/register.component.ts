@@ -1,7 +1,7 @@
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router'
+import { HttpClient } from '@angular/common/http'
+import { Component, OnInit } from '@angular/core'
+import { Validators, FormBuilder } from '@angular/forms'
 
 @Component({
 	selector: 'events.register',
@@ -22,11 +22,11 @@ export class EventsRegisterComponent {
 	})
 
 	get userName() {
-		return this.registrationForm.get('userName');
+		return this.registrationForm.get('userName')
 	}
 
 	get password() {
-		return this.registrationForm.get('password');
+		return this.registrationForm.get('password')
 	}
 
 	submitForm() {

@@ -4,6 +4,33 @@
 <br>
 <br>
 
+<mat-expansion-panel expanded="true">
+    <mat-expansion-panel-header>
+        <mat-checkbox class="example-margin" (click)="selectAll()"></mat-checkbox>
+        <mat-panel-title>Destinations</mat-panel-title>
+    </mat-expansion-panel-header>
+    <ul>
+        <li>Paxos - Antipaxos</li>
+        <li>Blue Lagoon</li>
+    </ul>
+</mat-expansion-panel>
+
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-checkbox class="example-margin" (click)="selectAll()"></mat-checkbox>
+        <mat-panel-title>Customers</mat-panel-title>
+    </mat-expansion-panel-header>
+    <ul>
+        <li>TUI</li>
+        <li>Corfu Cruises</li>
+        <li>Charitos Travel</li>
+        <li>Lord Travel</li>
+    </ul>
+</mat-expansion-panel>
+
+<br>
+<br>
+
 <div class="example-button-row">
     <button mat-raised-button>Basic</button>
     <button mat-raised-button color="primary">Primary</button>

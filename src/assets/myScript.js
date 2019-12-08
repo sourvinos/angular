@@ -1,5 +1,5 @@
 window.onload = function() {
-    // console.log('Loaded');
+    // console.log('Loaded')
 }
 
 function sayHello() {

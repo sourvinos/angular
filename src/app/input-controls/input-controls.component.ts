@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterViewInit } from "@angular/core";
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { DescriptionValidators } from './input-controls-validators';
+import { Component, OnInit, AfterViewInit } from "@angular/core"
+import { FormBuilder, FormControl, Validators } from '@angular/forms'
+import { DescriptionValidators } from './input-controls-validators'
 
 @Component({
 	selector: 'inputs',
@@ -16,7 +16,7 @@ export class InputsComponent implements AfterViewInit {
 	constructor(private formBuilder: FormBuilder) { }
 
 	getErrorMessage() {
-		return 'This field is required, silly!';
+		return 'This field is required, silly!'
 	}
 
 	fb = this.formBuilder.group({
@@ -34,7 +34,7 @@ export class InputsComponent implements AfterViewInit {
 	}
 
 	focusOnFirstElement() {
-		var elements = document.getElementsByTagName('input');
+		var elements = document.getElementsByTagName('input')
 		elements[0].select()
 	}
 
@@ -49,7 +49,7 @@ export class InputsComponent implements AfterViewInit {
 	}
 
 	get profession() {
-		return this.fb.get('profession');
+		return this.fb.get('profession')
 	}
 
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
-import { UserService } from './user.service';
-import { IUser } from './user';
+import { UserService } from './user.service'
+import { IUser } from './user'
 
 @Component({
 	selector: 'app-user-list',
@@ -11,8 +11,8 @@ import { IUser } from './user';
 
 export class UserListComponent implements OnInit {
 
-	users: IUser[];
-	filteredUsers: IUser[];
+	users: IUser[]
+	filteredUsers: IUser[]
 
 	constructor(private service: UserService) { }
 
@@ -20,11 +20,11 @@ export class UserListComponent implements OnInit {
 		this.service.getUsers().subscribe(response => {
 			this.users = response
 			console.log(this.users)
-		}, (error: any) => console.log(error));
+		}, (error: any) => console.log(error))
 	}
 
 	filter(query: string) {
-		this.filteredUsers = query ? this.users.filter(p => p.firstName.toLowerCase().includes(query.toLowerCase())) : this.users;
+		this.filteredUsers = query ? this.users.filter(p => p.firstName.toLowerCase().includes(query.toLowerCase())) : this.users
 	}
 
 }

@@ -7,13 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 // Material design
 import { MatButtonModule } from '@angular/material/button'
-import { MatDialogModule, MatListModule, MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material'
+import { MatDialogModule, MatListModule, MAT_LABEL_GLOBAL_OPTIONS, MatCheckboxModule, MatExpansionPanel, MatProgressBarModule, MatProgressSpinnerModule } from '@angular/material'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { MatTableModule } from '@angular/material/table'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { CdkTableModule } from '@angular/cdk/table'
+import { MatExpansionModule } from '@angular/material/expansion'
 // Directives
 import { InputDirective } from '../directives/input'
 // Pipes
@@ -112,6 +113,8 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         FormsModule,
         HttpClientModule,
         MatButtonModule,
+        MatCheckboxModule,
+        MatExpansionModule,
         MatDialogModule,
         MatFormFieldModule,
         MatIconModule,
@@ -119,6 +122,8 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         MatListModule,
         MatSnackBarModule,
         MatTableModule,
+        MatProgressBarModule,
+        MatProgressSpinnerModule,
         ReactiveFormsModule,
     ],
     providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {

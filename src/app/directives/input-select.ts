@@ -1,4 +1,4 @@
-import { Directive, HostListener, ElementRef, Input } from '@angular/core';
+import { Directive, HostListener, ElementRef, Input } from '@angular/core'
 
 @Directive({
     selector: '[appSelectAll]'
@@ -6,7 +6,7 @@ import { Directive, HostListener, ElementRef, Input } from '@angular/core';
 
 export class SelectAllDirective {
 
-    @Input('appSelectAll') format: string;
+    @Input('appSelectAll') format: string
 
     constructor(private el: ElementRef) { }
 

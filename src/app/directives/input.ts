@@ -1,16 +1,15 @@
-import { Directive, HostListener, ElementRef, Input } from '@angular/core';
+import { Directive, HostListener, ElementRef, Input } from '@angular/core'
 
 @Directive({ selector: '[input]' })
 
 export class InputDirective {
 
-    @Input('input') format: string;
+    @Input('input') format: string
 
     constructor(private el: ElementRef) { }
 
     @HostListener('keyup', ['$event']) onkeyup(event: { key: string; target: { getAttribute: { (arg0: string): void; (arg0: string): void } } }) {
-        console.log('Inside directive', event.key)
-        const elements = Array.prototype.slice.apply(document.querySelectorAll("input[tabindex]"));
+        const elements = Array.prototype.slice.apply(document.querySelectorAll("input[tabindex]"))
         if (event.key == 'Enter' || event.key == 'ArrowDown') {
             var nextTab = +(event.target.getAttribute('tabindex')) + 1
             for (var i = elements.length; i--;) {

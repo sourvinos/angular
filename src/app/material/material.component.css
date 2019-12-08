@@ -80,3 +80,7 @@ div#scrollable {
     font-style: 40px !important;
 
 }
+
+mat-expansion-panel {
+    width: 50%;
+}
