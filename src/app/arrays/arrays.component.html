@@ -14,3 +14,12 @@
 <ul>
 	<li *ngFor='let item of base'>{{ item.description }}</li>
 </ul>
+
+<p>Fruits</p>
+<ul>
+	<li *ngFor='let fruit of fruits' [id]="fruit.name" (click)="selectFruit($event, fruit)">{{ fruit.name }}</li>
+</ul>
+
+<button mat-flat-button color="primary" (click)="onDisplayFruits()">Display fruits</button>
+<button mat-flat-button color="primary" (click)="onSaveToLocalStorage()">Save to localStorage</button>
+<button mat-flat-button color="primary" (click)="onReadFromLocalStorage()">Read from localStorage</button>
