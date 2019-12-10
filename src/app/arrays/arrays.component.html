@@ -17,7 +17,20 @@
 
 <p>Fruits</p>
 <ul>
-	<li *ngFor='let fruit of fruits' [id]="fruit.name" (click)="selectFruit($event, fruit)">{{ fruit.name }}</li>
+	<li *ngFor='let fruit of fruits' [id]="fruit.description" class="fruit" (click)="onToggleItem(fruit, this.selectedFruits)">{{ fruit.description }}</li>
+</ul>
+<p>Selected fruits</p>
+<ul>
+	<li *ngFor="let fruit of selectedFruits">{{ fruit }}</li>
+</ul>
+
+<p>Destinations</p>
+<ul>
+	<li *ngFor='let destination of destinations' [id]="destination.description" class="destination" (click)="onToggleItem(destination, this.selectedDestinations)">{{ destination.description }}</li>
+</ul>
+<p>Selected destinations</p>
+<ul>
+	<li *ngFor="let destination of selectedDestinations">{{ destination }}</li>
 </ul>
 
 <button mat-flat-button color="primary" (click)="onDisplayFruits()">Display fruits</button>

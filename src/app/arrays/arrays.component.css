@@ -4,5 +4,9 @@ body {
 
 li:hover {
     cursor: pointer;
-    color: crimson;
+}
+
+.activeItem {
+    color: darkblue;
+    font-weight: bold;
 }
