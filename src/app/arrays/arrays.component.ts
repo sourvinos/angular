@@ -136,13 +136,24 @@ export class ArraysComponent implements OnInit {
 	onReadFromLocalStorage() {
 		let settings = JSON.parse(localStorage.getItem('settings'))
 
-		this.selectedFruits = JSON.parse(settings.fruits); this.readSummaryFromLocalStorage(this.selectedFruits, 'fruit')
-		this.selectedDestinations = JSON.parse(settings.destinations); this.readSummaryFromLocalStorage(this.selectedDestinations, 'destination')
+		this.selectedFruits = JSON.parse(settings.fruits); this.addClassToElements(this.selectedFruits, 'fruit')
+		this.selectedDestinations = JSON.parse(settings.destinations); this.addClassToElements(this.selectedDestinations, 'destination')
 	}
 
-	readSummaryFromLocalStorage(array: any[], className: string) {
+	/**
+	 * Add a class to every DOM element in the particular summary group (i.e. destination)
+	 * that is found in the localStorage
+	 * and has a class of 'className'
+	 * @param array The array with the items that came from the localStorage
+	 * @param className The name of the class for each group item 
+	 */
+	addClassToElements(array: any[], className: string) {
+		// Store all the DOM elements with the particular class name (i.e. destination)
 		let elements = document.querySelectorAll('.' + className)
+		// Loop through each DOM element
 		elements.forEach((element: HTMLElement) => {
+			// If the array from the localStorage contains the current loop DOM element
+			// Store its position
 			let position = array.indexOf(element.innerHTML)
 			if (position != -1) {
 				document.getElementById(element.innerHTML).classList.add('activeItem')
