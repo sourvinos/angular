@@ -20,7 +20,7 @@
 	<div id="sectionTwo">
 		<p>Fruits</p>
 		<ul>
-			<li *ngFor='let fruit of fruits' [id]="fruit.description" class="fruit" (click)="onToggleItem(fruit, this.selectedFruits)">{{ fruit.description }}</li>
+			<li *ngFor='let fruit of fruits' #fruity [id]="fruit.description" class="fruit" (click)="onToggleItem(fruit, this.selectedFruits)">{{ fruit.description }}</li>
 		</ul>
 		<p>Selected fruits</p>
 		<ul>

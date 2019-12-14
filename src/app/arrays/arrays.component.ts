@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { NavigationCancel } from '@angular/router';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 
 export class Destination {
 	id: number
@@ -24,6 +25,9 @@ class Dummy {
 })
 
 export class ArraysComponent implements OnInit, AfterViewInit {
+
+	@ViewChildren('fruity') myDiv: QueryList<ElementRef<HTMLLIElement>>
+	elements: any
 
 	progress: string = ''
 	fruits: Fruit[] = [
@@ -74,12 +78,24 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 
 	ngOnInit() {
 		this.baseFiltered = this.base.filter((x) => { return this.criteria.indexOf(x.description) !== -1 })
+		// this.onReadFromLocalStorage()
+
+		// this.addClassToElements(this.selectedDestinations, 'destination')
 	}
 
 	ngAfterViewInit() {
-		setTimeout(() => {
-			this.onReadFromLocalStorage()
-		}, 0);
+		// this.onReadFromLocalStorage()
+		this.addClassToElements(this.selectedFruits, 'fruit')
+
+		// console.log('myDiv', this.myDiv);
+
+		// this.elements = this.myDiv.toArray()
+		// console.log('elements', this.elements);
+
+		// this.elements.forEach(element => {
+		// 	console.log(element.nativeElement.classList)
+		// 	element.nativeElement.classList.add('tsito')
+		// });
 	}
 
 	isGreaterThan(value: number, v: number) {
@@ -108,6 +124,7 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 			"fruits": JSON.stringify(this.selectedFruits),
 			"destinations": JSON.stringify(this.selectedDestinations)
 		}
+		localStorage.removeItem('settings')
 		localStorage.setItem('settings', JSON.stringify(settings))
 		// localStorage.setItem('fruits', JSON.stringify(this.selectedFruits))
 		// localStorage.setItem('destinations', JSON.stringify(this.selectedDestinations))
@@ -147,16 +164,15 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 	 */
 	onReadFromLocalStorage() {
 		console.log('Reading localStorage')
-
 		let settings = JSON.parse(localStorage.getItem('settings'))
-
-		this.selectedFruits = JSON.parse(settings.fruits)
-		console.log('Selected fruits', this.selectedFruits)
-		this.addClassToElements(this.selectedFruits, 'fruit')
-
-		this.selectedDestinations = JSON.parse(settings.destinations)
-		console.log('Selected destinations', this.selectedDestinations)
-		this.addClassToElements(this.selectedDestinations, 'destination')
+		if (settings != null) {
+			this.selectedFruits = JSON.parse(settings.fruits)
+			console.log('Selected fruits', this.selectedFruits)
+			this.addClassToElements(this.selectedFruits, 'fruit')
+			// this.selectedDestinations = JSON.parse(settings.destinations)
+			// console.log('Selected destinations', this.selectedDestinations)
+			// this.addClassToElements(this.selectedDestinations, 'destination')
+		}
 	}
 
 	/**
@@ -167,17 +183,17 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 	 * @param className The name of the class for each group item 
 	 */
 	addClassToElements(array: any[], className: string) {
-		console.log('Adding classes to elements')
-		// Store all the DOM elements with the particular class name (i.e. destination)
-		let elements = document.querySelectorAll('.' + className)
-		console.log('Elements:', elements.length ? elements : 'No elements found!')
-		// Loop through each DOM element
-		elements.forEach((element: HTMLElement) => {
-			// If the array from the localStorage contains the current loop DOM element
-			// Store its position
-			let position = array.indexOf(element.innerHTML)
+		let settings = JSON.parse(localStorage.getItem('settings'))
+		this.selectedFruits = JSON.parse(settings.fruits)
+		console.log('fruits from localStorage', this.selectedFruits)
+
+		this.elements = this.myDiv.toArray()
+		this.elements.forEach(element => {
+			console.log('DOM Element', element.nativeElement.innerHTML)
+			let position = this.selectedFruits.indexOf(element.nativeElement.innerHTML)
+			console.log(position)
 			if (position != -1) {
-				document.getElementById(element.innerHTML).classList.add('activeItem')
+				element.nativeElement.classList.add('activeItem')
 			}
 		})
 	}
