@@ -1,38 +1,45 @@
-<div>Arrays go here!</div>
+<h2>Arrays</h2>
 
-<p>Base ({{ base.length }})</p>
-<ul>
-	<li *ngFor='let item of base'>{{ item.description }}</li>
-</ul>
+<div id="container">
 
-<p>Filtered ({{ baseFiltered.length }})</p>
-<ul>
-	<li *ngFor='let item of baseFiltered index as i'>{{ i }} - {{ item.description }}</li>
-</ul>
+	<div id="sectionOne">
+		<p>Base ({{ base.length }})</p>
+		<ul>
+			<li *ngFor='let item of base'>{{ item.description }}</li>
+		</ul>
+		<p>Filtered ({{ baseFiltered.length }})</p>
+		<ul>
+			<li *ngFor='let item of baseFiltered index as i'>{{ i }} - {{ item.description }}</li>
+		</ul>
+		<p>Base ({{ base.length }})</p>
+		<ul>
+			<li *ngFor='let item of base'>{{ item.description }}</li>
+		</ul>
+	</div>
 
-<p>Base ({{ base.length }})</p>
-<ul>
-	<li *ngFor='let item of base'>{{ item.description }}</li>
-</ul>
+	<div id="sectionTwo">
+		<p>Fruits</p>
+		<ul>
+			<li *ngFor='let fruit of fruits' [id]="fruit.description" class="fruit" (click)="onToggleItem(fruit, this.selectedFruits)">{{ fruit.description }}</li>
+		</ul>
+		<p>Selected fruits</p>
+		<ul>
+			<li *ngFor="let fruit of selectedFruits">{{ fruit }}</li>
+		</ul>
+		<p>Destinations</p>
+		<ul>
+			<li *ngFor='let destination of destinations' [id]="destination.description" class="destination" (click)="onToggleItem(destination, this.selectedDestinations)">{{ destination.description }}</li>
+		</ul>
+		<p>Selected destinations</p>
+		<ul>
+			<li *ngFor="let destination of selectedDestinations">{{ destination }}</li>
+		</ul>
+		<button mat-flat-button color="primary" (click)="onDisplayFruits()">Display fruits</button>
+		<button mat-flat-button color="primary" (click)="onSaveToLocalStorage()">Save to localStorage</button>
+		<button mat-flat-button color="primary" (click)="onReadFromLocalStorage()">Read from localStorage</button>
 
-<p>Fruits</p>
-<ul>
-	<li *ngFor='let fruit of fruits' [id]="fruit.description" class="fruit" (click)="onToggleItem(fruit, this.selectedFruits)">{{ fruit.description }}</li>
-</ul>
-<p>Selected fruits</p>
-<ul>
-	<li *ngFor="let fruit of selectedFruits">{{ fruit }}</li>
-</ul>
+		<div id="progress">{{ progress }}</div>
 
-<p>Destinations</p>
-<ul>
-	<li *ngFor='let destination of destinations' [id]="destination.description" class="destination" (click)="onToggleItem(destination, this.selectedDestinations)">{{ destination.description }}</li>
-</ul>
-<p>Selected destinations</p>
-<ul>
-	<li *ngFor="let destination of selectedDestinations">{{ destination }}</li>
-</ul>
+	</div>
 
-<button mat-flat-button color="primary" (click)="onDisplayFruits()">Display fruits</button>
-<button mat-flat-button color="primary" (click)="onSaveToLocalStorage()">Save to localStorage</button>
-<button mat-flat-button color="primary" (click)="onReadFromLocalStorage()">Read from localStorage</button>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 export class Destination {
 	id: number
@@ -23,8 +23,9 @@ class Dummy {
 	styleUrls: ['./arrays.component.css']
 })
 
-export class ArraysComponent implements OnInit {
+export class ArraysComponent implements OnInit, AfterViewInit {
 
+	progress: string = ''
 	fruits: Fruit[] = [
 		{ id: 1, description: 'Apples' },
 		{ id: 2, description: 'Oranges' },
@@ -72,9 +73,21 @@ export class ArraysComponent implements OnInit {
 	flatPeople: Dummy[] = []
 
 	ngOnInit() {
-		// console.log(this.base)
 		this.baseFiltered = this.base.filter((x) => { return this.criteria.indexOf(x.description) !== -1 })
-		// console.log(this.baseFiltered)
+	}
+
+	ngAfterViewInit() {
+		setTimeout(() => {
+			this.onReadFromLocalStorage()
+		}, 0);
+	}
+
+	isGreaterThan(value: number, v: number) {
+		return value > v
+	}
+
+	flattenArray() {
+		this.baseFiltered = this.base.filter((x) => { return this.criteria.indexOf(x.description) !== -1 })
 		for (var {
 			adults: n,
 			customer: {
@@ -86,14 +99,8 @@ export class ArraysComponent implements OnInit {
 					description: e
 				} }
 		} of this.transfers) {
-			// console.log('Adults: ' + n + ', Customer: ' + f, ' Pickup point: ' + g + ' Route: ' + e)
 			this.flatPeople.push({ adults: n, customer: f, pickupPoint: g, route: e })
 		}
-		// console.log(this.flatPeople)
-	}
-
-	isGreaterThan(value: number, v: number) {
-		return value > v
 	}
 
 	onSaveToLocalStorage() {
@@ -133,11 +140,23 @@ export class ArraysComponent implements OnInit {
 		}
 	}
 
+	/**
+	 * Reads data from the localStorage
+	 * Populates the two arrays
+	 * Adds an 'activeItem' class to the DOM elements
+	 */
 	onReadFromLocalStorage() {
+		console.log('Reading localStorage')
+
 		let settings = JSON.parse(localStorage.getItem('settings'))
 
-		this.selectedFruits = JSON.parse(settings.fruits); this.addClassToElements(this.selectedFruits, 'fruit')
-		this.selectedDestinations = JSON.parse(settings.destinations); this.addClassToElements(this.selectedDestinations, 'destination')
+		this.selectedFruits = JSON.parse(settings.fruits)
+		console.log('Selected fruits', this.selectedFruits)
+		this.addClassToElements(this.selectedFruits, 'fruit')
+
+		this.selectedDestinations = JSON.parse(settings.destinations)
+		console.log('Selected destinations', this.selectedDestinations)
+		this.addClassToElements(this.selectedDestinations, 'destination')
 	}
 
 	/**
@@ -148,8 +167,10 @@ export class ArraysComponent implements OnInit {
 	 * @param className The name of the class for each group item 
 	 */
 	addClassToElements(array: any[], className: string) {
+		console.log('Adding classes to elements')
 		// Store all the DOM elements with the particular class name (i.e. destination)
 		let elements = document.querySelectorAll('.' + className)
+		console.log('Elements:', elements.length ? elements : 'No elements found!')
 		// Loop through each DOM element
 		elements.forEach((element: HTMLElement) => {
 			// If the array from the localStorage contains the current loop DOM element
@@ -162,4 +183,3 @@ export class ArraysComponent implements OnInit {
 	}
 
 }
-
