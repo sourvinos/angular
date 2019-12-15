@@ -37,15 +37,17 @@ export class TableComponent {
     ngAfterViewInit() {
         setTimeout(() => {
             this.calculateDimensions()
+            document.getElementById('table-input').focus()
             this.gotoRow('1')
         }, 100)
     }
 
-    @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string }) {
-        console.log('Keydown in table', event)
+    @HostListener('keyup', ['$event']) onkeyup(event: { key: string; target: { getAttribute: { (arg0: string): void; (arg0: string): void } } }) {
+        console.log('Table keyUp', event.key)
+        this.gotoRow(event.key)
     }
 
-    private gotoRow(position: string) {
+    private gotoRow(position) {
         // console.log('Position', position)
         if (!isNaN(parseInt(position))) {
             this.clearAllRowHighlights()
@@ -114,10 +116,6 @@ export class TableComponent {
             this.indexContent.style.overflowY = 'hidden'
             this.table.style.marginRight = '0px'
         }
-    }
-
-    logEntry(event: any) {
-        console.log('Something was pressed', event)
     }
 
 }

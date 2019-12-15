@@ -50,3 +50,8 @@ td {
     white-space: nowrap;
     max-width: 0;
 }
+
+#table-input {
+    display: block;
+    position: absolute;
+}
