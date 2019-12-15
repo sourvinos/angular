@@ -20,7 +20,7 @@
 	<div id="sectionTwo">
 		<p>Fruits</p>
 		<ul>
-			<li *ngFor='let fruit of fruits' #fruity [id]="fruit.description" class="fruit" (click)="onToggleItem(fruit, this.selectedFruits)">{{ fruit.description }}</li>
+			<li *ngFor='let fruit of fruits' #fruitsList [id]="fruit.description" class="fruit" (click)="onToggleItem(fruit, this.localStorageFruits)">{{ fruit.description }}</li>
 		</ul>
 		<p>Selected fruits</p>
 		<ul>
@@ -28,7 +28,7 @@
 		</ul>
 		<p>Destinations</p>
 		<ul>
-			<li *ngFor='let destination of destinations' [id]="destination.description" class="destination" (click)="onToggleItem(destination, this.selectedDestinations)">{{ destination.description }}</li>
+			<li *ngFor='let destination of destinations' #destinationsList [id]="destination.description" class="destination" (click)="onToggleItem(destination, this.localStorageDestinations)">{{ destination.description }}</li>
 		</ul>
 		<p>Selected destinations</p>
 		<ul>

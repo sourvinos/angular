@@ -26,7 +26,8 @@ class FlatPeople {
 
 export class ArraysComponent implements OnInit, AfterViewInit {
 
-	@ViewChildren('fruity') myDiv: QueryList<ElementRef<HTMLLIElement>>
+	@ViewChildren('fruitsList') fruitsList: QueryList<ElementRef<HTMLLIElement>>
+	@ViewChildren('destinationsList') destinationsList: QueryList<ElementRef<HTMLLIElement>>
 
 	elements: any
 
@@ -47,8 +48,8 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 		{ id: 4, description: 'Erikousa' },
 	]
 
-	selectedFruits: Fruit[] = []
-	selectedDestinations: Destination[] = []
+	localStorageFruits: Fruit[] = []
+	localStorageDestinations: Destination[] = []
 
 	base: Destination[] = [
 		{ id: 4, description: 'AL' },
@@ -80,23 +81,12 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 
 	ngOnInit() {
 		this.baseFiltered = this.base.filter((x) => { return this.criteria.indexOf(x.description) !== -1 })
-		this.settings = JSON.parse(localStorage.getItem('settings'))
-		this.selectedFruits = JSON.parse(this.settings.fruits)
-		// this.onReadFromLocalStorage()
-		// this.addClassToElements(this.selectedDestinations, 'destination')
-		// this.addClassToElements()
+		this.readFromLocalStorage()
 	}
 
 	ngAfterViewInit() {
-		// this.onReadFromLocalStorage()
-		this.addClassToElements()
-		// console.log('myDiv', this.myDiv);
-		// this.elements = this.myDiv.toArray()
-		// console.log('elements', this.elements);
-		// this.elements.forEach(element => {
-		// 	console.log(element.nativeElement.classList)
-		// 	element.nativeElement.classList.add('tsito')
-		// });
+		this.selectListItems(this.fruitsList, this.localStorageFruits)
+		this.selectListItems(this.destinationsList, this.localStorageDestinations)
 	}
 
 	flattenArray() {
@@ -118,8 +108,8 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 
 	onSaveToLocalStorage() {
 		let settings = {
-			"fruits": JSON.stringify(this.selectedFruits),
-			"destinations": JSON.stringify(this.selectedDestinations)
+			"fruits": JSON.stringify(this.localStorageFruits),
+			"destinations": JSON.stringify(this.localStorageDestinations)
 		}
 		localStorage.removeItem('settings')
 		localStorage.setItem('settings', JSON.stringify(settings))
@@ -155,43 +145,47 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 	}
 
 	/**
-	 * Reads data from the localStorage
-	 * Populates the two arrays
-	 * Adds an 'activeItem' class to the DOM elements
+	 * Called from ngOnInit and the template button
+	 * Reads from localStorage and populates arrays
 	 */
-	onReadFromLocalStorage() {
+	private readFromLocalStorage() {
 		console.log('Reading localStorage')
-		let settings = JSON.parse(localStorage.getItem('settings'))
-		if (settings != null) {
-			this.selectedFruits = JSON.parse(settings.fruits)
-			console.log('Selected fruits', this.selectedFruits)
-			this.addClassToElements()
-			// this.selectedDestinations = JSON.parse(settings.destinations)
-			// console.log('Selected destinations', this.selectedDestinations)
-			// this.addClassToElements(this.selectedDestinations, 'destination')
+		this.settings = JSON.parse(localStorage.getItem('settings'))
+		if (this.settings != null) {
+			this.localStorageFruits = JSON.parse(this.settings.fruits)
+			this.localStorageDestinations = JSON.parse(this.settings.destinations)
+			console.log('Selected fruits', this.localStorageFruits)
+			console.log('Selected destinations', this.localStorageDestinations)
 		}
 	}
 
 	/**
-	 * Add a class to every DOM element in the particular summary group (i.e. destination)
-	 * that is found in the localStorage
-	 * and has a class of 'className'
-	 * @param array The array with the items that came from the localStorage
-	 * @param className The name of the class for each group item 
+	 * Add 'activeItem' class to the DOM list elements
+	 * that are found in the localStorage
+	 * @param listItems 
+	 * @param localStorageArrayName
 	 */
-	//  addClassToElements(array: any[], className: string) {
-	addClassToElements() {
-
-		console.log('fruits from localStorage', this.selectedFruits)
-		this.elements = this.myDiv.toArray()
-		this.elements.forEach(element => {
+	selectListItems(listItems: QueryList<ElementRef<HTMLLIElement>>, localStorageArrayName: any[]) {
+		console.log('Adding classes to', localStorageArrayName)
+		listItems.toArray().forEach(element => {
 			console.log('DOM Element', element.nativeElement.innerHTML)
-			let position = this.selectedFruits.indexOf(element.nativeElement.innerHTML)
+			let position = localStorageArrayName.indexOf(element.nativeElement.innerHTML)
 			console.log(position)
 			if (position != -1) {
 				element.nativeElement.classList.add('activeItem')
+			} else {
+				element.nativeElement.classList.remove('activeItem')
 			}
 		})
+	}
+
+	/**
+	 * Called from the template
+	 */
+	onReadFromLocalStorage() {
+		this.readFromLocalStorage()
+		this.selectListItems(this.fruitsList, this.localStorageFruits)
+		this.selectListItems(this.destinationsList, this.localStorageDestinations)
 	}
 
 }
