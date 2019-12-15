@@ -8,11 +8,11 @@ body {
     grid-template-rows: 1fr;
 }
 
-li:hover {
+li:hover, .listItem:hover {
     cursor: pointer;
 }
 
 .activeItem {
-    color: darkblue;
+    color: green;
     font-weight: bold;
 }

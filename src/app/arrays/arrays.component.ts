@@ -1,5 +1,4 @@
-import { NavigationCancel } from '@angular/router';
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
 
 export class Destination {
 	id: number
@@ -26,13 +25,15 @@ class FlatPeople {
 
 export class ArraysComponent implements OnInit, AfterViewInit {
 
-	@ViewChildren('fruitsList') fruitsList: QueryList<ElementRef<HTMLLIElement>>
+	// #region Init
+
+	@ViewChildren('fruitsList') fruitsList: QueryList<any>
 	@ViewChildren('destinationsList') destinationsList: QueryList<ElementRef<HTMLLIElement>>
 
 	elements: any
 
 	progress: string = ''
-	settings: any
+	settings: any = ''
 	fruits: Fruit[] = [
 		{ id: 1, description: 'Apples' },
 		{ id: 2, description: 'Oranges' },
@@ -79,6 +80,8 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 
 	flatPeople: FlatPeople[] = []
 
+	// #endregion
+
 	ngOnInit() {
 		this.baseFiltered = this.base.filter((x) => { return this.criteria.indexOf(x.description) !== -1 })
 		this.readFromLocalStorage()
@@ -106,71 +109,54 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-	onSaveToLocalStorage() {
-		let settings = {
-			"fruits": JSON.stringify(this.localStorageFruits),
-			"destinations": JSON.stringify(this.localStorageDestinations)
-		}
-		localStorage.removeItem('settings')
-		localStorage.setItem('settings', JSON.stringify(settings))
-		// localStorage.setItem('fruits', JSON.stringify(this.selectedFruits))
-		// localStorage.setItem('destinations', JSON.stringify(this.selectedDestinations))
-	}
-
-	onDisplayFruits() {
-		// console.log(this.fruits)
-	}
-
 	/**
-	 * Adds/removes the clicked item to/from the 'selected...' array
+	 * Caller: Template - onToggleItem()
+ 	 * Description:
+ 	 * 		Toggles the 'activeItem' class for the clicked item
+ 	 * 		Adds/removes the clicked item to/from the relevant array
+ 	 * 		Clears the localStorage
+	 * 		Saves all arrays to the localStorage
 	 * 
-	 * @param item // The list item that was clicked
-	 * @param lookupArray // The array that holds the items with 'activeItem' class
-	 */
-	onToggleItem(item: any, lookupArray: string) {
-		var element = document.getElementById(item.description)
-		if (element.classList.contains('activeItem')) {
-			for (var i = 0; i < eval(lookupArray).length; i++) {
-				if (eval(lookupArray)[i] == item.description) {
-					eval(lookupArray).splice(i, 1)
-					i--
-					element.classList.remove('activeItem')
-					break
-				}
-			}
-		} else {
-			element.classList.add('activeItem')
-			eval(lookupArray).push(item.description)
-		}
+	 * @param item // The element that was clicked
+ 	 * @param lookupArray // The array that holds the items with 'activeItem' class
+ 	 */
+	onToggleItem(item: any, lookupArray: any[]) {
+		this.toggleActiveClass(item)
+		this.updateArray(item, lookupArray)
+		this.clearLocalStorage()
+		this.updateLocalStorage()
 	}
 
 	/**
-	 * Called from ngOnInit and the template button
-	 * Reads from localStorage and populates arrays
+	 * Caller: Class - onToggleItem()
+	 * Description: Clears settings from localStorage
+	 */
+	private clearLocalStorage() {
+		localStorage.removeItem('settings')
+	}
+
+	/**
+	 * Caller: Class - ngOnInit()
+	 * Description: Reads from localStorage and populates arrays
 	 */
 	private readFromLocalStorage() {
-		console.log('Reading localStorage')
 		this.settings = JSON.parse(localStorage.getItem('settings'))
 		if (this.settings != null) {
 			this.localStorageFruits = JSON.parse(this.settings.fruits)
 			this.localStorageDestinations = JSON.parse(this.settings.destinations)
-			console.log('Selected fruits', this.localStorageFruits)
-			console.log('Selected destinations', this.localStorageDestinations)
 		}
 	}
 
 	/**
-	 * Add 'activeItem' class to the DOM list elements
-	 * that are found in the localStorage
+	 * Caller: Class - ngAfterViewInit()
+	 * Description: Adds 'activeItem' class to the DOM list elements that are found in the localStorage
+	 * 
 	 * @param listItems 
 	 * @param localStorageArrayName
 	 */
-	selectListItems(listItems: QueryList<ElementRef<HTMLLIElement>>, localStorageArrayName: any[]) {
-		console.log('Adding classes to', localStorageArrayName)
+	private selectListItems(listItems: QueryList<any>, localStorageArrayName: any[]) {
 		listItems.toArray().forEach(element => {
-			console.log('DOM Element', element.nativeElement.innerHTML)
-			let position = localStorageArrayName.indexOf(element.nativeElement.innerHTML)
-			console.log(position)
+			let position = localStorageArrayName.indexOf(element.nativeElement.innerText)
 			if (position != -1) {
 				element.nativeElement.classList.add('activeItem')
 			} else {
@@ -180,12 +166,41 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 	}
 
 	/**
-	 * Called from the template
+	 * Caller: Template - onToggleItem()
+ 	 * Description: Toggles the activeItem class for the clicked item
+ 	 * 
+ 	 * @param item 
+ 	 */
+	private toggleActiveClass(item: { description: string; }) {
+		document.getElementById(item.description).classList.toggle('activeItem')
+	}
+
+	/**
+	 * Caller: Class - onToggleItem()
+	 * Description: Adds / removes the selected item from the array
+	 * 
+	 * @param item 
+	 * @param lookupArray 
 	 */
-	onReadFromLocalStorage() {
-		this.readFromLocalStorage()
-		this.selectListItems(this.fruitsList, this.localStorageFruits)
-		this.selectListItems(this.destinationsList, this.localStorageDestinations)
+	private updateArray(item: { description: any; }, lookupArray: any[]) {
+		let position = lookupArray.indexOf(item.description)
+		if (position == -1) {
+			lookupArray.push(item.description)
+		} else {
+			lookupArray.splice(position, 1)
+		}
+	}
+
+	/**
+	 * Caller: Class - onToggleItem()
+	 * Description: Updates the localStorage with the arrays
+	 */
+	private updateLocalStorage() {
+		let settings = {
+			"fruits": JSON.stringify(this.localStorageFruits),
+			"destinations": JSON.stringify(this.localStorageDestinations)
+		}
+		localStorage.setItem('settings', JSON.stringify(settings))
 	}
 
 }

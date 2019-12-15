@@ -18,27 +18,28 @@
 	</div>
 
 	<div id="sectionTwo">
-		<p>Fruits</p>
-		<ul>
-			<li *ngFor='let fruit of fruits' #fruitsList [id]="fruit.description" class="fruit" (click)="onToggleItem(fruit, this.localStorageFruits)">{{ fruit.description }}</li>
-		</ul>
-		<p>Selected fruits</p>
-		<ul>
-			<li *ngFor="let fruit of selectedFruits">{{ fruit }}</li>
-		</ul>
-		<p>Destinations</p>
-		<ul>
-			<li *ngFor='let destination of destinations' #destinationsList [id]="destination.description" class="destination" (click)="onToggleItem(destination, this.localStorageDestinations)">{{ destination.description }}</li>
-		</ul>
-		<p>Selected destinations</p>
-		<ul>
-			<li *ngFor="let destination of selectedDestinations">{{ destination }}</li>
-		</ul>
-		<button mat-flat-button color="primary" (click)="onDisplayFruits()">Display fruits</button>
-		<button mat-flat-button color="primary" (click)="onSaveToLocalStorage()">Save to localStorage</button>
-		<button mat-flat-button color="primary" (click)="onReadFromLocalStorage()">Read from localStorage</button>
 
-		<div id="progress">{{ progress }}</div>
+		<h3>Fruits</h3>
+		<br>
+		<div *ngFor='let fruit of fruits' #fruitsList [id]="fruit.description" class="listItem fruit" (click)="onToggleItem(fruit, this.localStorageFruits)">
+			<div>{{ fruit.description }}</div>
+		</div>
+		<br>
+		<ul>
+			<li *ngFor="let fruit of localStorageFruits">{{ fruit }}</li>
+		</ul>
+		<br>
+
+		<h3>Destinations</h3>
+		<div *ngFor='let destination of destinations' #destinationsList [id]="destination.description" class="listItem destination" (click)="onToggleItem(destination, this.localStorageDestinations)">
+			<div>{{ destination.description }}</div>
+		</div>
+		<br>
+		<ul>
+			<li *ngFor="let destination of localStorageDestinations">{{ destination }}</li>
+		</ul>
+
+		<br>
 
 	</div>
 
