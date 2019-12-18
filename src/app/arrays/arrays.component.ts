@@ -28,7 +28,7 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 	// #region Init
 
 	@ViewChildren('fruitsList') fruitsList: QueryList<any>
-	@ViewChildren('destinationsList') destinationsList: QueryList<ElementRef<HTMLLIElement>>
+	@ViewChildren('destinationsList') destinationsList: QueryList<any>
 
 	elements: any
 
@@ -88,6 +88,7 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 	}
 
 	ngAfterViewInit() {
+		console.log('ngAfterViewInit', this.destinationsList)
 		this.selectListItems(this.fruitsList, this.localStorageFruits)
 		this.selectListItems(this.destinationsList, this.localStorageDestinations)
 	}
@@ -113,7 +114,7 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 	 * Caller: Template - onToggleItem()
  	 * Description:
  	 * 		Toggles the 'activeItem' class for the clicked item
- 	 * 		Adds/removes the clicked item to/from the relevant array
+ 	 * 		Adds/removes the clicked item to/from the array
  	 * 		Clears the localStorage
 	 * 		Saves all arrays to the localStorage
 	 * 
@@ -144,6 +145,7 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 		if (this.settings != null) {
 			this.localStorageFruits = JSON.parse(this.settings.fruits)
 			this.localStorageDestinations = JSON.parse(this.settings.destinations)
+			console.log('readFromLocalStorage', this.localStorageDestinations)
 		}
 	}
 
@@ -155,6 +157,7 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 	 * @param localStorageArrayName
 	 */
 	private selectListItems(listItems: QueryList<any>, localStorageArrayName: any[]) {
+		console.log('listItems', listItems, 'localStorageArrayName', localStorageArrayName)
 		listItems.toArray().forEach(element => {
 			let position = localStorageArrayName.indexOf(element.nativeElement.innerText)
 			if (position != -1) {

@@ -7,7 +7,7 @@ import { CanActivate, Router } from '@angular/router'
 
 export class AuthGuard implements CanActivate {
 
-    private loginURL = '/login'
+    private loginURL = 'login'
 
     constructor(private router: Router) { }
 

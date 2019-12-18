@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core'
-import { Subject } from 'rxjs'
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 
-export class InteractionService {
+export class IndexInteractionService {
 
-    private _teacherMessageSource = new Subject<string>()
+    private messageSource = new Subject<string>()
 
-    teacherMessage = this._teacherMessageSource.asObservable()
+    data = this.messageSource.asObservable()
 
-    sendMessage(message: any) {
-        this._teacherMessageSource.next(message)
+    sendObject(data: any) {
+        this.messageSource.next(data)
     }
 
 }

@@ -21,13 +21,13 @@ export class EventsMembersComponent implements OnInit {
 	loadEvents() {
 		this.http.get(this.eventsURL).subscribe(result => console.log(result), err => {
 			if (err instanceof HttpErrorResponse) {
-				if (err.status === 401) this.router.navigate(['/login'])
+				if (err.status === 401) this.router.navigate(['login'])
 			}
 		})
 	}
 
 	goHome() {
-		this.router.navigate(['/eventsHome'])
+		this.router.navigate([''])
 	}
 
 }

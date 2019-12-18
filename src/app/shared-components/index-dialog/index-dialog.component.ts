@@ -1,5 +1,8 @@
-import { Component, EventEmitter, HostListener, Inject, Output } from '@angular/core'
-import { MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { IndexInteractionService } from 'src/app/services/interaction.service';
 
 @Component({
 	selector: 'index-dialog',
@@ -17,13 +20,16 @@ export class IndexDialogComponent {
 	visibility: any[]
 	widths: any[]
 
+	selectedRecord: any
 	records: any[]
+
+	ngUnsubscribe = new Subject<void>();
 
 	// selectedRecord: any
 
 	// @Output() selectEvent = new EventEmitter()
 
-	constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+	constructor(@Inject(MAT_DIALOG_DATA) public data: any, private indexInteractionService: IndexInteractionService) {
 		this.title = data.title
 		this.fields = data.fields
 		this.headers = data.headers
@@ -33,16 +39,19 @@ export class IndexDialogComponent {
 		this.records = data.records
 	}
 
-	// @HostListener('document:keydown', ['$event']) anyEvent(event: { key: string }) {
-	// if (event.key == 'Enter') {
-	// 	console.log('Closing index-dialog')
-	// }
-	// }
+	ngOnInit() {
+		this.subscribeToIndexInderactionService()
+	}
 
 	ngAfterViewInit() {
 		setTimeout(() => {
 			this.calculateDimensions()
 		}, 100)
+	}
+
+	ngOnDestroy() {
+		this.ngUnsubscribe.next();
+		this.ngUnsubscribe.unsubscribe();
 	}
 
 	private calculateDimensions() {
@@ -51,9 +60,10 @@ export class IndexDialogComponent {
 			document.getElementById('index-table').offsetWidth - 20 + 'px'
 	}
 
-	// T
-	// select(input: any) {
-	// 	this.selectedRecord = input
-	// }
+	private subscribeToIndexInderactionService() {
+		this.indexInteractionService.data.pipe(takeUntil(this.ngUnsubscribe)).subscribe(response => {
+			this.selectedRecord = response
+		})
+	}
 
 }

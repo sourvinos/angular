@@ -1,4 +1,4 @@
-import { InteractionService } from './../services/interaction.service'
+import { IndexInteractionService } from 'src/app/services/interaction.service';
 import { Component, ViewChild } from '@angular/core'
 import { ChildComponent } from './child.component'
 import { getLocaleEraNames } from '@angular/common'
@@ -28,10 +28,9 @@ export class ParentComponent {
 
     @ViewChild(ChildComponent) private varName: ChildComponent
 
-    constructor(private _interactionService: InteractionService) { }
+    constructor(private _interactionService: IndexInteractionService) { }
 
     ngOnInit() {
-        this._interactionService.teacherMessage.subscribe(message => console.log('Message', message))
         this.fruits = [
             { id: 1, description: 'Jackfruit', amount: 1230.4, kingdom: 'Plantae', remarks: this.remarks },
             { id: 2, description: 'Cherries', amount: 1234.4, kingdom: 'Plantae', remarks: this.remarks },

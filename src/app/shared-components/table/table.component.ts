@@ -1,5 +1,5 @@
 import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core'
-import { InteractionService } from 'src/app/services/interaction.service'
+import { IndexInteractionService } from 'src/app/services/interaction.service'
 
 @Component({
     selector: 'app-table',
@@ -28,11 +28,7 @@ export class TableComponent {
 
     info: string
 
-    constructor(private _interactionService: InteractionService) { }
-
-    greetStudent() {
-        this._interactionService.sendMessage('Goodmorning')
-    }
+    constructor(private indexInteractionService: IndexInteractionService) { }
 
     ngAfterViewInit() {
         setTimeout(() => {
@@ -43,35 +39,35 @@ export class TableComponent {
     }
 
     @HostListener('keyup', ['$event']) onkeyup(event: { key: string; target: { getAttribute: { (arg0: string): void; (arg0: string): void } } }) {
-        console.log('Table keyUp', event.key)
         this.gotoRow(event.key)
     }
 
     private gotoRow(position) {
-        // console.log('Position', position)
         if (!isNaN(parseInt(position))) {
             this.clearAllRowHighlights()
             this.highlightRow(this.table, position)
-            // console.log(this.records[this.currentRow - 1])
+        }
+        if (position == 'Enter') {
+            this.sendRowToService()
         }
         if (position == 'ArrowUp' && this.currentRow > 1) {
             this.clearAllRowHighlights()
             this.highlightRow(this.table, 'up')
-            // console.log(this.records[this.currentRow - 1])
+            this.sendRowToService()
             if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
-                document.getElementById(this.currentRow.toString()).scrollIntoView()
-                this.indexContent.scrollTop = (this.currentRow - 1) * this.rowHeight - 0
+                // document.getElementById(this.currentRow.toString()).scrollIntoView()
+                this.indexContent.scrollTop = (this.currentRow - 1) * this.rowHeight
             }
         }
         if (position == 'ArrowDown' && this.currentRow < this.table.rows.length - 1) {
             this.clearAllRowHighlights()
             this.highlightRow(this.table, 'down')
-            // console.log(this.records[this.currentRow - 1])
+            this.sendRowToService()
+            this.indexInteractionService.sendObject(this.records[this.currentRow - 1])
             if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
                 document.getElementById(this.currentRow.toString()).scrollIntoView(false)
             }
         }
-
     }
 
     private highlightRow(table: HTMLTableElement, direction: any) {
@@ -116,6 +112,10 @@ export class TableComponent {
             this.indexContent.style.overflowY = 'hidden'
             this.table.style.marginRight = '0px'
         }
+    }
+
+    private sendRowToService() {
+        this.indexInteractionService.sendObject(this.records[this.currentRow - 1])
     }
 
 }

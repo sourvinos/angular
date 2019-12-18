@@ -48,11 +48,15 @@ const appRoutes: Routes = [
 	{ path: 'input-controls', component: InputsComponent },
 	{ path: 'arrays', component: ArraysComponent },
 	{ path: 'component-interactions', component: ParentComponent },
-	{ path: 'eventsHome', component: EventsHomeComponent },
-	{ path: 'events', component: EventsComponent },
-	{ path: 'members', component: EventsMembersComponent, canActivate: [AuthGuard] },
-	{ path: 'register', component: EventsRegisterComponent },
-	{ path: 'login', component: EventsLoginComponent },
+	{
+		path: 'auth', component: EventsHomeComponent, children: [
+			{ path: '', component: EventsHomeComponent },
+			{ path: 'events', component: EventsComponent },
+			{ path: 'members', component: EventsMembersComponent, canActivate: [AuthGuard] },
+			{ path: 'register', component: EventsRegisterComponent },
+			{ path: 'login', component: EventsLoginComponent }
+		]
+	},
 	{ path: 'pageNotFound', component: PageNotFoundComponent },
 	{ path: 'tables/userId/:userId', component: TablesHostComponent },
 	{
