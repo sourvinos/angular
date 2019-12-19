@@ -58,6 +58,7 @@ const appRoutes: Routes = [
 	{
 		path: 'posts', component: PostWrapperComponent, children: [{
 			path: 'userId/:userId', component: PostListComponent, resolve: { postList: PostListResolverService }, children: [{
+				// path: 'userId/:userId', component: PostListComponent, children: [{
 				path: 'post/:postId', component: PostFormComponent, canDeactivate: [CanDeactivateGuard], resolve: { postEdit: PostEditResolverService },
 			}]
 		}], runGuardsAndResolvers: 'always'
