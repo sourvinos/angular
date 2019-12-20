@@ -11,6 +11,7 @@ export class EmployeeListResolverService implements Resolve<employee[]>{
     constructor(private employeeService: EmployeeService) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<employee[]> {
+        console.log('\nresolver')
         return this.employeeService.getAll()
     }
 

@@ -2,18 +2,23 @@
   "employees": [
     {
       "id": 2,
-      "name": "Pam.!",
+      "name": "Pam",
       "email": "pam@yahoo.com"
     },
     {
       "id": 5,
-      "name": "John",
+      "name": "John!",
       "email": "john@hota.com"
     },
     {
       "id": 6,
       "name": "Me",
       "email": "me@me.com"
+    },
+    {
+      "id": 7,
+      "name": "tsitos",
+      "email": "ts@mail.com"
     }
   ],
   "posts": [

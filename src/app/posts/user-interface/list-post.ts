@@ -23,18 +23,33 @@ export class PostListComponent implements OnDestroy {
 		this.activatedRoute.params.subscribe((params: Params) => { this.userId = +params['userId'] })
 		this.navigationSubscription = this.router.events.subscribe((e: any) => {
 			if (e instanceof NavigationEnd) {
-				console.log('Constructor Navigation end')
-				this.postService.getPosts(this.userId).subscribe(result => this.posts = result)
+				console.log('constructor navigation end')
+				this.posts = this.activatedRoute.snapshot.data['postList']
+				// this.postService.getPosts(this.userId).subscribe(result => this.posts = result)
 			}
 		})
 	}
 
 	ngOnInit() { }
 
+	ngAfterViewInit() {
+		// setTimeout(() => {
+		this.changeColors()
+		// }, 0);
+	}
+
 	ngOnDestroy() {
 		if (this.navigationSubscription) {
 			this.navigationSubscription.unsubscribe()
 		}
+	}
+
+	changeColors() {
+		let elements = document.querySelectorAll('li')
+		console.log('changing colors', elements.length)
+		elements.forEach(element => {
+			element.style.color = 'green'
+		});
 	}
 
 	// T

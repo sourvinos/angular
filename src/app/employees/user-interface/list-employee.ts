@@ -1,7 +1,7 @@
-import { Component } from '@angular/core'
+import { Component, AfterViewInit } from '@angular/core'
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { employee } from '../classes/model.employee'
-import { EmployeeService } from '../classes/service.employee'
+import { element } from 'src/app/models/element'
 
 @Component({
     selector: 'list-employee',
@@ -9,30 +9,27 @@ import { EmployeeService } from '../classes/service.employee'
     styleUrls: ['./list-employee.css']
 })
 
-export class EmployeeListComponent {
+export class EmployeeListComponent implements AfterViewInit {
 
     employees: employee[]
     navigationSubscription: any
     errorMessage: string = ''
-    activeField: boolean = false
 
-    constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router) {
+    constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+        console.log('constructor')
         this.navigationSubscription = this.router.events.subscribe((e: any) => {
             this.errorMessage = ''
             if (e instanceof NavigationEnd) {
-                console.log('Constructor Navigation end')
-                this.employeeService.getAll().subscribe(
-                    result => {
-                        this.employees = result
-                    })
+                console.log('constructor navigation end')
+                this.employees = this.activatedRoute.snapshot.data['employeeList']
             }
         })
     }
 
-    ngOnInit() {
-        this.employeeService.getAll().subscribe(result => {
-            this.employees = result
-        })
+    ngOnInit() { }
+
+    ngAfterViewInit() {
+        this.changeColors()
     }
 
     getEmployee(employee: employee) {
