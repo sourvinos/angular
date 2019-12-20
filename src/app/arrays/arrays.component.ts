@@ -85,6 +85,10 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 	ngOnInit() {
 		this.baseFiltered = this.base.filter((x) => { return this.criteria.indexOf(x.description) !== -1 })
 		this.readFromLocalStorage()
+		setTimeout(() => {
+			this.selectListItems(this.fruitsList, this.localStorageFruits)
+			this.selectListItems(this.destinationsList, this.localStorageDestinations)
+		}, 1000);
 	}
 
 	ngAfterViewInit() {
@@ -141,11 +145,13 @@ export class ArraysComponent implements OnInit, AfterViewInit {
 	 * Description: Reads from localStorage and populates arrays
 	 */
 	private readFromLocalStorage() {
+		console.log('readFromLocalStorage()')
 		this.settings = JSON.parse(localStorage.getItem('settings'))
 		if (this.settings != null) {
 			this.localStorageFruits = JSON.parse(this.settings.fruits)
 			this.localStorageDestinations = JSON.parse(this.settings.destinations)
 			console.log('readFromLocalStorage', this.localStorageDestinations)
+			console.log(this.localStorageFruits, this.localStorageDestinations)
 		}
 	}
 

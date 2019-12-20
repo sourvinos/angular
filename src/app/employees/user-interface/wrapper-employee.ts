@@ -6,7 +6,4 @@ import { Component } from '@angular/core'
 	styleUrls: ['./wrapper-employee.css']
 })
 
-export class EmployeeWrapperComponent {
-
-
-}
+export class EmployeeWrapperComponent { }

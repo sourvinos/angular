@@ -1,6 +1,8 @@
 import { Component, HostListener, OnDestroy } from '@angular/core'
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router'
 import { PostService } from '../posts/classes/service.post'
+import { promise } from 'protractor'
+import { resolve } from 'url'
 
 @Component({
     selector: 'tables',
@@ -33,21 +35,24 @@ export class TablesComponent implements OnDestroy {
             if (e instanceof NavigationEnd) {
                 this.postService.getPosts(this.userId).subscribe(
                     result => {
-                        console.log(result)
-                        this.posts = result.map(product => {
-                            return {
-                                id: product.id,
-                                title: product.title,
-                                views: product.views
-                            }
-                        })
-                    },
-                    (error: Response) => {
-                        if (error.status == 404) {
-                            alert('This record has been deleted')
-                        } else {
-                            alert('An error occured')
-                        }
+                        console.log('came back from the service')
+                        this.posts = result
+                        this.doAsync().then((response) => {
+                            console.log('doAsync', response)
+                            this.doAnotherAsync().then((response) => {
+                                console.log('doAnotherAsync', response)
+                                this.doMoreAsync().then((response) => {
+                                    console.log('doMoreAsync', response)
+                                })
+                            })
+                        },
+                            (error: Response) => {
+                                if (error.status == 404) {
+                                    alert('This record has been deleted')
+                                } else {
+                                    alert('An error occured')
+                                }
+                            })
                     })
             }
         })
@@ -68,7 +73,6 @@ export class TablesComponent implements OnDestroy {
         const table = (<HTMLTableElement>document.getElementById('table-a'))
         // If a row is clicked (position = row.id)
         if (!isNaN(parseInt(position))) {
-            console.log('Direct input from init or mouse', position)
             this.clearHighlight(table)
             this.highlightLine(table, position)
             this.displayInfo(table.rows[this.currentTableRow])
@@ -138,8 +142,30 @@ export class TablesComponent implements OnDestroy {
         var elemBottom = elemTop + el.offsetHeight // console.log('elemBottom', elemBottom)
     }
 
-    scroll() {
-        const container = (<HTMLTableElement>document.getElementById('container-a'))
-        container.scrollTop = this.scrollRows
+    doAsync() {
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('#1 finished')
+            }, 1000);
+        })
+        return promise
     }
+
+    doAnotherAsync() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('#2 finished')
+            }, 5000);
+        })
+    }
+
+    doMoreAsync() {
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(45)
+            }, 2000);
+        })
+        return promise
+    }
+
 }
