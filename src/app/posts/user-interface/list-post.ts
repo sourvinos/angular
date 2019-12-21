@@ -25,7 +25,6 @@ export class PostListComponent implements OnDestroy {
 			if (e instanceof NavigationEnd) {
 				console.log('constructor navigation end')
 				this.posts = this.activatedRoute.snapshot.data['postList']
-				// this.postService.getPosts(this.userId).subscribe(result => this.posts = result)
 			}
 		})
 	}
@@ -33,9 +32,7 @@ export class PostListComponent implements OnDestroy {
 	ngOnInit() { }
 
 	ngAfterViewInit() {
-		// setTimeout(() => {
 		this.changeColors()
-		// }, 0);
 	}
 
 	ngOnDestroy() {

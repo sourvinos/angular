@@ -1,7 +1,6 @@
-import { Component, AfterViewInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { employee } from '../classes/model.employee'
-import { element } from 'src/app/models/element'
 
 @Component({
     selector: 'list-employee',
@@ -9,7 +8,7 @@ import { element } from 'src/app/models/element'
     styleUrls: ['./list-employee.css']
 })
 
-export class EmployeeListComponent implements AfterViewInit {
+export class EmployeeListComponent {
 
     employees: employee[]
     navigationSubscription: any
@@ -27,10 +26,6 @@ export class EmployeeListComponent implements AfterViewInit {
     }
 
     ngOnInit() { }
-
-    ngAfterViewInit() {
-        this.changeColors()
-    }
 
     getEmployee(employee: employee) {
         this.router.navigate(['../' + employee.id], {
