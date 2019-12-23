@@ -26,7 +26,6 @@ import { ArraysComponent } from '../arrays/arrays.component'
 import { AuthModule } from './../auth/auth.module'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
-import { InputsComponent } from '../input-controls/input-controls.component'
 import { LeftComponent } from '../animations/left/left.component'
 import { MainComponent } from '../animations/main/main.component'
 import { MaterialComponent } from '../material/material.component'
@@ -34,7 +33,6 @@ import { MaterialDialogComponent } from '../material-dialog/material-dialog.comp
 import { PageNotFoundComponent } from './../page-not-found.component'
 import { RightComponent } from '../animations/right/right.component'
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
-import { UserListComponent } from '../tests/04-forms/user-list.component'
 // Tables
 import { TablesHostComponent } from '../tables/tables-host.component'
 import { TablesComponent } from '../tables/tables.component'
@@ -65,7 +63,6 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         EmployeeItemComponent,
         FormReactiveComponent,
         FormTemplateComponent,
-        InputsComponent,
         LeftComponent,
         EmployeeListComponent,
         MainComponent,
@@ -73,7 +70,6 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         MaterialDialogComponent,
         PageNotFoundComponent,
         RightComponent,
-        UserListComponent,
         CustomPipe,
         // Posts
         PostWrapperComponent,

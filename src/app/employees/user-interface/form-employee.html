@@ -1,4 +1,3 @@
-{{ errorMessage }}
 <form [formGroup]="form" autocomplete="off">
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -6,11 +5,11 @@
         </div>
         <div class="panel-body">
             <mat-form-field>
-                <input type="text" matInput placeholder="Name" formControlName="name" tabindex="1" id="name" [input]="box">
+                <input type="text" matInput placeholder="Name" formControlName="name" tabindex="1" id="name">
                 <mat-error *ngIf="name.invalid">This field is required</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input type="text" matInput placeholder="Email" formControlName="email" tabindex="2" id="email" [input]="box">
+                <input type="text" matInput placeholder="Email" formControlName="email" tabindex="2" id="email">
                 <mat-error *ngIf="email.invalid">This field is required</mat-error>
             </mat-form-field>
         </div>

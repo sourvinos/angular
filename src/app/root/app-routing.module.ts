@@ -9,7 +9,6 @@ import { EventsMembersComponent } from '../auth/members/members.component'
 import { EventsRegisterComponent } from '../auth/register/register.component'
 import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from '../form-template/form-template.component'
-import { InputsComponent } from '../input-controls/input-controls.component'
 import { MainComponent } from '../animations/main/main.component'
 import { MaterialComponent } from '../material/material.component'
 
@@ -45,7 +44,6 @@ const appRoutes: Routes = [
 	{ path: 'material', component: MaterialComponent },
 	{ path: 'form-reactive', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard] },
 	{ path: 'form-template', component: FormTemplateComponent },
-	{ path: 'input-controls', component: InputsComponent },
 	{ path: 'arrays', component: ArraysComponent },
 	{ path: 'component-interactions', component: ParentComponent },
 	{
