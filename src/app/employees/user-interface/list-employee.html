@@ -6,7 +6,7 @@
         <h3 class="panel-title">{{ employee.name }}</h3>
     </div>
     <div class="panel-body">
-        <item-employee [employee]="employee" (click)="getEmployee(employee)"></item-employee>
+        <item-employee [employee]="employee" (click)="getEmployee(employee.id)"></item-employee>
     </div>
 </div>
 

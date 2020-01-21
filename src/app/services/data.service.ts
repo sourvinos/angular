@@ -10,15 +10,11 @@ export class DataService {
     constructor(private url: string, private http: HttpClient) { }
 
     getAll() {
-        return this.http
-            .get<any[]>(this.url)
-            .pipe(catchError(this.handleError))
+        return this.http.get<any[]>(this.url)
     }
 
     getSingle(id: number) {
-        return this.http
-            .get<any>(this.url + '/' + id)
-            .pipe(catchError(this.handleError))
+        return this.http.get<any>(this.url + '/' + id)
     }
 
     create(resource: any) {
@@ -41,9 +37,9 @@ export class DataService {
 
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
-            return throwError(alert('A client-side or network error occurred:' + '\n' + JSON.stringify(error)))
+            return throwError(console.log('A client-side or network error occurred:' + '\n' + JSON.stringify(error)))
         } else {
-            return throwError(alert('A back-end error occurred' + '\n' + JSON.stringify(error)))
+            return throwError(console.log('A back-end error occurred' + '\n' + JSON.stringify(error)))
         }
     }
 

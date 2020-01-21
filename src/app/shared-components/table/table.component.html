@@ -3,7 +3,7 @@
 <table id="index-table">
     <thead>
         <tr>
-            <th *ngFor="let header of headers, index as i" [style.width]="widths[i]" [style.display]="visibility[i]">{{ header }}</th>
+            <th *ngFor="let header of headers, index as i" [style.width]="widths[i]" [style.display]="visibility[i]" (click)="sortMe(header, sortOrder)">{{ header }}</th>
         </tr>
     </thead>
     <tbody>

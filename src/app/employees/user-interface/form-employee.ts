@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { EmployeeService } from '../classes/service.employee'
 import { department } from './../classes/model.department'
-import { employee } from './../classes/model.employee'
+import { Employee } from './../classes/model.employee'
 
 @Component({
     selector: 'form-employee',
@@ -14,7 +14,7 @@ import { employee } from './../classes/model.employee'
 export class EmployeeFormComponent implements OnInit {
 
     employeeId: number
-    employee: employee
+    employee: Employee
     isPreviewPhoto: boolean = false
     errorMessage: string = ''
 

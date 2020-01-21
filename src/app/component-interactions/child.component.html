@@ -32,7 +32,9 @@
             <input type="text" matInput placeholder="Something" tabindex="3" [input]="box" autocomplete="off">
         </mat-form-field>
         <br><br>
-        <button mat-flat-button color="primary" (click)="onOpenDialog(fruits)">Display a list of fruits</button>
+        <button mat-flat-button color="primary" (click)="onSortArrayByName()">Sort by name</button>
+        <button mat-flat-button color="primary" (click)="onSortArrayByPrice()">Sort by price</button>
+        <button mat-flat-button color="primary" (click)="onSortArrayByTime()">Sort by time</button>
     </div>
 
 </div>

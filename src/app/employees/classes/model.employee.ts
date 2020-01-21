@@ -1,5 +1,5 @@
-export class employee {
+export class Employee {
     id: number
     name: string
-    email?: string
+    email: string
 }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core'
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
-import { employee } from '../classes/model.employee'
+import { EmployeeService } from './../classes/service.employee';
+import { Component, OnInit } from '@angular/core'
+import { Employee } from '../classes/model.employee'
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'list-employee',
@@ -8,27 +9,21 @@ import { employee } from '../classes/model.employee'
     styleUrls: ['./list-employee.css']
 })
 
-export class EmployeeListComponent {
+export class EmployeeListComponent implements OnInit {
 
-    employees: employee[]
-    navigationSubscription: any
-    errorMessage: string = ''
+    employees: Employee[]
 
-    constructor(private activatedRoute: ActivatedRoute, private router: Router) {
-        console.log('constructor')
-        this.navigationSubscription = this.router.events.subscribe((e: any) => {
-            this.errorMessage = ''
-            if (e instanceof NavigationEnd) {
-                console.log('constructor navigation end')
-                this.employees = this.activatedRoute.snapshot.data['employeeList']
-            }
+    constructor(private employeeService: EmployeeService, private router: Router, private activatedRoute: ActivatedRoute) { }
+
+    ngOnInit() {
+        this.employeeService.getAll().subscribe(results => {
+            console.log(results)
+            this.employees = results
         })
     }
 
-    ngOnInit() { }
-
-    getEmployee(employee: employee) {
-        this.router.navigate(['../' + employee.id], {
+    getEmployee(id: number) {
+        this.router.navigate(['../', id], {
             relativeTo: this.activatedRoute
         })
     }

@@ -13,22 +13,17 @@ export class ChildComponent {
 
     @Input() fruits: Fruit[]
 
-    headers = ['Id', 'Description', 'Kingdom', 'Amount', 'Remarks']
+    headers = ['Id', 'Description', 'Kingdom', 'Amount', 'Time']
     widths = ['', '', '200px', '100px', '500px']
     visibility = ['none', '', '', '', '']
     justify = ['center', 'left', 'left', 'right', 'left']
-    fields = ['id', 'description', 'kingdom', 'amount', 'remarks']
+    fields = ['id', 'description', 'kingdom', 'amount', 'time']
 
     @Output() selectEvent = new EventEmitter()
 
     selectedIndex: number
 
     constructor(public dialog: MatDialog) { }
-
-    ngOnInit() {
-        // console.log('Inside the child', this.fruits)
-        // console.log('Inside the child', this.fields)
-    }
 
     // T
     lookupIndex(
@@ -94,6 +89,30 @@ export class ChildComponent {
 
     stopTimer() {
         console.log('Timer stopped')
+    }
+
+    onSortArrayByName() {
+        this.fruits.sort((a, b) => {
+            if (a.description > b.description) return 1
+            if (a.description < b.description) return -1
+        })
+        console.log('Sorted by name', this.fruits)
+    }
+
+    onSortArrayByPrice() {
+        this.fruits.sort((a, b) => {
+            if (a.amount > b.amount) return 1
+            if (a.amount < b.amount) return -1
+        })
+        console.log('Sorted by price', this.fruits)
+    }
+
+    onSortArrayByTime() {
+        this.fruits.sort((a, b) => {
+            if (a.time > b.time) return 1
+            if (a.time < b.time) return -1
+        })
+        console.log('Sorted by time', this.fruits)
     }
 
 }

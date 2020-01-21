@@ -92,12 +92,13 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         TablesHostComponent,
         TablesComponent,
         // Directives
-        InputDirective
+        InputDirective,
     ],
     entryComponents: [
         MaterialDialogComponent,
         IndexDialogComponent,
         PostModalForm
+
     ],
     imports: [
         CdkTableModule,
@@ -120,12 +121,10 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         MatTableModule,
         MatProgressBarModule,
         MatProgressSpinnerModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule
     ],
     providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: TokenInterceptorService,
-        multi: true
+        provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true
     }],
     bootstrap: [AppComponent]
 })

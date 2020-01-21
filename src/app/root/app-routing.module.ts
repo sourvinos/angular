@@ -11,7 +11,6 @@ import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from '../form-template/form-template.component'
 import { MainComponent } from '../animations/main/main.component'
 import { MaterialComponent } from '../material/material.component'
-
 import { PageNotFoundComponent } from './../page-not-found.component'
 
 // Guards
@@ -32,10 +31,10 @@ import { PostListResolverService } from '../posts/classes/resolver-list-post'
 import { EmployeeWrapperComponent } from '../employees/user-interface/wrapper-employee'
 import { EmployeeListComponent } from '../employees/user-interface/list-employee'
 import { EmployeeFormComponent } from '../employees/user-interface/form-employee'
-import { EmployeeListResolverService } from '../employees/classes/resolver-list-employee'
 
 // Tables
 import { TablesHostComponent } from '../tables/tables-host.component'
+import { EmployeeListResolverService } from '../employees/classes/service.list-resolver'
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -66,7 +65,7 @@ const appRoutes: Routes = [
 	},
 	{
 		path: 'employees', component: EmployeeWrapperComponent, children: [
-			{ path: 'list', component: EmployeeListComponent, resolve: { employeeList: EmployeeListResolverService } },
+			{ path: 'list', component: EmployeeListComponent },
 			{ path: 'new', component: EmployeeFormComponent },
 			{ path: ':id', component: EmployeeFormComponent }
 		]
