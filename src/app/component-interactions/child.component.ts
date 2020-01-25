@@ -5,6 +5,7 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
 
 import * as pdfMake from 'pdfmake/build/pdfmake.js'
 import * as pdfFonts from 'pdfmake/build/vfs_fonts.js'
+import { DataRowOutlet } from '@angular/cdk/table'
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs
 
@@ -122,10 +123,10 @@ export class ChildComponent {
 
     buildTableBody(data: any[], columns: any[], align: any[]) {
         var body = []
+        body.push([{ text: 'Description', style: 'tableHeader', alignment: 'center' }, { text: 'Time', style: 'tableHeader', alignment: 'center' }])
         data.forEach(function (row) {
             var dataRow = []
             columns.forEach((element, index) => {
-                console.log(index)
                 // dataRow.push(row[column].toString())
                 // dataRow.push({ text: row[element].toString(), alignment: 'center', color: '#006400' })
                 dataRow.push({ text: row[element].toString(), alignment: align[index].toString(), color: '#006400' })
@@ -138,15 +139,19 @@ export class ChildComponent {
     table(data: any[], columns: any[], align: any[]) {
         return {
             table: {
+                headerRows: 1,
                 widths: ['90%', '10%'],
+                heights: 50,
                 body: this.buildTableBody(data, columns, align)
-            }
+            },
+            // layout: 'lightHorizontalLines'
         }
     }
 
     makePdf() {
         pdfMake.vfs = pdfFonts.pdfMake.vfs
         var dd = {
+            pageMargins: [150, 10, 30, 50], // left, top, right, bottom
             content: [
                 this.table(this.fruits, ['description', 'time'], ['left', 'right'])
             ]
