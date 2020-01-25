@@ -12,7 +12,7 @@
     </div>
 
     <div id="content">
-        <app-table [records]="fruits" [headers]="headers" [widths]="widths" [visibility]="visibility" [justify]="justify" [fields]="fields" (selectEvent)="onSelectFruit($event)"></app-table>
+        <app-table id="sortable" [records]="fruits" [headers]="headers" [widths]="widths" [visibility]="visibility" [justify]="justify" [fields]="fields" (selectEvent)="onSelectFruit($event)"></app-table>
     </div>
 
     <!-- <ul>
@@ -35,7 +35,8 @@
         <button mat-flat-button color="primary" (click)="onSortArrayByName()">Sort by name</button>
         <button mat-flat-button color="primary" (click)="onSortArrayByPrice()">Sort by price</button>
         <button mat-flat-button color="primary" (click)="onSortArrayByTime()">Sort by time</button>
-        <button mat-flat-button color="accent" (click)="createPdf()">Create PDF</button>
+        <button mat-flat-button color="accent" (click)="createPdf()">jsPDF</button>
+        <button mat-flat-button color="accent" (click)="makePdf()">make PDF</button>
     </div>
 
 </div>

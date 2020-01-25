@@ -1,0 +1,5 @@
+<div id="header-container" style="width:200px;">
+    <select (change)="selectChangeHandler($event)">
+        <option *ngFor=" let option of options" [value]="option.id">{{ option.name }}</option>
+    </select>
+</div>

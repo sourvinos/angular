@@ -3,8 +3,10 @@ import { MatDialog } from '@angular/material'
 import { Fruit } from './parent.component'
 import { IndexDialogComponent } from '../shared-components/index-dialog/index-dialog.component'
 
-const jsPDF = require('jspdf')
-require('jspdf-autotable')
+import * as pdfMake from 'pdfmake/build/pdfmake.js'
+import * as pdfFonts from 'pdfmake/build/vfs_fonts.js'
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs
 
 @Component({
     selector: 'child',
@@ -118,78 +120,35 @@ export class ChildComponent {
         console.log('Sorted by time', this.fruits)
     }
 
-    createPdf() {
-        var doc = new jsPDF();
-        doc.autoTable({
-            head: [['Name', 'Email', 'Country']],
-            body: [
-                ['David', 'david@example.com', 'Sweden'],
-                ['Castille', 'castille@example.com', 'Norway'],
-            ],
-            theme: 'plain',
-            columnStyles: {
-                1: { halign: 'center' },
-                2: { halign: 'right' }
-            }
+    buildTableBody(data: any[], columns: any[]) {
+        var body = []
+        data.forEach(function (row) {
+            var dataRow = []
+            columns.forEach(function (column) {
+                dataRow.push(row[column].toString())
+            })
+            body.push(dataRow)
         })
-        doc.addPage('a4', '1')
-        doc.autoTable({
-            head: [['Name', 'Email', 'Country']],
-            body: [
-                ['David', 'david@example.com', 'Sweden'],
-                ['Castille', 'castille@example.com', 'Norway'],
-            ],
-            theme: 'plain',
-            columnStyles: {
-                1: { halign: 'center' },
-                2: { halign: 'right' }
-            }
-        })
-        doc.output('pdfobjectnewwindow')
-        // window.open(URL.createObjectURL(doc.output("dataurlnewwindow")))
-        // doc.save('table.pdf')
-        // let row: any[] = []
-        // let rowD: any[] = []
-        // let col = ['Id', 'Description', 'Time']
-        // let title = "Sample Report"
-        // for (let a = 0; a < this.fruits.length; a++) {
-        //     row.push(this.fruits[a].id)
-        //     row.push(this.fruits[a].description)
-        //     row.push(this.fruits[a].time)
-        //     rowD.push(row);
-        //     row = [];
-        // }
-        // this.getReport(col, rowD, title);
+        return body
     }
 
-    getReport(col: any[], rowD: any[], title: any) {
-        const totalPagesExp = "{total_pages_count_string}";
-        let pdf = new jsPDF('l', 'pt', 'legal');
-        pdf.setTextColor(51, 156, 255);
-        pdf.text("Sample1", 450, 40);
-        pdf.text("Email:", 450, 60);
-        pdf.text("Phone:", 450, 80);
-        pdf.text("" + title, 435, 100)
-        pdf.setLineWidth(1.5);
-        pdf.line(5, 107, 995, 107)
-        var pageContent = function (data) {
-            var str = "Page " + data.pageCount;
-            if (typeof pdf.putTotalPages === 'function') {
-                str = str + " of " + totalPagesExp;
+    table(data: any[], columns) {
+        return {
+            table: {
+                widths: ['90%', '10%'],
+                body: this.buildTableBody(data, columns)
             }
-            pdf.setFontSize(10);
-            var pageHeight = pdf.internal.pageSize.height || pdf.internal.pageSize.getHeight();
-            pdf.text(str, data.settings.margin.left, pageHeight - 10)
-        };
-        pdf.autoTable(col, rowD,
-            {
-                addPageContent: pageContent,
-                margin: { top: 110 },
-            });
-
-        if (typeof pdf.putTotalPages === 'function') {
-            pdf.putTotalPages(totalPagesExp);
         }
-        pdf.save(title + '.pdf');
     }
+
+    makePdf() {
+        pdfMake.vfs = pdfFonts.pdfMake.vfs
+        var dd = {
+            content: [
+                this.table(this.fruits, ['description', 'time'])
+            ]
+        }
+        pdfMake.createPdf(dd).open()
+    }
+
 }
