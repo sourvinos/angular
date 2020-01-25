@@ -122,10 +122,31 @@ export class ChildComponent {
     }
 
     buildTableBody(data: any[], columns: any[], align: any[]) {
-        var body = []
-        body.push([{ text: 'Description', style: 'tableHeader', alignment: 'center' }, { text: 'Time', style: 'tableHeader', alignment: 'center' }])
+        let body: any = []
+        let count: number = 0
+        let totalQty: number = 0
+        let description = data[0].description
+        body.push([
+            { text: 'Description', style: 'tableHeader', alignment: 'center' },
+            { text: 'Amount', style: 'tableHeader', alignment: 'center' }
+        ])
         data.forEach(function (row) {
             var dataRow = []
+            if (row.description == description) {
+                count += 1
+                totalQty += row.amount
+            } else {
+                if (count > 1) {
+                    dataRow.push(
+                        { text: 'Total ' + description },
+                        { text: totalQty, alignment: 'right' })
+                    body.push(dataRow)
+                    dataRow = []
+                }
+                count = 1
+                totalQty = row.amount
+                description = row.description
+            }
             columns.forEach((element, index) => {
                 // dataRow.push(row[column].toString())
                 // dataRow.push({ text: row[element].toString(), alignment: 'center', color: '#006400' })
@@ -140,8 +161,8 @@ export class ChildComponent {
         return {
             table: {
                 headerRows: 1,
-                widths: ['90%', '10%'],
-                heights: 50,
+                // widths: ['90%'],
+                // heights: 30,
                 body: this.buildTableBody(data, columns, align)
             },
             // layout: 'lightHorizontalLines'
@@ -149,11 +170,15 @@ export class ChildComponent {
     }
 
     makePdf() {
+        this.fruits.sort((a, b) => {
+            if (a.description > b.description) return 1
+            if (a.description < b.description) return -1
+        })
         pdfMake.vfs = pdfFonts.pdfMake.vfs
         var dd = {
             pageMargins: [150, 10, 30, 50], // left, top, right, bottom
             content: [
-                this.table(this.fruits, ['description', 'time'], ['left', 'right'])
+                this.table(this.fruits, ['description', 'amount'], ['left', 'right'])
             ]
         }
         pdfMake.createPdf(dd).open()
