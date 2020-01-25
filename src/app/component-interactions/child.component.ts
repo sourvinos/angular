@@ -120,23 +120,26 @@ export class ChildComponent {
         console.log('Sorted by time', this.fruits)
     }
 
-    buildTableBody(data: any[], columns: any[]) {
+    buildTableBody(data: any[], columns: any[], align: any[]) {
         var body = []
         data.forEach(function (row) {
             var dataRow = []
-            columns.forEach(function (column) {
-                dataRow.push(row[column].toString())
+            columns.forEach((element, index) => {
+                console.log(index)
+                // dataRow.push(row[column].toString())
+                // dataRow.push({ text: row[element].toString(), alignment: 'center', color: '#006400' })
+                dataRow.push({ text: row[element].toString(), alignment: align[index].toString(), color: '#006400' })
             })
             body.push(dataRow)
         })
         return body
     }
 
-    table(data: any[], columns) {
+    table(data: any[], columns: any[], align: any[]) {
         return {
             table: {
                 widths: ['90%', '10%'],
-                body: this.buildTableBody(data, columns)
+                body: this.buildTableBody(data, columns, align)
             }
         }
     }
@@ -145,7 +148,7 @@ export class ChildComponent {
         pdfMake.vfs = pdfFonts.pdfMake.vfs
         var dd = {
             content: [
-                this.table(this.fruits, ['description', 'time'])
+                this.table(this.fruits, ['description', 'time'], ['left', 'right'])
             ]
         }
         pdfMake.createPdf(dd).open()
