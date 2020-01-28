@@ -128,25 +128,36 @@ export class ChildComponent {
         })
         pdfMake.vfs = pdfFonts.pdfMake.vfs
         var dd = {
-            pageMargins: [50, 50, 50, 50],
+            pageMargins: [50, 30, 50, 50],
             pageOrientation: 'landscape',
             defaultStyle: { fontSize: 8 },
-            footer: function (currentPage, pageCount) {
+            footer: function (currentPage: any, pageCount: any) {
                 return {
                     table: {
                         widths: '*',
-                        body: [
-                            [
-                                { text: "Page " + currentPage.toString() + ' of ' + pageCount, alignment: 'right', style: 'normalText', margin: [0, 20, 50, 10], aligment: 'left' }
-                            ]
-                        ]
+                        body: [[{ text: "Page " + currentPage.toString() + ' of ' + pageCount, alignment: 'right', style: 'normalText', margin: [0, 10, 50, 0], aligment: 'left' }]]
                     },
                     layout: 'noBorders'
-                };
+                }
             },
-            content: [{ text: 'Date: 01/08/2019', style: 'header' }, { text: 'Transfers for driver: STAMATIS', style: 'header' }, (this.table(this.transfers, ['time', 'pickupPoint', 'adults', 'kids', 'free', 'total', 'customer', 'remarks', 'destination'], ['center', 'left', 'right', 'right', 'right', 'right', 'left', 'left', 'center']))]
+            content: [{
+                text: 'TRANSFERS FOR: 20/02/2020 - DRIVER: ΣΤΑΜΑΤΗΣ',
+                margin: [0, 0, 0, 20],
+                fontSize: 8
+            },
+            // content: [
+            //     {
+            //         stack: ['Date 28/01/2020',
+            //             { text: 'Driver: STAMATIS', style: 'subheader' },
+            //         ],
+            //         margin: [0, 0, 0, 20],
+            //         fontSize: 10,
+            //         style: 'header'
+            //     },
+            (this.table(this.transfers, ['time', 'pickupPoint', 'adults', 'kids', 'free', 'total', 'customer', 'remarks', 'destination'], ['center', 'left', 'right', 'right', 'right', 'right', 'left', 'left', 'center']))]
         }
         pdfMake.createPdf(dd).open()
+        // pdfMake.createPdf(dd).download('Transfers.pdf')
     }
 
     buildTableBody(data: any[], columns: any[], align: any[]) {
@@ -155,17 +166,7 @@ export class ChildComponent {
         let total: number[] = [0, 0, 0, 0]
         let totals: number[] = [0, 0, 0, 0]
         let pickupPoint = data[1].pickupPoint
-        body.push([
-            { text: 'TIME', style: 'tableHeader', alignment: 'center' },
-            { text: 'PICKUP POINT', style: 'tableHeader', alignment: 'center' },
-            { text: 'A', style: 'tableHeader', alignment: 'center' },
-            { text: 'K', style: 'tableHeader', alignment: 'center' },
-            { text: 'F', style: 'tableHeader', alignment: 'center' },
-            { text: 'T', style: 'tableHeader', alignment: 'center' },
-            { text: 'CUSTOMER', style: 'tableHeader', alignment: 'center' },
-            { text: 'REMARKS', style: 'tableHeader', alignment: 'center' },
-            { text: 'D', style: 'tableHeader', alignment: 'center' },
-        ])
+        body.push(this.createHeaders())
         data.forEach(function (row) {
             var dataRow = []
             if (row.pickupPoint == pickupPoint) {
@@ -188,6 +189,7 @@ export class ChildComponent {
                         { text: '' }
                     )
                     body.push(dataRow)
+                    // body.push(this.createTotalLine(pickupPoint, total))
                     dataRow = []
                 }
                 count = 1
@@ -198,12 +200,10 @@ export class ChildComponent {
 
                 pickupPoint = row.pickupPoint
             }
-
             totals[0] += Number(row.adults)
             totals[1] += Number(row.kids)
             totals[2] += Number(row.free)
             totals[3] += Number(row.total)
-
             columns.forEach((element, index) => {
                 if (row[element].toString() == "0") row[element] = ""
                 dataRow.push({ text: row[element].toString(), alignment: align[index].toString(), color: '#000000' })
@@ -213,7 +213,7 @@ export class ChildComponent {
         let dataRow = []
         dataRow.push(
             { text: '' },
-            { text: 'TOTAL FOR DRIVER: ', bold: true },
+            { text: 'GRAND TOTAL FOR DRIVER ', bold: true },
             { text: String(totals[0]) == "0" ? "" : String(totals[0]), alignment: 'right', fillColor: 'white', bold: true },
             { text: String(totals[1]) == "0" ? "" : String(totals[1]), alignment: 'right', fillColor: 'white', bold: true },
             { text: String(totals[2]) == "0" ? "" : String(totals[2]), alignment: 'right', fillColor: 'white', bold: true },
@@ -246,5 +246,32 @@ export class ChildComponent {
         }
     }
 
+    createHeaders() {
+        return [
+            { text: 'TIME', style: 'tableHeader', alignment: 'center' },
+            { text: 'PICKUP POINT', style: 'tableHeader', alignment: 'center' },
+            { text: 'A', style: 'tableHeader', alignment: 'center' },
+            { text: 'K', style: 'tableHeader', alignment: 'center' },
+            { text: 'F', style: 'tableHeader', alignment: 'center' },
+            { text: 'T', style: 'tableHeader', alignment: 'center' },
+            { text: 'CUSTOMER', style: 'tableHeader', alignment: 'center' },
+            { text: 'REMARKS', style: 'tableHeader', alignment: 'center' },
+            { text: 'D', style: 'tableHeader', alignment: 'center' },
+        ]
+    }
 
+    createTotalLine(pickupPoint: string, total: any[]) {
+        let dataRow = [
+            { text: '' },
+            { text: 'TOTAL: ' + pickupPoint, bold: true },
+            { text: String(total[0]) == "0" ? "" : String(total[0]), alignment: 'right', fillColor: 'white', bold: true },
+            { text: String(total[1]) == "0" ? "" : String(total[1]), alignment: 'right', fillColor: 'white', bold: true },
+            { text: String(total[2]) == "0" ? "" : String(total[2]), alignment: 'right', fillColor: 'white', bold: true },
+            { text: String(total[3]) == "0" ? "" : String(total[3]), alignment: 'right', fillColor: 'white', bold: true },
+            { text: '' },
+            { text: '' },
+            { text: '' }
+        ]
+        return dataRow
+    }
 }
