@@ -91,6 +91,9 @@ export class ParentComponent {
             { time: '09:44', destination: 'PA', pickupPoint: 'CAPO DI CORFU / M.GATE', adults: '5', kids: '0', free: '0', total: '5', remarks: 'PAY ON THE BOAT 105', customer: 'PANDIS TRAVEL KAVOS' },
             { time: '09:45', destination: 'BL', pickupPoint: 'TEX MEX / MAIN ROAD', adults: '2', kids: '0', free: '0', total: '2', remarks: 'GYG', customer: 'CORFU CRUISES' },
         ]
+        this._interactionService.dataArray.subscribe(data => {
+            console.log('Data from service', data)
+        })
     }
 
     // T
@@ -118,6 +121,12 @@ export class ParentComponent {
     // which will be displayed in the template
     select(input: Fruit) {
         this.selectedFruit = input
+    }
+
+    loadData() {
+        this._interactionService.dataArray.subscribe(data => {
+            console.log('Data from service', data)
+        })
     }
 
 }

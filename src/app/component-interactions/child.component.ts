@@ -1,3 +1,4 @@
+import { IndexInteractionService } from './../services/interaction.service';
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { MatDialog } from '@angular/material'
 import { Fruit, Transfer } from './parent.component'
@@ -30,7 +31,7 @@ export class ChildComponent {
 
     selectedIndex: number
 
-    constructor(public dialog: MatDialog, private PdfService: PdfService) { }
+    constructor(public dialog: MatDialog, private PdfService: PdfService, private interactionService: IndexInteractionService) { }
 
     // T
     lookupIndex(
@@ -123,7 +124,8 @@ export class ChildComponent {
     }
 
     makePdf() {
-        this.PdfService.createReport(this.transfers)
+        this.interactionService.sendArray(this.fruits)
+        // this.PdfService.createReport(this.transfers)
     }
 
 }
