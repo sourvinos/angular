@@ -34,7 +34,6 @@ export class PostFormComponent {
 
     ngOnInit() {
         console.log('Init', this.postId)
-
     }
 
     // Master

@@ -1,4 +1,4 @@
-import { EmployeeService } from './../classes/service.employee';
+import { EmployeeService } from '../classes/service.employees';
 import { Component, OnInit } from '@angular/core'
 import { Employee } from '../classes/model.employee'
 import { Router, ActivatedRoute } from '@angular/router';

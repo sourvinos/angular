@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
-import { PasswordValidator } from './password.validator'
-import { ForbiddenNameValidator } from './username.validator'
+import { PasswordValidator } from '../classes/password.validator'
+import { ForbiddenNameValidator } from '../classes/username.validator'
 
 @Component({
 	selector: 'form-reactive',

@@ -24,7 +24,6 @@ import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
 import { ArraysComponent } from '../arrays/arrays.component'
 import { AuthModule } from './../auth/auth.module'
-import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
 import { FormTemplateComponent } from './../form-template/form-template.component'
 import { LeftComponent } from '../animations/left/left.component'
 import { MainComponent } from '../animations/main/main.component'
@@ -40,11 +39,6 @@ import { TablesComponent } from '../tables/tables.component'
 import { PostWrapperComponent } from '../posts/user-interface/wrapper-post'
 import { PostListComponent } from '../posts/user-interface/list-post'
 import { PostFormComponent } from '../posts/user-interface/form-post'
-// Employees
-import { EmployeeWrapperComponent } from '../employees/user-interface/wrapper-employee'
-import { EmployeeListComponent } from '../employees/user-interface/list-employee'
-import { EmployeeItemComponent } from '../employees/user-interface/item-employee'
-import { EmployeeFormComponent } from '../employees/user-interface/form-employee'
 import { PostModalForm } from '../posts/user-interface/modal-form'
 // Component interactions
 import { ChildComponent } from '../component-interactions/child.component'
@@ -55,16 +49,16 @@ import { ParentComponent } from '../component-interactions/parent.component'
 import { TableComponent } from '../shared-components/table/table.component'
 import { IndexDialogComponent } from '../shared-components/index-dialog/index-dialog.component'
 
+// Feature modules
+import { EmployeesModule } from './../employees/classes/module.employees'
+import { FormReactiveModule } from '../form-reactive/form-reactive.module'
+
 @NgModule({
     declarations: [
         AppComponent,
         ArraysComponent,
-        EmployeeFormComponent,
-        EmployeeItemComponent,
-        FormReactiveComponent,
         FormTemplateComponent,
         LeftComponent,
-        EmployeeListComponent,
         MainComponent,
         MaterialComponent,
         MaterialDialogComponent,
@@ -76,11 +70,6 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         PostListComponent,
         PostFormComponent,
         PostModalForm,
-        // Employees
-        EmployeeWrapperComponent,
-        EmployeeListComponent,
-        EmployeeItemComponent,
-        EmployeeFormComponent,
         // Component interactions
         ChildComponent,
         FooterComponent,
@@ -92,17 +81,20 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         TablesHostComponent,
         TablesComponent,
         // Directives
-        InputDirective,
+        InputDirective
     ],
     entryComponents: [
         MaterialDialogComponent,
         IndexDialogComponent,
         PostModalForm
-
     ],
     imports: [
-        CdkTableModule,
+        // Feature modules
+        EmployeesModule,
+        FormReactiveModule,
+        // The rest
         AppRoutingModule,
+        CdkTableModule,
         AuthModule,
         BrowserAnimationsModule,
         BrowserModule,
@@ -121,7 +113,7 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         MatTableModule,
         MatProgressBarModule,
         MatProgressSpinnerModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
     providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
         provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true

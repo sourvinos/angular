@@ -7,7 +7,7 @@ import { EventsHomeComponent } from '../auth/home/home.component'
 import { EventsLoginComponent } from '../auth/login/login.component'
 import { EventsMembersComponent } from '../auth/members/members.component'
 import { EventsRegisterComponent } from '../auth/register/register.component'
-import { FormReactiveComponent } from '../form-reactive/form-reactive.component'
+import { FormReactiveComponent } from '../form-reactive/user-interface/form-reactive.component'
 import { FormTemplateComponent } from '../form-template/form-template.component'
 import { MainComponent } from '../animations/main/main.component'
 import { MaterialComponent } from '../material/material.component'
@@ -27,14 +27,8 @@ import { PostFormComponent } from '../posts/user-interface/form-post'
 import { PostEditResolverService } from '../posts/classes/resolver-edit-post'
 import { PostListResolverService } from '../posts/classes/resolver-list-post'
 
-// Employees
-import { EmployeeWrapperComponent } from '../employees/user-interface/wrapper-employee'
-import { EmployeeListComponent } from '../employees/user-interface/list-employee'
-import { EmployeeFormComponent } from '../employees/user-interface/form-employee'
-
 // Tables
 import { TablesHostComponent } from '../tables/tables-host.component'
-import { EmployeeListResolverService } from '../employees/classes/service.list-resolver'
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
@@ -63,13 +57,7 @@ const appRoutes: Routes = [
 			}]
 		}], runGuardsAndResolvers: 'always'
 	},
-	{
-		path: 'employees', component: EmployeeWrapperComponent, children: [
-			{ path: 'list', component: EmployeeListComponent },
-			{ path: 'new', component: EmployeeFormComponent },
-			{ path: ':id', component: EmployeeFormComponent }
-		]
-	}
+	{ path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({

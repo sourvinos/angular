@@ -1,9 +1,9 @@
-import { EmployeeService } from './../../employees/classes/service.employee';
+import { EmployeeService } from '../../employees/classes/service.employees';
 import { FormControl } from '@angular/forms'
 import { Observable } from 'rxjs'
 import { startWith, map } from 'rxjs/operators'
 import { Component } from '@angular/core'
-import { Employee } from 'src/app/employees/classes/model.employee'
+import { Employee } from 'src/app/employees/classes/model.employee';
 
 @Component({
     selector: 'app-select',

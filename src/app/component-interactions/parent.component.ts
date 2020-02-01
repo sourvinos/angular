@@ -123,10 +123,4 @@ export class ParentComponent {
         this.selectedFruit = input
     }
 
-    loadData() {
-        this._interactionService.dataArray.subscribe(data => {
-            console.log('Data from service', data)
-        })
-    }
-
 }

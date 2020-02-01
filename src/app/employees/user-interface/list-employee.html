@@ -1,6 +1,3 @@
-<div class="panel panel-primary">
-    Employees: {{ employees.length }}
-</div>
 <div class="panel panel-primary" [class.active]="activeField" *ngFor="let employee of employees let i = index">
     <div class="panel-heading">
         <h3 class="panel-title">{{ employee.name }}</h3>
