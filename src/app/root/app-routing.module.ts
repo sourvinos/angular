@@ -7,9 +7,7 @@ import { EventsHomeComponent } from '../auth/home/home.component'
 import { EventsLoginComponent } from '../auth/login/login.component'
 import { EventsMembersComponent } from '../auth/members/members.component'
 import { EventsRegisterComponent } from '../auth/register/register.component'
-import { FormReactiveComponent } from '../form-reactive/user-interface/form-reactive.component'
-import { FormTemplateComponent } from '../form-template/form-template.component'
-// import { MaterialComponent } from '../material/material.component'
+import { MaterialComponent } from '../material/material.component'
 import { PageNotFoundComponent } from './../page-not-found.component'
 
 // Guards
@@ -17,7 +15,7 @@ import { AuthGuard } from './../auth/services/auth.guard'
 import { CanDeactivateGuard } from '../services/can-deactivate-guard-service'
 
 // Component interactions
-// import { ParentComponent } from '../component-interactions/parent.component'
+import { ParentComponent } from '../component-interactions/parent.component'
 
 // Posts
 import { PostWrapperComponent } from '../posts/user-interface/wrapper-post'
@@ -31,11 +29,9 @@ import { TablesHostComponent } from '../tables/tables-host.component'
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
-	// { path: 'material', component: MaterialComponent },
-	// { path: 'form-reactive', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard] },
-	// { path: 'form-template', component: FormTemplateComponent },
-	// { path: 'arrays', component: ArraysComponent },
-	// { path: 'component-interactions', component: ParentComponent },
+	{ path: 'material', component: MaterialComponent },
+	{ path: 'arrays', component: ArraysComponent },
+	{ path: 'component-interactions', component: ParentComponent },
 	{
 		path: 'auth', component: EventsHomeComponent, children: [
 			{ path: '', component: EventsHomeComponent },
@@ -54,7 +50,6 @@ const appRoutes: Routes = [
 			}]
 		}], runGuardsAndResolvers: 'always'
 	},
-	{ path: 'employees', loadChildren: './module.employees#EmployeesModule' },
 	{ path: '**', component: PageNotFoundComponent }
 ]
 

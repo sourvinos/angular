@@ -5,10 +5,13 @@ import { EmployeeListComponent } from '../user-interface/list-employee'
 import { EmployeeWrapperComponent } from '../user-interface/wrapper-employee'
 
 const appRoutes: Routes = [
-    { path: '', component: EmployeeWrapperComponent },
-    { path: 'list', component: EmployeeListComponent },
-    { path: 'new', component: EmployeeFormComponent },
-    { path: ':id', component: EmployeeFormComponent }
+    {
+        path: 'employees', component: EmployeeWrapperComponent, children: [
+            { path: 'list', component: EmployeeListComponent },
+            { path: 'new', component: EmployeeFormComponent },
+            { path: ':id', component: EmployeeFormComponent }
+        ]
+    }
 ]
 
 @NgModule({

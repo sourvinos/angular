@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 // Material design
 import { MatButtonModule } from '@angular/material/button'
-import { MatDialogModule, MatListModule, MAT_LABEL_GLOBAL_OPTIONS, MatCheckboxModule, MatExpansionPanel, MatProgressBarModule, MatProgressSpinnerModule } from '@angular/material'
+import { MatDialogModule, MatListModule, MAT_LABEL_GLOBAL_OPTIONS, MatCheckboxModule, MatProgressBarModule, MatProgressSpinnerModule } from '@angular/material'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
@@ -22,10 +22,10 @@ import { CustomPipe } from '../pipes/custom.pipe'
 // Components
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
-// import { ArraysComponent } from '../arrays/arrays.component'
+import { ArraysComponent } from '../arrays/arrays.component'
 import { AuthModule } from './../auth/auth.module'
-import { FormTemplateComponent } from './../form-template/form-template.component'
-// import { MaterialComponent } from '../material/material.component'
+
+import { MaterialComponent } from '../material/material.component'
 import { MaterialDialogComponent } from '../material-dialog/material-dialog.component'
 import { PageNotFoundComponent } from './../page-not-found.component'
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
@@ -47,15 +47,15 @@ import { TableComponent } from '../shared-components/table/table.component'
 import { IndexDialogComponent } from '../shared-components/index-dialog/index-dialog.component'
 
 // Feature modules
-// import { EmployeesModule } from './../employees/classes/module.employees'
+import { EmployeesModule } from '../employees/classes/module.employees';
+import { FormTemplateModule } from '../form-template/form-template.module';
 import { FormReactiveModule } from '../form-reactive/form-reactive.module'
 
 @NgModule({
     declarations: [
         AppComponent,
-        // ArraysComponent,
-        // FormTemplateComponent,
-        // MaterialComponent,
+        ArraysComponent,
+        MaterialComponent,
         MaterialDialogComponent,
         PageNotFoundComponent,
         CustomPipe,
@@ -69,7 +69,7 @@ import { FormReactiveModule } from '../form-reactive/form-reactive.module'
         FooterComponent,
         HeaderComponent,
         IndexDialogComponent,
-        // ParentComponent,
+        ParentComponent,
         TableComponent,
         // Tables
         TablesHostComponent,
@@ -84,7 +84,8 @@ import { FormReactiveModule } from '../form-reactive/form-reactive.module'
     ],
     imports: [
         // Feature modules
-        // EmployeesModule,
+        EmployeesModule,
+        FormTemplateModule,
         FormReactiveModule,
         // The rest
         AppRoutingModule,
@@ -94,6 +95,7 @@ import { FormReactiveModule } from '../form-reactive/form-reactive.module'
         BrowserModule,
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
         MatButtonModule,
         MatCheckboxModule,
@@ -107,7 +109,6 @@ import { FormReactiveModule } from '../form-reactive/form-reactive.module'
         MatTableModule,
         MatProgressBarModule,
         MatProgressSpinnerModule,
-        ReactiveFormsModule,
     ],
     providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
         provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true
