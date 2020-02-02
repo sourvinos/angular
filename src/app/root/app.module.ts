@@ -22,15 +22,12 @@ import { CustomPipe } from '../pipes/custom.pipe'
 // Components
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
-import { ArraysComponent } from '../arrays/arrays.component'
+// import { ArraysComponent } from '../arrays/arrays.component'
 import { AuthModule } from './../auth/auth.module'
 import { FormTemplateComponent } from './../form-template/form-template.component'
-import { LeftComponent } from '../animations/left/left.component'
-import { MainComponent } from '../animations/main/main.component'
-import { MaterialComponent } from '../material/material.component'
+// import { MaterialComponent } from '../material/material.component'
 import { MaterialDialogComponent } from '../material-dialog/material-dialog.component'
 import { PageNotFoundComponent } from './../page-not-found.component'
-import { RightComponent } from '../animations/right/right.component'
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
 // Tables
 import { TablesHostComponent } from '../tables/tables-host.component'
@@ -50,20 +47,17 @@ import { TableComponent } from '../shared-components/table/table.component'
 import { IndexDialogComponent } from '../shared-components/index-dialog/index-dialog.component'
 
 // Feature modules
-import { EmployeesModule } from './../employees/classes/module.employees'
+// import { EmployeesModule } from './../employees/classes/module.employees'
 import { FormReactiveModule } from '../form-reactive/form-reactive.module'
 
 @NgModule({
     declarations: [
         AppComponent,
-        ArraysComponent,
-        FormTemplateComponent,
-        LeftComponent,
-        MainComponent,
-        MaterialComponent,
+        // ArraysComponent,
+        // FormTemplateComponent,
+        // MaterialComponent,
         MaterialDialogComponent,
         PageNotFoundComponent,
-        RightComponent,
         CustomPipe,
         // Posts
         PostWrapperComponent,
@@ -75,7 +69,7 @@ import { FormReactiveModule } from '../form-reactive/form-reactive.module'
         FooterComponent,
         HeaderComponent,
         IndexDialogComponent,
-        ParentComponent,
+        // ParentComponent,
         TableComponent,
         // Tables
         TablesHostComponent,
@@ -90,7 +84,7 @@ import { FormReactiveModule } from '../form-reactive/form-reactive.module'
     ],
     imports: [
         // Feature modules
-        EmployeesModule,
+        // EmployeesModule,
         FormReactiveModule,
         // The rest
         AppRoutingModule,
