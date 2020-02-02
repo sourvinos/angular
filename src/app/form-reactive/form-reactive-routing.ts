@@ -5,7 +5,7 @@ import { FormReactiveComponent } from './user-interface/form-reactive.component'
 
 const appRoutes: Routes = [
     {
-        path: 'form-reactive', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard]
+        path: '', component: FormReactiveComponent, canDeactivate: [CanDeactivateGuard]
     },
 ]
 

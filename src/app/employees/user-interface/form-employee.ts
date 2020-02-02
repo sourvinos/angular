@@ -53,17 +53,30 @@ export class EmployeeFormComponent implements OnInit {
         }
     }
 
+    canDeactivate() {
+        if (this.form.dirty) {
+            let response = confirm('Please confirm')
+            if (response) {
+                return true
+            }
+        } else {
+            return true
+        }
+    }
+
     updateEmployee() {
         if (this.form.value.id) {
             console.log('Updating', this.form.value.id)
             this.employeeService.update(this.form.value).subscribe(result => {
                 console.log('After the update', result)
+                this.form.reset()
                 this.router.navigate(['/employees/list'])
             })
         }
         if (!this.form.value.id) {
             console.log('Saving')
             this.employeeService.create(this.form.value).subscribe(result => {
+                this.form.reset()
                 console.log('After the save', result)
                 this.router.navigate(['/employees/list'])
             })

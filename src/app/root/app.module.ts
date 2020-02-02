@@ -46,11 +46,6 @@ import { ParentComponent } from '../component-interactions/parent.component'
 import { TableComponent } from '../shared-components/table/table.component'
 import { IndexDialogComponent } from '../shared-components/index-dialog/index-dialog.component'
 
-// Feature modules
-import { EmployeesModule } from '../employees/classes/module.employees';
-import { FormTemplateModule } from '../form-template/form-template.module';
-import { FormReactiveModule } from '../form-reactive/form-reactive.module'
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -80,14 +75,9 @@ import { FormReactiveModule } from '../form-reactive/form-reactive.module'
     entryComponents: [
         MaterialDialogComponent,
         IndexDialogComponent,
-        PostModalForm
+        // PostModalForm
     ],
     imports: [
-        // Feature modules
-        EmployeesModule,
-        FormTemplateModule,
-        FormReactiveModule,
-        // The rest
         AppRoutingModule,
         CdkTableModule,
         AuthModule,

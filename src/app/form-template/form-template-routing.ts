@@ -5,7 +5,7 @@ import { FormTemplateComponent } from './form-template.component'
 
 const appRoutes: Routes = [
     {
-        path: 'form-template', component: FormTemplateComponent, canDeactivate: [CanDeactivateGuard]
+        path: '', component: FormTemplateComponent, canDeactivate: [CanDeactivateGuard]
     },
 ]
 
