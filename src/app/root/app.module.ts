@@ -54,28 +54,23 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         MaterialDialogComponent,
         PageNotFoundComponent,
         CustomPipe,
-        // Posts
         PostWrapperComponent,
         PostListComponent,
         PostFormComponent,
         PostModalForm,
-        // Component interactions
         ChildComponent,
         FooterComponent,
         HeaderComponent,
         IndexDialogComponent,
         ParentComponent,
         TableComponent,
-        // Tables
         TablesHostComponent,
         TablesComponent,
-        // Directives
         InputDirective
     ],
     entryComponents: [
         MaterialDialogComponent,
-        IndexDialogComponent,
-        // PostModalForm
+        IndexDialogComponent
     ],
     imports: [
         AppRoutingModule,
@@ -100,9 +95,10 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         MatProgressBarModule,
         MatProgressSpinnerModule,
     ],
-    providers: [{ provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } }, {
-        provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true
-    }],
+    providers: [
+        { provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } },
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }
+    ],
     bootstrap: [AppComponent]
 })
 

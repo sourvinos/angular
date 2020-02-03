@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core'
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router'
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, ActivatedRoute, Params } from '@angular/router'
 import { Observable } from 'rxjs'
 import { IPost } from './model.post'
-import { PostService } from './service.post'
+import { PostService } from './post.service'
 
 @Injectable({ providedIn: 'root' })
 
@@ -12,13 +12,12 @@ import { PostService } from './service.post'
 // Step 3 Modify the constructor of the list component and remove the service 
 // Step 4 In the app component define the loader
 
-export class PostListResolverService implements Resolve<IPost[]>{
+export class PostEditResolverService implements Resolve<IPost>{
 
     constructor(private postService: PostService) { }
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IPost[]> {
-        console.log('Inside resolver')
-        return this.postService.getPosts(route.params.userId)
+    resolve(route: ActivatedRouteSnapshot): Observable<IPost> {
+        return this.postService.getPost(route.params.postId)
     }
 
 }

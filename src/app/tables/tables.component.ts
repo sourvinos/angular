@@ -1,6 +1,6 @@
 import { Component, HostListener, OnDestroy } from '@angular/core'
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router'
-import { PostService } from '../posts/classes/service.post'
+import { PostService } from '../posts/classes/post.service'
 import { promise } from 'protractor'
 import { resolve } from 'url'
 

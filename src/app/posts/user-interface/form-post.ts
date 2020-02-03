@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material'
 import { ActivatedRoute, Router } from '@angular/router'
 import { MaterialDialogComponent } from 'src/app/material-dialog/material-dialog.component'
 import { IPost } from '../classes/model.post'
-import { PostService } from '../classes/service.post'
+import { PostService } from '../classes/post.service'
 import { PostModalForm } from './modal-form'
 
 @Component({

@@ -20,4 +20,4 @@ const appRoutes: Routes = [
     exports: [RouterModule]
 })
 
-export class EmployeeRoutingModule { }
+export class EmployeeRouting { }

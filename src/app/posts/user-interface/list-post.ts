@@ -2,7 +2,7 @@ import { IndexInteractionService } from './../../services/interaction.service'
 import { Component, OnDestroy } from '@angular/core'
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router'
 import { IPost } from '../classes/model.post'
-import { PostService } from '../classes/service.post'
+import { PostService } from '../classes/post.service'
 import { MatDialog } from '@angular/material'
 import { IndexDialogComponent } from 'src/app/shared-components/index-dialog/index-dialog.component'
 

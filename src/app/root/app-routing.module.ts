@@ -17,8 +17,8 @@ import { ParentComponent } from '../component-interactions/parent.component'
 import { PostWrapperComponent } from '../posts/user-interface/wrapper-post'
 import { PostListComponent } from '../posts/user-interface/list-post'
 import { PostFormComponent } from '../posts/user-interface/form-post'
-import { PostEditResolverService } from '../posts/classes/resolver-edit-post'
-import { PostListResolverService } from '../posts/classes/resolver-list-post'
+import { PostEditResolverService } from '../posts/classes/post-edit.resolver'
+import { PostListResolverService } from '../posts/classes/post-list.resolver'
 // Tables
 import { TablesHostComponent } from '../tables/tables-host.component'
 
@@ -28,7 +28,7 @@ const appRoutes: Routes = [
 	{ path: 'arrays', component: ArraysComponent },
 	{ path: 'form-reactive', loadChildren: '../form-reactive/form-reactive.module#FormReactiveModule' },
 	{ path: 'form-template', loadChildren: '../form-template/form-template.module#FormTemplateModule' },
-	{ path: 'employees', loadChildren: '../employees/classes/module.employees#EmployeesModule' },
+	{ path: 'employees', loadChildren: '../employees/classes/employee.module#EmployeeModule' },
 	{ path: 'component-interactions', component: ParentComponent },
 	{
 		path: 'auth', component: EventsHomeComponent, children: [
