@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { ArraysComponent } from '../arrays/arrays.component'
 import { TokenInterceptorService } from '../auth/services/token-interceptor.service'
 import { InteractionsModule } from '../interactions/classes/interactions.module'
 import { MaterialModule } from '../material/classes/material.module'
@@ -15,12 +14,12 @@ import { TablesModule } from '../tables/classes/tables.module'
 import { AuthModule } from './../auth/auth.module'
 import { PageNotFoundComponent } from './../page-not-found.component'
 import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
+import { AppComponent } from './app.component';
+import { ArraysModule } from '../arrays/classes/arrays.module'
 
 @NgModule({
     declarations: [
         AppComponent,
-        ArraysComponent,
         PageNotFoundComponent,
         CustomPipe,
     ],
@@ -38,6 +37,7 @@ import { AppComponent } from './app.component'
         ReactiveFormsModule,
         MaterialModule,
         TablesModule,
+        ArraysModule,
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }
