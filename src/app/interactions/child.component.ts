@@ -1,4 +1,4 @@
-import { IndexInteractionService } from './../services/interaction.service';
+import { IndexInteractionService } from '../services/interaction.service';
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { MatDialog } from '@angular/material'
 import { Fruit, Transfer } from './parent.component'

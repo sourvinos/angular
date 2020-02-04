@@ -37,40 +37,30 @@ import { PostWrapperComponent } from '../posts/user-interface/wrapper-post'
 import { PostListComponent } from '../posts/user-interface/list-post'
 import { PostFormComponent } from '../posts/user-interface/form-post'
 import { PostModalForm } from '../posts/user-interface/modal-form'
-// Component interactions
-import { ChildComponent } from '../component-interactions/child.component'
-import { FooterComponent } from '../component-interactions/footer.component'
-import { HeaderComponent } from '../component-interactions/header.component'
-import { ParentComponent } from '../component-interactions/parent.component'
 // Shared
 import { TableComponent } from '../shared-components/table/table.component'
-import { IndexDialogComponent } from '../shared-components/index-dialog/index-dialog.component'
+import { IndexDialogComponent } from '../shared-components/index-dialog/index-dialog.component';
+import { InteractionsModule } from '../interactions/interactions.module'
 
 @NgModule({
     declarations: [
         AppComponent,
         ArraysComponent,
         MaterialComponent,
-        MaterialDialogComponent,
+        // MaterialDialogComponent,
         PageNotFoundComponent,
         CustomPipe,
-        PostWrapperComponent,
-        PostListComponent,
-        PostFormComponent,
-        PostModalForm,
-        ChildComponent,
-        FooterComponent,
-        HeaderComponent,
-        IndexDialogComponent,
-        ParentComponent,
-        TableComponent,
+        // PostWrapperComponent,
+        // PostListComponent,
+        // PostFormComponent,
+        // PostModalForm,
+        // IndexDialogComponent,
         TablesHostComponent,
         TablesComponent,
-        InputDirective
     ],
     entryComponents: [
-        MaterialDialogComponent,
-        IndexDialogComponent
+        // MaterialDialogComponent,
+        // IndexDialogComponent
     ],
     imports: [
         AppRoutingModule,
@@ -94,6 +84,7 @@ import { IndexDialogComponent } from '../shared-components/index-dialog/index-di
         MatTableModule,
         MatProgressBarModule,
         MatProgressSpinnerModule,
+        InteractionsModule,
     ],
     providers: [
         { provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } },

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
-import { MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material'
+import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule } from '@angular/material'
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -13,6 +13,8 @@ import { RouterModule } from '@angular/router';
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
+        MatButtonModule,
     ]
 })
+
 export class SharedModule { }
