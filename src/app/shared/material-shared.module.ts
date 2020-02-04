@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatDialogModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatProgressBarModule, MatProgressSpinnerModule, MatSnackBarModule, MatTableModule, MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatDialogModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatProgressBarModule, MatProgressSpinnerModule, MatSnackBarModule, MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material';
 
 @NgModule({
     exports: [
@@ -13,8 +13,7 @@ import { MatButtonModule, MatCheckboxModule, MatDialogModule, MatExpansionModule
         MatListModule,
         MatProgressBarModule,
         MatProgressSpinnerModule,
-        MatSnackBarModule,
-        MatTableModule,
+        MatSnackBarModule
     ],
     providers: [
         { provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } },

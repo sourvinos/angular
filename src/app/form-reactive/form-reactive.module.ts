@@ -6,7 +6,7 @@ import { MaterialSharedModule } from '../shared/material-shared.module';
 
 @NgModule({
     declarations: [
-        FormReactiveComponent
+        FormReactiveComponent,
     ],
     imports: [
         FormReactiveRoutingModule,

@@ -6,13 +6,14 @@ import { InputDirective } from '../directives/input';
 
 @NgModule({
     declarations: [
-        InputDirective,
+        InputDirective
     ],
     exports: [
         CommonModule,
         FormsModule,
         RouterModule,
         ReactiveFormsModule,
+        InputDirective
     ]
 })
 

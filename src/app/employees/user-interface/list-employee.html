@@ -1,6 +1,7 @@
 <div class="panel panel-primary" [class.active]="activeField" *ngFor="let employee of employees let i = index">
     <div class="panel-heading">
         <h3 class="panel-title">{{ employee.name }}</h3>
+        <h4 class="panel-title">{{ employee.salary | number }}</h4>
     </div>
     <div class="panel-body">
         <item-employee [employee]="employee" (click)="getEmployee(employee.id)"></item-employee>

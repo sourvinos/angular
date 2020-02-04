@@ -21,7 +21,8 @@ export class EmployeeFormComponent implements OnInit {
     form = this.formBuilder.group({
         id: 0,
         name: ['', Validators.required],
-        email: ['', Validators.required]
+        email: ['', Validators.required],
+        salary: [0, Validators.required]
     })
 
     departments: department[] = [
@@ -46,7 +47,8 @@ export class EmployeeFormComponent implements OnInit {
                     this.form.setValue({
                         id: this.employee.id,
                         name: this.employee.name,
-                        email: this.employee.email
+                        email: this.employee.email,
+                        salary: this.employee.salary
                     })
                 }
             )
@@ -103,6 +105,10 @@ export class EmployeeFormComponent implements OnInit {
 
     get email() {
         return this.form.get('email')
+    }
+
+    get salary() {
+        return this.form.get('salary')
     }
 
 }

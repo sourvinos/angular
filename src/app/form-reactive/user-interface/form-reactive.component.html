@@ -19,19 +19,19 @@
     <form class="ui form" [formGroup]="registrationFormWithFormBuilder" autocomplete="off">
         <div class="field">
             <mat-form-field>
-                <input type="text" matInput placeholder="Username" formControlName="userName" tabindex="1" id="userName">
+                <input type="text" matInput placeholder="Username" formControlName="userName" tabindex="1" id="userName" [input]="box">
                 <mat-error *ngIf="userName.invalid"></mat-error>
             </mat-form-field>
         </div>
         <div class="field">
             <mat-form-field>
-                <input type="password" matInput placeholder="Password" formControlName="password" tabindex="2" id="password">
+                <input type="password" matInput placeholder="Password" formControlName="password" tabindex="2" id="password" [input]="box">
                 <mat-error *ngIf="password.invalid"></mat-error>
             </mat-form-field>
         </div>
         <div class="field">
             <mat-form-field>
-                <input type="password" matInput placeholder="Confirm password" formControlName="confirmPassword" tabindex="3" id="confirmPassword">
+                <input type="password" matInput placeholder="Confirm password" formControlName="confirmPassword" tabindex="3" id="confirmPassword" [input]="box">
                 <mat-error *ngIf="!!registrationFormWithFormBuilder.errors?.mismatch"></mat-error>
             </mat-form-field>
         </div>
@@ -39,28 +39,26 @@
         <div formGroupName="address" class="field">
             <div class="field">
                 <mat-form-field>
-                    <input type="text" matInput placeholder="City" formControlName="city" tabindex="4" id="city">
+                    <input type="text" matInput placeholder="City" formControlName="city" tabindex="4" id="city" [input]="box">
                 </mat-form-field>
             </div>
             <div class="field">
                 <mat-form-field>
-                    <input type="text" matInput placeholder="State" formControlName="state" tabindex="5" id="state">
+                    <input type="text" matInput placeholder="State" formControlName="state" tabindex="5" id="state" [input]="box">
                 </mat-form-field>
             </div>
             <div class="field">
                 <mat-form-field>
-                    <input type="text" matInput placeholder="Zip" formControlName="zip" tabindex="6" id="zip">
+                    <input type="text" matInput placeholder="Zip" formControlName="zip" tabindex="6" id="zip" [input]="box">
                 </mat-form-field>
             </div>
         </div>
         <div class="field buttons">
-            <button mat-flat-button color="primary" (click)="open()">Register</button>
-            <button mat-flat-button color="accent" (click)="loadAPI()">Load data</button>
-            <!-- <button class="ui facebook button" [disabled]="!registrationFormWithFormBuilder.valid" type="submit">Register</button> -->
-            <button mat-flat-button color="basic" (click)="reset()">Reset</button>
-            <button mat-flat-button color="accent" (click)="openQuestionModal()">Open question modal</button>
-            <button mat-flat-button color="accent" (click)="openErrorModal()">Open error modal</button>
-            <button mat-flat-button color="accent" (click)="openIndexModal()">Open index modal</button>
+            <button type="button" mat-flat-button color="accent" (click)="loadAPI()">Load data</button>
+            <button type="button" mat-flat-button color="basic" (click)="reset()">Reset</button>
+            <button type="button" mat-flat-button color="accent" (click)="openQuestionModal()">Open question modal</button>
+            <button type="button" mat-flat-button color="accent" (click)="openErrorModal()">Open error modal</button>
+            <button type="button" mat-flat-button color="accent" (click)="openIndexModal()">Open index modal</button>
         </div>
     </form>
 </main>
