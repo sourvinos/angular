@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { ParentComponent } from './parent.component';
+import { ParentComponent } from '../user-interface/parent.component';
 import { NgModule } from '@angular/core';
 
 const appRoutes: Routes = [

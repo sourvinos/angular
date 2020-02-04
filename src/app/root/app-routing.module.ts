@@ -10,15 +10,6 @@ import { MaterialComponent } from '../material/material.component'
 import { PageNotFoundComponent } from './../page-not-found.component'
 // Guards
 import { AuthGuard } from './../auth/services/auth.guard'
-import { CanDeactivateGuard } from '../services/can-deactivate-guard-service'
-// Component interactions
-import { ParentComponent } from '../interactions/parent.component'
-// Posts
-import { PostWrapperComponent } from '../posts/user-interface/wrapper-post'
-import { PostListComponent } from '../posts/user-interface/list-post'
-import { PostFormComponent } from '../posts/user-interface/form-post'
-import { PostEditResolverService } from '../posts/classes/post-edit.resolver'
-import { PostListResolverService } from '../posts/classes/post-list.resolver'
 // Tables
 import { TablesHostComponent } from '../tables/tables-host.component'
 
@@ -29,8 +20,8 @@ const appRoutes: Routes = [
 	{ path: 'form-reactive', loadChildren: '../form-reactive/form-reactive.module#FormReactiveModule' },
 	{ path: 'form-template', loadChildren: '../form-template/form-template.module#FormTemplateModule' },
 	{ path: 'employees', loadChildren: '../employees/classes/employee.module#EmployeeModule' },
-	{ path: 'interactions', loadChildren: '../interactions/interactions.module#InteractionsModule' },
-	// { path: 'component-interactions', component: ParentComponent },
+	{ path: 'interactions', loadChildren: '../interactions/classes/interactions.module#InteractionsModule' },
+	{ path: 'posts', loadChildren: '../posts/classes/posts.module#PostsModule' },
 	{
 		path: 'auth', component: EventsHomeComponent, children: [
 			{ path: '', component: EventsHomeComponent },
@@ -42,13 +33,6 @@ const appRoutes: Routes = [
 	},
 	{ path: 'pageNotFound', component: PageNotFoundComponent },
 	{ path: 'tables/userId/:userId', component: TablesHostComponent },
-	// {
-	// 	path: 'posts', component: PostWrapperComponent, children: [{
-	// 		path: 'userId/:userId', component: PostListComponent, resolve: { postList: PostListResolverService }, children: [{
-	// 			path: 'post/:postId', component: PostFormComponent, canDeactivate: [CanDeactivateGuard], resolve: { postEdit: PostEditResolverService },
-	// 		}]
-	// 	}], runGuardsAndResolvers: 'always'
-	// },
 	{ path: '**', component: PageNotFoundComponent }
 ]
 

@@ -1,7 +1,7 @@
 import * as pdfMake from 'pdfmake/build/pdfmake.js'
 import * as pdfFonts from 'pdfmake/build/vfs_fonts.js'
 import { Injectable } from '@angular/core'
-import { Transfer } from './parent.component'
+import { Transfer } from '../user-interface/parent.component'
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs
 

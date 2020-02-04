@@ -15,8 +15,6 @@ import { MatTableModule } from '@angular/material/table'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { CdkTableModule } from '@angular/cdk/table'
 import { MatExpansionModule } from '@angular/material/expansion'
-// Directives
-import { InputDirective } from '../directives/input'
 // Pipes
 import { CustomPipe } from '../pipes/custom.pipe'
 // Components
@@ -40,7 +38,8 @@ import { PostModalForm } from '../posts/user-interface/modal-form'
 // Shared
 import { TableComponent } from '../shared-components/table/table.component'
 import { IndexDialogComponent } from '../shared-components/index-dialog/index-dialog.component';
-import { InteractionsModule } from '../interactions/interactions.module'
+import { InteractionsModule } from '../interactions/classes/interactions.module';
+import { PostsModule } from '../posts/classes/posts.module'
 
 @NgModule({
     declarations: [
@@ -85,6 +84,7 @@ import { InteractionsModule } from '../interactions/interactions.module'
         MatProgressBarModule,
         MatProgressSpinnerModule,
         InteractionsModule,
+        PostsModule,
     ],
     providers: [
         { provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'always' } },

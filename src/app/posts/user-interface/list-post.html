@@ -10,7 +10,6 @@
 
     <mat-form-field>
         <input matInput placeholder="Fruit" tabindex="1" id="fruit" #fruit (keyup.enter)="lookupIndex(posts, 'Posts', ['id','title','views'], ['Id','Title','Views'], ['1px','440px','1px'], ['','',''], ['center','left','right'], fruit.value)">
-        <!-- <input type="text" matInput placeholder="Fruit" tabindex="1" id="fruit" (change)="lookupIndex(posts, 'Posts', ['id','title','views'], ['Id','Title','Views'], ['1px','440px','1px'], ['','',''], ['center','left','right'], $event)"> -->
     </mat-form-field>
 
 </div>
