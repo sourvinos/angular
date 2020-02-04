@@ -1,8 +1,6 @@
 import { Component, HostListener, OnDestroy } from '@angular/core'
 import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router'
-import { PostService } from '../posts/classes/post.service'
-import { promise } from 'protractor'
-import { resolve } from 'url'
+import { PostService } from 'src/app/posts/classes/post.service'
 
 @Component({
     selector: 'tables',

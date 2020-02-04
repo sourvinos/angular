@@ -6,22 +6,22 @@ import { EventsHomeComponent } from '../auth/home/home.component'
 import { EventsLoginComponent } from '../auth/login/login.component'
 import { EventsMembersComponent } from '../auth/members/members.component'
 import { EventsRegisterComponent } from '../auth/register/register.component'
-import { MaterialComponent } from '../material/material.component'
 import { PageNotFoundComponent } from './../page-not-found.component'
 // Guards
 import { AuthGuard } from './../auth/services/auth.guard'
 // Tables
-import { TablesHostComponent } from '../tables/tables-host.component'
+import { TablesHostComponent } from '../tables/user-interface/tables-host.component'
 
 const appRoutes: Routes = [
 	{ path: '', pathMatch: "full", redirectTo: "" },
-	{ path: 'material', component: MaterialComponent },
 	{ path: 'arrays', component: ArraysComponent },
 	{ path: 'form-reactive', loadChildren: '../form-reactive/form-reactive.module#FormReactiveModule' },
 	{ path: 'form-template', loadChildren: '../form-template/form-template.module#FormTemplateModule' },
 	{ path: 'employees', loadChildren: '../employees/classes/employee.module#EmployeeModule' },
 	{ path: 'interactions', loadChildren: '../interactions/classes/interactions.module#InteractionsModule' },
 	{ path: 'posts', loadChildren: '../posts/classes/posts.module#PostsModule' },
+	{ path: 'material', loadChildren: '../material/classes/material.module#MaterialModule' },
+	{ path: 'tables/userId/:userId', loadChildren: '../tables/classes/tables.module#TablesModule' },
 	{
 		path: 'auth', component: EventsHomeComponent, children: [
 			{ path: '', component: EventsHomeComponent },
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
 		]
 	},
 	{ path: 'pageNotFound', component: PageNotFoundComponent },
-	{ path: 'tables/userId/:userId', component: TablesHostComponent },
+	// { path: 'tables/userId/:userId', component: TablesHostComponent },
 	{ path: '**', component: PageNotFoundComponent }
 ]
 

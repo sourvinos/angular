@@ -5,6 +5,7 @@ import { EmployeeItemComponent } from '../user-interface/item-employee';
 import { EmployeeListComponent } from '../user-interface/list-employee';
 import { EmployeeWrapperComponent } from '../user-interface/wrapper-employee';
 import { EmployeeRouting } from './employee.routing';
+import { MaterialSharedModule } from 'src/app/shared/material-shared.module';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { EmployeeRouting } from './employee.routing';
     imports: [
         EmployeeRouting,
         SharedModule,
+        MaterialSharedModule
     ]
 })
 
