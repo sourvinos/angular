@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/modules/shared.module';
 import { FormReactiveRoutingModule } from './form-reactive-routing';
 import { FormReactiveComponent } from './user-interface/form-reactive.component';
-import { MaterialSharedModule } from '../shared/material-shared.module';
+import { MaterialModule } from '../shared/modules/material.module';
 
 @NgModule({
     declarations: [
@@ -11,7 +11,7 @@ import { MaterialSharedModule } from '../shared/material-shared.module';
     imports: [
         FormReactiveRoutingModule,
         SharedModule,
-        MaterialSharedModule
+        MaterialModule
     ]
 })
 

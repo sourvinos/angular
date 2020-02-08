@@ -1,6 +1,6 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { SharedModule } from './../shared/shared.module';
+import { SharedModule } from '../shared/modules/shared.module';
 import { AuthRouting } from './auth.routing';
 import { EventsComponent } from './events/events.component';
 import { EventsHomeComponent } from './home/home.component';

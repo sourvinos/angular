@@ -20,7 +20,7 @@
 <!-- (selectEvent) is the @Output() property in the child class -->
 <!-- select($event) is the method in this (parent) class -->
 <!-- $event is the input from the child (the selected fruit!) -->
-<child #timer [fruits]="fruits" [transfers]="transfers" (selectEvent)="select($event)"></child>
+<child #timer [fruits]="fruits" (selectEvent)="select($event)"></child>
 
 <span *ngIf="selectedFruit">Your selected fruit, sir: {{ selectedFruit.description }} </span>
 <br>

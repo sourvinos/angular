@@ -2,7 +2,7 @@ import { IndexInteractionService } from '../../services/interaction.service';
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { MatDialog } from '@angular/material'
 import { Fruit, Transfer } from './parent.component'
-import { IndexDialogComponent } from '../../shared-components/index-dialog/index-dialog.component'
+import { IndexDialogComponent } from '../../shared/index-dialog/index-dialog.component'
 
 import * as pdfMake from 'pdfmake/build/pdfmake.js'
 import * as pdfFonts from 'pdfmake/build/vfs_fonts.js'

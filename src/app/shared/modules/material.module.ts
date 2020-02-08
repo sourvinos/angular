@@ -20,4 +20,4 @@ import { MatButtonModule, MatCheckboxModule, MatDialogModule, MatExpansionModule
     ]
 })
 
-export class MaterialSharedModule { }
+export class MaterialModule { }

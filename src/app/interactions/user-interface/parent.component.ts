@@ -71,29 +71,6 @@ export class ParentComponent {
             { id: 23, description: 'Kumquat', amount: 110.4, kingdom: 'Plantae', time: '17:01' },
             { id: 24, description: 'Kumquat', amount: 10.4, kingdom: 'Plantae', time: '17:01' },
         ]
-        this.transfers = [
-            { time: '07:11', destination: 'BL', pickupPoint: 'GOLDEN MARE BARBATI / M.ROAD', adults: '5', kids: '0', free: '0', total: '5', remarks: 'GYG PAY ON THE BOAT', customer: 'CORFU CRUISES' },
-            { time: '07:11', destination: 'BL', pickupPoint: 'GOLDEN MARE BARBATI / M.ROAD', adults: '5', kids: '0', free: '0', total: '5', remarks: 'GYG PAY ON THE BOAT', customer: 'CORFU CRUISES' },
-            { time: '07:11', destination: 'BL', pickupPoint: 'GOLDEN MARE BARBATI / M.ROAD', adults: '5', kids: '0', free: '0', total: '5', remarks: 'GYG PAY ON THE BOAT', customer: 'CORFU CRUISES' },
-            { time: '07:19', destination: 'BL', pickupPoint: 'SAN MARCO / MINI MARKET', adults: '2', kids: '0', free: '0', total: '2', remarks: '', customer: 'PANDIS TRAVEL-GOUVIA' },
-            { time: '07:19', destination: 'BL', pickupPoint: 'SAN MARCO / MINI MARKET', adults: '2', kids: '0', free: '0', total: '2', remarks: '', customer: 'PANDIS TRAVEL-GOUVIA' },
-            { time: '07:35', destination: 'BL', pickupPoint: 'DAPHNILA BAY / M.GATE', adults: '2', kids: '0', free: '0', total: '0', remarks: '2', customer: 'TUI HELLAS' },
-            { time: '07:19', destination: 'BL', pickupPoint: 'SAN MARCO / MINI MARKET', adults: '2', kids: '0', free: '0', total: '2', remarks: '', customer: 'PANDIS TRAVEL-GOUVIA' },
-            { time: '07:19', destination: 'BL', pickupPoint: 'SAN MARCO / MINI MARKET', adults: '2', kids: '0', free: '0', total: '2', remarks: '', customer: 'PANDIS TRAVEL-GOUVIA' },
-            { time: '07:20', destination: 'BL', pickupPoint: 'IPSOS ΔΗΜΑΡΧΕΙΟ / MAIN ROAD', adults: '6', kids: '0', free: '0', total: '6', remarks: 'YIANNIS HTL', customer: 'CORFU CRUISES' },
-            { time: '07:20', destination: 'BL', pickupPoint: 'IPSOS ΔΗΜΑΡΧΕΙΟ / MAIN ROAD', adults: '6', kids: '0', free: '0', total: '6', remarks: 'YIANNIS HTL', customer: 'CORFU CRUISES' },
-            { time: '07:20', destination: 'BL', pickupPoint: 'IPSOS ΔΗΜΑΡΧΕΙΟ / MAIN ROAD', adults: '6', kids: '0', free: '0', total: '6', remarks: 'YIANNIS HTL', customer: 'CORFU CRUISES' },
-            { time: '07:11', destination: 'BL', pickupPoint: 'DIELLAS MARKET / M.ROAD', adults: '2', kids: '0', free: '0', total: '2', remarks: '12', customer: 'C.T.S.' },
-            { time: '07:20', destination: 'BL', pickupPoint: 'IPSOS ΔΗΜΑΡΧΕΙΟ / MAIN ROAD', adults: '6', kids: '0', free: '0', total: '6', remarks: 'YIANNIS HTL', customer: 'CORFU CRUISES' },
-            { time: '07:35', destination: 'BL', pickupPoint: 'DAPHNILA BAY / M.GATE', adults: '2', kids: '0', free: '0', total: '0', remarks: '2', customer: 'TUI HELLAS' },
-            { time: '07:11', destination: 'BL', pickupPoint: 'GOLDEN MARE BARBATI / M.ROAD', adults: '5', kids: '0', free: '0', total: '5', remarks: 'GYG PAY ON THE BOAT', customer: 'CORFU CRUISES' },
-            { time: '07:35', destination: 'BL', pickupPoint: 'DAPHNILA BAY / M.GATE', adults: '2', kids: '0', free: '0', total: '0', remarks: '2', customer: 'TUI HELLAS' },
-            { time: '09:44', destination: 'PA', pickupPoint: 'CAPO DI CORFU / M.GATE', adults: '5', kids: '0', free: '0', total: '5', remarks: 'PAY ON THE BOAT 105', customer: 'PANDIS TRAVEL KAVOS' },
-            { time: '09:45', destination: 'BL', pickupPoint: 'TEX MEX / MAIN ROAD', adults: '2', kids: '0', free: '0', total: '2', remarks: 'GYG', customer: 'CORFU CRUISES' },
-        ]
-        this._interactionService.dataArray.subscribe(data => {
-            console.log('Data from service', data)
-        })
     }
 
     // T

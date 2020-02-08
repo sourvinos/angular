@@ -13,6 +13,12 @@ export class EmployeeListComponent implements OnInit {
 
     employees: Employee[]
 
+    headers = ['Id', 'Name']
+    widths = ['', '', '200px']
+    visibility = ['none', '']
+    justify = ['center', 'left']
+    fields = ['id', 'name']
+
     constructor(private employeeService: EmployeeService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {

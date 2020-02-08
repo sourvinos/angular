@@ -10,9 +10,7 @@ const appRoutes: Routes = [
 	{ path: 'form-reactive', loadChildren: '../form-reactive/form-reactive.module#FormReactiveModule' },
 	{ path: 'form-template', loadChildren: '../form-template/form-template.module#FormTemplateModule' },
 	{ path: 'interactions', loadChildren: '../interactions/classes/interactions.module#InteractionsModule' },
-	{ path: 'material', loadChildren: '../material/classes/material.module#MaterialModule' },
 	{ path: 'posts', loadChildren: '../posts/classes/posts.module#PostsModule' },
-	{ path: 'tables/userId/:userId', loadChildren: '../tables/classes/tables.module#TablesModule' },
 	{ path: '**', component: PageNotFoundComponent }
 ]
 

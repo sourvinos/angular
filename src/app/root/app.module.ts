@@ -7,11 +7,12 @@ import { TokenInterceptorService } from '../auth/services/token-interceptor.serv
 import { PageNotFoundComponent } from '../page-not-found/user-interface/page-not-found.component'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
+import { CustomTableComponent } from '../shared/table/table.component'
 
 @NgModule({
     declarations: [
         AppComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
     ],
     imports: [
         AppRoutingModule,

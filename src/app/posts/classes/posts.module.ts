@@ -1,5 +1,5 @@
-import { MaterialSharedModule } from './../../shared/material-shared.module';
-import { SharedModule } from './../../shared/shared.module';
+import { MaterialModule } from '../../shared/modules/material.module';
+import { SharedModule } from '../../shared/modules/shared.module';
 import { NgModule } from '@angular/core'
 import { PostWrapperComponent } from '../user-interface/wrapper-post'
 import { PostListComponent } from '../user-interface/list-post'
@@ -17,7 +17,7 @@ import { PostsRouting } from './posts.routing'
     imports: [
         PostsRouting,
         SharedModule,
-        MaterialSharedModule
+        MaterialModule
     ]
 })
 export class PostsModule { }

@@ -1,6 +1,7 @@
+import { CustomTableComponent } from './../../shared/table/table.component';
 import { NgModule } from '@angular/core';
-import { MaterialSharedModule } from 'src/app/shared/material-shared.module';
-import { SharedModule } from '../../shared/shared.module';
+import { MaterialModule } from 'src/app/shared/modules/material.module';
+import { SharedModule } from '../../shared/modules/shared.module';
 import { EmployeeFormComponent } from '../user-interface/form-employee';
 import { EmployeeItemComponent } from '../user-interface/item-employee';
 import { EmployeeListComponent } from '../user-interface/list-employee';
@@ -12,12 +13,12 @@ import { EmployeeRouting } from './employee.routing';
         EmployeeWrapperComponent,
         EmployeeListComponent,
         EmployeeItemComponent,
-        EmployeeFormComponent
+        EmployeeFormComponent,
     ],
     imports: [
         EmployeeRouting,
         SharedModule,
-        MaterialSharedModule
+        MaterialModule
     ]
 })
 

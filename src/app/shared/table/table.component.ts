@@ -2,12 +2,12 @@ import { Component, HostListener, Input, Output, EventEmitter } from '@angular/c
 import { IndexInteractionService } from 'src/app/services/interaction.service'
 
 @Component({
-    selector: 'app-table',
+    selector: 'custom-table',
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.css']
 })
 
-export class TableComponent {
+export class CustomTableComponent {
 
     @Input() records: any[]
 
@@ -56,19 +56,18 @@ export class TableComponent {
             this.clearAllRowHighlights()
             this.highlightRow(this.table, 'up')
             this.sendRowToService()
-            if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
-                // document.getElementById(this.currentRow.toString()).scrollIntoView()
-                this.indexContent.scrollTop = (this.currentRow - 1) * this.rowHeight
-            }
+            // if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
+            //     this.indexContent.scrollTop = (this.currentRow - 1) * this.rowHeight
+            // }
         }
         if (position == 'ArrowDown' && this.currentRow < this.table.rows.length - 1) {
             this.clearAllRowHighlights()
             this.highlightRow(this.table, 'down')
             this.sendRowToService()
             this.indexInteractionService.sendObject(this.records[this.currentRow - 1])
-            if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
-                document.getElementById(this.currentRow.toString()).scrollIntoView(false)
-            }
+            // if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
+            //     document.getElementById(this.currentRow.toString()).scrollIntoView(false)
+            // }
         }
     }
 
@@ -79,7 +78,7 @@ export class TableComponent {
             if (direction == 'up')--this.currentRow
             if (direction == 'down')++this.currentRow
         }
-        table.rows[this.currentRow].classList.toggle('selected')
+        // table.rows[this.currentRow].classList.toggle('selected')
     }
 
     private clearAllRowHighlights() {
@@ -91,16 +90,15 @@ export class TableComponent {
     private isRowIntoView(row: HTMLTableRowElement, direction: string) {
         const rowOffsetTop = row.offsetTop //console.log('') console.log('rowOffsetTop', rowOffsetTop)
         const indexContentScrollTop = this.indexContent.scrollTop //console.log('docindexContentScrollTopViewTop', indexContentScrollTop)
-        const rowOffetTopPlusRowOffsetHeight = rowOffsetTop + row.offsetHeight //console.log('rowOffetTopPlusRowOffsetHeight', rowOffetTopPlusRowOffsetHeight)
+        const rowOffetTopPlusRowOffsetHeight = rowOffsetTop + 50 //console.log('rowOffetTopPlusRowOffsetHeight', rowOffetTopPlusRowOffsetHeight)
         const indexContentScrollTopPuslIndexContentOffsetHeight = indexContentScrollTop + this.indexContent.offsetHeight //console.log('indexContentScrollTopPuslIndexContentOffsetHeight', indexContentScrollTopPuslIndexContentOffsetHeight)
         if (direction == 'ArrowUp') {
-            if (indexContentScrollTopPuslIndexContentOffsetHeight - rowOffsetTop + this.rowHeight < this.indexContent.offsetHeight) {
-                //console.log('InView')
-                return true
-            }
+            // if (indexContentScrollTopPuslIndexContentOffsetHeight - rowOffsetTop + this.rowHeight < this.indexContent.offsetHeight) {
+            //     return true
+            // }
         }
         if (direction == 'ArrowDown') {
-            if (rowOffetTopPlusRowOffsetHeight <= indexContentScrollTopPuslIndexContentOffsetHeight) return true
+            // if (rowOffetTopPlusRowOffsetHeight <= indexContentScrollTopPuslIndexContentOffsetHeight) return true
         }
         return false
     }
@@ -109,11 +107,11 @@ export class TableComponent {
         this.indexContent = document.getElementById('index-table').parentNode.parentNode
         this.table = document.getElementById('index-table')
         this.rowHeaderHeight = document.querySelector('thead')
-        this.rowHeight = this.table.rows[1].offsetHeight
-        if (this.indexContent.scrollHeight <= this.indexContent.offsetHeight) {
-            this.indexContent.style.overflowY = 'hidden'
-            this.table.style.marginRight = '0px'
-        }
+        // this.rowHeight = this.table.rows[1].offsetHeight
+        // if (this.indexContent.scrollHeight <= this.indexContent.offsetHeight) {
+        //     this.indexContent.style.overflowY = 'hidden'
+        //     this.table.style.marginRight = '0px'
+        // }
     }
 
     private sendRowToService() {
