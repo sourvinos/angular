@@ -1,14 +1,17 @@
-<!-- <div class="panel panel-primary" [class.active]="activeField" *ngFor="let employee of employees let i = index">
+<span *ngIf="error != ''">
+    Error {{ error }}
+</span>
+
+<div class="panel panel-primary" [class.active]="activeField" *ngFor="let employee of employees let i = index">
     <div class="panel-heading">
         <h3 class="panel-title">{{ employee.name }}</h3>
-        <h4 class="panel-title">{{ employee.salary | number }}</h4>
     </div>
     <div class="panel-body">
         <item-employee [employee]="employee" (click)="getEmployee(employee.id)"></item-employee>
     </div>
-</div> -->
+</div>
 
-<custom-table id="sortable" [records]="employees" [headers]="headers" [widths]="widths" [visibility]="visibility" [justify]="justify" [fields]="fields"></custom-table>
+<!-- <custom-table id="sortable" [records]="employees" [headers]="headers" [widths]="widths" [visibility]="visibility" [justify]="justify" [fields]="fields"></custom-table> -->
 
 <router-outlet></router-outlet>
 <!-- 

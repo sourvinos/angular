@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core'
+import { Component, HostListener, Input, Output, EventEmitter, AfterViewInit } from '@angular/core'
 import { IndexInteractionService } from 'src/app/services/interaction.service'
 
 @Component({
@@ -7,7 +7,7 @@ import { IndexInteractionService } from 'src/app/services/interaction.service'
     styleUrls: ['./table.component.css']
 })
 
-export class CustomTableComponent {
+export class CustomTableComponent implements AfterViewInit {
 
     @Input() records: any[]
 
@@ -44,39 +44,41 @@ export class CustomTableComponent {
         this.gotoRow(event.key)
     }
 
-    private gotoRow(position) {
-        if (!isNaN(parseInt(position))) {
+    private gotoRow(position: string) {
+        if (!isNaN(parseInt(position, 10))) {
             this.clearAllRowHighlights()
             this.highlightRow(this.table, position)
         }
-        if (position == 'Enter') {
+        if (position === 'Enter') {
             this.sendRowToService()
         }
-        if (position == 'ArrowUp' && this.currentRow > 1) {
+        if (position === 'ArrowUp' && this.currentRow > 1) {
+            console.log('Up')
             this.clearAllRowHighlights()
             this.highlightRow(this.table, 'up')
             this.sendRowToService()
-            // if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
-            //     this.indexContent.scrollTop = (this.currentRow - 1) * this.rowHeight
-            // }
+            if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
+                this.indexContent.scrollTop = (this.currentRow - 1) * this.rowHeight
+            }
         }
-        if (position == 'ArrowDown' && this.currentRow < this.table.rows.length - 1) {
+        if (position === 'ArrowDown' && this.currentRow < this.table.rows.length - 1) {
+            console.log('Down')
             this.clearAllRowHighlights()
             this.highlightRow(this.table, 'down')
             this.sendRowToService()
             this.indexInteractionService.sendObject(this.records[this.currentRow - 1])
-            // if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
-            //     document.getElementById(this.currentRow.toString()).scrollIntoView(false)
-            // }
+            if (!this.isRowIntoView(this.table.rows[this.currentRow], position)) {
+                document.getElementById(this.currentRow.toString()).scrollIntoView(false)
+            }
         }
     }
 
     private highlightRow(table: HTMLTableElement, direction: any) {
         if (!isNaN(direction)) {
-            this.currentRow = parseInt(direction)
+            this.currentRow = parseInt(direction, 10)
         } else {
-            if (direction == 'up')--this.currentRow
-            if (direction == 'down')++this.currentRow
+            if (direction === 'up')--this.currentRow
+            if (direction === 'down')++this.currentRow
         }
         // table.rows[this.currentRow].classList.toggle('selected')
     }
@@ -88,17 +90,17 @@ export class CustomTableComponent {
     }
 
     private isRowIntoView(row: HTMLTableRowElement, direction: string) {
-        const rowOffsetTop = row.offsetTop //console.log('') console.log('rowOffsetTop', rowOffsetTop)
-        const indexContentScrollTop = this.indexContent.scrollTop //console.log('docindexContentScrollTopViewTop', indexContentScrollTop)
-        const rowOffetTopPlusRowOffsetHeight = rowOffsetTop + 50 //console.log('rowOffetTopPlusRowOffsetHeight', rowOffetTopPlusRowOffsetHeight)
-        const indexContentScrollTopPuslIndexContentOffsetHeight = indexContentScrollTop + this.indexContent.offsetHeight //console.log('indexContentScrollTopPuslIndexContentOffsetHeight', indexContentScrollTopPuslIndexContentOffsetHeight)
-        if (direction == 'ArrowUp') {
-            // if (indexContentScrollTopPuslIndexContentOffsetHeight - rowOffsetTop + this.rowHeight < this.indexContent.offsetHeight) {
-            //     return true
-            // }
+        const rowOffsetTop = row.offsetTop
+        const indexContentScrollTop = this.indexContent.scrollTop
+        const rowOffetTopPlusRowOffsetHeight = rowOffsetTop + 50
+        const indexContentScrollTopPuslIndexContentOffsetHeight = indexContentScrollTop + this.indexContent.offsetHeight
+        if (direction === 'ArrowUp') {
+            if (indexContentScrollTopPuslIndexContentOffsetHeight - rowOffsetTop + this.rowHeight < this.indexContent.offsetHeight) {
+                return true
+            }
         }
-        if (direction == 'ArrowDown') {
-            // if (rowOffetTopPlusRowOffsetHeight <= indexContentScrollTopPuslIndexContentOffsetHeight) return true
+        if (direction === 'ArrowDown') {
+            if (rowOffetTopPlusRowOffsetHeight <= indexContentScrollTopPuslIndexContentOffsetHeight) return true
         }
         return false
     }
@@ -131,7 +133,7 @@ export class CustomTableComponent {
 
     sortMe(columnName: string, sortOrder: string) {
         this.records.sort(this.compareValues(columnName.toLowerCase(), sortOrder))
-        this.sortOrder = this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc'
+        this.sortOrder = this.sortOrder === 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc'
     }
 
 }

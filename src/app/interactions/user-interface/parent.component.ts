@@ -1,5 +1,5 @@
-import { IndexInteractionService } from 'src/app/services/interaction.service';
-import { Component, ViewChild } from '@angular/core'
+import { IndexInteractionService } from 'src/app/services/interaction.service'
+import { Component, ViewChild, OnInit } from '@angular/core'
 import { ChildComponent } from './child.component'
 
 export class Fruit {
@@ -28,7 +28,7 @@ export class Transfer {
     styleUrls: ['./parent.component.css']
 })
 
-export class ParentComponent {
+export class ParentComponent implements OnInit {
 
     remarks: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et neque dolor. In hac habitasse platea dictumst. In id nisi id ex accumsan tincidunt. Praesent id tellus consectetur urna ultricies luctus.'
 
@@ -37,7 +37,7 @@ export class ParentComponent {
 
     transfers: Transfer[]
 
-    headerText: string = "This title came from the parent component"
+    headerText: string = 'This title came from the parent component'
 
     @ViewChild(ChildComponent) private varName: ChildComponent
 

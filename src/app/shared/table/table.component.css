@@ -6,8 +6,10 @@
     box-sizing: border-box !important;
 }
 
-#index-table {
+#sortable {
+    height: 400px;
     margin-right: 0.5rem;
+    overflow-y: scroll;
     position: relative;
     text-align: left;
 }
@@ -53,5 +55,5 @@ td {
 
 #table-input {
     display: block;
-    position: absolute;
+    /* position: absolute; */
 }

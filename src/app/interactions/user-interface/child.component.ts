@@ -1,17 +1,15 @@
-import { IndexInteractionService } from '../../services/interaction.service';
-import { Component, Input, Output, EventEmitter } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { MatDialog } from '@angular/material'
-import { Fruit, Transfer } from './parent.component'
-import { IndexDialogComponent } from '../../shared/index-dialog/index-dialog.component'
-
 import * as pdfMake from 'pdfmake/build/pdfmake.js'
 import * as pdfFonts from 'pdfmake/build/vfs_fonts.js'
-import { PdfService } from '../classes/pdf.service'
+import { IndexInteractionService } from '../../services/interaction.service'
+import { Fruit, Transfer } from './parent.component'
+
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs
 
 @Component({
-    selector: 'child',
+    selector: 'app-child',
     templateUrl: './child.component.html',
     styleUrls: ['./child.component.css']
 })
@@ -31,60 +29,7 @@ export class ChildComponent {
 
     selectedIndex: number
 
-    constructor(public dialog: MatDialog, private PdfService: PdfService, private interactionService: IndexInteractionService) { }
-
-    // T
-    lookupIndex(
-        lookupArray: any[],
-        title: string,
-        fields: any[],
-        headers: any[],
-        widths: any[],
-        visibility: any[],
-        justify: any[],
-        e: { target: { value: any } }) {
-        const filteredArray = []
-        lookupArray.filter(x => {
-            if (x.description.toUpperCase().includes(e.target.value.toUpperCase())) {
-                filteredArray.push(x)
-            }
-        })
-        if (filteredArray.length > 0) {
-            this.showModalIndex(filteredArray, title, fields, headers, widths, visibility, justify)
-        }
-    }
-
-    // T
-    private showModalIndex(
-        elements: any,
-        title: string,
-        fields: any[],
-        headers: any[],
-        widths: any[],
-        visibility: any[],
-        justify: any[]) {
-        const dialog = this.dialog.open(IndexDialogComponent, {
-            height: '619px',
-            width: '600px',
-            data: {
-                records: elements,
-                title: title,
-                fields: fields,
-                headers: headers,
-                widths: widths,
-                visibility: visibility,
-                justify: justify
-            }
-        })
-        dialog.afterClosed().subscribe(result => {
-            console.log('Came back from the modal', result)
-            this.selectEvent.emit(result)
-            dialog.afterClosed().subscribe((result) => {
-                // this.patchFields(result, lookupId, lookupDescription)
-            })
-
-        })
-    }
+    constructor(public dialog: MatDialog, private interactionService: IndexInteractionService) { }
 
     // T 
     onSelectFruit(index: number) {
@@ -125,7 +70,6 @@ export class ChildComponent {
 
     makePdf() {
         this.interactionService.sendArray(this.fruits)
-        // this.PdfService.createReport(this.transfers)
     }
 
 }

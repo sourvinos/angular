@@ -57,7 +57,7 @@ export class EmployeeFormComponent implements OnInit {
 
     canDeactivate() {
         if (this.form.dirty) {
-            let response = confirm('Please confirm')
+            const response = confirm('Please confirm')
             if (response) {
                 return true
             }
@@ -67,6 +67,7 @@ export class EmployeeFormComponent implements OnInit {
     }
 
     updateEmployee() {
+        if (!this.form.valid) return
         if (this.form.value.id) {
             console.log('Updating', this.form.value.id)
             this.employeeService.update(this.form.value).subscribe(result => {

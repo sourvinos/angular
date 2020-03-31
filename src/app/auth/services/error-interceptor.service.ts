@@ -17,8 +17,9 @@ export class ErrorInterceptorService implements HttpInterceptor {
         return next.handle(req).pipe(
             catchError(res => {
                 console.log(res.status)
-                if (res.status == 404)
+                if (res.status === 404) {
                     this.customSnackbarService.open(res.status)
+                }
                 // switch (res.status) {
                 //     case 400:
                 //     case 401:

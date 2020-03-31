@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'
     styleUrls: ['modal-form.css']
 })
 
-export class PostModalForm {
+export class PostModalFormComponent {
 
     form = this.formBuilder.group({
         id: 0,
@@ -17,7 +17,7 @@ export class PostModalForm {
         body: ['', [Validators.maxLength(255)]]
     })
 
-    constructor(public dialogRef: MatDialogRef<PostModalForm>, @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder) {
+    constructor(public dialogRef: MatDialogRef<PostModalFormComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder) {
         console.log('Inside modal, data from outside', data)
         // this.addShortcuts()
         this.populateFormFields(data)

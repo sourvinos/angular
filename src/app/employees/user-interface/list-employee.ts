@@ -1,7 +1,8 @@
-import { EmployeeService } from '../classes/employee.service';
+import { EmployeeService } from '../classes/employee.service'
 import { Component, OnInit } from '@angular/core'
 import { Employee } from '../classes/model.employee'
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router'
+import { ResolvedEmployeeList } from '../classes/resolved-employeeList.model'
 
 @Component({
     selector: 'list-employee',
@@ -18,14 +19,15 @@ export class EmployeeListComponent implements OnInit {
     visibility = ['none', '']
     justify = ['center', 'left']
     fields = ['id', 'name']
+    error: string = ''
 
-    constructor(private employeeService: EmployeeService, private router: Router, private activatedRoute: ActivatedRoute) { }
-
-    ngOnInit() {
-        this.employeeService.getAll().subscribe(results => {
-            console.log(results)
-            this.employees = results
-        })
+    constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+        const resolvedData: Employee[] | string = this.activatedRoute.snapshot.data['employeeList']
+        if (Array.isArray(resolvedData)) {
+            this.employees = resolvedData
+        } else {
+            this.error = resolvedData
+        }
     }
 
     getEmployee(id: number) {

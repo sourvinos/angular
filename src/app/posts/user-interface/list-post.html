@@ -4,9 +4,11 @@
 
     {{ errorMessage}}
 
-    <div id="items">
+    <!-- <div id="items">
         <li *ngFor="let post of posts" (click)=getPost(post.id)>{{ post.userId }} - {{ post.id }} - {{ post.title }}</li>
-    </div>
+    </div> -->
+
+    <custom-table id="sortable" [records]="posts" [headers]="headers" [widths]="widths" [visibility]="visibility" [justify]="justify" [fields]="fields" (selectEvent)="onSelectFruit($event)"></custom-table>
 
     <mat-form-field>
         <input matInput placeholder="Fruit" tabindex="1" id="fruit" #fruit (keyup.enter)="lookupIndex(posts, 'Posts', ['id','title','views'], ['Id','Title','Views'], ['1px','440px','1px'], ['','',''], ['center','left','right'], fruit.value)">

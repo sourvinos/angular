@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core'
 import { PostWrapperComponent } from '../user-interface/wrapper-post'
 import { PostListComponent } from '../user-interface/list-post'
 import { PostFormComponent } from '../user-interface/form-post'
-import { PostModalForm } from '../user-interface/modal-form'
+import { PostModalFormComponent } from '../user-interface/modal-form'
 import { PostsRouting } from './posts.routing'
 
 @NgModule({
@@ -12,7 +12,7 @@ import { PostsRouting } from './posts.routing'
         PostWrapperComponent,
         PostListComponent,
         PostFormComponent,
-        PostModalForm,
+        PostModalFormComponent,
     ],
     imports: [
         PostsRouting,
@@ -20,4 +20,5 @@ import { PostsRouting } from './posts.routing'
         MaterialModule
     ]
 })
+
 export class PostsModule { }

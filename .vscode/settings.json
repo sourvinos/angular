@@ -1,3 +1,4 @@
 {
-	"liveServer.settings.multiRootWorkspaceName": "Angular"
+	"liveServer.settings.multiRootWorkspaceName": "Angular",
+	"debug.javascript.suggestPrettyPrinting": false
 }

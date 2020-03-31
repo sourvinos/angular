@@ -12,6 +12,7 @@ import { CustomTableComponent } from '../table/table.component';
     ],
     imports: [
         CommonModule,
+        FormsModule
     ],
     exports: [
         CommonModule,

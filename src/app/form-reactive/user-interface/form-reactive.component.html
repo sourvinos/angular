@@ -7,35 +7,54 @@
     <div id="info">
         <h2>Registration Form</h2>
         <p>With Reactive Forms</p>
-        <p>{{ registrationFormWithFormBuilder.value | json }}</p>
-        <p>Valid: {{ registrationFormWithFormBuilder.valid }}</p>
-        <p>Dirty: {{ registrationFormWithFormBuilder.dirty }}</p>
+        <p>{{ userForm.value | json }}</p>
+        <p>Valid: {{ userForm.valid }}</p>
+        <p>Dirty: {{ userForm.dirty }}</p>
     </div>
 
     <!-- ! The formGroup model as described in the code -->
     <!-- ! Angle brackets are mandatory! -->
     <!-- ! Use [formGroup]="registrationFormWithFormBuilder" to use the formBuilder -->
     <!-- ! instead of the FormGroup and FormControl -->
-    <form class="ui form" [formGroup]="registrationFormWithFormBuilder" autocomplete="off">
+    <form class="example-form" [formGroup]='userForm' autocomplete="off">
+        <mat-form-field>
+            <input type="text" matInput placeholder="Username" formControlName='username'>
+        </mat-form-field>
+        <div formGroupName="passwords">
+            <mat-form-field>
+                <input type="text" matInput placeholder="Password" formControlName='password'>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Verify Password" formControlName='verifyPassword' [errorStateMatcher]="errorMatcher">
+                <!-- <mat-error *ngIf="userForm.hasError('passwordsDoNotMatch')">Passwords do not match!</mat-error> -->
+            </mat-form-field>
+        </div>
+        <div class="state">
+            Do passwords match?
+            <strong>{{!userForm.hasError('passwordsDoNotMatch')}}</strong>
+        </div>
+    </form>
+
+    <!-- <form class="ui form" [formGroup]="registrationFormWithFormBuilder" autocomplete="off">
         <div class="field">
             <mat-form-field>
                 <input type="text" matInput placeholder="Username" formControlName="userName" tabindex="1" id="userName" [input]="box">
                 <mat-error *ngIf="userName.invalid"></mat-error>
             </mat-form-field>
         </div>
-        <div class="field">
-            <mat-form-field>
-                <input type="password" matInput placeholder="Password" formControlName="password" tabindex="2" id="password" [input]="box">
-                <mat-error *ngIf="password.invalid"></mat-error>
-            </mat-form-field>
+        <div formGroupName="passwords" class="field">
+            <div class="field">
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Password" formControlName="password" tabindex="2" id="password" [input]="box">
+                </mat-form-field>
+            </div>
+            <div class="field">
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Confirm password" formControlName="confirmPassword" tabindex="3" id="confirmPassword" [input]="box" [errorStateMatcher]="errorMatcher">
+                    <mat-error *ngIf="registrationFormWithFormBuilder.hasError('passwordsDoNotMatch')">Passwords do not match!</mat-error>
+                </mat-form-field>
+            </div>
         </div>
-        <div class="field">
-            <mat-form-field>
-                <input type="password" matInput placeholder="Confirm password" formControlName="confirmPassword" tabindex="3" id="confirmPassword" [input]="box">
-                <mat-error *ngIf="!!registrationFormWithFormBuilder.errors?.mismatch"></mat-error>
-            </mat-form-field>
-        </div>
-        <!-- The subgroup model, no angle brackets -->
         <div formGroupName="address" class="field">
             <div class="field">
                 <mat-form-field>
@@ -60,7 +79,7 @@
             <button type="button" mat-flat-button color="accent" (click)="openErrorModal()">Open error modal</button>
             <button type="button" mat-flat-button color="accent" (click)="openIndexModal()">Open index modal</button>
         </div>
-    </form>
+    </form> -->
 </main>
 
 <!-- <div class="field" [class.error]="confirmPassword.invalid && confirmPassword.touched">
